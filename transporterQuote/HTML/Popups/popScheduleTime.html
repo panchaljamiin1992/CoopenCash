@@ -1,0 +1,182 @@
+﻿<style>
+    .autocomplete-content {
+        margin-top: 1px;
+        display: block;
+        opacity: 1;
+        position: absolute;
+    }
+
+    .AddUser .modal-content {
+        max-height: 90%;
+        border-radius: 0px;
+    }
+
+    .AddUser .modal-dialog {
+        background-color: #fff;
+        margin-top: 100px;
+        max-height: 85%;
+        width: 40%;
+    }
+
+    .close-btn {
+        font-size: 24px;
+        padding: 12px 17px;
+        border-radius: 25px;
+        float: right;
+        color: #000000;
+        background-color: #fff;
+        -webkit-transition: background-color 2s;
+    }
+
+        .close-btn:hover {
+            background-color: #ededed;
+            border-radius: 25px;
+        }
+
+    .row {
+        /*margin: 0px;*/
+        margin: 10px;
+    }
+
+    .input-field {
+        margin-bottom: 20px;
+    }
+
+    .select-wrapper span.caret {
+        color: #cccccc !important;
+    }
+
+    input[type=text].invalid {
+        border-bottom: 1px solid rgba(0,0,0,0.26);
+    }
+
+    .header {
+        border-bottom: 1px solid rgba(0, 0, 0, .10);
+        padding: 10px;
+    }
+
+    .AddUser label {
+        font-size: 15px;
+        font-weight: 500;
+    }
+
+    @media only screen and (max-width: 500px) {
+        .AddUser .modal-dialog {
+            width: 100%;
+            margin: 100px 0px 0px 0px;
+        }
+    }
+
+    .open {
+         width: 10em !important;
+         height: auto !important;
+        }
+</style>
+
+<!-- Main content -->
+<div style="min-height: 250px;">
+    <!--<div class="row">
+        <div class="modal-header">
+            <h4 class="modal-title">Set New Password</h4>
+            <div style="position: absolute; top: 13px; right: 0px;">
+                <a href="" ng-click="closeChangePasswordPop();" title="Close">
+                    <i class="fa fa-times close-btn"></i>
+                </a>
+            </div>
+        </div>
+    </div>-->
+    <div class="row header">
+        <div class="col-md-10 col-sm-10">
+            <div>
+                <span style="font-size: 18px;">
+                    Schedule Time Slot
+                </span>
+            </div>
+        </div>
+        <div style="position: absolute; top: 6px; right: 0px;" class="col-md-2 col-sm-2">
+            <a ng-click="closeTimeslotModal();" title="Close">
+                <i class="zmdi zmdi-close close-btn"></i>
+            </a>
+        </div>
+    </div>
+    <div class="divider" style="margin-bottom: 20px;"></div>
+
+    <div class="row" style="padding: 15px;">
+        <div class="sepreter row">
+            <div class="form-group">
+                <label class="col-md-3 col-sm-12">Loading </label>
+                <div class="col-md-4">
+                    <datepicker date-format="dd-MMM-yy" date-min-limit="{{todayDT | date: 'dd-MMM-yy'}}">
+                        <input type="text" class="form-control col-md-2" ng-model="timeSlot.loadingDT" ng-change="changePickUp(timeSlot.pickUpDT);" readonly/>
+                    </datepicker>
+                </div>
+            </div>
+           
+        </div>
+        <div class="sepreter row" style="padding-top: 10px;">
+             <div class="form-group">
+            <label class="col-md-2 col-sm-12">From </label>
+            <div class="col-md-3">
+                <div class="input-group bootstrap-timepicker timepicker" id="datetimepicker1">
+                    <input id="fromTime" type="text"
+                           ng-model="timeSlot.fromTime" class="form-control input-small input-group-addon" ng-change="changeFromTime();"
+                           style="background-color: white;" readonly>
+                    <!--<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>-->
+                </div>
+            </div>
+            <label class="col-md-2 col-sm-12" style="text-align: center;">To </label>
+            <div class="col-md-3">
+                <div class="input-group bootstrap-timepicker timepicker">
+                    <input id="toTime" type="text" ng-disabled="true"
+                           ng-model="timeSlot.toTime" class="form-control input-small input-group-addon"
+                           style="background-color: white;" readonly>
+                    <!--<span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>-->
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Submit button -->
+    <div style="display: block; text-align: center;">
+        <div style="text-align: center; margin-top: 10px;">
+            <button class="btn btn-primary" title="Save" ng-click="timeSlotRFQ();" tabindex="4">
+                <i class="fa fa-check left" style="padding:0 7px 0 0;"></i>Save
+            </button>
+        </div>&nbsp;
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    var unit = new Date().getHours() >= 12 ? " PM" : " AM";
+    var minutes = new Date().getMinutes() < 10 ? "0" : "" + new Date().getMinutes();
+    var date = new Date().getHours() % 12 + ":" + minutes + unit;
+    $('#fromTime').timepicker();
+    $('#fromTime').val(date);
+    $('#toTime').timepicker();
+    $('#toTime').val(date);
+   
+    $('#fromTime').timepicker({
+        showMeridian: true,
+        minuteStep: 1,
+        showInputs: true,
+    }).on('changeTime.timepicker', function (e) {
+        var h = e.time.hours;
+        var m = e.time.minutes;
+        var mer = e.time.meridian;
+        //convert hours into minutes
+        debugger;
+        m += h * 60;
+        //615 minutes = 10h*60m + 15min
+        if (mer == 'AM' && m < 480) {
+            $('#fromTime').timepicker('setTime', '8:00 AM');
+        }
+
+        if (mer == 'PM' &&  m > 360 && m < 720) {
+            $('#fromTime').timepicker('setTime', '6:00 PM');
+        }
+    });
+
+</script>
+

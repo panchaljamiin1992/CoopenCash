@@ -1,0 +1,166 @@
+﻿<style>
+    .productCheckbox {
+        cursor: pointer;
+        margin: 0px !important;
+        margin-right: 5px !important;
+    }
+
+    .autocomplete-content {
+        margin-top: 1px;
+        display: block;
+        opacity: 1;
+        position: absolute;
+    }
+
+    .AddUser .modal-content {
+        max-height: 90%;
+        border-radius: 0px;
+    }
+
+    .AddUser .modal-dialog {
+        background-color: #fff;
+        margin-top: 100px;
+        max-height: 85%;
+        width: 50%;
+    }
+
+    .close-btn {
+        font-size: 22px;
+        padding: 8px 12px;
+        border-radius: 25px;
+        float: right;
+        color: #444;
+        background-color: #fff;
+        -webkit-transition: background-color 2s;
+    }
+
+        .close-btn:hover {
+            background-color: #ededed;
+            border-radius: 25px;
+        }
+
+    .row {
+        /*margin: 0px;*/
+        margin: 10px;
+    }
+
+    .input-field {
+        margin-bottom: 20px;
+    }
+
+    .select-wrapper span.caret {
+        color: #cccccc !important;
+    }
+
+    input[type=text].invalid {
+        border-bottom: 1px solid rgba(0,0,0,0.26);
+    }
+
+    .header {
+        border-bottom: 1px solid rgba(0, 0, 0, .10);
+        padding: 10px;
+    }
+
+    .AddUser label {
+        font-size: 15px;
+        font-weight: 500;
+    }
+
+    @media only screen and (max-width: 700px) {
+        .AddUser .modal-dialog {
+            width: 100%;
+            margin: 100px 0px 0px 0px;
+        }
+    }
+</style>
+
+<!-- Main content -->
+<div ng-controller="scheduleController">
+
+    <!-- Header -->
+    <div class="row header">
+        <div class="col-md-11 col-sm-10">
+            <div class="col-md-8" style="padding-left: 0px;">
+                <i class="zmdi zmdi-calendar-alt" aria-hidden="true" style="margin-right: 10px; font-size: 20px;"></i>
+                <span style="font-size: 18px;">
+                    Scheduleds
+                </span>
+            </div>
+           
+        </div>
+        <div style="position: absolute; top: 11px; right: 0px; width: 10%;" class="col-md-2 col-sm-2">
+            <a href="" ng-click="closeScheduleModal();" title="Close">
+                <i class="zmdi zmdi-close close-btn"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="divider" style="margin-bottom: 10px;"></div>
+
+    <!-- Schedule list -->
+    <div class="row">
+        <div class="col-md-12" style="text-align: center; padding: 10px;">
+            <div class="col-md-push-4 col-md-1" style="margin-top: 9px;">Date</div>
+            <div class="col-md-push-4 col-md-3">
+                <datepicker date-format="dd-MMM-yy">
+                    <input type="text" class="form-control col-md-2" ng-model="schedule.date" ng-change="changeDate()" readonly />
+                </datepicker>
+            </div>
+        </div>
+        <div class="col-md-12" style="max-height: 300px; overflow-y: auto;">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            Transporter 
+                        </th>
+                        <th>
+                            From
+                        </th>
+                        <th>
+                            To
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="schedule in scheduleList" ng-show="scheduleList.length > 0">
+                        <td>
+                            {{schedule.CompanyName}}
+                        </td>
+                        <td>
+                            {{schedule.TimeSlotFromDT | date : "dd-MMM-yy 'at' h:mma"}}
+                        </td>
+                        <td>
+                            {{schedule.TimeSlotToDT | date : "dd-MMM-yy 'at' h:mma"}}
+                        </td>
+                    </tr>
+                    <tr ng-show="scheduleList.length == 0" style="text-align: center;">
+                        <td colspan="3">
+                            No results found!
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--<div class="col-md-4 col-sm-12" style="line-height: 25px; padding-bottom: 5px;">
+            <label style="cursor: pointer;"><input type="checkbox" class="productCheckbox" value="true" ng-model="transpoter.isChecked" ng-change="addTransporter();">{{transpoter.companyName}}</label>
+        </div>-->
+    </div>
+
+    <!-- #region "Submit And Cancel Button"-->
+    <!--<div style="display: block; text-align: center; margin-bottom: 20px;">
+        <div style="text-align: center; margin-top: 10px; display: inline-block;">
+            <a class="btn btn-primary" title="Save" ng-click="setTranspoeter(false);">
+                <i class="fa fa-check left" style="padding:0 7px 0 0;"></i>Save
+            </a>
+        </div>&nbsp;
+        <div style="text-align: center; margin-top: 10px; display: inline-block;">
+            <a class="btn btn-primary" ng-click="closeTranspoterModal()" title="Cancel">
+               
+                <i class="fa fa-times left" style="padding:0 7px 0 0;"></i>Cancel
+            </a>
+        </div>
+    </div>-->
+
+    <!-- #endregion-->
+</div>

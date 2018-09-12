@@ -1,0 +1,11 @@
+<html xmlns:v=\"urn:schemas-microsoft-com:vml\" xmlns:o=\"urn:schemas-microsoft-com:office:office\" xmlns:x=\"urn:schemas-microsoft-com:office:excel\" xmlns=\"http://www.w3.org/TR/REC-html40\"> <head></head> <body><meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" /><div>
+	<table cellspacing="0" rules="all" border="1" style="border-collapse:collapse;">
+		<tr>
+			<th scope="col" style="width:60px;">Product</th><th scope="col" style="width:60px;">Barcode</th><th scope="col" style="width:60px;">Category Name</th><th scope="col" style="width:40px;">Order with in Period</th><th scope="col" style="width:40px;">Order before (01-Jan-2018)</th><th scope="col" style="width:40px;">Sales (31 days)</th><th scope="col" style="width:40px;">Stock</th><th scope="col" style="width:40px;">WIP (exp by 01-Feb-2018)</th><th scope="col" style="width:40px;">Purchase (exp by 01-Feb-2018)</th><th scope="col" style="width:50px;">Needed</th><th scope="col" style="width:40px;">Unit</th>
+		</tr><tr>
+			<td style="width:60px;">Connectore</td><td style="width:60px;">Connectore1</td><td style="width:60px;">PCB Products</td><td style="width:40px;">1</td><td style="width:40px;">2276</td><td style="width:40px;">0</td><td style="width:40px;">194</td><td style="width:40px;">0</td><td style="width:40px;">983491</td><td style="width:50px;">undefined</td><td style="width:40px;">No.s</td>
+		</tr><tr>
+			<td style="width:60px;">Computer</td><td style="width:60px;">PC</td><td style="width:60px;">Hardware Gadgets</td><td style="width:40px;">1</td><td style="width:40px;">122468</td><td style="width:40px;">0</td><td style="width:40px;">276.3</td><td style="width:40px;">11089</td><td style="width:40px;">20</td><td style="width:50px;">undefined</td><td style="width:40px;">Inch</td>
+		</tr>
+	</table>
+</div></body></html>

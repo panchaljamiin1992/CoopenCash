@@ -1,0 +1,93 @@
+D:\Maulik\transporterQuote\latest update\transporterQuote\transporterQuote\bin\ApplicationInsights.config
+D:\Maulik\transporterQuote\latest update\transporterQuote\transporterQuote\bin\roslyn\csc.exe
+D:\Maulik\transporterQuote\latest update\transporterQuote\transporterQuote\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Maulik\transporterQuote\latest update\transporterQuote\transporterQuote\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Maulik\transporterQuote\latest update\transporterQuote\transporterQuote\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Maulik\transporterQuote\latest update\transporterQuote\transporterQuote\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Maulik\transporterQuote\latest update\transporterQuote\transporterQuote\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Maulik\transporterQuote\latest update\transporterQuote\transporterQuote\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Maulik\transporterQuote\latest update\transporterQuote\transporterQuote\bin\roslyn\System.Collections.Immutable.dll
+D:\Maulik\transporterQuote\latest update\transporterQuote\transporterQuote\bin\roslyn\System.Reflection.Metadata.dll
+D:\Maulik\transporterQuote\latest update\transporterQuote\transporterQuote\bin\roslyn\vbc.exe
+D:\Maulik\transporterQuote\latest update\transporterQuote\transporterQuote\bin\roslyn\VBCSCompiler.exe
+D:\Maulik\transporterQuote\latest update\transporterQuote\transporterQuote\bin\roslyn\VBCSCompiler.exe.config
+D:\Maulik\transporterQuote\latest update\transporterQuote\transporterQuote\bin\transporterQuote.dll.config
+D:\Maulik\transporterQuote\latest update\transporterQuote\transporterQuote\bin\transporterQuote.dll
+D:\Maulik\transporterQuote\latest update\transporterQuote\transporterQuote\bin\transporterQuote.pdb
+D:\Maulik\transporterQuote\latest update\transporterQuote\transporterQuote\bin\EntityFramework.dll
+D:\Maulik\transporterQuote\latest update\transporterQuote\transporterQuote\bin\EntityFramework.xml
+D:\Maulik\transporterQuote\latest update\transporterQuote\transporterQuote\obj\Release\transporterQuote.dll
+D:\Maulik\transporterQuote\latest update\transporterQuote\transporterQuote\obj\Release\transporterQuote.pdb
+D:\Maulik\transporterQuote\latest update\transporterQuote\transporterQuote\obj\Release\transporterQuote.csprojResolveAssemblyReference.cache
+D:\Maulik\transporterQuote\latest update\transporterQuote\transporterQuote\bin\Microsoft.AI.DependencyCollector.xml
+D:\Maulik\transporterQuote\latest update\transporterQuote\transporterQuote\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\Maulik\transporterQuote\latest update\transporterQuote\transporterQuote\bin\Microsoft.AI.Web.xml
+D:\Maulik\transporterQuote\latest update\transporterQuote\transporterQuote\bin\Microsoft.AI.WindowsServer.xml
+D:\Maulik\transporterQuote\latest update\transporterQuote\transporterQuote\bin\Microsoft.ApplicationInsights.xml
+D:\Maulik\transporterQuote\latest update\transporterQuote\transporterQuote\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Maulik\transporterQuote\latest update\transporterQuote\transporterQuote\bin\Newtonsoft.Json.xml
+D:\Maulik\transporterQuote\latest update\transporterQuote\transporterQuote\bin\System.Net.Http.Formatting.xml
+D:\Maulik\transporterQuote\latest update\transporterQuote\transporterQuote\bin\System.Web.Http.xml
+D:\Maulik\transporterQuote\latest update\transporterQuote\transporterQuote\bin\System.Web.Http.WebHost.xml
+D:\Maulik\transporterQuote\2018-01-02\transporterQuote\transporterQuote\bin\ApplicationInsights.config
+D:\Maulik\transporterQuote\2018-01-02\transporterQuote\transporterQuote\bin\roslyn\csc.exe
+D:\Maulik\transporterQuote\2018-01-02\transporterQuote\transporterQuote\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Maulik\transporterQuote\2018-01-02\transporterQuote\transporterQuote\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Maulik\transporterQuote\2018-01-02\transporterQuote\transporterQuote\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Maulik\transporterQuote\2018-01-02\transporterQuote\transporterQuote\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Maulik\transporterQuote\2018-01-02\transporterQuote\transporterQuote\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Maulik\transporterQuote\2018-01-02\transporterQuote\transporterQuote\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Maulik\transporterQuote\2018-01-02\transporterQuote\transporterQuote\bin\roslyn\System.Collections.Immutable.dll
+D:\Maulik\transporterQuote\2018-01-02\transporterQuote\transporterQuote\bin\roslyn\System.Reflection.Metadata.dll
+D:\Maulik\transporterQuote\2018-01-02\transporterQuote\transporterQuote\bin\roslyn\vbc.exe
+D:\Maulik\transporterQuote\2018-01-02\transporterQuote\transporterQuote\bin\roslyn\VBCSCompiler.exe
+D:\Maulik\transporterQuote\2018-01-02\transporterQuote\transporterQuote\bin\roslyn\VBCSCompiler.exe.config
+D:\Maulik\transporterQuote\2018-01-02\transporterQuote\transporterQuote\bin\transporterQuote.dll.config
+D:\Maulik\transporterQuote\2018-01-02\transporterQuote\transporterQuote\bin\transporterQuote.dll
+D:\Maulik\transporterQuote\2018-01-02\transporterQuote\transporterQuote\bin\transporterQuote.pdb
+D:\Maulik\transporterQuote\2018-01-02\transporterQuote\transporterQuote\bin\EntityFramework.dll
+D:\Maulik\transporterQuote\2018-01-02\transporterQuote\transporterQuote\bin\EntityFramework.xml
+D:\Maulik\transporterQuote\2018-01-02\transporterQuote\transporterQuote\obj\Release\transporterQuote.csprojResolveAssemblyReference.cache
+D:\Maulik\transporterQuote\2018-01-02\transporterQuote\transporterQuote\obj\Release\transporterQuote.dll
+D:\Maulik\transporterQuote\2018-01-02\transporterQuote\transporterQuote\obj\Release\transporterQuote.pdb
+D:\Maulik\transporterQuote\2018-01-02\transporterQuote\transporterQuote\bin\Microsoft.AI.DependencyCollector.xml
+D:\Maulik\transporterQuote\2018-01-02\transporterQuote\transporterQuote\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\Maulik\transporterQuote\2018-01-02\transporterQuote\transporterQuote\bin\Microsoft.AI.Web.xml
+D:\Maulik\transporterQuote\2018-01-02\transporterQuote\transporterQuote\bin\Microsoft.AI.WindowsServer.xml
+D:\Maulik\transporterQuote\2018-01-02\transporterQuote\transporterQuote\bin\Microsoft.ApplicationInsights.xml
+D:\Maulik\transporterQuote\2018-01-02\transporterQuote\transporterQuote\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Maulik\transporterQuote\2018-01-02\transporterQuote\transporterQuote\bin\Newtonsoft.Json.xml
+D:\Maulik\transporterQuote\2018-01-02\transporterQuote\transporterQuote\bin\System.Net.Http.Formatting.xml
+D:\Maulik\transporterQuote\2018-01-02\transporterQuote\transporterQuote\bin\System.Web.Http.xml
+D:\Maulik\transporterQuote\2018-01-02\transporterQuote\transporterQuote\bin\System.Web.Http.WebHost.xml
+C:\Users\mauli\Documents\SVN\ALOCS\transporterQuote\bin\ApplicationInsights.config
+C:\Users\mauli\Documents\SVN\ALOCS\transporterQuote\bin\roslyn\csc.exe
+C:\Users\mauli\Documents\SVN\ALOCS\transporterQuote\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\mauli\Documents\SVN\ALOCS\transporterQuote\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\mauli\Documents\SVN\ALOCS\transporterQuote\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\mauli\Documents\SVN\ALOCS\transporterQuote\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\mauli\Documents\SVN\ALOCS\transporterQuote\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\mauli\Documents\SVN\ALOCS\transporterQuote\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\mauli\Documents\SVN\ALOCS\transporterQuote\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\mauli\Documents\SVN\ALOCS\transporterQuote\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\mauli\Documents\SVN\ALOCS\transporterQuote\bin\roslyn\vbc.exe
+C:\Users\mauli\Documents\SVN\ALOCS\transporterQuote\bin\roslyn\VBCSCompiler.exe
+C:\Users\mauli\Documents\SVN\ALOCS\transporterQuote\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\mauli\Documents\SVN\ALOCS\transporterQuote\bin\transporterQuote.dll.config
+C:\Users\mauli\Documents\SVN\ALOCS\transporterQuote\bin\transporterQuote.dll
+C:\Users\mauli\Documents\SVN\ALOCS\transporterQuote\bin\transporterQuote.pdb
+C:\Users\mauli\Documents\SVN\ALOCS\transporterQuote\bin\EntityFramework.dll
+C:\Users\mauli\Documents\SVN\ALOCS\transporterQuote\bin\EntityFramework.xml
+C:\Users\mauli\Documents\SVN\ALOCS\transporterQuote\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\mauli\Documents\SVN\ALOCS\transporterQuote\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\mauli\Documents\SVN\ALOCS\transporterQuote\bin\Microsoft.AI.Web.xml
+C:\Users\mauli\Documents\SVN\ALOCS\transporterQuote\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\mauli\Documents\SVN\ALOCS\transporterQuote\bin\Microsoft.ApplicationInsights.xml
+C:\Users\mauli\Documents\SVN\ALOCS\transporterQuote\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\mauli\Documents\SVN\ALOCS\transporterQuote\bin\Newtonsoft.Json.xml
+C:\Users\mauli\Documents\SVN\ALOCS\transporterQuote\bin\System.Net.Http.Formatting.xml
+C:\Users\mauli\Documents\SVN\ALOCS\transporterQuote\bin\System.Web.Http.xml
+C:\Users\mauli\Documents\SVN\ALOCS\transporterQuote\bin\System.Web.Http.WebHost.xml
+C:\Users\mauli\Documents\SVN\ALOCS\transporterQuote\obj\Release\transporterQuote.csprojResolveAssemblyReference.cache
+C:\Users\mauli\Documents\SVN\ALOCS\transporterQuote\obj\Release\transporterQuote.dll
+C:\Users\mauli\Documents\SVN\ALOCS\transporterQuote\obj\Release\transporterQuote.pdb

@@ -1,0 +1,383 @@
+﻿.page-header {
+    font-size: 18px;
+    border-bottom: solid 1px #eee;
+    padding: 20px;
+    color: #4B0082;
+    font-weight: 500;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #4B0082;
+    box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 5px 10px -1px rgba(0,0,0,0.1);
+    margin: 0px 0 20px;
+}
+
+ input[type="text"] {
+            -webkit-box-shadow: none;
+            border: none;
+            border-bottom: 1px solid #ccc;
+            border-radius: inherit;
+            font-size: 14px;
+            outline: none;
+        }
+
+input:focus {
+    border: none;
+    border-bottom: 1px solid #ccc;
+}
+
+.form-control[readonly] {
+    background-color: #fff;     
+}
+
+select {
+    -webkit-box-shadow: none !important;
+    background-color: white !important;
+    border-bottom: 1px solid #ccc !important;
+}
+
+.input-field input[type=text] {
+    margin-bottom: 0px;
+    height: 38px;
+}
+
+.head-Div {
+    color: #fff;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+    font-size: 40px;
+}
+
+.fontFamily {
+    font-family: Roboto;
+}
+
+.taskDetailHeaderIcon {
+    bottom: 0;
+    line-height: 1.6;
+    padding: 9px 8px;
+    position: absolute;
+    right: 6px;
+    font-size: 20px;
+    text-align: right;
+}
+
+.noListMsg {
+    text-align: center;
+    margin-top: 25px;
+    line-height: 2.5;
+    vertical-align: middle;
+    font-family: Roboto;
+    font-size: 15px;
+    color: #4885ed;
+}
+
+.form-control:focus {
+    border-bottom: 1px solid #66afe9;
+    box-shadow: none;
+}
+
+.form-control {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-radius: 0px;
+}
+
+/* #region "Toaster"*/
+
+.toast-success {
+    background-color: #3cba54 !important;
+}
+
+.toast-error {
+    background-color: #db3236 !important;
+}
+
+.toast-info {
+    background-color: #4885ed !important;
+}
+
+.toast-warning {
+    background-color: #f4c20d !important;
+}
+
+.toast-top-right {
+    /*top: 87% !important;
+    right: 30px !important;*/
+    top: 5% !important;
+    margin: 0 auto;
+    left: 50% !important;
+}
+
+#toast-container > :hover {
+    -webkit-box-shadow: none !important;
+    /*box-shadow: none !important;*/
+    box-shadow: 0 8px 10px 1px rgba(0,0,0,0.14), 0 3px 14px 2px rgba(0,0,0,0.12), 0 5px 5px -3px rgba(0,0,0,0.3) !important;
+}
+
+
+.toast-title {
+    font-weight: 500 !important;
+    font-size: 15px !important;
+    font-family: roboto !important;
+}
+
+.toast-close-button {
+    font-weight: 500 !important;
+}
+
+#toast-container > div {
+    -webkit-border-radius: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: 0 8px 10px 1px rgba(0,0,0,0.14), 0 3px 14px 2px rgba(0,0,0,0.12), 0 5px 5px -3px rgba(0,0,0,0.3) !important;
+}
+/* #endregion*/
+
+/* #region "Fab button"*/
+.fabBtn {
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+    color: #fff;
+    height: 50px;
+    border-radius: 30px;
+    width: 50px;
+    background-color: #db3236;
+    border-color: #db3236;
+    box-shadow: 0 8px 10px 1px rgba(0,0,0,0.14), 0 3px 14px 2px rgba(0,0,0,0.12), 0 5px 5px -3px rgba(0,0,0,0.3);
+}
+
+    .fabBtn:hover {
+        border-color: #db3236 !important;
+        background-color: #fff !important;
+        color: #db3236 !important;
+    }
+
+    .fabBtn.activated {
+        border-color: #db3236 !important;
+        background-color: #fff !important;
+        color: #db3236 !important;
+    }
+/* #endregion*/
+
+/* #region "Sweet alert"*/
+.sweet-alert {
+    box-shadow: 0 8px 10px 1px rgba(0,0,0,0.14), 0 3px 14px 2px rgba(0,0,0,0.12), 0 5px 5px -3px rgba(0,0,0,0.3);
+    font-family: roboto;
+}
+
+    .sweet-alert h2 {
+        font-size: 16px;
+        font-weight: 400;
+        position: relative;
+        z-index: 1;
+        color: #000000;
+        margin-bottom: 9px;
+    }
+
+    .sweet-alert .lead {
+        font-size: 13px;
+        color: #777777;
+        margin-top: 0px;
+        margin-bottom: 18px;
+    }
+
+    .sweet-alert .btn {
+        /*padding: 6px 12px;*/
+        font-size: 13px;
+        margin: 20px 2px 0;
+    }
+
+    .sweet-alert .cancel {
+        float: right;
+        position: relative;
+        right: 145px;
+    }
+
+    .sweet-alert .confirm {
+        right: 19px;
+        position: relative;
+    }
+
+    .sweet-alert .btn, .sweet-alert .btn-large {
+        background-color: #4885ed !important;
+        border-color: #4885ed !important;
+        box-shadow: 1px 2px 10px #4885ed !important;
+    }
+
+    @media only screen and (max-width: 500px) {
+        .sweet-alert .cancel {
+            float: right;
+            position: relative;
+            right: 83px;
+        }
+    }
+/* #endregion*/
+
+/* #region "Modal"*/
+.AddUser input {
+    -webkit-box-shadow: none;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    border-radius: inherit;
+}
+
+.form-control:focus {
+    border-bottom-color: 1px solid #66afe9;
+    -webkit-box-shadow: none;
+}
+
+
+/* #endregion*/
+
+/* #region "Dropdown"*/
+.dropdown button {
+    text-align: left;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    border-radius: inherit;
+}
+/* #endregion*/
+
+/* #region "Scrollbar" */
+
+#style-1::-webkit-scrollbar-track {
+    -webkit-box-shadow: none; /*inset 0 0 6px rgba(0,0,0,0.3);*/
+    border-radius: 10px;
+    /*background-color: #F5F5F5;*/
+    background-color: transparent;
+}
+
+#style-1::-webkit-scrollbar {
+    width: 5px;
+    background-color: none;
+}
+
+#style-1::-webkit-scrollbar-thumb {
+    border-radius: 0px;
+    -webkit-box-shadow: none; /*inset 0 0 6px rgba(0,0,0,.3);*/
+    background-color: rgba(0,0,0,0.1); /*#555;*/
+}
+
+@media only screen and (max-width: 500px) {
+    #style-1::-webkit-scrollbar-track {
+        display: none;
+    }
+
+    #style-1::-webkit-scrollbar {
+        display: none;
+    }
+
+    #style-1::-webkit-scrollbar-thumb {
+        display: none;
+    }
+
+    html {
+        overflow-y: auto;
+    }
+}
+
+/* #endregion */
+
+/* #region "Input" */
+/* gnrsInput - input */
+.fg-float {
+    margin-top: 15px;
+    position: relative;
+}
+
+    .fg-float .form-control {
+        position: relative;
+        background: transparent;
+        z-index: 1;
+    }
+
+        .fg-float .form-control::-moz-placeholder {
+            color: #ffffff;
+            opacity: 1;
+        }
+
+        .fg-float .form-control:-ms-input-placeholder {
+            color: #ffffff;
+        }
+
+        .fg-float .form-control::-webkit-input-placeholder {
+            color: #ffffff;
+        }
+
+.rfqInput input, .gnrsTextarea textarea {
+    display: block;
+    border: none;
+    border-bottom: 1px solid rgba(224,224,224,1);
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    width: 100%;
+    height: 40px;
+    font-size: 16px;
+    padding: 5px;
+}
+
+    .rfqInput input:focus, .gnrsTextarea textarea:focus {
+        outline: none;
+    }
+
+/* gnrsInput - label - passive state */
+.rfqInput label, .gnrsTextarea label {
+    color: #fff;
+    position: absolute;
+    pointer-events: none;
+    font-size: 17px;
+    font-weight: normal;
+    top: 5px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+    width: 80%;
+}
+
+.gnrsTextarea label {
+    top: 0px;
+}
+
+
+/* gnrsInput - label - active state */
+.rfqInput input:focus ~ label, .rfqInput .gnrsLabel {
+    top: -11px;
+    font-size: 13px;
+    color: #286090;
+    padding-left: 0px;
+}
+
+.gnrsTextarea textarea:focus ~ label, .gnrsTextarea .gnrsLabel {
+    top: -18px;
+    font-size: 13px;
+    color: #286090;
+    padding-left: 0px;
+}
+
+/*, .gnrsInput input:valid ~ label*/
+
+/* gnrsInput - coloured bar */
+.rfqInput .rfqBar, .gnrsTextarea .gnrsBar {
+    position: relative;
+    display: block;
+    width: 80%;
+}
+
+    .rfqInput .rfqBar:before, .rfqBar:after,
+    .gnrsTextarea .rfqBar:before, .rfqBar:after {
+        content: '';
+        height: 2px;
+        width: 0;
+        bottom: 0;
+        position: absolute;
+        background: #286090;
+        transition: 0.2s ease all;
+        -moz-transition: 0.2s ease all;
+        -webkit-transition: 0.2s ease all;
+    }
+
+.rfqInput input:focus ~ .rfqBar:before, input:focus ~ .rfqBar:after,
+.gnrsTextarea textarea:focus ~ .rfqBar:before, textarea:focus ~ .rfqBar:after {
+    width: 100%;
+}
+/* #endregion */
+

@@ -1,0 +1,815 @@
+﻿<!DOCTYPE html>
+<html style="height: 100%;">
+ <!-- overflow-y: hidden !important; -->
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <style>
+        html {
+            overflow-y: auto;
+        }
+
+        #finishBy ._720kb-datepicker-calendar._720kb-datepicker-open, ._720kb-datepicker-calendar._720kb-datepicker-forced-to-open {
+            bottom: 20%;
+            width: 100px;
+        }
+
+        ._720kb-datepicker-calendar._720kb-datepicker-open, ._720kb-datepicker-calendar._720kb-datepicker-forced-to-open {
+            width: 100px;
+        }
+
+        .container {
+            /* width: calc(100% - 57px);*/
+            width: auto;
+            padding-right: 0px;
+            padding-left: 0px;
+            margin-right: auto;
+            /*margin-left: 57px;*/
+        }
+
+        @media screen and (max-width: 500px) {
+            .container {
+                width: 100%;
+                margin-left: 0px;
+                margin-top: 50px;
+            }
+        }
+
+        .alignText {
+            vertical-align: middle;
+            width: 20px;
+            text-align: center;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            /* Set the fixed height of the footer here */
+            height: 60px;
+            z-index: 300;
+        }
+
+        @media screen and (min-width: 980px) {
+            .footer {
+                width: 24.9%;
+            }
+        }
+
+        .fa-rotate-90 {
+            -webkit-transform: rotate(90deg);
+            -moz-transform: rotate(90deg);
+            -ms-transform: rotate(90deg);
+            -o-transform: rotate(90deg);
+            transform: rotate(90deg);
+        }
+
+        /*.dropdown-content li > a, .dropdown-content li > span, .dropdown-content li {
+            color: #000;
+        }*/
+
+        .menuDropdown {
+            float: left;
+            font-size: 30px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        ul#menuDD:not(.browser-default) {
+            min-width: 210px;
+            top: 49px !important;
+        }
+
+        .dropdown-content {
+            background-color: #fff;
+            margin: 0;
+            display: none;
+            min-width: 100px;
+            max-height: 650px;
+            overflow-y: auto;
+            opacity: 0;
+            position: absolute;
+            z-index: 999;
+            will-change: width, height;
+            box-shadow: 0 6px 12px rgba(0,0,0,.175);
+        }
+
+            .dropdown-content li {
+                clear: both;
+                color: rgba(0,0,0,0.87);
+                cursor: pointer;
+                /*min-height: 50px;*/
+                line-height: 1.5rem;
+                width: 100%;
+                text-align: left;
+                text-transform: none;
+            }
+
+        ul:not(.browser-default) li {
+            list-style-type: none;
+        }
+
+        .dropdown-content li:hover, .dropdown-content li.active, .dropdown-content li.selected {
+            background-color: #eee;
+        }
+
+        .form-control:focus {
+            border-bottom-color: 1px solid #66afe9;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+        }
+
+        .dropdown button {
+            width: 86%;
+            background-color: rgba(255, 255, 255, 0);
+            box-shadow: none;
+            border-bottom: 1px solid #ccc;
+            /*background-color: #f8f8f8;*/
+        }
+
+            .dropdown button span {
+                float: right;
+                position: relative;
+                top: 10px;
+                font-size: 14px;
+                font-family: Roboto;
+                background-color: #fff;
+            }
+
+            .dropdown button[disabled] {
+                /*background-color: #f8f8f8;*/
+                border-color: #ccc;
+            }
+
+        .btn-default:hover {
+            background-color: rgba(255, 255, 255, 0);
+            border-bottom: 1px solid #ccc;
+        }
+
+        .open > .dropdown-menu {
+            max-height: 218px;
+            overflow: overlay;
+            display: block;
+            position: absolute;
+            left: 15px;
+            width: auto;
+            font-size: 14px;
+            font-family: Roboto;
+        }
+
+        .open > .dropdown-toggle.btn-default:hover, open > .dropdown-toggle.btn-default:focus, .open > .dropdown-toggle.btn-default {
+            color: #333;
+            background-color: rgba(255, 255, 255, 0);
+            border-bottom: 1px solid #66afe9;
+        }
+
+        .dropdownIcon {
+            color: #4885ed;
+            margin-left: 15px;
+        }
+
+
+        blockquote {
+            padding: 10px 20px;
+            margin: 0 0 20px;
+            font-size: 14px;
+            border-left: 2px solid #eee;
+        }
+
+        .activityMenuli {
+            margin: 6px 2px 5px 1px;
+        }
+
+        .statusBedge {
+            display: inline;
+            margin-right: 10px;
+            border-radius: 2px;
+            color: #fff;
+            line-height: 1.5;
+            min-width: 18px;
+            text-align: center;
+            vertical-align: middle;
+            padding: 0px 5px;
+        }
+
+        .open {
+            width: 66.66666667%;
+        }
+
+            .open > .dropdown-menu {
+                left: 15px !important;
+            }
+
+        .textOverflow {
+            text-overflow: ellipsis;
+            overflow: hidden;
+            display: inline-block;
+            white-space: nowrap;
+            vertical-align: top;
+        }
+
+        .listHeader {
+            border-bottom: 1px solid rgba(0, 0, 0, .10);
+            box-sizing: border-box;
+            height: 50px;
+            /*box-shadow: 0 3px 10px rgba(0,0,0,0.4);*/
+            /* text-align: center; */
+            /* background-color: #0D47A1; */
+        }
+
+        .listHeaderText {
+            vertical-align: sub;
+            line-height: 2.3;
+            display: inline-block;
+            color: #286090;
+            /*color: #03A9F4*/ /*rgba(255, 0, 0, 0.66)*/
+            font-weight: 600;
+            font-size: 16px;
+            font-family: Roboto;
+        }
+
+        .listMenuIcon {
+            display: inline-block;
+            /*position: absolute;*/
+            vertical-align: middle;
+            font-size: 20px;
+        }
+
+        .list {
+            border-right: 2px solid rgba(0, 0, 0, 0.5);
+            box-sizing: border-box;
+            /*height: 665px;*/ /*-webkit-fill-available;*/
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .listDetailHeaderIcon {
+            /*position: absolute;*/
+            /*font-size: 20px;*/
+            text-align: right;
+            cursor: pointer;
+            padding: 4px 8px;
+        }
+
+        .detailHeader {
+            border-bottom: 1px solid rgba(0, 0, 0, .10);
+            box-sizing: border-box;
+            height: 50px;
+            padding: 10px;
+            position: relative;
+            /*text-align: center;*/
+            z-index: 201;
+            background-color: #fff;
+            display: flex;
+        }
+
+        .smallrightsList {
+            padding: 10px;
+        }
+
+        .font-color {
+            color: #286090;
+        }
+
+        .listDetail {
+            border-right: 1px solid rgba(0, 0, 0, .10);
+            box-sizing: border-box;
+            /*height: 615px;*/ /*-webkit-fill-available;*/
+            /*padding: 10px;*/
+            padding: 0px;
+            background-color: #fff;
+        }
+
+        .infoLbl {
+            /*padding-left: 8px;*/
+            line-height: 34px;
+        }
+
+        .lableIcon {
+            color: black;
+            padding: 0px 5px;
+            font-size: 17px;
+        }
+
+        .form-control:focus {
+            border-bottom-color: 1px solid #66afe9;
+            -webkit-box-shadow: none;
+        }
+
+        .form-inline .form-control {
+            display: inline-block;
+            width: 125px;
+            vertical-align: middle;
+        }
+
+        .form-control:focus {
+            border-bottom: 1px solid #66afe9;
+        }
+
+        .textarea {
+            -webkit-box-shadow: none;
+            border: none;
+            border-bottom: 1px solid #ccc;
+            border-radius: inherit;
+            font-size: 14px;
+            font-family: Roboto;
+            /*background-color: #f8f8f8;*/
+        }
+
+        .dateColor {
+            color: rgba(128, 128, 128, 0.71);
+        }
+
+        .bedge {
+            /*background-color: rgba(0,0,0,0.06);*/
+            padding: 5px 10px;
+            /*display: inline;*/
+            margin-right: 10px;
+            border-radius: 2px;
+        }
+
+        .showQuote-Div {
+            padding: 60px 10px 0px 10px;
+        }
+
+            .showQuote-Div i {
+                padding-right: 5px;
+            }
+
+        .dateClass {
+            margin-left: 10px;
+            font-size: 12px;
+            color: #555;
+        }
+
+        .subMenuli {
+            font-size: 17px;
+            padding: 10px;
+        }
+
+        .autoComplete {
+            max-height: 160px;
+            width: 306px;
+            position: absolute;
+            overflow-y: auto;
+            background-color: #fff;
+            z-index: 10;
+            /*left: 199px;
+            top: 49px;*/
+            box-shadow: 0px 0px 5px;
+        }
+
+            .autoComplete div {
+                padding: 10px;
+            }
+
+                .autoComplete div:hover {
+                    background-color: rgba(0,0,0,0.1);
+                }
+
+        .fileUpload {
+            font-size: 20px !important;
+            line-height: 1.3 !important;
+        }
+
+        .btn:active:focus, .btn:focus {
+            outline: none;
+        }
+
+        .cursor {
+            cursor: pointer;
+        }
+
+        .font-bold {
+            font-weight: bold;
+        }
+
+        .icon-width {
+            width: 13%;
+        }
+
+        /*.btn {
+           padding: 2px 6px;
+        }*/
+    </style>
+
+</head>
+<body style="height: 100%;">
+
+    <!-- Main content -->
+    <div class="container ng-cloak" style="margin-left: 0px; margin-right: 0px; height: 100%;">
+
+        <!-- List -->
+        <div class="col-md-3 col-sm-3' list" style="padding: 0px; height: 100%;">
+            <div class="listHeader" style="padding:8px;">
+                <div>
+                    <div class="listMenuIcon font-color cursor" ng-if="!showSearch" style="width: 30px; text-align: center;" ng-click="openMenu();">
+                        <span style="vertical-align:middle" class="fa fa-bars"></span>
+                    </div>
+                    <!-- Dropdown Structure -->
+                    <ul id='menuDD' class='dropdown-content' style="opacity: 1; min-width: 240px; padding-left: 0px;">
+
+                        <li ng-click="openQuotes();">
+                            <i class="fa fa-tasks font-color" style="padding: 14px 0px 14px 20px; font-size: 20px; margin: 0px;"></i>
+                            <span class="font-color" style="display: inline-block; padding-left: 5px;">Quotes</span>
+                        </li>
+
+                        <li ng-click="openLogistics();" ng-if="pm_personInfo.canReady || pm_personInfo.canScheduled
+                            || pm_personInfo.canLoading || pm_personInfo.canDispatch ">
+                            <i class="fa fa-truck font-color" style="padding: 14px 0px 14px 20px; font-size: 20px; margin: 0px;"></i>
+                            <span class="font-color" style="display: inline-block; padding-left: 5px;">Logistics</span>
+                        </li>
+
+                        <li ng-click="openChangePasswordPop();">
+                            <i class="fa fa-lock font-color" style="padding: 14px 0px 14px 20px; font-size: 20px; margin: 0px;"></i>
+                            <span class="font-color" style="display: inline-block; padding-left: 5px;">Change Password</span>
+                        </li>
+
+                        <li ng-click="actionLogout();">
+                            <i class="zmdi zmdi-power font-color" style="padding: 14px 0px 14px 20px; font-size: 20px; margin: 0px;"></i>
+                            <span class="font-color" style="display: inline-block; padding-left: 5px;">Logout</span>
+                        </li>
+                    </ul>
+
+                    <!-- Header -->
+                    <div class="listHeaderText fontFamily font-color" ng-if="!showSearch">
+                        <span style="vertical-align:middle;">ALOCS</span>
+                        <span ng-show="enableList != -1" style="color: {{enableList == 0 ? '#db3236' : enableList == 1 ? '#f4bd50' : enableList == 2 ? '#db3236' : enableList == 3 ? '#4CAF50' : enableList == 4 ? '#f4bd50': enableList == 5 ? '#f4bd50' : enableList == 6 ? '#f4bd50' : '#f4bd50'}};">
+                            ({{enableList == 0 ? 'Open' : enableList == 1 ? 'Selected' : enableList == 2 ? 'Forwarded' : enableList == 3 ? 'Dispatched' : enableList == 4 ? 'Cleared': enableList == 5 ? 'Ready' : enableList == 6 ? 'Scheduled' : enableList == 7 ? 'Loading': ''}})
+                        </span>
+                    </div>
+
+                    <!-- Search input -->
+                    <div ng-if="showSearch" style="display: inline-block; width: 90%;">
+                        <input class="form-control" id="search" type="text" ng-model="search.value" style="background-color: white;" placeholder="Search">
+                    </div>
+
+                    <!-- Filter by pending, awaiting dispatch, forwarded, serach -->
+                    <div class="listMenuIcon fontFamily" style="float: right;">
+                        <!--<span class="fa fa-exchange fa-rotate-90" style="vertical-align: middle;" title="Sort"></span>-->
+                       
+                        <span class="zmdi zmdi-refresh font-color cursor" ng-if="!showSearch" style="vertical-align: middle; margin-left: 10px;"
+                              title="Refresh"
+                              ng-click="getLogisticsList(1);"></span>
+
+                        <span class="fa fa-times font-color cursor" ng-if="showSearch"
+                              style="vertical-align: middle; padding-right: 5px; cursor: pointer" title="Close" ng-click="searchInList()"></span>
+
+                        <span class="fa fa-search font-color cursor" ng-if="!showSearch" style="vertical-align: middle; padding-left: 10px;"
+                              title="Search"
+                              ng-click="searchInList()"></span>
+
+                    </div>
+                </div>
+            </div>
+            <div class="listHeader" style="padding:8px;">
+                <!-- ng-show="filterMenu && !showSearch" -->
+
+                <!-- Filter by pending, awaiting dispatch, forwarded, serach -->
+                <div class="listMenuIcon fontFamily" style="width: 100%">
+                    <!--<span class="fa fa-exchange fa-rotate-90" style="vertical-align: middle;" title="Sort"></span>-->
+
+                    <div class="col-md-2 icon-width" style="padding: 0px; text-align: center;">
+                     
+                        <span class="fa fa-check font-color cursor"
+                              style="vertical-align: middle; border-radius: 50%; width: 20px;
+                              color: {{enableList == 1 ? '#f4bd50' : ''}};" title="Waiting for Clearence" ng-click="getLogisticsList(1);"></span>
+                        <span style="position: absolute; font-size: 10px; top: 0px; color: #f4bd50;" ng-if="!showSearch">
+                            {{readyCount}}
+                        </span>
+                    </div>
+
+                    <div class="col-md-2 icon-width" style="padding: 0px; text-align: center;" ng-if="pm_personInfo.canReady">
+                        <span class="zmdi zmdi-assignment-check font-color cursor"
+                              style="vertical-align: middle; padding-left: 4px;
+                              border-radius: 50%; width: 25px; color: {{enableList == 4 ? '#f4bd50' : ''}};" title="Waiting for Readiness"
+                              ng-click="getLogisticsList(4);"></span>
+                        <span style="position: absolute; font-size: 10px; top: 0px; color: #f4bd50;" ng-if="!showSearch">{{clearCount}}</span>
+                    </div>
+
+                    <div class="col-md-2 icon-width" style="padding: 0px; text-align: center;" ng-if="pm_personInfo.canScheduled">
+                        <span class="zmdi zmdi-case-play font-color cursor"
+                              style="vertical-align: middle; padding-left: 4px;
+                              border-radius: 50%; width: 25px; color: {{enableList == 5 ? '#f4bd50' : ''}};" title="Waiting for Time Slot" 
+                              ng-click="getLogisticsList(5)"></span>
+                        <span style="position: absolute; font-size: 10px; top: 0px; color: #f4bd50;" ng-if="!showSearch">
+                            {{vehicalReadyCount}}
+                        </span>
+                    </div>
+
+                    <div class="col-md-2 icon-width" style="padding: 0px; text-align: center;" ng-if="pm_personInfo.canLoading">
+                       
+                        <span class="zmdi zmdi-calendar-alt font-color cursor"
+                              style="vertical-align: middle; padding-left: 9px;
+                              border-radius: 50%; width: 25px; color: {{enableList == 6 ? '#f4bd50' : ''}};" title="Waiting for Vehicle Entry"
+                              ng-click="getLogisticsList(6)"></span>
+                        <span style="position: absolute; font-size: 10px; top: 0px; color: #f4bd50;" ng-if="!showSearch">
+                            {{timeSlotCount}}
+                        </span>
+                    </div>
+
+                    <div class="col-md-2 icon-width" style="padding: 0px; text-align: center;" ng-if="pm_personInfo.canDispatch">
+                        <span class="zmdi zmdi-shopping-cart-plus font-color cursor"
+                              style="vertical-align: middle; padding-left: 4px;
+                              border-radius: 50%; width: 25px; color: {{enableList == 7 ? '#f4bd50' : ''}};" title="Waiting for Dispatch" 
+                              ng-click="getLogisticsList(7)"></span>
+                        <span style="position: absolute; font-size: 10px; top: 0px; color: #f4bd50;" ng-if="!showSearch">
+                            {{enterVehCount}}
+                        </span>
+                    </div>
+
+                    <div class="col-md-2 icon-width" style="padding: 0px; text-align: center;">
+                        <!-- style="padding: 0px 0px 0px 11px;" -->
+                        <span class="zmdi zmdi-flight-takeoff font-color cursor"
+                              style="vertical-align: middle; padding-left: 9px;
+                              border-radius: 50%; width: 25px; color: {{enableList == 3 ? '#4CAF50' : ''}};" title="Dispatched"
+                              ng-click="getLogisticsList(3);"></span>
+                        <span style="position: absolute; font-size: 10px; top: 0px; color: #4CAF50;" ng-if="!showSearch">
+                            {{dispatchedCount}}
+                        </span>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Request for quote -->
+            <div style="max-height: calc(100% - {{headerHeight}}px);overflow-y: auto;" id="style-1">
+
+                <div style="max-height: calc(100% - 100px); overflow-y: auto;" id="style-1">
+
+                    <!-- RFQ list -->
+                    <div class="smallrightsList fontFamily" ng-style="{'background': $index == selectedReqIndex ? 'rgba(0,0,0,0.1)' : ''}"
+                         ng-repeat="logisticsRFQ in ($parent.logisticsRFQs = (logisticsList | filter: search.value))"
+                         style="cursor: pointer; border-bottom: {{$last ? '' : ' 1px solid #dddddd'}};" ng-click="getDetailofLogisticRFQ($index);">
+                        <div>
+
+                            <span>{{logisticsRFQ.customerCompany ? logisticsRFQ.customerCompany : companyName}}</span>
+                            <span style="float: right; font-size: 12px; color: {{ reqForQuote.expired ? '#F00' : '#666'}} ;">
+                            {{logisticsRFQ.quoteBy | date: 'dd-MMM-yy'}}</span>
+                            <div>
+                                <span class="fa fa-truck" style="margin-right: 10px;"></span>
+                                {{logisticsRFQ.response.length}}/{{logisticsRFQ.transporterDetail.length}}
+                                <p class="dateClass" style="color: {{(reqForQuote.isCloseEarly && reqForQuote.status == '0') ? '#F44336' : enableList == 0 ? '#db3236' : enableList == 1 ? '#f4bd50' : enableList == 2 ? '#db3236' : enableList == 3 ? '#4CAF50' : enableList == 4 ? '#f4bd50': enableList == 5 ? '#f4bd50' : enableList == 6 ? '#f4bd50' : '#f4bd50'}};
+                                   font-size: 15px; float: right;">
+                                 
+                                </p>
+                            </div>
+                            <!--<span ng-if="transporter.email" style="float: right; font-size: 16px;"><i class="fa fa-envelope font-color"></i></span>-->
+                        </div>
+                    </div>
+                    <div ng-show="logisticsRFQs.length == 0" class="card-body" style="text-align: center; padding: 20px;">
+                        No RFQs found.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add new rfq fab -->
+            <!--<button type="button" class="fabBtn btn btn-circle btn-raised" style="outline: none;" ng-show="pm_personInfo.canCreateRFQ" title=""
+                    ng-click="addNew();">
+                <span class="fa fa-plus"></span>
+            </button>-->
+        </div>
+
+        <!-- Detail transporter -->
+        <div class="col-md-9 col-sm-12 col-xm-12" style="padding: 0px; height: 100%;">
+
+            <!-- Header -->
+            <div class="col-md-12 col-sm-12 col-xm-12 detailHeader">
+
+                <!-- RFQ number -->
+                <div class="col-md-8 col-sm-7 col-xm-7 listHeaderText fontFamily" ng-show="logisticsList.length > 0">
+                  
+                    #{{rfqLogistics.reqForQuoteID }} - {{rfqLogistics.orderNo}} - {{rfqLogistics.customerCompany}}
+                    <span ng-if="!newReqForQuote" class="dateClass" style="color: {{enableList == 0 ? '#db3236' : enableList == 1 ? '#f4bd50' : enableList == 2 ? '#db3236' : enableList == 3 ? '#4CAF50' : enableList == 4 ? '#f4bd50': enableList == 5 ? '#f4bd50' : enableList == 6 ? '#f4bd50' : '#f4bd50'}}; font-size: 15px;">
+                        <i class="{{enableList == 0 ? 'zmdi zmdi-time' : enableList == 1 ? 'fa fa-check' : enableList == 2 ? 'zmdi zmdi-forward' : enableList == 3 ? 'zmdi zmdi-flight-takeoff' : enableList == 4 ? 'zmdi zmdi-assignment-check': enableList == 5 ? 'zmdi zmdi-case-play' : enableList == 6 ? 'zmdi zmdi-calendar-alt' : enableList == 7 ? 'zmdi zmdi-shopping-cart-plus' : ''}}"></i>
+                        {{enableList == 0 ? 'Open' : enableList == 1 ? 'Accepted' : enableList == 2 ? 'Forwarded' : enableList == 3 ? 'Dispatched' : enableList == 4 ? 'Cleared': enableList == 5 ? 'Ready' : enableList == 6 ? 'Scheduled' : enableList == 7 ? 'Loading' : ''}}
+                    </span>
+
+                </div>
+                <div class="col-md-4 col-sm-5 col-xm-5" style="text-align: right;">
+
+                   
+                    <!-- Loading Clearance -->
+                    <div class="listDetailHeaderIcon btn btn-primary" style="text-align: center;" uib-tooltip="Waiting for Clearance"
+                         tooltip-placement="left"
+                         ng-if="logisticsList[selectedReqIndex].status == '1' && pm_personInfo.canClear"
+                         ng-click="clearRFQ(logisticsList[selectedReqIndex].rfqID);">
+                        <span class="fa fa-check-square-o alignText"></span> Loading Clearance
+                    </div>
+
+                    <!-- Vehicle Ready -->
+                    <div class="listDetailHeaderIcon btn btn-primary" style="text-align: center;" uib-tooltip="Waiting for Readiness"
+                         tooltip-placement="left"
+                         ng-if="logisticsList[selectedReqIndex].status == '4' && pm_personInfo.canReady"
+                         ng-click="openReadyPop();">
+                        <span class="fa fa-bus alignText"></span> Vehicle Ready
+                    </div>
+
+                    <!-- Schedule time slot -->
+                    <div class="listDetailHeaderIcon btn btn-primary" style="text-align: center;" uib-tooltip="Waiting for Time Slot"
+                         tooltip-placement="left"
+                         ng-if="logisticsList[selectedReqIndex].status == '5' && pm_personInfo.canScheduled"
+                         ng-click="openTimeSlotPop();">
+                        <span class="fa fa-calendar alignText"></span> Schedule Time Slot
+                    </div>
+
+                    <!-- Mark entry -->
+                    <div class="listDetailHeaderIcon btn btn-primary" style="text-align: center;" uib-tooltip="Waiting for Vehical Entry"
+                         tooltip-placement="left"
+                         ng-if="logisticsList[selectedReqIndex].status == '6' && pm_personInfo.canLoading"
+                         ng-click="entryVehicle(logisticsList[selectedReqIndex].rfqID);">
+                        <span class="fa fa-sign-in alignText"></span> Mark Entry
+                    </div>
+
+                    <!-- Dispatch RFQ -->
+                    <div class="listDetailHeaderIcon btn btn-primary" style="right: 20px" uib-tooltip="Awaiting for Dispatch" tooltip-placement="left"
+                         ng-click="dispatchRFQ(logisticsList[selectedReqIndex].rfqID);"
+                         ng-if="logisticsList[selectedReqIndex].status == '7' && pm_personInfo.canDispatch">
+                        <span class="zmdi zmdi-flight-takeoff alignText"></span> Dispatch
+                    </div>
+                   
+                    <!-- Dispatch time -->
+                    <div class="fontFamily listHeaderText" style="right: 20px; line-height: 2.2; margin-left: 6%;" tooltip-placement="left"
+                         ng-if="logisticsList[selectedReqIndex].status == '3'">
+                        Dispatched on {{logisticsList[selectedReqIndex].dispatchedDT | date : "dd-MMM-yy 'at' h:mma"}}
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Detail transporters-->
+            <div class="machineDetail" style="max-height: calc(100% - 50px); width: 100%; overflow-y: {{isShowInputandBtn && newReqForQuote ? 'auto' : ''}};"
+                 id="style-1">
+
+                <!-- RFQ detail with quotation list on click list -->
+                <div class="showQuote-Div" ng-show="!newReqForQuote">
+
+                    <!-- RFQ detail -->
+                    <div style="display: block" class="col-md-12">
+
+                        <div class="col-md-6" ng-if="rfqLogistics.vendorName">
+                            <p class="bedge" data-toggle="tooltip" title="Delivery date">
+                                <div class="font-bold col-md-5">Vendor</div>
+                                <div class="col-md-7">{{rfqLogistics.vendorName}}</div>
+                            </p>
+                        </div>
+
+                        <div class="col-md-6" ng-if="rfqLogistics.deliveryDT">
+                            <p class="bedge" data-toggle="tooltip" title="Delivery date">
+                                <div class="font-bold col-md-5">Delivery</div>
+                                <div class="col-md-7">{{rfqLogistics.deliveryDT | date: 'dd-MMM-yy'}}</div>
+                            </p>
+                        </div>
+
+                        <div class="col-md-6" ng-if="rfqLogistics.pickUpDT">
+                            <p class="bedge" data-toggle="tooltip" title="Pickup date">
+                                <div class="font-bold col-md-5">Pick-up</div>
+                                <div class="col-md-7">{{rfqLogistics.pickUpDT | date: 'dd-MMM-yy'}}</div>
+                            </p>
+                        </div>
+
+                        <div class="col-md-6" ng-if="rfqLogistics.sourceLocation">
+                            <p class="bedge" data-toggle="tooltip" title="Source Location">
+                                <div class="font-bold col-md-5">Source Location</div>
+                                <div class="col-md-7">{{rfqLogistics.sourceLocation}}</div>
+                            </p>
+                        </div>
+
+                        <div class="col-md-6" ng-if="rfqLogistics.sourceAddress">
+                            <p class="bedge" data-toggle="tooltip" title="Source Address">
+                                <div class="font-bold col-md-5">Source Address</div>
+                                <div class="col-md-7">{{rfqLogistics.sourceAddress}}</div>
+                            </p>
+                        </div>
+
+                        <div class="col-md-6" ng-if="rfqLogistics.destinationAddress">
+                            <p class="bedge" data-toggle="tooltip" title="Destination Address">
+                                <div class="font-bold col-md-5">Destination Address</div>
+                                <div class="col-md-7">{{rfqLogistics.destinationAddress}}</div>
+                            </p>
+                        </div>
+
+                        <div class="col-md-6" ng-if="rfqLogistics.exchangeRate > 0">
+                            <p class="bedge" data-toggle="tooltip" title="Destination Address">
+                                <div class="font-bold col-md-5">Exchange Rate</div>
+                                <div class="col-md-7">{{rfqLogistics.exchangeRate}}</div>
+                            </p>
+                        </div>
+
+                        <div class="col-md-6" ng-repeat="component in rfqLogistics.components">
+                            <p class="bedge" data-toggle="tooltip" title="">
+                                <div class="font-bold col-md-5">{{component.componentName}}</div>
+                                <div class="col-md-7">{{component.componentValue}}</div>
+                            </p>
+                        </div>
+
+                        <div class="col-md-6" ng-if="rfqLogistics.totalINR > 0">
+                            <p class="bedge" data-toggle="tooltip" title="">
+                                <div class="font-bold col-md-5">Total(<span style="font-family: arial;">₹</span>)</div>
+                                <div class="col-md-7">{{rfqLogistics.totalINR}}</div>
+                            </p>
+                        </div>
+
+                        <div class="col-md-6" ng-if="rfqLogistics.totalDoller > 0">
+                            <p class="bedge" data-toggle="tooltip" title="">
+                                <div class="font-bold col-md-5">Total($)</div>
+                                <div class="col-md-7">{{rfqLogistics.totalDoller}}</div>
+                            </p>
+                        </div>
+
+                        <div class="col-md-6" ng-if="rfqLogistics.product">
+                            <p class="bedge" data-toggle="tooltip" title="Product">
+                                <div class="font-bold col-md-5">Product</div>
+                                <div class="col-md-7">{{rfqLogistics.product}}</div>
+                            </p>
+                        </div>
+
+                        <div class="col-md-6" ng-if="rfqLogistics.details">
+                            <p class="bedge" data-toggle="tooltip" title="Note">
+                                <div class="font-bold col-md-5">Note&nbsp;</div>
+                                <div class="col-md-7">{{rfqLogistics.details}}</div>
+                            </p>
+                        </div>
+                      
+                        <div class="col-md-6" ng-if="rfqLogistics.fileName">
+                            <p class="bedge" data-toggle="tooltip" title="File">
+                                <i class="zmdi zmdi-attachment-alt" style="font-size: 16px;"></i>
+                                <a href="../Attachment/{{rfqLogistics.fileName}}" target="_blank" style="padding-left: 1px;">{{reqForQuote.fileName}}</a>
+                            </p>
+                        </div>
+
+                        <div class="col-md-6" ng-if="rfqLogistics.createdBy">
+                            <p class="bedge" data-toggle="tooltip" title="Created by">
+                                <div class="font-bold col-md-5">Created by&nbsp;</div>
+                                <div class="col-md-7">{{rfqLogistics.createdBy}}</div>
+                            </p>
+                            <!-- {{reqForQuote.dispatchedBy ? ', Dispatched By(' + reqForQuote.dispatchedBy +')' : ''}} -->
+                        </div>
+
+                        <!--<div class="col-md-6" ng-if="rfqLogistics.dispatchedBy != null && rfqLogistics.dispatchedBy != ''">
+                            <p class="bedge" data-toggle="tooltip" title="Dispatched by">
+                                <div class="font-bold col-md-5">Dispatched by&nbsp;</div>
+                                <div class="col-md-7">{{rfqLogistics.dispatchedBy}}</div>
+                            </p>
+                         
+                        </div>-->
+
+                        <div class="col-md-6" ng-if="rfqLogistics.clearanceDT != null && rfqLogistics.clearanceDT != ''">
+                            <p class="bedge" data-toggle="tooltip" title="Clearance">
+                                <div class="font-bold col-md-5">Clearance on&nbsp;</div>
+                                <div class="col-md-7">{{rfqLogistics.clearanceDT | date: 'dd-MMM-yy'}}</div>
+                            </p>
+                            <!-- {{reqForQuote.clearanceDT ? ', Dispatched By(' + reqForQuote.dispatchedBy +')' : ''}} -->
+                        </div>
+
+                        <div class="col-md-6" ng-if="rfqLogistics.vehicleReadyDT != null && rfqLogistics.vehicleReadyDT != ''">
+                            <p class="bedge" data-toggle="tooltip" title="Ready">
+                                <div class="font-bold col-md-5">Ready on&nbsp;</div>
+                                <div class="col-md-7">{{rfqLogistics.vehicleReadyDT | date: 'dd-MMM-yy'}}</div>
+                            </p>
+                        </div>
+                       
+                        <div class="col-md-6" ng-if="rfqLogistics.timeSlotFromDT != null && rfqLogistics.timeSlotFromDT != ''">
+                            <p class="bedge" data-toggle="tooltip" title="TimeSlot">
+                                <div class="font-bold col-md-5">Time Slot&nbsp;</div>
+                                <div class="col-md-7">
+                                    {{rfqLogistics.timeSlotFromDT | date : "dd-MMM-yy 'from' h:mma"}} to
+                                    {{rfqLogistics.timeSlotToDT | date : "h:mma"}}
+                                </div>
+                            </p>
+                        </div>
+                       
+                        <div class="col-md-6" ng-if="rfqLogistics.vehicleEntryDT != null && rfqLogistics.vehicleEntryDT != ''">
+                            <p class="bedge" data-toggle="tooltip" title="Vehicle Entry Date">
+                                <div class="font-bold col-md-5">Vehicle Entry&nbsp;</div>
+                                <div class="col-md-7">{{rfqLogistics.vehicleEntryDT | date: 'dd-MMM-yy'}}</div>
+                            </p>
+                        </div>
+
+                        <div class="col-md-6" ng-if="rfqLogistics.vehicleNumber != ''">
+                            <p class="bedge" data-toggle="tooltip" title="Vehicle Number">
+                                <div class="font-bold col-md-5">Vehicle No&nbsp;</div>
+                                <div class="col-md-7">{{rfqLogistics.vehicleNumber}}</div>
+                            </p>
+                        </div>
+
+                        <div class="col-md-6" ng-show="rfqLogistics.paymentTerms">
+                            <p class="bedge" data-toggle="tooltip" title="Term">
+                                <div class="font-bold col-md-5">Term&nbsp;</div>
+                                <div class="col-md-7">{{rfqLogistics.paymentTerms}}</div>
+                            </p>
+                        </div>
+                       
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</body>
+</html>

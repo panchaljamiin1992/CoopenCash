@@ -1,0 +1,621 @@
+﻿
+body {
+    font: overlock,sans-serif !important;
+}
+
+.wrap {
+    width: 100%;
+    margin: 0px auto;
+    overflow-x:hidden;
+    overflow-y:hidden;
+}
+
+.navbar {
+    position: relative;
+    min-height: 0px;
+    margin-bottom: 0px;   
+    border: 1px solid transparent;
+    height:90px;
+    width:100% !important;
+}
+
+.Menu {
+    position: relative;
+    min-height: 0px;
+    margin-bottom: 0px;   
+    border: 1px solid transparent;
+    height:90px;
+    width:100% !important;
+}
+
+.form-control {
+    height: 33px;
+    padding: 3px;
+    font-size: 14px;
+    line-height: 1.5;
+    border-radius: 5px;
+    display: initial;
+    margin-right: 3px;
+}
+
+.NeedTD {
+        width:10% !important;
+        margin-top:10px;
+        text-align:center;
+        position:relative;min-height:1px;padding-right:15px;padding-left:15px;
+        float:left;
+    }
+
+.NeedDiv {
+       
+        margin-top:10px;
+        text-align:center;
+        position:relative;min-height:1px;padding-right:35px;
+        float:right;
+        
+    }
+
+.Need {
+       
+        margin-top:10px;
+        text-align:center;
+        position:relative;
+        min-height:1px;
+        padding-right:35px;       
+    }
+
+.navbar-default {
+    background-color: white;
+    border-color: white;
+}
+
+
+    .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
+        background-color: white;
+        color: #103F54;
+    }
+
+   
+
+.navbar-nav > li > a {
+    border-bottom: none;
+    margin-right: 25px;
+    margin-left: 25px;
+    font: normal normal normal 24px overlock,sans-serif;
+}
+
+navbar-brand {
+    padding: 10px 15px;
+}
+
+.navbar-brand img {
+    height: 64px;
+    width: 192px;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #103F54;
+}
+
+
+.navbar-default .navbar-nav > .active > a {
+    border-color: white;
+    border-bottom-color: white;
+    background: #fff;
+    color: #444;
+    color: #BF5700;
+}
+
+.ulTopMenu {
+    margin-top: 20px;
+}
+
+
+
+.font_4 {
+    font: normal normal normal 45px overlock,sans-serif;
+    color: #605E5E;
+}
+
+.font_Header {
+    font: normal normal normal 45px overlock,sans-serif;
+    color: white;
+}
+
+#OurCreations {
+    padding-top: 30px;
+    padding-bottom : 30px;
+}
+
+#banner {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    -moz-user-drag: none;
+    -ms-user-drag: none;
+    user-drag: none;
+    -webkit-user-modify: ready-only;
+    -moz-user-modify: ready-only;
+    -ms-user-modify: ready-only;
+    user-modify: ready-only;
+    border-radius: 5px;
+    box-shadow: 0px 0px 15px 2px rgba(0,0,0,0.5);
+    overflow: hidden;
+    background: rgba(255, 255, 255, 1);
+    padding: 5px;
+    margin-top: 30px;
+    margin-bottom:20px;
+}
+
+.uk-overlay-active .uk-active > [class*=uk-overlay-slide], .uk-overlay-hover:hover [class*=uk-overlay-slide] {
+    background-color: rgba(255,255,255,0.8);
+}
+
+.BannerTitle {
+    color: #605E5E !important;
+}
+
+    .BannerTitle h3 {
+        font: normal normal normal 25px overlock,sans-serif !important;
+    }
+
+    .BannerTitle h3, .BannerTitle p, .BannerTitle a {
+        margin-top: 0px !important;
+        margin-bottom: 0px !important;
+        color: #605E5E !important;
+    }
+
+    .BannerTitle p, .BannerTitle a {
+        font: normal normal normal 16px overlock,sans-serif;
+    }
+
+.uk-slidenav {
+    color: white;
+    text-shadow: 0px 0px 10px black;
+}
+
+#OurCreations {
+    margin-left: -13px;
+    margin-right: -13px;
+}
+
+    #OurCreations .col-xs-4 {
+        padding: 8px;
+    }
+
+.thumbnail {
+    height: 300px;
+    border: none;
+    font: normal normal normal 20px overlock,sans-serif;
+    color: #605E5E;
+    text-align: center;
+}
+
+    .thumbnail .caption {
+        padding: 9px 0px;
+        color: #605E5E;
+    }
+
+.thumbimg {
+    padding: 3px;
+    box-shadow: 0px 0px 15px 2px rgba(0,0,0,0.5);
+    border-radius: 4px;
+    display: inline-table;
+}
+
+    .thumbimg img {
+        border-radius: 4px;
+        width: 304px;
+        height: 194px;
+        object-fit: cover;
+    }
+
+    .thumbimg:hover {
+        opacity: 0.5;
+        filter: alpha(opacity=50);
+    }
+
+.uk-slidenav-next {
+    right: 0px !important;
+}
+
+.uk-slidenav-previous {
+    left: 0px !important;
+}
+
+.PrdInquiryDescription {
+    font: normal normal normal 20px overlock,sans-serif;
+    color: #605E5E;
+}
+
+#divProductInquiry {
+    margin-top: 30px;
+    display: inline-block;
+}
+
+    #divProductInquiry .font_4 {
+        margin-bottom: 30px;
+    }
+
+/*Start textareay style*/
+
+.s13 textarea {
+    min-height: 130px;
+    resize: none;
+}
+
+.s13 input, .s13 textarea {
+    font: normal normal normal 16px overlock,sans-serif;
+    background-color: rgba(255, 255, 255, 1);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: 0px solid rgba(160, 160, 159, 1);
+    color: #605E5E;
+    margin: 0 0 5px;
+    width: 100%;
+}
+
+.s13 button, .s13 input, .s13 textarea {
+    border-radius: 5px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+    padding: 5px;
+}
+
+textarea, input, select {
+    font-family: Helvetica, Arial, sans-serif;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+user agent stylesheettextarea {
+    font-family: monospace;
+    border-color: rgb(169, 169, 169);
+}
+
+user agent stylesheettextarea {
+    -webkit-appearance: textarea;
+    background-color: white;
+    border: 1px solid;
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+    -webkit-rtl-ordering: logical;
+    -webkit-user-select: text;
+    flex-direction: column;
+    resize: auto;
+    cursor: auto;
+    padding: 2px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+user agent stylesheetinput, textarea, keygen, select, button {
+    margin: 0em;
+    font: 13.3333px Arial;
+    text-rendering: auto;
+    color: initial;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+}
+
+.s13 .button {
+    background-color: rgba(191, 87, 0, 1);
+    font: normal normal normal 16px overlock,sans-serif;
+    border: 0;
+    color: #FFFFFF;
+    cursor: pointer;
+    float: right;
+    margin: 0;
+    max-width: 35%;
+}
+/*End textareay style*/
+
+#divFooter {
+    /*background-color: #D4D4D4;*/
+    height: 168px;
+    width: 100%;
+    margin-top: 60px;
+    /*border-top: white 1px solid;
+        box-shadow: 0px -1px 5px black;*/
+}
+
+#divFooter {
+    height: auto;
+    display: inline-block;
+    padding-bottom: 10px;
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.6), inset 0 -1px 1px rgba(0, 0, 0, 0.6), 0 0 5px rgba(0, 0, 0, 0.6);
+    background-color: rgba(204, 204, 204, 1);
+    border-top: 0px solid rgba(160, 160, 159, 1);
+    border-bottom: 0px solid rgba(160, 160, 159, 1);
+    background-image: url(../../Images/bevel_300.png);
+    background-repeat: repeat-x;
+    margin-bottom: -4px;
+}
+
+.font {
+     font: normal normal normal 24px overlock,sans-serif;
+    color:  #605E5E;
+}
+.font_1 {
+     font: normal normal normal 30px overlock,sans-serif;
+    color:  #605E5E;
+}
+.font_2 {
+    font: normal normal normal 24px overlock,sans-serif;
+    color: white;
+}
+
+.font_3 {
+    font: normal normal normal 23px overlock,sans-serif;
+    color: #605E5E;
+}
+
+
+.font_5 {
+    font: normal normal normal 28px overlock,sans-serif;
+    color: #605E5E;
+}
+
+.font_7 {
+    font: normal normal normal 19px overlock,sans-serif;
+    color: #605E5E;
+}
+
+.font_8 {
+    font: normal normal normal 16px overlock,sans-serif;
+    color: #605E5E;
+}
+
+.font_9 {
+    font: normal normal normal 15px overlock,sans-serif;
+    color: #605E5E;
+}
+
+.font_11 {
+    font: normal normal normal 15px overlock,sans-serif;
+    color: white;
+}
+
+.font_12 {
+    font: normal normal normal 19px overlock,sans-serif;
+    color: #605E5E;
+}
+
+#divFooterCont {
+    width: 980px;
+    margin: 0px auto;
+    margin-top: 10px;
+}
+
+    #divFooterCont p {
+        margin-bottom: 0px !important;
+        margin-top: 0px !important;
+    }
+
+.subTitle {
+    margin-bottom: 30px;
+}
+
+#divCompany p {
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+
+#divEmployeeDetails {
+    margin-top: 60px;
+    display: inline-block;
+    width: 100%;
+}
+
+    #divEmployeeDetails img {
+        box-shadow: 0px 5px 10px 3px rgba(0,0,0,0.5);
+        display: block;
+        background-color: rgba(255, 255, 255, 1);
+        border: 3px solid rgba(255, 255, 255, 1);
+        border-radius: 4px;
+    }
+
+        #divEmployeeDetails img:hover {
+            opacity: 0.5;
+        }
+
+    #divEmployeeDetails table td {
+        padding-left: 20px;
+    }
+
+        #divEmployeeDetails table td h2 {
+            margin-bottom: 0px !important;
+        }
+
+    #divEmployeeDetails .col-xs-6 {
+        margin-bottom: 50px;
+    }
+
+#divContact {
+    display: inline-block;
+    width: 100%;
+}
+
+    #divContact .divMap {
+        box-shadow: 0px 5px 10px 3px rgba(0,0,0,0.5);
+        display: inline-block;
+        background-color: rgba(255, 255, 255, 1);
+        border: 2px solid #BF5700;
+        border-radius: 10px;
+        width: 539px;
+        height: 354px;
+    }
+
+.divMapCan {
+    display: inline-block;
+    overflow: hidden;
+    border-radius: 10px;
+    -webkit-mask-image: -webkit-radial-gradient(circle, #fff, #000);
+}
+
+#divContact iframe {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    vertical-align: baseline;
+    background: transparent;
+    width: 539px;
+    height: 354px;
+    width: 535px;
+    height: 347px;
+}
+
+#divVisitUs {
+    float: right;
+    width: 410px;
+}
+
+#divMap {
+    float: left;
+    width: 540px;
+}
+
+#divSayHello {
+    float: right;
+    width: 410px;
+}
+
+    #divVisitUs p, #divSayHello p {
+        margin-bottom: 0px !important;
+        margin-top: 0px !important;
+    }
+
+@media (max-width:980px) {
+    .wrap {
+        width: 87%;
+        margin: 0px auto;
+    }
+
+    .ulTopMenu {
+        margin-top: 90px;
+    }
+
+        .ulTopMenu, .ulTopMenu li {
+            border: solid 1px rgba(191, 87, 0, 1);
+        }
+
+            .ulTopMenu, .ulTopMenu li, .ulTopMenu li a {
+                background-color: rgb(243,109,34);
+                z-index: 20 !important;
+                width:100%
+            }
+
+    .navbar-default {
+        height: 100px;
+    }
+
+    .navbar-brand img {
+        height: 92px;
+        width: 280px;
+    }
+
+    .navbar-toggle {
+        position: absolute;
+        /*float: right;*/
+        padding: 9px 10px;
+        border-color: rgba(191, 87, 0, 1) !important;
+        /* margin-top: 10px; */
+        /* margin-right: 15px; */
+        top: 92px;
+        right: 0px;
+    }
+
+    .navbar-default .navbar-toggle .icon-bar {
+        background-color: rgba(191, 87, 0, 1);
+    }
+
+    #divFooter #divFooterCont {
+        width: 92%;
+        height: auto;
+        background-color: #D4D4D4;
+    }
+
+
+    .subTitle {
+        font: normal normal normal 31px overlock,sans-serif;
+    }
+
+    .navbar-default {
+        margin-bottom: 35px;
+    }
+
+    .col-xs-4 {
+        width: 50%;
+    }
+   
+    .col-xs-6 {
+        width:100%;
+        margin-top:10px;
+        text-align:center;
+    }
+
+    .thumbnail {
+        font: normal normal normal 13px overlock,sans-serif;
+        height: 170px;
+    }
+
+    .uk-slidenav {
+        display: inline !important;
+    }
+
+    #divProductInquiry .PrdInquiryDescription {
+        display: none !important;
+    }
+
+    #divProductInquiry .col-xs-6, #divEmployeeDetails .col-xs-6 {
+        width: 100% !important;
+        padding-left:0px !important;
+    }
+
+    #divVisitUs {
+        float: none;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    #divMap, #divMap, #divSayHello {
+        float: left;
+        width: 100%;
+    }
+
+    #divMap {
+        padding: 20px;
+        width: 100% !important;
+    }
+
+    .divMapCan {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .divMap, .divMap iframe {
+        width: 100% !important;
+        height: 230px !important;
+        overflow: hidden;
+    }
+
+        .divMap iframe {
+            height: 222px !important;
+        }
+
+    .s13 .button {
+    max-width:100%;
+    }
+}

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0d26efd7923e4681ab39b879fc05803d" Name="Diagram1" ZoomLevel="93">
+        <EntityTypeShape EntityType="transporter_QuoteModel.Executive" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="transporter_QuoteModel.Source" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="transporter_QuoteModel.Customer" Width="1.5" PointX="5.375" PointY="5.75" />
+        <EntityTypeShape EntityType="transporter_QuoteModel.RFQ" Width="1.5" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="transporter_QuoteModel.Route" Width="1.5" PointX="9.375" PointY="0.75" />
+        <EntityTypeShape EntityType="transporter_QuoteModel.Zone" Width="1.5" PointX="9.375" PointY="3.75" />
+        <EntityTypeShape EntityType="transporter_QuoteModel.QuoteTypeComponent" Width="1.5" PointX="0.75" PointY="10.75" />
+        <EntityTypeShape EntityType="transporter_QuoteModel.QuoteType" Width="1.5" PointX="2.75" PointY="10.75" />
+        <EntityTypeShape EntityType="transporter_QuoteModel.Field" Width="1.5" PointX="11.375" PointY="0.75" />
+        <EntityTypeShape EntityType="transporter_QuoteModel.ServiceType" Width="1.5" PointX="11.375" PointY="4.75" />
+        <EntityTypeShape EntityType="transporter_QuoteModel.RFQFieldValue" Width="1.5" PointX="5.375" PointY="11.75" />
+        <EntityTypeShape EntityType="transporter_QuoteModel.Quotation" Width="1.5" PointX="9.375" PointY="7.75" />
+        <EntityTypeShape EntityType="transporter_QuoteModel.Transporter" Width="1.5" PointX="11.375" PointY="7.75" />
+        <EntityTypeShape EntityType="transporter_QuoteModel.Shipment" Width="1.5" PointX="13.375" PointY="0.75" />
+        <EntityTypeShape EntityType="transporter_QuoteModel.ShipField" Width="1.5" PointX="7.375" PointY="12.75" />
+        <EntityTypeShape EntityType="transporter_QuoteModel.Config" Width="1.5" PointX="13.375" PointY="6.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

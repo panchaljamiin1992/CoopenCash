@@ -1,0 +1,237 @@
+﻿<style>
+    .autocomplete-content {
+        margin-top: 1px;
+        display: block;
+        opacity: 1;
+        position: absolute;
+    }
+
+    .addSchedule .modal-content {
+        max-height: 90%;
+        border-radius: 0px;
+    }
+
+    .addSchedule .modal-dialog {
+        background-color: #fff;
+        margin-top: 100px;
+        max-height: 85%;
+        width: 90%;
+    }
+
+    .close-btn {
+        font-size: 24px;
+        padding: 12px 17px;
+        border-radius: 25px;
+        float: right;
+        color: #000000;
+        background-color: #fff;
+        -webkit-transition: background-color 2s;
+    }
+
+        .close-btn:hover {
+            background-color: #ededed;
+            border-radius: 25px;
+        }
+
+    .row {
+        /*margin: 0px;*/
+        margin: 10px;
+    }
+
+    .input-field {
+        margin-bottom: 20px;
+    }
+
+    .select-wrapper span.caret {
+        color: #cccccc !important;
+    }
+
+    input[type=text].invalid {
+        border-bottom: 1px solid rgba(0,0,0,0.26);
+    }
+
+    .header {
+        border-bottom: 1px solid rgba(0, 0, 0, .10);
+        padding: 10px;
+    }
+
+    .addSchedule label {
+        font-size: 15px;
+        font-weight: 500;
+    }
+
+    @media only screen and (max-width: 500px) {
+        .addSchedule .modal-dialog {
+            width: 100%;
+            margin: 100px 0px 0px 0px;
+        }
+    }
+
+    .open {
+        width: 10em !important;
+        height: auto !important;
+    }
+
+    .input-text {        
+        margin-top: -4%;
+        margin-bottom: 8%;
+        padding-left: 0%;
+    }
+
+    /*input[type="text"] {
+            -webkit-box-shadow: none;
+            border: none;
+            border-bottom: 1px solid #ccc;
+            border-radius: inherit;
+            font-size: 14px;
+            outline: none;
+        }*/
+
+    .rating {
+        color: #a9a9a9;
+        margin: 0;
+        padding: 0;
+    }
+    ul.rating {
+        display: inline-block;
+    }
+    .rating li {
+        list-style-type: none;
+        display: inline-block;
+        padding: 1px;
+        text-align: center;
+        font-weight: bold;
+        cursor: pointer;        
+        font-size:20px;
+    }
+
+    /*Remove spinner from input type number field*/
+    /*For Chrome and Safari*/
+    input[type=number]::-webkit-inner-spin-button, 
+    input[type=number]::-webkit-outer-spin-button { 
+        -webkit-appearance: none;
+        -moz-appearance: none;        
+        margin: 0; 
+    }
+
+    /*For Mozilla*/
+    input[type='number'] {
+        -moz-appearance:textfield;
+    }
+</style>
+
+<!-- Main content -->
+<div style="min-height: 250px;">
+
+    <div class="row header">
+        <div class="col-md-10 col-sm-10">
+            <div>
+                <span style="font-size: 18px;">
+                    {{addOrShowFeedback}}<!--Add feedback & actual-->
+                </span>
+            </div>
+        </div>
+        <div style="position: absolute; top: 8px; right: 0px;" class="col-md-2 col-sm-2">
+            <a href="" ng-click="closeFeedAndRate();" title="Close">
+                <i class="zmdi zmdi-close close-btn" style="cursor: pointer;"></i>
+            </a>
+        </div>
+    </div>
+    <div class="divider" style="margin-bottom: 20px;"></div>
+
+    <!-- Body -->
+    <div class="row" style="padding: 15px;">
+        <div>
+
+            <!-- Rating -->
+            <div class="col-md-12" style="padding: 10px;">
+                <div class="col-md-4" style="font-weight: bold;">Rating</div>
+                <div class="col-md-8">
+                    <ul class="rating">
+                        <li ng-repeat="star in stars" ng-style="fill($index)" ng-click="toggle($index)">
+                            &#x2605
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Reason -->
+            <div class="col-md-12" style="padding: 10px;">
+                <div class="col-md-4" style="font-weight: bold;">
+                   Reason
+                </div>
+                <div class="col-md-8">
+                   <input type="text" ng-if="addOrShowFeedback != 'Feedback & Rates'" ng-model="rating.reason" class="form-control input-text"/>                                
+                   <span ng-if="addOrShowFeedback == 'Feedback & Rates'">{{rating.reason}}</span>
+                </div>
+            </div>
+
+            <!-- Actual cost add -->
+            <div>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th style="width: 10px;">
+                                Components
+                            </th>
+                            <th style="width: 109px;">
+                                Accepted Cost
+                            </th>
+                            <th style="width: 100px;">
+                                Actual Cost
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="component in componentsDetail">
+                            <td>
+                                {{component.componentName}}
+                            </td>
+                            <td>
+                                {{component.componentValue}}
+                            </td>
+                            <td ng-if="addOrShowFeedback != 'Feedback & Rates'">
+                                <input type="text" onkeypress="return isNumber(event)" ng-model="component.value" />
+                            </td>
+                            <td ng-if="addOrShowFeedback == 'Feedback & Rates'">
+                                {{component.value}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Submit button -->
+    <div style="display: block; text-align: center;" ng-if="addOrShowFeedback != 'Feedback & Rates'">
+        <div style="text-align: center; margin-top: 10px;">
+            <button class="btn btn-primary" title="Save" tabindex="0" ng-click="submitFeedAndRate()">
+                <i class="fa fa-check left" style="padding:0 7px 0 0;"></i>Save
+            </button>
+        </div>&nbsp;
+    </div>
+
+</div>
+
+<script type="text/javascript">    
+    var unit = new Date().getHours() >= 12 ? " PM" : " AM";
+    var minutes = new Date().getMinutes() < 10 ? "0" : "" + new Date().getMinutes();
+    var date = new Date().getHours() % 12 + ":" + minutes + unit;
+
+    function isNumber(evt) {
+        evt = (evt) ? evt : window.event;
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if (charCode == 16 || charCode == 36 || charCode == 37 || charCode == 39 || charCode == 46)
+            return true;
+        if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+            return false;
+        }
+        return true;
+    }
+    //$('#fromTime').timepicker();
+    //$('#fromTime').val(date);
+    //$('#toTime').timepicker();
+    //$('#toTime').val(date);
+</script>
+

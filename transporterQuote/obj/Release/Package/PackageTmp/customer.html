@@ -1,0 +1,478 @@
+﻿<!DOCTYPE html>
+<html ng-app="customerQuote">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="Images/PCBMall favicon.png" />
+    <title>ALOCS</title>
+    <meta name="description" content="Transporter Quote System">
+    <meta name="keywords" content="machine">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="author" content="Ekta Shah">
+
+    <!-- JavaScript for: jQuery, angular, and bootstrap. -->
+    <script src="lib/jquery/jquery.min.js"></script>
+    <script src="lib/angular/angular.min.js"></script>
+    <link href="lib/bootstrap/bootstrap.min.css" rel="stylesheet"/>
+    <link href="lib/bootstrap/css/angular-datepicker.css" rel="stylesheet"/>
+    <script src="lib/angular-sanitize/angular-sanitize.min.js"></script>
+    <link href="CSS/transporterQuote.css" rel="stylesheet" />
+
+    <link href="lib/bootstrap/DataTables-1.10.4/media/css/jquery.dataTables.css" rel="stylesheet" />
+    <link href="lib/bootstrap/DataTables-1.10.4/examples/resources/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet" />
+    <link href="lib/bootstrap-sweetalert/sweet-alert.css" rel="stylesheet" />
+
+    <!-- Angular loading bar -->
+    <link href="lib/angular-loading-bar/loading-bar.css" rel="stylesheet" />
+    <script src="lib/angular-loading-bar/loading-bar.js"></script>
+
+    <script src="lib/bootstrap-sweetalert/sweet-alert.min.js"></script>
+    <script src="lib/ngSweetAlert/SweetAlert.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-loading-bar/0.9.0/loading-bar.min.js"></script>
+    <!--<script data-require="ui-bootstrap@*" data-semver="1.3.2" src="https://cdn.rawgit.com/angular-ui/bootstrap/gh-pages/ui-bootstrap-tpls-1.3.2.js"></script>-->
+    <script src="lib/ui-bootstrap/ui-bootstrap-tpls-1.3.2.js"></script>
+
+    <!-- Moment.js -->
+    <script src="lib/moment/js/moment.js"></script>
+
+    <script src="lib/bootstrap/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="lib/material-design-iconic-font/material-design-iconic-font.min.css" rel="stylesheet" />
+    <script src="//cdn.jsdelivr.net/fingerprintjs2/1.4.1/fingerprint2.min.js"></script>
+    <script src="lib/bootstrap/js/angular-datepicker.js"></script>
+    <script src="lib/bower_components/ng-table/ng-table.min.js"></script>
+
+    <!-- Multiple select -->
+    <script src="lib/angular-multiselection/js/Angular-bootstrap-multiselect.js"></script>
+
+    <!-- Toaster -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/angularjs-toaster/2.1.0/toaster.css" rel="stylesheet" />
+    <script src="http://code.angularjs.org/1.4.2/angular-animate.min.js"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/angularjs-toaster/2.1.0/toaster.js"></script>-->
+    <script src="lib/toaster/toaster.js"></script>
+
+    <!-- Fileupload -->
+    <script src="lib/ng-file-upload/ng-file-upload-shim.js"></script>
+    <script src="lib/ng-file-upload/ng-file-upload.js"></script>
+
+    <!-- Angular ui-router -->
+    <script src="lib/angular-ui-router/angular-ui-router.min.js"></script>
+
+    <!-- Common file -->
+    <script src="JS/extFactory.js"></script>
+    <script src="JS/general.js"></script>
+    <script src="JS/extCustomerApp.js"></script>
+
+    <style>
+        .listHeader {
+            border-bottom: 1px solid rgba(0, 0, 0, .10);
+            box-sizing: border-box;
+            height: 50px;
+            /*box-shadow: 0 3px 10px rgba(0,0,0,0.4);*/
+            /* text-align: center; */
+            /* background-color: #0D47A1; */
+        }
+
+        .listHeaderText {
+            vertical-align: sub;
+            line-height: 2.3;
+            display: inherit;
+            color: #286090;
+            /*color: #03A9F4*/ /*rgba(255, 0, 0, 0.66)*/
+            font-weight: 600;
+            font-size: 16px;
+            font-family: Roboto;
+        }
+
+        .cust-Div {
+            /*background-color: #ffb9a6;*/
+            margin: 10px 15px 0px 10px;
+            border-radius: 3px;
+            height: 100%;
+        }
+
+        .listDetailHeaderIcon {
+            position: absolute;
+            font-size: 20px;
+            text-align: right;
+            cursor: pointer;
+        }
+
+        .font-color {
+            color: #286090;
+        }
+
+        i {
+            padding-right: 5px;
+        }
+
+        .dateClass {
+            margin-left: 10px;
+            font-size: 12px;
+            color: #555;
+        }
+
+        .bedge {
+            /*background-color: rgba(0,0,0,0.06);*/
+            padding: 5px 10px;
+            /*display: inline;*/
+            margin-right: 10px;
+            border-radius: 2px;
+        }
+
+        .btn {
+            padding: 2px 6px !important;
+            border-radius: 1px;
+            margin-right: 10px;
+        }
+
+        /* #region "Loader" */
+
+        #loading-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.2);
+            z-index: 11002;
+            pointer-events: auto;
+        }
+
+            #loading-bar .bar {
+                background: none;
+            }
+
+        #loading-bar-spinner {
+            display: block;
+            position: fixed;
+            z-index: 11002;
+            top: 50%;
+            left: 50%;
+            margin-left: -15px;
+            margin-right: -15px;
+            height: 100px;
+        }
+
+            #loading-bar-spinner .spinner-icon {
+                width: 50px;
+                height: 50px;
+                border: solid 4px transparent;
+                border-top-color: #286090;
+                border-left-color: #286090;
+                border-radius: 25px;
+                box-shadow: 0px 2px 3px #80bd9e;
+            }
+
+        .font-bold {
+            font-weight: bold;
+        }
+
+        .headerAlign {
+            vertical-align: top !important;
+        }
+
+        .tdSpacing {
+            padding: 5px;
+        }
+
+        #vertical td {
+            min-width: 150px !important;
+        }
+
+        /* #endregion */
+    </style>
+</head>
+
+<body ng-controller="customerCtrl" style="height: 100%; overflow-x: hidden;">
+
+    <!-- #region "Toaster" -->
+    <toaster-container toaster-options="{'close-button':true, 'time-out': 5000 }"></toaster-container>
+    <!-- #endregion -->
+    <div style="margin-left: 0px; margin-right: 0px; height: 100%;" class="ng-cloak">
+        <div class="list" style="padding: 0px;  height: 100%;">
+
+            <!-- Header -->
+            <div class="listHeader" style="padding:8px; width: 100%; display: flex;">
+                <div class="listHeaderText fontFamily font-color">
+                    <span style="vertical-align:middle;">Quotes received for #{{rfqDetail.requestDetail.requestForQuoteID}} 
+                    {{rfqDetail.requestDetail.destinationAddress ? '-' : ''}} 
+                    {{rfqDetail.requestDetail.destinationAddress}}</span>
+                    <p class="dateClass" style="color: #4CAF50; font-size: 15px;" ng-if="rfqDetail.requestDetail.status == '1'">
+                    <i class="fa fa-check"></i>Accepted</p>
+                </div>
+              
+            </div>
+           
+            <!-- RFQ detail -->
+            <div class="cust-Div">
+                <div style="display: block" class="col-md-12">
+                   
+                    <div class="col-md-4" style="display: inline-block; margin: 0px 0px 15px 0px;" ng-repeat="field in rfqDetail.requestDetail.fields" ng-if="field.showtoCustomers">
+                        <!--<p class="bedge" data-toggle="tooltip" title="Delivery date">--> 
+                        <div class="font-bold col-md-4">{{field.fieldName}}</div>&nbsp; 
+                        <div class="col-md-7">{{field.fieldValue}}</div>
+                        <!--</p>-->
+                    </div>
+
+                    <div class="col-md-4" style="display: inline-block; margin: 0px 0px 15px 0px;">
+                        <div class="font-bold col-md-4">Delivery </div>
+                            <div class="col-md-7"> {{rfqDetail.requestDetail.deliveryBy | date: 'dd-MMM-yy'}} </div>
+                    </div>
+              
+                    <div class="col-md-4" style="display: inline-block; margin: 0px 0px 15px 0px;" ng-show="rfqDetail.requestDetail.detail">
+                            <div class="font-bold col-md-4">Note</div> 
+                            <div class="col-md-7">{{rfqDetail.requestDetail.detail}}</div>
+                    </div>
+
+                    <div class="col-md-4" style="display: flex; margin: 0px 0px 15px 0px;" ng-show="false">
+                        <div class="infoLbl col-md-4 font-bold" style="width: 120px;">Quote by </div>
+                        <div class="col-md-8">
+                            <datepicker date-format="dd-MMM-yy" date-min-limit="{{todayDT | date: 'dd-MMM-yy'}}" 
+                                        date-max-limit="{{rfqDetail.requestDetail.pickUpDT | date: 'dd-MMM-yy'}}">
+                                <input type="text" class="form-control"
+                                       style="position: relative; width: 100px; height: 26px; margin-right: 10px;"
+                                       ng-model="rfqDetail.requestDetail.quoteBy" ng-change="extendQuoteBy(reqForQuote);" 
+                                       ng-disabled="rfqDetail.requestDetail.status == 1 || rfqDetail.requestDetail.isCloseEarly" />
+                            </datepicker>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Quatation list -->
+                <div class="col-md-12" style="padding: 10px 15px; background-color: #ddd; margin: 15px 10px; font-size: 15px;">
+                    <i class="fa fa-inr" style="padding-right: 5px; font-size: 17px;"></i> {{rfqDetail.quoteDetail.length > 0 ? 'Quotations' : 'Quotation'}}
+                    ({{rfqDetail.quoteDetail.length}})
+                    <a style="float: right; cursor: pointer;" ng-click="changeView();" title="Change view">
+                       {{viewName}}
+                    </a>
+                </div>
+
+                <!-- Vertical view of comparison -->
+                <div class="col-md-12" style="max-height: 300px; overflow-y: auto; overflow-x: auto;" id="style-1" ng-show="showVertical">
+                    <div style="overflow-y: auto;">
+                        <div class="col-md-12">
+                            <table class="table table-bordered" id="vertical">
+                                <tbody>
+                                    <tr ng-repeat="(key, val) in quoteVerticalDetail[0]">
+                                        <td class="font-bold tdSpacing" ng-if="key != 'Status' && key != 'TotalINR'">
+                                            {{key == 'ExchangeRate' ? 'Exchange Rate' : key == 'TotalDollar' ? 'Total($)' : key == 'Receivedon' ? 'Received on' : key}}
+                                        </td>
+                                       
+                                        <td class="font-bold tdSpacing" ng-if="key == 'TotalINR'">
+                                            Total(<span style="font-family: arial;">₹</span>)
+                                        </td>
+                                        <td class="tdSpacing" ng-repeat="quote in quoteVerticalDetail" ng-if="key != 'Status'" 
+                                            style="font-weight: {{key == 'Vendor' ? 'bold' : '' }}; background-color: {{quote.Status == '1' ? '#8bd68e' : ''}}">
+                                           
+                                             <span ng-if="key != 'Accept' && key != 'Email' && key != 'Mobile'">{{ quote[key] }}</span>
+                                            <span ng-if="key == 'Email'"><i class="zmdi zmdi-email" title="{{ quote[key] }}"></i></span>
+                                            <span ng-if="key == 'Mobile'"><i class="zmdi zmdi-phone" title="{{quote[key]}}"></i></span>
+                                            <span ng-if="key == 'Accept' && quote[key] == true" style="cursor: pointer;" ng-click="openAddNotePop($index);"><i class="fa fa-check" title="Accept"></i></span>
+                                        </td>
+                                        
+                                        <!--<td class="tdSpacing" ng-repeat="quote in quoteVerticalDetail" ng-if="key == 'Email' || key == 'Mobile'" style="width: 15% !important; font-weight: {{key == 'Vendor' ? 'bold' : '' }};">
+                                            <i class="zmdi zmdi-email" ng-show="key == 'Email'" title="{{ quote[key] }}"></i> 
+                                            <i class="zmdi zmdi-phone" ng-show="key == 'Mobile'" title="{{quote[key]}}"></i>
+                                        </td>
+                                        <td class="tdSpacing" ng-repeat="quote in quoteVerticalDetail" ng-if="key == 'Accept'" style="width: 15% !important;">
+                                            <i class="fa fa-check" ng-click="acceptQuote($index);" title="Accept"></i>
+                                        </td>-->
+                                        <!--<td class="tdSpacing" ng-repeat="quote in quoteVerticalDetail" ng-if="key != 'Status'" style="font-weight: {{key == 'Vendor' ? 'bold' : '' }};">
+                                            <span ng-if="key != 'Accept' && key != 'Email' && key != 'Mobile'">{{ quote[key] }}</span>
+                                            <span ng-if="key == 'Email'"><i class="zmdi zmdi-email" title="{{ quote[key] }}"></i></span>
+                                            <span ng-if="key == 'Mobile'"><i class="zmdi zmdi-phone" title="{{quote[key]}}"></i></span>
+                                            <span ng-if="key == 'Accept' && quote[key] == true" ng-click="acceptQuote($index);"><i class="fa fa-check" title="Accept"></i></span>
+                                        </td>
+                                        <td class="tdSpacing" ng-repeat="quote in quoteVerticalDetail" ng-if="key != 'Status'" style="font-weight: {{key == 'Vendor' ? 'bold' : '' }};">
+                                            <span ng-if="key != 'Accept' && key != 'Email' && key != 'Mobile'">{{ quote[key] }}</span>
+                                            <span ng-if="key == 'Email'"><i class="zmdi zmdi-email" title="{{ quote[key] }}"></i></span>
+                                            <span ng-if="key == 'Mobile'"><i class="zmdi zmdi-phone" title="{{quote[key]}}"></i></span>
+                                            <span ng-if="key == 'Accept' && quote[key] == true" ng-click="acceptQuote($index);"><i class="fa fa-check" title="Accept"></i></span>
+                                        </td>
+                                        <td class="tdSpacing" ng-repeat="quote in quoteVerticalDetail" ng-if="key != 'Status'" style="font-weight: {{key == 'Vendor' ? 'bold' : '' }};">
+                                            <span ng-if="key != 'Accept' && key != 'Email' && key != 'Mobile'">{{ quote[key] }}</span>
+                                            <span ng-if="key == 'Email'"><i class="zmdi zmdi-email" title="{{ quote[key] }}"></i></span>
+                                            <span ng-if="key == 'Mobile'"><i class="zmdi zmdi-phone" title="{{quote[key]}}"></i></span>
+                                            <span ng-if="key == 'Accept' && quote[key] == true" ng-click="acceptQuote($index);"><i class="fa fa-check" title="Accept"></i></span>
+                                        </td>
+                                        <td class="tdSpacing" ng-repeat="quote in quoteVerticalDetail" ng-if="key != 'Status'" style="font-weight: {{key == 'Vendor' ? 'bold' : '' }};">
+                                            <span ng-if="key != 'Accept' && key != 'Email' && key != 'Mobile'">{{ quote[key] }}</span>
+                                            <span ng-if="key == 'Email'"><i class="zmdi zmdi-email" title="{{ quote[key] }}"></i></span>
+                                            <span ng-if="key == 'Mobile'"><i class="zmdi zmdi-phone" title="{{quote[key]}}"></i></span>
+                                            <span ng-if="key == 'Accept' && quote[key] == true" ng-click="acceptQuote($index);"><i class="fa fa-check" title="Accept"></i></span>
+                                        </td>
+                                        <td class="tdSpacing" ng-repeat="quote in quoteVerticalDetail" ng-if="key != 'Status'" style="font-weight: {{key == 'Vendor' ? 'bold' : '' }};">
+                                            <s ng-if="key != 'Accept' && key != 'Email' && key != 'Mobile'">{{ quote[key] }}</s>
+                                            <span ng-if="key == 'Email'"><i class="zmdi zmdi-email" title="{{ quote[key] }}"></i></span>
+                                            <span ng-if="key == 'Mobile'"><i class="zmdi zmdi-phone" title="{{quote[key]}}"></i></span>
+                                            <span ng-if="key == 'Accept' && quote[key] == true" ng-click="acceptQuote($index);"><i class="fa fa-check" title="Accept"></i></span>
+                                        </td>
+                                        <td class="tdSpacing" ng-repeat="quote in quoteVerticalDetail" ng-if="key != 'Status'" style="font-weight: {{key == 'Vendor' ? 'bold' : '' }};">
+                                            <span ng-if="key != 'Accept' && key != 'Email' && key != 'Mobile'">{{ quote[key] }}</span>
+                                            <span ng-if="key == 'Email'"><i class="zmdi zmdi-email" title="{{ quote[key] }}"></i></span>
+                                            <span ng-if="key == 'Mobile'"><i class="zmdi zmdi-phone" title="{{quote[key]}}"></i></span>
+                                            <span ng-if="key == 'Accept' && quote[key] == true" ng-click="acceptQuote($index);"><i class="fa fa-check" title="Accept"></i></span>
+                                        </td>
+                                        <td class="tdSpacing" ng-repeat="quote in quoteVerticalDetail" ng-if="key != 'Status'" style="font-weight: {{key == 'Vendor' ? 'bold' : '' }};">
+                                            <span ng-if="key != 'Accept' && key != 'Email' && key != 'Mobile'">{{ quote[key] }}</span>
+                                            <span ng-if="key == 'Email'"><i class="zmdi zmdi-email" title="{{ quote[key] }}"></i></span>
+                                            <span ng-if="key == 'Mobile'"><i class="zmdi zmdi-phone" title="{{quote[key]}}"></i></span>
+                                            <span ng-if="key == 'Accept' && quote[key] == true" ng-click="acceptQuote($index);"><i class="fa fa-check" title="Accept"></i></span>
+                                        </td>
+                                        <td class="tdSpacing" ng-repeat="quote in quoteVerticalDetail" ng-if="key != 'Status'" style="font-weight: {{key == 'Vendor' ? 'bold' : '' }};">
+                                            <span ng-if="key != 'Accept' && key != 'Email' && key != 'Mobile'">{{ quote[key] }}</span>
+                                            <span ng-if="key == 'Email'"><i class="zmdi zmdi-email" title="{{ quote[key] }}"></i></span>
+                                            <span ng-if="key == 'Mobile'"><i class="zmdi zmdi-phone" title="{{quote[key]}}"></i></span>
+                                            <span ng-if="key == 'Accept' && quote[key] == true" ng-click="acceptQuote($index);"><i class="fa fa-check" title="Accept"></i></span>
+                                        </td>
+                                        <td class="tdSpacing" ng-repeat="quote in quoteVerticalDetail" ng-if="key != 'Status'" style="font-weight: {{key == 'Vendor' ? 'bold' : '' }};">
+                                            <span ng-if="key != 'Accept' && key != 'Email' && key != 'Mobile'">{{ quote[key] }}</span>
+                                            <span ng-if="key == 'Email'"><i class="zmdi zmdi-email" title="{{ quote[key] }}"></i></span>
+                                            <span ng-if="key == 'Mobile'"><i class="zmdi zmdi-phone" title="{{quote[key]}}"></i></span>
+                                            <span ng-if="key == 'Accept' && quote[key] == true" ng-click="acceptQuote($index);"><i class="fa fa-check" title="Accept"></i></span>
+                                        </td>-->
+                                        
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Horizontal view of comparison -->
+                <div class="col-md-12" style="max-height: 300px; overflow-y: auto;" id="style-1"  ng-show="!showVertical">
+                    <div style="overflow-y: auto;">
+                        <div class="col-md-12">
+                            <table class="table table-bordered">
+
+                                <!-- Header -->
+                                <thead>
+                                    <tr>
+                                        <th class="headerAlign" style="width: 200px;">
+                                            Vendor
+                                        </th>
+                                        <th ng-if="rfqDetail.quoteDetail[0].exchangeRate > 0">
+                                            Exchange Rate
+                                        </th>
+                                        <th class="headerAlign" style="width: 100px;" ng-repeat="componentHead in rfqDetail.quoteDetail[0].components"
+                                            ng-if="componentHead.componentType == 'Charge'">
+                                            {{componentHead.componentName}}
+                                        </th>
+                                        <th class="headerAlign" style="width: 109px;">
+                                            Total(<span style="font-family: arial;">₹</span>)
+                                        </th>
+                                        <th class="headerAlign" style="width: 109px;" ng-show="rfqDetail.quoteDetail[0].totalDollar > 0">
+                                            Total($)
+                                        </th>
+                                        <th class="headerAlign" style="width: 100px;" ng-repeat="componentHead in rfqDetail.quoteDetail[0].components"
+                                            ng-if="(componentHead.componentType == 'Penalty' && componentHead.paidBy == 'Customer' && isCustomer == 1)
+                                        || (componentHead.componentType == 'Penalty' && isCustomer == 0)">
+                                            {{componentHead.componentName}}
+                                        </th>
+                                        <th class="headerAlign" style="width: 100px;" ng-repeat="componentHead in rfqDetail.quoteDetail[0].components"
+                                            ng-if="componentHead.componentType == 'Text'">
+                                            {{componentHead.componentName}}
+                                        </th>
+                                        <th class="headerAlign" style="width: 200px;">
+                                            Terms
+                                        </th>
+                                        <th class="headerAlign" style="width: 200px;">
+                                            Note
+                                        </th>
+                                        <th style="width: 20px;">
+                                            Received on 
+                                        </th>
+                                        <th style="width: 20px;">
+
+                                        </th>
+                                        <th style="width: 20px;">
+
+                                        </th>
+                                        <th style="width: 20px;" ng-if="(rfqDetail.requestDetail.status == '0' || rfqDetail.requestDetail.status == '2')">
+                                        </th>
+                                    </tr>
+                                </thead>
+
+                                <!-- Quote details -->
+                                <tbody>
+                                    <tr ng-repeat="quote in rfqDetail.quoteDetail" style="background-color: {{quote.status == '1' ? '#8bd68e' : ''}}">
+                                        <td>
+                                            {{quote.companyName}}
+                                            <span style="color: #4caf50;"
+                                                  ng-show="quote.status == '1'">
+                                                <i class="zmdi zmdi-check"></i>
+                                            </span>
+                                        </td>
+                                        <td ng-if="rfqDetail.quoteDetail[0].exchangeRate > 0">
+                                            {{quote.exchangeRate}} /USD
+                                        </td>
+
+                                        <td style="text-align: right;" ng-repeat="comp in quote.components"
+                                            ng-if="comp.componentType == 'Charge'">
+                                            {{comp.componentValue | INR}} {{comp.currency == "USD" ? '($)' : ''}}
+                                        </td>
+
+                                        <td style="text-align: right;">
+                                            {{quote.totalRupee | number:0}}
+                                        </td>
+
+                                        <td style="text-align: right;" ng-show="quote.totalDollar > 0">
+                                            {{quote.totalDollar | INR}}
+                                        </td>
+
+                                        <td style="text-align: right;" ng-repeat="comp in quote.components"
+                                            ng-if="(comp.componentType == 'Penalty' && comp.paidBy == 'Customer' && isCustomer == 1)
+                                        || (comp.componentType == 'Penalty' && isCustomer == 0)">
+                                            {{comp.componentValue | INR}}
+                                        </td>
+
+                                        <td ng-repeat="comp in quote.components"   ng-if="comp.componentType == 'Text'">
+                                            {{comp.componentValue}}
+                                        </td>
+
+                                        <td style="width: 200px;">
+                                            {{quote.paymentTerms}}
+                                        </td>
+
+                                        <td style="width: 200px;">
+                                            {{quote.notes}}
+                                        </td>
+
+                                        <td style="text-align: center; width: 20px;">
+                                             {{quote.createdDT | date : 'dd-MMM-yy'}}
+                                        </td>
+
+                                        <td style="text-align: center; width: 20px;">
+                                            <i class="zmdi zmdi-phone" title="{{quote.mobile}}"></i>
+                                        </td>
+
+                                        <td style="text-align: center; width: 20px;">
+                                            <i class="zmdi zmdi-email" title="{{quote.email}}"></i>
+                                        </td>
+
+                                        <td style="text-align: center; width: 20px; cursor: pointer;"
+                                            ng-if="(rfqDetail.requestDetail.status == '0' || rfqDetail.requestDetail.status == '2')
+                                        && quote.status == '0'"
+                                            ng-click="openAddNotePop($index);">
+                                            <i class="fa fa-check" title="Accept"></i>
+                                        </td>
+                                    </tr>
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+           
+        </div>
+    </div>
+</body>
+</html>

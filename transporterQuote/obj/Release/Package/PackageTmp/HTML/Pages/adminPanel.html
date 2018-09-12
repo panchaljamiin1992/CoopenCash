@@ -1,0 +1,1462 @@
+﻿<!DOCTYPE html>
+<html style="height: 100%;">
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <style>
+        html {
+            overflow-y: auto;
+        }
+
+        #finishBy ._720kb-datepicker-calendar._720kb-datepicker-open, ._720kb-datepicker-calendar._720kb-datepicker-forced-to-open {
+            bottom: 20%;
+        }
+
+        .container {
+           /* width: calc(100% - 57px);*/
+            width: auto;
+            padding-right: 0px;
+            padding-left: 0px;
+            margin-right: auto;
+            /*margin-left: 57px;*/
+        }
+
+        @media screen and (max-width: 500px) {
+            .container {
+                width: 100%;
+                margin-left: 0px;
+                margin-top: 50px;
+            }
+        }
+      
+        .alignText {
+            vertical-align: middle;
+            width: 32px;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            /* Set the fixed height of the footer here */
+            height: 60px;
+            z-index: 300;
+        }
+
+        @media screen and (min-width: 980px) {
+            .footer {
+                width: 24.9%;
+            }
+        }
+
+        .fa-rotate-90 {
+            -webkit-transform: rotate(90deg);
+            -moz-transform: rotate(90deg);
+            -ms-transform: rotate(90deg);
+            -o-transform: rotate(90deg);
+            transform: rotate(90deg);
+        }
+
+        /*.dropdown-content li > a, .dropdown-content li > span, .dropdown-content li {
+            color: #000;
+        }*/
+
+        .menuDropdown {
+            float: left;
+            font-size: 30px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        ul#menuDD:not(.browser-default) {
+            min-width: 210px;
+            top: 49px !important;
+        }
+
+        .dropdown-content {
+            background-color: #fff;
+            margin: 0;
+            display: none;
+            min-width: 100px;
+            max-height: 650px;
+            overflow-y: auto;
+            opacity: 0;
+            position: absolute;
+            z-index: 999;
+            will-change: width, height;
+            box-shadow: 0 6px 12px rgba(0,0,0,.175);
+        }
+
+            .dropdown-content li {
+                clear: both;
+                color: rgba(0,0,0,0.87);
+                cursor: pointer;
+                /*min-height: 50px;*/
+                line-height: 1.5rem;
+                width: 100%;
+                text-align: left;
+                text-transform: none;
+            }
+
+        ul:not(.browser-default) li {
+            list-style-type: none;
+        }
+
+        .dropdown-content li:hover, .dropdown-content li.active, .dropdown-content li.selected {
+            background-color: #eee;
+        }
+       
+        .form-control:focus {
+            border-bottom-color: 1px solid #66afe9;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+        }
+
+        .dropdown button {
+            width: 70%;
+            background-color: rgba(255, 255, 255, 0);
+            box-shadow: none;
+            border-bottom: 1px solid #ccc;
+            /*background-color: #f8f8f8;*/
+        }
+
+            .dropdown button span {
+                float: right;
+                position: relative;
+                top: 10px;
+                font-size: 14px;
+                font-family: Roboto;
+                background-color: #fff;
+            }
+
+            .dropdown button[disabled] {
+                /*background-color: #f8f8f8;*/
+                border-color: #ccc;
+            }
+
+        .btn-default:hover {
+            background-color: rgba(255, 255, 255, 0);
+            border-bottom: 1px solid #ccc;
+        }
+
+        .open > .dropdown-menu {
+            max-height: 218px;
+            overflow: overlay;
+            display: block;
+            position: absolute;
+            left: 15px;
+            width: auto;
+            font-size: 14px;
+            font-family: Roboto;
+        }
+
+        .open > .dropdown-toggle.btn-default:hover, open > .dropdown-toggle.btn-default:focus, .open > .dropdown-toggle.btn-default {
+            color: #333;
+            background-color: rgba(255, 255, 255, 0);
+            border-bottom: 1px solid #66afe9;
+        }
+
+        .dropdownIcon {
+            color: #4885ed;
+            margin-left: 15px;
+        }
+
+    
+        blockquote {
+            padding: 10px 20px;
+            margin: 0 0 20px;
+            font-size: 14px;
+            border-left: 2px solid #eee;
+        }
+
+        .activityMenuli {
+            margin: 6px 2px 5px 1px;
+        }
+
+        .statusBedge {
+            display: inline;
+            margin-right: 10px;
+            border-radius: 2px;
+            color: #fff;
+            line-height: 1.5;
+            min-width: 18px;
+            text-align: center;
+            vertical-align: middle;
+            padding: 0px 5px;
+        }
+      
+        .open {
+            width: 100%;
+        }
+
+            .open > .dropdown-menu {
+                left: 0px !important;
+            }
+
+        .textOverflow {
+            text-overflow: ellipsis;
+            overflow: hidden;
+            display: inline-block;
+            white-space: nowrap;
+            vertical-align: top;
+        }
+
+        .listHeader {
+            border-bottom: 1px solid rgba(0, 0, 0, .10);
+            box-sizing: border-box;
+            height: 50px;
+            /*box-shadow: 0 3px 10px rgba(0,0,0,0.4);*/
+            /* text-align: center; */
+            /* background-color: #0D47A1; */
+        }
+
+         .listHeaderText {
+            vertical-align: sub;
+            line-height: 2.3;
+            display: inline-block;
+            color: #286090;
+            /*color: #03A9F4*/ /*rgba(255, 0, 0, 0.66)*/
+            font-weight: 600;
+            font-size: 16px;
+            font-family: Roboto;
+        }
+
+           .listMenuIcon {
+            display: inline-block;
+            /*position: absolute;*/
+            vertical-align: middle;
+            font-size: 20px;
+        }
+
+            .list {
+            border-right: 2px solid rgba(0, 0, 0, 0.5);
+            box-sizing: border-box;
+            /*height: 665px;*/ /*-webkit-fill-available;*/
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .listDetailHeaderIcon {
+            position: absolute;
+            right: 6px;
+            font-size: 20px;
+            text-align: right;
+        }
+
+        .detailHeader {
+            border-bottom: 1px solid rgba(0, 0, 0, .10);
+            box-sizing: border-box;
+            height: 50px;
+            padding: 10px;
+            position: relative;
+            /*text-align: center;*/
+            z-index: 201;
+            background-color: #fff;
+        }
+
+         .smallrightsList {
+             padding: 10px;
+         }
+
+         .font-color {
+             color: #286090;
+         }
+
+          .listDetail {
+            border-right: 1px solid rgba(0, 0, 0, .10);
+            box-sizing: border-box;
+            /*height: 615px;*/ /*-webkit-fill-available;*/
+            /*padding: 10px;*/
+            padding: 0px;
+            background-color: #fff;
+        }
+
+        .infoLbl {
+            /*padding-left: 8px;*/
+            line-height: 34px;
+        }
+
+        .lableIcon {
+            color: black;
+            padding: 0px 5px;
+            font-size: 17px;
+        }
+
+         .form-control:focus {
+            border-bottom-color: 1px solid #66afe9;
+            -webkit-box-shadow: none;
+        }
+
+         .form-inline .form-control {
+            display: inline-block;
+            width: 125px;
+            vertical-align: middle;
+        }
+
+         .form-control:focus {
+            border-bottom: 1px solid #66afe9;
+        }
+
+        .textarea {
+            -webkit-box-shadow: none;
+            border: none;
+            border-bottom: 1px solid #ccc;
+            border-radius: inherit;
+            font-size: 14px;
+            font-family: Roboto;
+            /*background-color: #f8f8f8;*/
+        }
+
+        .checkbox+.checkbox {
+            margin-top: 0px;
+        }
+
+        .checkbox {
+            margin-top: 0px;
+        }
+
+        .font-bold {
+            font-weight: bold;
+        }
+
+        .headerAlign {
+            vertical-align: top !important;
+        }
+
+        .subMenuli {
+            font-size: 17px;
+            padding: 10px;
+        }
+
+    </style>
+</head>
+<body style="height: 100%;">
+
+    <!-- Main content -->
+    <div class="container" style="margin-left: 0px; margin-right: 0px; height: 100%;">
+   
+        <!-- List -->
+        <div class="col-md-3 col-sm-3' list" style="padding: 0px;  height: 100%;">
+
+            <!-- List header -->
+            <div class="listHeader" style="padding:8px;">
+                <div>
+                    <div class="listMenuIcon font-color" ng-if="!showSearch" style="width: 30px; text-align: center;" ng-click="openMenu();"><span style="vertical-align:middle" class="fa fa-bars"></span></div>
+                    <!-- Dropdown Structure --> <!-- ng-click="openMenu();" -->
+                    <ul id='menuDD' class='dropdown-content' style="opacity: 1; min-width: 240px; padding-left: 0px;">
+                        <li ng-click="openTransporter();" ng-if="pm_personInfo.isSuperAdmin">
+                            <i class="fa fa-truck font-color" style="padding: 14px 0px 14px 20px; font-size: 20px; margin: 0px;"></i>
+                            <span class="font-color" style="display: inline-block; padding-left: 5px;">Vendors</span>
+                        </li>
+                        <li ng-click="openSources();" ng-if="pm_personInfo.isSuperAdmin && false">
+                            <i class="fa fa-map-marker font-color" style="padding: 14px 0px 14px 20px; font-size: 20px;"></i>
+                            <span class="font-color" style="display: inline-block; padding-left: 14px;">Sources</span>
+                        </li>
+                        <li ng-click="openExecutives();" ng-if="pm_personInfo.isSuperAdmin">
+                            <i class="zmdi zmdi-accounts-alt font-color" style="padding: 14px 0px 14px 20px; font-size: 20px; margin: 0px;"></i>
+                            <span class="font-color" style="display: inline-block; padding-left: 10px;">Executives</span>
+                        </li>
+                        <li ng-click="openCustomer();" ng-if="pm_personInfo.isSuperAdmin">
+                            <i class="fa fa-users font-color" style="padding: 14px 0px 14px 20px; font-size: 20px; margin: 0px;"></i>
+                            <span class="font-color" style="display: inline-block; padding-left: 5px;">Customers</span>
+                        </li>
+                        <li ng-click="openRoute();" ng-if="pm_personInfo.isSuperAdmin && False">
+                            <i class="zmdi zmdi-map font-color" style="padding: 14px 0px 14px 20px; font-size: 20px; margin: 0px;"></i>
+                            <span class="font-color" style="display: inline-block; padding-left: 12px;">Routes</span>
+                        </li>
+                        <li ng-click="openQuoteType();" ng-if="pm_personInfo.isSuperAdmin">
+                            <i class="zmdi zmdi-map font-color" style="padding: 14px 0px 14px 20px; font-size: 20px; margin: 0px;"></i>
+                            <span class="font-color" style="display: inline-block; padding-left: 12px;">Quote Types</span>
+                        </li>
+                        <li ng-click="actionLogout();">
+                            <i class="fa fa-times font-color" style="padding: 14px 0px 14px 20px; font-size: 20px; margin: 0px;"></i>
+                            <span class="font-color" style="display: inline-block; padding-left: 13px;">Logout</span>
+                        </li>
+                    </ul>
+
+                    <div class="listHeaderText fontFamily font-color" ng-if="!showSearch">
+                        <span style="vertical-align:middle;">{{showTransporters ? 'Vendors' : showSources ? 'Sources' : showExecutives ? 'Executives' : showCustomers ? 'Customers': showQuoteType ? 'Quote Types' : 'Routes' }}</span>
+                    </div>
+
+                    <div ng-if="showSearch" style="display: inline-block; width: 90%;">
+                        <input class="form-control" id="search" type="text" ng-model="search.value" style="background-color: white;" placeholder="Search">
+                    </div>
+
+                    <div class="listMenuIcon fontFamily" style="float: right;">
+                        <!--<span class="fa fa-exchange fa-rotate-90" style="vertical-align: middle;" title="Sort"></span>-->
+                        <span class="zmdi zmdi-filter-list font-color" ng-click="openSubMenu();" ng-show="showTransporters && !showSearch" style="vertical-align: middle; 
+                            padding-left: 13px;" title="Filter"></span>
+                        <span class="fa fa-search font-color" ng-if="!showSearch" style="vertical-align: middle; padding-left: 13px;" 
+                              title="Search" ng-click="searchInList()"></span>
+                        <span class="fa fa-times font-color" ng-if="showSearch" style="vertical-align: middle; padding-right: 5px; cursor: pointer" 
+                              title="Close" ng-click="searchInList()"></span>
+                        <!--<span class="fa fa-plus" style="vertical-align: middle; padding-left: 13px;"
+                              title="Add Machine" ng-click="addNewAgency();"></span>-->
+
+                        <!-- Dropdown Structure -->
+                        <ul id='subMenu' class='dropdown-content' style="opacity: 1; min-width: 151px; padding-left: 0px; max-height: 106px;">
+                            <li class="subMenuli" ng-click="filterTransportList(0);">
+                                <span class="font-color" style="display: inline-block; padding-left: 5px;">All</span>
+                            </li>
+                            <li class="subMenuli" ng-click="filterTransportList(service.serviceTypeID);"  
+                                ng-repeat="service in serviceList">
+                                <span class="font-color" style="display: inline-block; padding-left: 5px;">{{service.serviceTypeName}}</span>
+                            </li>
+                        </ul>
+                       
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Transporter -->    
+            <div style="max-height: calc(100% - 50px); overflow-y: auto;" ng-show="showTransporters" id="style-1">
+                <div style="overflow-y: auto;">
+                    <div class="smallrightsList fontFamily" ng-style="{'background': $index == selectedTransporterIndex ? 'rgba(0,0,0,0.1)' : ''}"
+                         ng-repeat="transporter in ($parent.transList = (transporterList | filter: search.value))" 
+                         style="cursor: pointer; border-bottom: {{$last ? '' : ' 1px solid #dddddd'}};" ng-click="getTransDetail($index);">
+                        <div>
+                            {{transporter.companyName}}
+                            <span ng-if="transporter.email" style="float: right; font-size: 16px;" ng-click="sendEmailToUser(transporter.email);"><i class="fa fa-envelope"></i></span>
+                        </div>
+                    </div>
+                    <div ng-show="transList.length == 0" class="card-body" style="text-align: center; padding: 20px;">
+                        No vendors found
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sources -->
+            <div style="max-height: calc(100% - 50px); overflow-y: auto;" ng-show="showSources" id="style-1">
+                 <div style="overflow-y: auto;">
+                     <div class="smallrightsList fontFamily" ng-style="{'background': $index == selectedSourceIndex ? 'rgba(0,0,0,0.1)' : ''}"
+                          ng-repeat="source in ($parent.srcList = (sourceList | filter: search.value))"
+                          style="cursor: pointer; border-bottom: {{$last ? '' : ' 1px solid #dddddd'}};" ng-click="getSourceDetail($index);">
+                         <div>
+                             {{source.location}}
+                         </div>
+                     </div>
+                     <div ng-show="srcList.length == 0" class="card-body" style="text-align: center; padding: 20px;">
+                         No sources found
+                     </div>
+                 </div>
+             </div>
+
+             <!-- Executives -->
+             <div style="max-height: calc(100% - 50px); overflow-y: auto;" ng-show="showExecutives" id="style-1">
+                 <div style="overflow-y: auto;">
+                     <div class="smallrightsList fontFamily" ng-style="{'background': $index == selectedExecutiveIndex ? 'rgba(0,0,0,0.1)' : ''}"
+                          ng-repeat="executive in ($parent.execList = (executiveList | filter: search.value))"
+                          style="cursor: pointer; border-bottom: {{$last ? '' : ' 1px solid #dddddd'}};" ng-click="getExecutiveDetail($index);">
+                         <div>
+                             {{executive.executiveName}}
+                             <span ng-if="executive.email" style="float: right; font-size: 16px;" ng-click="sendEmailToUser(executive.email);"><i class="fa fa-envelope"></i></span>
+                         </div>
+                     </div>
+                     <div ng-show="execList.length == 0" class="card-body" style="text-align: center; padding: 20px;">
+                         No executives found
+                     </div>
+                 </div>
+             </div>
+
+             <!-- Routes - not in use -->
+             <div style="max-height: calc(100% - 50px); overflow-y: auto;" ng-show="showRoute" id="style-1">
+                 <div style="overflow-y: auto;">
+                     <div class="smallrightsList fontFamily" ng-style="{'background': $index == selectedRouteIndex ? 'rgba(0,0,0,0.1)' : ''}"
+                          ng-repeat="route in ($parent.ruteList = (routeList | filter: search.value))"
+                          style="cursor: pointer; border-bottom: {{$last ? '' : ' 1px solid #dddddd'}};" ng-click="getRouteDetail($index);">
+                         <div>
+                             {{route.routeInfo}}
+                         </div>
+                     </div>
+                     <div ng-show="ruteList.length == 0" class="card-body" style="text-align: center; padding: 20px;">
+                         No routes found
+                     </div>
+                 </div>
+             </div>
+
+             <!-- Customer -->
+             <div style="max-height: calc(100% - 50px); overflow-y: auto;" ng-show="showCustomers" id="style-1">
+                 <div style="overflow-y: auto;">
+                     <div class="smallrightsList fontFamily" ng-style="{'background': $index == selectedCustomerIndex ? 'rgba(0,0,0,0.1)' : ''}"
+                          ng-repeat="customer in ($parent.custList = (customerList | filter: search.value))"
+                          style="cursor: pointer; border-bottom: {{$last ? '' : ' 1px solid #dddddd'}};" ng-click="getCustomerDetail($index);">
+                         <div>
+                             {{customer.companyName}}
+                             <span ng-if="customer.email" style="float: right; font-size: 16px;" ng-click="sendEmailToUser(customer.email);"><i class="fa fa-envelope"></i></span>
+                         </div>
+                     </div>
+                     <div ng-show="custList.length == 0" class="card-body" style="text-align: center; padding: 20px;">
+                         No Customers found
+                     </div>
+                 </div>
+             </div>
+
+            <!-- Quote type  -->
+            <div style="max-height: calc(100% - 50px); overflow-y: auto;" ng-show="showQuoteType" id="style-1">
+                <div style="overflow-y: auto;">
+                    <div class="smallrightsList fontFamily" ng-style="{'background': $index == selectedQuoteTypeIndex ? 'rgba(0,0,0,0.1)' : ''}"
+                         ng-repeat="quoteType in ($parent.quoteTypes = (quoteTypeList | filter: search.value))"
+                         style="cursor: pointer; border-bottom: {{$last ? '' : ' 1px solid #dddddd'}};" ng-click="getQuoteTypeDetail($index);">
+                        <div>
+                            {{quoteType.quoteTypeName}}
+                            <span style="float: right; font-size: 14px;" ng-click="sendEmailToUser(customer.email);">{{quoteType.paidBy}}</span>
+                        </div>
+                        <div>
+                            {{quoteType.type}}
+                        </div>
+                    </div>
+                    <div ng-show="quoteTypeList.length == 0" class="card-body" style="text-align: center; padding: 20px;">
+                        No quote types found
+                    </div>
+                </div>
+            </div>
+
+             <!-- Add new transporter fab -->
+             <button type="button"  class="fabBtn btn btn-circle btn-raised" style="outline: none; " title="" ng-click="addNew(showTransporters);" ng-show="showTransporters">
+                <span class="fa fa-plus"></span>
+            </button>
+
+             <!-- Add new executive fab -->
+             <button type="button" class="fabBtn btn btn-circle btn-raised" style="outline: none; " title="" ng-click="addNew(showExecutives);" ng-show="showExecutives">
+                 <span class="fa fa-plus"></span>
+             </button>
+
+             <!-- Add new source fab -->
+             <button type="button" class="fabBtn btn btn-circle btn-raised" style="outline: none; " title="" ng-click="addNew(showSources);" ng-show="showSources">
+                 <span class="fa fa-plus"></span>
+             </button>
+
+             <!-- Add new customer fab -->
+             <button type="button" class="fabBtn btn btn-circle btn-raised" style="outline: none; " title="" ng-click="addNew(showCustomers);" ng-show="showCustomers">
+                 <span class="fa fa-plus"></span>
+             </button>
+
+             <!-- Add new route fab - not in use -->
+             <button type="button" class="fabBtn btn btn-circle btn-raised" style="outline: none; " title="" ng-click="addNew(showRoute);" ng-show="showRoute">
+                 <span class="fa fa-plus"></span>
+             </button>
+
+            <!-- Add new quote type with components -->
+            <button type="button" class="fabBtn btn btn-circle btn-raised" style="outline: none; " title="" ng-click="addNew(showQuoteType);" ng-show="showQuoteType">
+                <span class="fa fa-plus"></span>
+            </button>
+
+        </div>
+
+        <!-- Detail transporter -->
+        <div class="col-md-9 col-sm-12 col-xm-12" style="padding: 0px; height: 100%;" ng-show="showTransporters"> 
+            
+             <!-- Header -->
+             <div class="col-md-12 col-sm-12 col-xm-12 detailHeader">
+                <div class="col-md-9 col-sm-8 col-xm-8 listHeaderText fontFamily">
+                 {{newTranporter ? 'Create New Vendor' : transporterList[selectedTransporterIndex].companyName}} 
+                </div>
+                 <div class="col-md-2 col-sm-4 col-xm-4 listDetailHeaderIcon" ng-show="!newTranporter">
+                     <span class="zmdi zmdi-delete alignText font-color" title="Delete" ng-click="deleteTransporter();"></span>
+                 </div>
+                <div class="col-md-2 col-sm-4 col-xm-4 listDetailHeaderIcon" ng-show="false" ng-click="confirmReset(transporter.mobile)">
+                    <span class="zmdi zmdi-lock alignText font-color" title="Reset password"></span>
+                </div>
+            </div>
+
+             <!-- Detail transporters-->
+             <div style="height: calc(100% - 50px);" id="style-1">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12" style="padding-top: 15px;">
+                       <div class="col-md-2 col-sm-6 infoLbl"><i class="fa fa-building lableIcon" style="padding-left: 0px;"></i>&nbsp; Company Name</div>
+                        <div class="col-md-4 col-sm-6">
+                            <input class="form-control" type="text" tabindex="1" ng-model="transporter.companyName">
+                        </div>
+                        <div class="col-md-2 col-sm-6 infoLbl"><i class="zmdi zmdi-account lableIcon" style="padding-left: 0px;"></i>&nbsp; Contact person</div>
+                        <div class="col-md-4 col-sm-6">
+                           <div class="col-md-2 col-sm-2" style="padding: 0px;" >
+                               <select id="dates-field2" class="form-control" tabindex="5"
+                                       style="border: none; border-radius: 0px; cursor: pointer; padding-left: 0px;"
+                                       ng-model="transporter.title" ng-change="changeState()">
+                                   <option ng-repeat="title in titles" value="{{title.name}}">{{title.name}}</option>
+                               </select>
+                            </div>
+                            <div class="col-md-5 col-sm-5"  style="padding-left: 5px; padding-right: 5px;">
+                                <input class="form-control" tabindex="6"  type="text" ng-model="transporter.firstName">
+                            </div>
+                            <div class="col-md-5 col-sm-5" style="padding-left: 5px; padding-right: 5px;">
+                                <input class="form-control" tabindex="7" type="text" ng-model="transporter.lastName">
+                            </div> 
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-sm-12" style="padding-top: 15px;">
+                        <div class="col-md-2 col-sm-6 infoLbl"><i class="zmdi zmdi-pin lableIcon" style="padding-left: 0px;"></i>&nbsp; City</div>
+                        <div class="col-md-4 col-sm-6">
+                            <input class="form-control" tabindex="2" type="text" ng-model="transporter.city">
+                        </div>
+                        <div class="col-md-2 col-sm-6 infoLbl"><i class="zmdi zmdi-email lableIcon" style="padding-left: 0px;"></i>&nbsp; Email</div>
+                        <div class="col-md-4 col-sm-6">
+                            <input class="form-control" tabindex="8" type="text" ng-model="transporter.email">
+                        </div>
+                        
+                    </div>
+                    <div class="col-md-12 col-sm-12" style="padding-top: 15px;">
+                        <div class="col-md-2 col-sm-6 infoLbl"><i class="zmdi zmdi-globe lableIcon" style="padding-left: 0px;"></i>&nbsp; State</div>
+                        <div class="col-md-4 col-sm-6">
+                            <select id="dates-field2" class="form-control" tabindex="3"
+                                    style="border: none; border-radius: 0px; padding-left: 8px; cursor: pointer;"
+                                    ng-model="transporter.state" ng-change="changeState()">
+                                <option selected disabled value="">Select</option>
+                                <option ng-repeat="state in states" value="{{state.name}}">{{state.name}}</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2 col-sm-6 infoLbl"><i class="zmdi zmdi-phone lableIcon" style="padding-left: 0px;"></i>&nbsp; Mobile</div>
+                        <div class="col-md-4 col-sm-6">
+                            <input class="form-control" type="text" tabindex="9" maxlength="10" ng-model="transporter.mobile" 
+                                   onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                        </div>
+                        
+                    </div>
+                    <div class="col-md-12 col-sm-12" style="padding-top: 15px;">
+                        <div class="col-md-2 col-sm-6 infoLbl"><i class="zmdi zmdi-comment lableIcon" style="padding-left: 0px;"></i>&nbsp; Notes</div>
+                        <div class="col-md-4 col-sm-6">
+                            <textarea class="inputStyle form-control raw_Div textarea" tabindex="4" rows="2" id="problem" ng-model="transporter.notes"></textarea>
+                        </div>
+                        <div class="col-md-2 col-sm-6 infoLbl"><i class="zmdi zmdi-phone lableIcon" style="padding-left: 0px;"></i>&nbsp; Alternate Mobile</div>
+                        <div class="col-md-4 col-sm-6">
+                            <input class="form-control" type="text" tabindex="10" ng-model="transporter.alternateMobile"
+                                   maxlength="10" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                        </div>
+                    </div>
+
+                    <!--<div class="col-md-12 col-sm-12" style="padding-top: 15px;">
+                        <div class="col-md-2 infoLbl">
+                            <i class="zmdi zmdi-settings"></i>&nbsp;
+                            <span> Service Type </span>
+                        </div>
+                        <div class="col-md-4">
+                            <select id="dates-field2" class="form-control" tabindex="3"
+                                    style="border: none; border-radius: 0px; padding-left: 8px; cursor: pointer;"
+                                    ng-model="transporter.serviceTypeID">
+                                <option selected disabled value="">Select</option>
+                                <option ng-repeat="service in serviceList" value="{{service.serviceTypeID}}">
+                                    {{service.serviceTypeName}}
+                                </option>
+
+                            </select>
+                        </div>
+                    </div>-->
+
+                    <!-- Service rights -->
+                    <div class="col-md-12 col-sm-12" style="padding: 10px 30px; margin: 15px 0px; font-size: 15px;">
+                        <i class="zmdi zmdi-wrench" style="padding-right: 5px; font-size: 17px;"></i> Services
+                    </div>
+                    <div class="col-md-12 col-sm-12" style="padding-left: 40px;">
+                        <div class="col-md-3 col-sm-6 checkbox rightsChkbx" ng-repeat="vendorService in vendorsServices">
+                            <label>
+                                <input type="checkbox" style="cursor: pointer;" value="true" ng-model="vendorService.isChecked" />
+                                {{vendorService.serviceTypeName}}
+                            </label>
+                        </div>
+                    </div>
+
+                    <!--<div class="col-md-12 col-sm-12" style="padding-top: 15px;">
+                        <div class="col-md-2"><i class="zmdi zmdi-gps-dot lableIcon" style="padding-left: 0px;"></i>&nbsp; Destination</div>
+                        <div class="col-md-2 col-sm-6 checkbox rightsChkbx">
+                            <label><input type="checkbox" style="cursor: pointer;" value="true" ng-model="transporter.isDomestic" tabindex="6">Domestic</label>
+                        </div>
+                        <div class="col-md-2 col-sm-6 checkbox rightsChkbx">
+                            <label><input type="checkbox" style="cursor: pointer;" value="true" ng-model="transporter.isExport" tabindex="6">Export</label>
+                        </div>
+                    </div>-->
+
+                    <!-- Submit And Cancel Button -->
+                    <div class="col-md-12 col-sm-12" style="display: block; text-align: center; margin: 15px 0px;">
+                        <div style="text-align: center; margin-top: 10px; display: inline-block;" ng-click="addUpdateTransPorter();" >
+                            <button class="btn btn-primary" title="Save" tabindex="11">
+                                <i class="fa fa-check left" style="padding:0 7px 0 0;"></i>Save
+                            </button>
+                        </div>&nbsp;
+                        <div style="text-align: center; margin-top: 10px; display: inline-block;" ng-show="!newTranporter" ng-click="addNew(showTransporters);" tabindex="12">
+                            <button class="btn btn-primary" title="Cancel">
+                                <i class="fa fa-times left" style="padding:0 7px 0 0;"></i>Cancel
+                            </button>
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+          
+        </div>
+        
+        <!-- Detail source-->
+        <div class="col-md-9 col-sm-12 col-xm-12" style="padding: 0px; height: 100%;" ng-show="showSources">
+
+            <!-- Header -->
+            <div class="col-md-12 col-sm-12 col-xm-12 detailHeader">
+                <div class="col-md-9 col-sm-8 col-xm-8 listHeaderText fontFamily">
+                    {{newSource ? 'Create New Source' : sourceList[selectedSourceIndex].location}}
+                </div>
+                <div class="col-md-2 col-sm-4 col-xm-4 listDetailHeaderIcon" ng-show="!newSource">
+                    <span class="zmdi zmdi-delete alignText font-color" title="Delete" ng-click="deleteSource();"></span>
+                </div>
+            </div>
+            
+             <!-- Add or update source -->
+            <div  style="height: calc(100% - 50px);" id="style-1">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12" style="padding-top: 15px;">
+                        <div class="col-md-2 col-sm-6 infoLbl"><i class="zmdi zmdi-pin lableIcon" style="padding-left: 0px;"></i>&nbsp; Location</div>
+                        <div class="col-md-4 col-sm-6">
+                            <input class="form-control" type="text" ng-model="source.location" tabindex="1">
+                        </div>
+                        <div class="col-md-2 col-sm-6 infoLbl"><i class="zmdi zmdi-google-earth lableIcon" style="padding-left: 0px;"></i>&nbsp; Type</div>
+                        <div class="col-md-4 col-sm-6">
+                            <select id="dates-field2" class="form-control" tabindex="2"
+                                    style="border: none; border-radius: 0px; padding-left: 8px; cursor: pointer;"
+                                    ng-model="source.type" ng-change="changeState()">
+                                <option selected disabled value="">Select</option>
+                                <option ng-repeat="type in types" value="{{type.name}}">{{type.name}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-sm-12" style="padding-top: 15px;">
+                        <div class="col-md-2 col-sm-6 infoLbl"><i class="zmdi zmdi-assignment-account lableIcon" style="padding-left: 0px;"></i>&nbsp; Address</div>
+                        <div class="col-md-4 col-sm-6">
+                            <input class="inputStyle form-control raw_Div textarea" rows="1" id="problem" ng-model="source.address1" tabindex="3">
+                            <input class="inputStyle form-control raw_Div textarea" style="margin-top: 15px;" tabindex="4" rows="2" id="problem" ng-model="source.address2">
+                        </div>
+                        <div class="col-md-2 col-sm-6 infoLbl"><i class="zmdi zmdi-pin lableIcon" style="padding-left: 0px;"></i>&nbsp; City
+                        <div style="margin-top: 15px;"><i class="zmdi zmdi-globe lableIcon" style="padding-left: 0px;"></i>&nbsp; State</div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <input class="form-control" type="text" tabindex="5" ng-model="source.city">
+                            <select id="dates-field2" class="form-control" tabindex="6"
+                                    style="border: none; border-radius: 0px; padding-left: 8px; cursor: pointer; margin-top: 15px;"
+                                    ng-model="source.state" ng-change="changeState()">
+                                <option selected disabled value="">Select</option>
+                                <option ng-repeat="state in states" value="{{state.name}}">{{state.name}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-sm-12" style="padding-top: 15px;">
+                        <div class="col-md-2 col-sm-6 infoLbl"><i class="zmdi zmdi-comment lableIcon" style="padding-left: 0px;"></i>&nbsp; Notes</div>
+                        <div class="col-md-4 col-sm-6">
+                            <textarea class="inputStyle form-control raw_Div textarea" rows="2" tabindex="7" id="problem" ng-model="source.notes"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Submit And Cancel Button -->
+                    <div class="col-md-12 col-sm-12" style="display: block; text-align: center; margin: 15px 0px;">
+                        <div style="text-align: center; margin-top: 10px; display: inline-block;" ng-click="addUpdateSource();">
+                            <button class="btn btn-primary" title="Save" tabindex="8">
+                                <i class="fa fa-check left" style="padding:0 7px 0 0;"></i>Save
+                            </button>
+                        </div>&nbsp;
+                        <div style="text-align: center; margin-top: 10px; display: inline-block;" ng-show="!newSource" ng-click="addNew(showSources);">
+                            <button class="btn btn-primary" title="Cancel" tabindex="9">
+                                <i class="fa fa-times left" style="padding:0 7px 0 0;"></i>Cancel
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+     
+        <!-- Detail executives -->
+        <div class="col-md-9 col-sm-12 col-xm-12" style="padding: 0px; height: 100%;" ng-show="showExecutives">
+            <div class="col-md-12 col-sm-12 col-xm-12 detailHeader">
+                <div class="col-md-9 col-sm-8 col-xm-8 listHeaderText fontFamily">
+                    {{newExecutive ? 'Create New Executive' : executiveList[selectedExecutiveIndex].executiveName}}
+                </div>
+                <div class="listDetailHeaderIcon" ng-show="!newExecutive" style="right: 14px;" ng-click="confirmReset(executiveList[selectedExecutiveIndex].mobile)">
+                    <span class="zmdi zmdi-lock alignText font-color" title="Reset password"></span>
+                    <!--<span class="fa fa-times alignText" ng-click="openDetails();"></span>-->
+                </div>
+                <div class="listDetailHeaderIcon" style="text-align: center; right: 40px; cursor: pointer;" ng-show="!newExecutive">
+                    <span class="zmdi zmdi-delete alignText font-color" title="Delete" ng-click="deleteExecutive();"></span>
+                    <!--<span class="fa fa-times alignText" ng-click="openDetails();"></span>-->
+                </div>
+            </div>
+
+            <!-- Detail executives-->
+            <div style="max-height: calc(100% - 50px); overflow-y: auto; width: 100%;" id="style-1">
+                <div>
+                    <div class="col-md-12 col-sm-12" style="padding-top: 15px;">
+                        <div class="col-md-2 col-sm-6 infoLbl"><i class="zmdi zmdi-account lableIcon" style="padding-left: 0px;"></i>&nbsp; Executive Name</div>
+                        <div class="col-md-4 col-sm-6">
+                            <input class="form-control" type="text" ng-model="executive.executiveName" tabindex="1">
+                        </div>
+                        <div class="col-md-2 col-sm-6 infoLbl"><i class="zmdi zmdi-email lableIcon" style="padding-left: 0px;"></i>&nbsp; Email</div>
+                        <div class="col-md-4 col-sm-6">
+                            <input class="form-control" type="text" ng-model="executive.email" tabindex="2">
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-sm-12" style="padding-top: 15px;">
+                        <div class="col-md-2 col-sm-6 infoLbl"><i class="zmdi zmdi-phone lableIcon" style="padding-left: 0px;"></i>&nbsp; Mobile</div>
+                        <div class="col-md-4 col-sm-6">
+                            <input class="form-control" type="text" maxlength="10" ng-model="executive.mobile"
+                                   onkeypress="return event.charCode >= 48 && event.charCode <= 57" tabindex="3">
+                        </div>
+                        <div class="col-md-2 col-sm-6 infoLbl"><i class="zmdi zmdi-account-box lableIcon" style="padding-left: 0px;"></i>&nbsp; Designation</div>
+                        <div class="col-md-4 col-sm-6">
+                            <input class="form-control" type="text" ng-model="executive.designation" tabindex="4">
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-sm-12" style="padding-top: 15px;">
+                        <div class="col-md-2 col-sm-6 infoLbl"><i class="fa fa-sticky-note lableIcon" style="padding-left: 0px;"></i>&nbsp; Notes</div>
+                        <div class="col-md-4 col-sm-6">
+                            <textarea class="inputStyle form-control raw_Div textarea" rows="2" id="problem" ng-model="executive.notes" tabindex="5"></textarea>
+                        </div>
+                        <div class="col-md-4 col-sm-6 infoLbl" ng-disabled="newExecutive" ng-show="false"><i class="zmdi zmdi-lock lableIcon" style="padding-left: 0px;"></i>&nbsp; Reset Password</div>
+                        
+                    </div>
+
+                    <!-- Rights -->
+                    <div class="col-md-12 col-sm-12" style="padding: 10px 30px; margin: 15px 0px; font-size: 15px;">
+                       <i class="zmdi zmdi-eye" style="padding-right: 5px; font-size: 17px;"></i> Rights
+                    </div>
+                    <div class="col-md-12 col-sm-12" style="padding-left: 40px;">
+                        <div class="col-md-3 col-sm-6 checkbox rightsChkbx">
+                            <label><input type="checkbox" style="cursor: pointer;" value="true" ng-model="executive.canCreateRFQ" tabindex="6">Can Create RFQ</label>
+                        </div>
+                        <div class="col-md-3 col-sm-6 checkbox rightsChkbx"> 
+                            <label><input type="checkbox" style="cursor: pointer;" value="true" ng-model="executive.canSelectTransporter" tabindex="7">Can Select Vendor</label>
+                        </div>
+                        <!--<div class="col-md-3 col-sm-6 checkbox rightsChkbx">
+                            <label><input type="checkbox" style="cursor: pointer;" value="true" ng-model="executive.canCloseRFQ" tabindex="8">Can Close RFQ</label>
+                        </div>-->
+                        <div class="col-md-3 col-sm-6 checkbox rightsChkbx">
+                            <label><input type="checkbox" style="cursor: pointer;" value="true" ng-model="executive.canSelectForCustomer" tabindex="9">Can Select for Customer</label>
+                        </div>
+                        <div class="col-md-3 col-sm-6 checkbox rightsChkbx">
+                            <label><input type="checkbox" style="cursor: pointer;" value="true" ng-model="executive.canForward" tabindex="6">Can Forward</label>
+                        </div>
+                        <div class="col-md-3 col-sm-6 checkbox rightsChkbx">
+                            <label><input type="checkbox" style="cursor: pointer;" value="true" ng-model="executive.canClear" tabindex="6">Can Clear</label>
+                        </div>
+                        <div class="col-md-3 col-sm-6 checkbox rightsChkbx">
+                            <label><input type="checkbox" style="cursor: pointer;" value="true" ng-model="executive.canReady" tabindex="7">Can Mark as Ready</label>
+                        </div>
+                        <div class="col-md-3 col-sm-6 checkbox rightsChkbx">
+                            <label><input type="checkbox" style="cursor: pointer;" value="true" ng-model="executive.canScheduled" tabindex="8">Can Schedule</label>
+                        </div>
+                        <div class="col-md-3 col-sm-6 checkbox rightsChkbx">
+                            <label><input type="checkbox" style="cursor: pointer;" value="true" ng-model="executive.canLoading" tabindex="9">Can Load</label>
+                        </div>
+                        <div class="col-md-3 col-sm-6 checkbox rightsChkbx">
+                            <label><input type="checkbox" style="cursor: pointer;" value="true" ng-model="executive.canDispatch" tabindex="9">Can Dispatch</label>
+                        </div>
+                        <!--<div class="col-md-3 col-sm-6 checkbox rightsChkbx">
+                            <label><input type="checkbox" style="cursor: pointer;" value="true" ng-model="executive.isSupervisor" tabindex="9">IsSupervisor</label>
+                        </div>-->
+                        <!--<div class="col-md-3 col-sm-6 checkbox rightsChkbx">
+                            <label><input type="checkbox" style="cursor: pointer;" value="true" ng-model="executive.isDomestic" tabindex="9">Domestic</label>
+                        </div>
+                        <div class="col-md-3 col-sm-6 checkbox rightsChkbx">
+                            <label><input type="checkbox" style="cursor: pointer;" value="true" ng-model="executive.isExport" tabindex="9">Export</label>
+                        </div>-->
+                    </div>
+
+                    <!-- Service rights -->
+                    <div class="col-md-12 col-sm-12" style="padding: 10px 30px; margin: 15px 0px; font-size: 15px;">
+                        <i class="zmdi zmdi-wrench" style="padding-right: 5px; font-size: 17px;"></i> Services
+                    </div>
+                    <div class="col-md-12 col-sm-12" style="padding-left: 40px;">
+                        <div class="col-md-3 col-sm-6 checkbox rightsChkbx" ng-repeat="service in serviceList">
+                            <label><input type="checkbox" style="cursor: pointer;" value="true" ng-model="service.isChecked"/>
+                                {{service.serviceTypeName}}
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Zone -->
+                    <!--<div class="col-md-12 col-sm-12" style="padding: 10px 30px; margin: 15px 0px; font-size: 15px;" ng-if="zones.length > 0">
+                        <i class="fa fa-globe" style="padding-right: 5px; font-size: 17px;"></i> Zones
+                    </div>
+
+                    <div class="col-md-12 col-sm-12" style="padding-left: 40px;">
+                        <div class="col-md-3 col-sm-6 checkbox rightsChkbx" ng-repeat="zone in zones">
+                            <label><input type="checkbox" style="cursor: pointer;" value="true" ng-model="zone.isChecked" tabindex="6">{{zone.zoneName}}</label>
+                        </div>
+                    </div>-->
+
+                    <!-- Submit And Cancel Button -->
+                    <div class="col-md-12 col-sm-12" style="display: block; text-align: center; margin: 15px 0px;">
+                        <div style="text-align: center; margin-top: 10px; display: inline-block;" ng-click="addUpdateExecutive();">
+                            <button class="btn btn-primary" title="Save" tabindex="10">
+                                <i class="fa fa-check left" style="padding:0 7px 0 0;"></i>Save
+                            </button>
+                        </div>&nbsp;
+                        <div style="text-align: center; margin-top: 10px; display: inline-block;" ng-show="!newExecutive" ng-click="addNew(showExecutives);">
+                            <button class="btn btn-primary" title="Cancel" tabindex="11">
+                                <i class="fa fa-times left" style="padding:0 7px 0 0;"></i>Cancel
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            
+
+        </div>
+
+        <!-- Detail Customer-->
+        <div class="col-md-9 col-sm-12 col-xm-12" style="padding: 0px; height: 100%;" ng-show="showCustomers">
+
+            <!-- Header -->
+            <div class="col-md-12 col-sm-12 col-xm-12 detailHeader">
+                <div class="col-md-9 col-sm-8 col-xm-8 listHeaderText fontFamily">
+                    {{newCustomer ? 'Create New Customer' : customerList[selectedCustomerIndex].companyName}}
+                </div>
+                <div class="col-md-2 col-sm-4 col-xm-4 listDetailHeaderIcon" ng-show="!newCustomer">
+                    <span class="zmdi zmdi-delete alignText font-color" title="Delete" ng-click="deleteCustomer();"></span>
+                </div>
+                <div class="col-md-2 col-sm-4 col-xm-4 listDetailHeaderIcon" ng-show="false" ng-click="confirmReset(transporter.mobile)">
+                    <span class="zmdi zmdi-lock alignText font-color"></span>
+                    <!--<span class="fa fa-times alignText" ng-click="openDetails();"></span>-->
+                </div>
+            </div>
+           
+            <!-- Add or update customer -->
+            <div style="height: calc(100% - 50px);" id="style-1">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12" style="padding-top: 15px;">
+                        <div class="col-md-2 col-sm-6 infoLbl"><i class="fa fa-building lableIcon" style="padding-left: 0px;"></i>&nbsp; Company Name</div>
+                        <div class="col-md-4 col-sm-6">
+                            <input class="form-control" type="text" tabindex="1" ng-model="customer.companyName">
+                        </div>
+                        <div class="col-md-2 col-sm-6 infoLbl"><i class="zmdi zmdi-account lableIcon" style="padding-left: 0px;"></i>&nbsp; Contact Person</div>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="col-md-2 col-sm-2" style="padding: 0px;">
+                                <select id="dates-field2" class="form-control" tabindex="6"
+                                        style="border: none; border-radius: 0px; cursor: pointer; padding-left: 0px;"
+                                        ng-model="customer.title" ng-change="changeState()">
+                                    <option ng-repeat="title in titles" value="{{title.name}}">{{title.name}}</option>
+                                </select>
+                            </div>
+                            <div class="col-md-5 col-sm-5" style="padding-left: 5px; padding-right: 5px;">
+                                <input class="form-control" tabindex="7" type="text" ng-model="customer.fname">
+                            </div>
+                            <div class="col-md-5 col-sm-5" style="padding-left: 5px; padding-right: 5px;">
+                                <input class="form-control" tabindex="8" type="text" ng-model="customer.lname">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-sm-12" style="padding-top: 15px;">
+                        <div class="col-md-2 col-sm-6 infoLbl"><i class="zmdi zmdi-assignment-account lableIcon" style="padding-left: 0px;"></i>&nbsp; Address</div>
+                        <div class="col-md-4 col-sm-6">
+                            <input class="inputStyle form-control raw_Div textarea" tabindex="2" rows="1" id="problem" ng-model="customer.address1">
+                            <input class="inputStyle form-control raw_Div textarea" tabindex="3" rows="2" style="margin-top: 15px;" id="problem" ng-model="customer.address2">
+                        </div>
+                        <div class="col-md-2 col-sm-6 infoLbl"><i class="zmdi zmdi-email lableIcon" style="padding-left: 0px;"></i>&nbsp; Email
+                            <div style="margin-top: 15px;"><i class="zmdi zmdi-phone lableIcon" style="padding-left: 0px;"></i>&nbsp; Mobile</div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <input class="form-control" type="text" tabindex="9" ng-model="customer.email">
+                            <input class="form-control" type="text" tabindex="10" maxlength="10" ng-model="customer.mobile" style="margin-top: 15px;"
+                                   onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                        </div>
+                       
+                    </div>
+                    <div class="col-md-12 col-sm-12" style="padding-top: 15px;">
+                        <div class="col-md-2 col-sm-6 infoLbl">
+                            <i class="zmdi zmdi-pin lableIcon" style="padding-left: 0px;"></i>&nbsp; City </div>
+                            <div class="col-md-4 col-sm-6">
+                                <input class="form-control" type="text" tabindex="4" ng-model="customer.city">
+                            </div>
+
+                        <div class="col-md-2 col-sm-6 infoLbl"><i class="zmdi zmdi-phone lableIcon" style="padding-left: 0px;"></i>&nbsp; Alternate Mobile</div>
+                        <div class="col-md-4 col-sm-6">
+                            <input class="form-control" type="text" tabindex="11" ng-model="customer.alternateMobile"
+                                   maxlength="10" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                        </div>
+
+                     </div>
+                   
+
+                    <div class="col-md-12 col-sm-12" style="padding-top: 15px;">
+                        <div class="col-md-2 col-sm-6 infoLbl"><i class="zmdi zmdi-globe-alt lableIcon" style="padding-left: 0px;"></i>&nbsp; Country</div>
+                        <div class="col-md-4 col-sm-6">
+                            <select id="dates-field2" class="form-control" tabindex="5"
+                                    style="border: none; border-radius: 0px; padding-left: 8px; cursor: pointer;"
+                                    ng-model="customer.country" ng-change="changeCountry();">
+                                <option selected disabled value="">Select</option>
+                                <option ng-repeat="country in countryList" value="{{country.name}}">{{country.name}}</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2 col-sm-6 infoLbl"><i class="zmdi zmdi-comment lableIcon" style="padding-left: 0px;"></i>&nbsp; Notes</div>
+                        <div class="col-md-4 col-sm-6">
+                            <textarea class="inputStyle form-control raw_Div textarea" rows="2" tabindex="12" id="problem" ng-model="customer.notes"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12" style="padding-top: 15px;">
+                        <div class="col-md-2 col-sm-6 infoLbl"><i class="zmdi zmdi-globe lableIcon" style="padding-left: 0px;"></i>&nbsp; State</div>
+                        <div class="col-md-4 col-sm-6" ng-show="isIndia">
+                            <select id="dates-field2" class="form-control" tabindex="5"
+                                    style="border: none; border-radius: 0px; padding-left: 8px; cursor: pointer;"
+                                    ng-model="customer.state" ng-change="changeState()">
+                                <option selected disabled value="">Select</option>
+                                <option ng-repeat="state in states" value="{{state.name}}">{{state.name}}</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4 col-sm-6" ng-show="!isIndia">
+                            <input class="form-control" type="text" tabindex="11" ng-model="customer.state">
+                        </div>
+                    </div>
+                   
+
+                    <!-- Submit And Cancel Button -->
+                    <div class="col-md-12 col-sm-12" style="display: block; text-align: center; margin: 15px 0px;">
+                        <div style="text-align: center; margin-top: 10px; display: inline-block;" ng-click="addUpdateCustomer();" >
+                            <button class="btn btn-primary" value="Save"  title="Save" tabindex="13">
+                                <i class="fa fa-check left" style="padding:0 7px 0 0;"></i>Save </button>
+                                <!--Save-->
+                            <!--</input>-->
+                        </div>&nbsp;
+                        <div style="text-align: center; margin-top: 10px; display: inline-block;" tabindex="14" ng-show="!newCustomer" ng-click="addNew(showCustomers);">
+                            <button class="btn btn-primary" title="Cancel">
+                                <i class="fa fa-times left" style="padding:0 7px 0 0;"></i>Cancel
+                            </button>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Detail route - Not in use-->
+        <div class="col-md-9 col-sm-12 col-xm-12" style="padding: 0px; height: 100%;" ng-show="showRoute">
+            <div class="col-md-12 col-sm-12 col-xm-12 detailHeader">
+                <div class="col-md-9 col-sm-8 col-xm-8 listHeaderText fontFamily">
+                    {{newRoute ? 'Create New Route' : routeList[selectedRouteIndex].routeCode}}
+                </div>
+                <div class="col-md-2 col-sm-4 col-xm-4 listDetailHeaderIcon" ng-show="!newRoute">
+                    <span class="zmdi zmdi-delete alignText font-color" title="Delete" ng-click="deleteRoute();"></span>
+                </div>
+            </div>
+
+            <div style="height: calc(100% - 50px);" id="style-1">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12" style="padding-top: 15px;">
+                        <div class="col-md-2 col-sm-6 infoLbl"><i class="zmdi zmdi-code-smartphone lableIcon" style="padding-left: 0px;"></i>&nbsp; Route Code</div>
+                        <div class="col-md-4 col-sm-6">
+                            <input class="form-control" type="text" ng-model="route.code" tabindex="1">
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-sm-12" style="padding-top: 15px;">
+                        <div class="col-md-2 col-sm-6 infoLbl"><i class="zmdi zmdi-comment lableIcon" style="padding-left: 0px;"></i>&nbsp; Route Detail</div>
+                        <div class="col-md-4 col-sm-6">
+                            <textarea class="inputStyle form-control raw_Div textarea" rows="2" tabindex="7" id="problem" ng-model="route.detail"></textarea>
+                        </div>
+                    </div>
+                  
+                    <!-- Submit And Cancel Button -->
+                    <div class="col-md-6 col-sm-6" style="display: block; text-align: center; margin: 15px 0px;">
+                        <div style="text-align: center; margin-top: 10px; display: inline-block;" ng-click="addUpdateRoute();">
+                            <button class="btn btn-primary" title="Save" tabindex="8">
+                                <i class="fa fa-check left" style="padding:0 7px 0 0;"></i>Save
+                            </button>
+                        </div>&nbsp;
+                        <div style="text-align: center; margin-top: 10px; display: inline-block;" ng-show="!newRoute" ng-click="addNew(showRoute);">
+                            <button class="btn btn-primary" title="Cancel" tabindex="9">
+                                <i class="fa fa-times left" style="padding:0 7px 0 0;"></i>Cancel
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Detail quoteType -->
+        <div class="col-md-9 col-sm-12 col-xm-12" style="padding: 0px; height: 100%;" ng-show="showQuoteType">
+            <div class="col-md-12 col-sm-12 col-xm-12 detailHeader">
+                <div class="col-md-9 col-sm-8 col-xm-8 listHeaderText fontFamily">
+                    {{newQuoteType ? 'Create New Quote Type' : quoteTypeList[selectedQuoteTypeIndex].quoteTypeName}}
+                </div>
+                <!--<div class="col-md-2 col-sm-4 col-xm-4 listDetailHeaderIcon" ng-show="!newQuoteType && false">
+                    <span class="zmdi zmdi-delete alignText font-color" title="Delete"></span> 
+                </div>-->
+            </div>
+
+            <div style="max-height: calc(100% - 50px); overflow-y: auto; width: 100%;" id="style-1">
+                <div style="overflow-y: auto;">
+
+                    <!-- Quote type and paid by -->
+                    <div class="col-md-12 col-sm-12" style="padding-top: 15px;">
+                        <div class="col-md-2 col-sm-6 infoLbl"><!--<i class="zmdi zmdi-code-smartphone lableIcon" style="padding-left: 0px;"></i>&nbsp;--> 
+                            <span class="font-bold">Quote Type</span>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <input class="form-control"  type="text" ng-model="quoteType.quoteTypeName" tabindex="1">
+                        </div>
+                        <div class="col-md-1 col-sm-6 infoLbl"><!--<i class="zmdi zmdi-money-box lableIcon" style="padding-left: 0px;"></i>&nbsp;--> 
+                            <span class="font-bold">Paid by</span>
+                        </div>
+                        <div class="col-md-3 col-sm-6" style="margin-top: 6px;">
+                            <input type="radio" name="paid" ng-model="quoteType.paidBy" value="Company" style="margin-right: 5px;"> Company
+                            <input type="radio" name="paid" ng-model="quoteType.paidBy" value="Customer" style="margin-right: 5px; margin-left: 10px;">Customer
+                        </div>
+                        <div class="col-md-2 col-sm-6" style="margin-top: 6px;">
+                            <input type="checkbox" ng-model="quoteType.isAllowNegotiation" style="margin-right: 5px;"> Allow Negotiation
+                        </div>
+                    </div>
+                    
+                    <!-- Type and allow negotiation -->
+                    <div class="col-md-12 col-sm-12" style="padding-top: 15px;" ng-if="false">
+                        <div class="col-md-2 col-sm-6 infoLbl"><!--<i class="zmdi zmdi-swap lableIcon" style="padding-left: 0px;"></i>&nbsp;--> 
+                        <span class="font-bold">Type</span>
+                        </div>
+                        <div class="col-md-4 col-sm-6" style="margin-top: 6px;">
+                            <input type="radio" name="type" ng-model="quoteType.type" value="Domestic" style="margin-right: 5px;">Domestic 
+                            <input type="radio" name="type" ng-model="quoteType.type" value="Export" style="margin-right: 5px; margin-left: 10px;">Export
+                        </div>
+                       
+                        <div class="col-md-4 col-sm-6" style="margin-top: 6px;">
+                            <input type="checkbox" ng-model="quoteType.isAllowNegotiation" style="margin-right: 5px;"> Allow Negotiation
+                        </div>
+                    </div>
+
+                    <!-- Service type and copy form -->
+                    <div class="col-md-12 col-sm-12" style="padding-top: 15px;" >
+                        <div class="col-md-2 infoLbl"> <!--<i class="zmdi zmdi-settings"></i>&nbsp;-->
+                            <span class="font-bold"> Service Type </span>
+                         </div>
+                        <div class="col-md-4">
+                            <select id="dates-field2" class="form-control" tabindex="3"
+                                    style="border: none; border-radius: 0px; padding-left: 8px; cursor: pointer;"
+                                    ng-model="quoteType.serviceTypeID" ng-change="changeService(quoteType.serviceTypeID);">
+                                <option selected disabled value="">Select</option>
+                                <option ng-repeat="service in serviceList" value="{{service.serviceTypeID}}" >
+                                {{service.serviceTypeName}}</option>
+
+                            </select>
+                        </div>
+                        <div class="col-md-2 infoLbl" ng-show="quoteTypeList.length != 0"><!--<i class="zmdi zmdi-copy"></i>&nbsp;--> 
+                            <span class="font-bold">Copy from</span> 
+                        </div>
+                        <div class="col-md-4" ng-show="quoteTypeList.length != 0">
+                            <select id="dates-field2" class="form-control" tabindex="3"
+                                    style="border: none; border-radius: 0px; padding-left: 8px; cursor: pointer;"
+                                    ng-model="copyFrom.value" ng-change="changeTypeName();">
+                                <option selected disabled value="">Select</option>
+                                <option ng-repeat="quoteType in quoteTypesforCopy" value="{{quoteType.quoteTypeName}}">{{quoteType.quoteTypeName}}</option>
+
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Core fields -->
+                    <div class="col-md-12 col-sm-12" style="margin: 15px 0px; font-size: 15px;" >
+                        <div class="col-md-12 col-sm-6 infoLbl" style="background-color: rgba(0,0,0,0.06);" 
+                             ng-click="showCoreField();" >
+                            <!--<i class="zmdi zmdi-eye" style="padding-right: 5px; font-size: 17px;"></i>--> 
+                            <span class="font-bold"> Core fields </span>
+                            <span style="float: right;">
+                            <i class="{{isShowCoreField ? 'zmdi zmdi-caret-up-circle' : 'zmdi zmdi-caret-down-circle'}}"></i></span> 
+                        </div>
+
+                        <div class="col-md-12 col-sm-12" style="padding-top: 10px;" ng-show="isShowCoreField">
+                            <div class="col-md-3 col-sm-6 checkbox rightsChkbx">
+                                <label><input type="checkbox" style="cursor: pointer;" value="true" 
+                                              ng-model="quoteType.customer" 
+                                              tabindex="6">Customer</label>
+                            </div>
+                            <div class="col-md-3 col-sm-6 checkbox rightsChkbx" ng-if="false">
+                                <label><input type="checkbox" style="cursor: pointer;" ng-disabled="true" value="true" 
+                                              ng-model="quoteType.quoteby" tabindex="7">Quote by</label>
+                            </div>
+                            <div class="col-md-3 col-sm-6 checkbox rightsChkbx">
+                                <label><input type="checkbox" style="cursor: pointer;" value="true" ng-model="quoteType.term" tabindex="8">Term</label>
+                            </div>
+                            <div class="col-md-3 col-sm-6 checkbox rightsChkbx">
+                                <label><input type="checkbox" style="cursor: pointer;" value="true" ng-model="quoteType.file" tabindex="9">File</label>
+                            </div>
+                            <div class="col-md-3 col-sm-6 checkbox rightsChkbx" ng-if="false">
+                                <label><input type="checkbox" style="cursor: pointer;" value="true" ng-model="quoteType.vendors" tabindex="6">Vendors</label>
+                            </div>
+                            <div class="col-md-3 col-sm-6 checkbox rightsChkbx" ng-if="false">
+                                <label><input type="checkbox" style="cursor: pointer;" value="true" ng-disabled="true" ng-model="quoteType.note" tabindex="6">Note</label>
+                            </div>
+                            <div class="col-md-3 col-sm-6 checkbox rightsChkbx">
+                                <label><input type="checkbox" style="cursor: pointer;" value="true" ng-model="quoteType.erpRef" tabindex="7">ERP Ref</label>
+                            </div>
+                            <div class="col-md-3 col-sm-6 checkbox rightsChkbx" ng-if="false">
+                                <label><input type="checkbox" style="cursor: pointer;" value="true" ng-disabled="true" ng-model="quoteType.deliveryDT" 
+                                              tabindex="8">{{quoteType.completionText}}</label>
+                            </div>
+                        </div>
+                    </div>
+                  
+                    <!-- Custom fields -->
+                    <div class="col-md-12 col-sm-12" style="margin: 15px 0px; font-size: 15px;">
+
+                        <!-- Header -->
+                        <div class="col-md-12 col-sm-6 infoLbl" style="background-color: rgba(0,0,0,0.06);" 
+                             ng-click="showCustomField();" >
+                            <!--<i class="zmdi zmdi-plus-circle" style="padding-right: 5px; font-size: 17px;"></i>--> 
+                            <span class="font-bold">Custom fields ({{quoteType.customFields.length}})</span>
+                            <span style="float: right;"><i class="{{isShowCustom ? 'zmdi zmdi-caret-up-circle' : 'zmdi zmdi-caret-down-circle'}}"></i></span>
+                         </div>
+                         
+                         <!-- Add -->
+                         <div class="col-md-12 col-sm-12" style="padding-top: 10px;" ng-show="isShowCustom">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th class="headerAlign">
+                                                Field
+                                            </th>
+                                            <th class="headerAlign">
+                                                Type
+                                            </th>
+                                            <th class="headerAlign">
+                                                Choices
+                                            </th>
+                                            <th class="headerAlign" style="width: 20px;">
+                                                Show to Customers
+                                            </th>
+                                            <th class="headerAlign" style="width: 20px;">
+                                                Show to Vendors
+                                            </th>
+                                            <th class="headerAlign">
+
+                                            </th>
+                                            <th>
+
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="custom in quoteType.customFields">
+                                            <td>
+                                                <span ng-show="!custom.isEdit">{{custom.fieldName}}</span>
+                                                <span ng-show="custom.isEdit">
+                                                <input class="form-control" style="padding-left: 0px;" type="text" ng-model="custom.fieldName" /></span>
+                                            </td>
+                                            <td>
+                                                <span ng-show="!custom.isEdit">{{custom.typeID == "1" ? 'Text' : custom.typeID == "2" ? 'Number' : custom.typeID == "3" ? 'Date' : 'Choice'}}</span>
+                                                <span ng-show="custom.isEdit">
+                                                    <select id="dates-field2" class="form-control" tabindex="3"
+                                                            style="border: none; border-radius: 0px; padding-left: 0px; cursor: pointer;"
+                                                            ng-model="custom.typeID">
+                                                        <option selected disabled value="0">Select</option>
+                                                        <option value="1">Text</option>
+                                                        <option value="2">Number</option>
+                                                        <option value="3">Date</option>
+                                                        <option value="4">Dropdown</option>
+
+                                                    </select>
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <span ng-show="!custom.isEdit">{{custom.choice}}</span>
+                                                <span ng-show="custom.isEdit">
+                                                    <input class="form-control" style="padding-left: 0px;" type="text" ng-disabled="custom.typeID != '4'"
+                                                           onkeypress="return (event.charCode >= 48 && event.charCode <= 57) || (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || event.charCode == 44"
+                                                           ng-model="custom.choice" />
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" ng-model="custom.showCustomers"/>
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" ng-model="custom.showVendors"/>
+                                            </td>
+                                          
+                                            <td style="text-align: center; cursor: pointer;">
+                                                <span class="zmdi zmdi-edit" ng-click="editCutomField($index);" ng-show="!custom.isEdit"></span>
+                                                <span class="zmdi zmdi-check" ng-show="custom.isEdit" ng-click="editCutomField($index);"></span>
+                                            </td>
+                                            <td style="text-align: center; cursor: pointer;">
+                                            <span class="zmdi zmdi-delete" ng-click="removeCutomField($index)"></span></td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td>
+                                                <input class="form-control" style="padding-left: 0px;" type="text" ng-model="customField.fieldName" />
+                                            </td>
+                                            <td>
+                                                <select id="dates-field2" class="form-control" tabindex="3"
+                                                        style="border: none; border-radius: 0px; padding-left: 0px; cursor: pointer;"
+                                                        ng-model="customField.typeID" ng-click="changeFieldType();">
+                                                    <option selected disabled value="">Select</option>
+                                                    <option value="1">Text</option>
+                                                    <option value="2">Number</option>
+                                                    <option value="3">Date</option>
+                                                    <option value="4">Dropdown</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <input class="form-control" style="padding-left: 0px;" type="text" ng-disabled="customField.typeID != '4'" 
+                                                    onkeypress="return (event.charCode >= 48 && event.charCode <= 57) || (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || event.charCode == 44"    
+                                                       ng-model="customField.choice"  />
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" ng-model="customField.showCustomers"/>
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" ng-model="customField.showVendors"/>
+                                            </td>
+                                            <td></td>
+                                            <td style="padding-top: 15px; text-align: center; cursor: pointer;">
+                                                <span class="fa fa-plus" ng-click="addCustomField();"></span>
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                  
+                    <!-- Components -->
+                    <div class="col-md-12 col-sm-12" style="margin: 15px 0px;" >
+
+                        <!-- Header -->
+                        <div class="col-md-12 col-sm-6 infoLbl" style="background-color: rgba(0,0,0,0.06);"
+                              ng-click="showComponent();" >
+                        <!--<i class="zmdi zmdi-wrench lableIcon" style="padding-left: 0px;"></i>&nbsp;--> 
+                        <span class="font-bold">Quote Components ({{quoteType.components.length}})</span>
+                        <span style="float: right;"><i class="{{isShowComponent ? 'zmdi zmdi-caret-up-circle' : 'zmdi zmdi-caret-down-circle'}}"></i></span></div>
+
+                        <!-- Add -->
+                        <div class="col-md-12 col-sm-12" style="padding-top: 10px;" ng-show="isShowComponent">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Component
+                                        </th>
+                                        <th>
+                                            Type
+                                        </th>
+                                        <th>
+                                            Paid by
+                                        </th>
+                                        <th>
+                                            Currency
+                                        </th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="component in quoteType.components">
+                                        <td>
+                                            <span ng-show="!component.Edit">{{component.ComponentName}}</span>
+                                            <span ng-show="component.Edit">
+                                                <input class="form-control" style="padding-left: 0px;" type="text" ng-model="component.ComponentName" />
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span ng-show="!component.Edit">{{component.Type}}</span>
+                                            <span ng-show="component.Edit">
+                                                <select id="dates-field2" class="form-control" tabindex="3"
+                                                        style="border: none; border-radius: 0px; padding-left: 0px; cursor: pointer;"
+                                                        ng-model="component.Type">
+                                                    <option selected disabled value="">Select</option>
+                                                    <option value="Charge">Charge</option>
+                                                    <option value="Penalty">Penalty</option>
+                                                    <option value="Text">Text</option>
+                                                </select>
+                                            </span>
+                                        </td>
+                                        <td>
+                                        <span ng-show="!component.Edit">{{component.PaidBy}}</span>
+                                        <span ng-show="component.Edit">
+                                            <select id="dates-field2" class="form-control" tabindex="3"
+                                                    style="border: none; border-radius: 0px; padding-left: 0px; cursor: pointer;"
+                                                    ng-model="component.PaidBy" ng-disabled="component.Type == 'Text'">
+                                                <option selected disabled value="">Select</option>
+                                                <option value="Company">Company</option>
+                                                <option value="Customer">Customer</option>
+                                            </select>
+                                        </span>
+                                        </td>
+                                        <td><span ng-show="!component.Edit">{{component.Currency}}</span>
+                                            <span ng-show="component.Edit">
+                                                <select id="dates-field2" class="form-control" tabindex="3"
+                                                        style="border: none; border-radius: 0px; padding-left: 0px; cursor: pointer;"
+                                                        ng-model="component.Currency" ng-disabled="component.Type == 'Text'">
+                                                    <option selected disabled value="">Select</option>
+                                                    <option value="INR">INR</option>
+                                                    <option value="USD">USD</option>
+                                                </select>
+                                            </span>
+                                        </td>
+                                        <td style="text-align: center; cursor: pointer;"><span class="zmdi zmdi-edit" ng-show="!component.Edit" 
+                                                                              ng-click="editComponent($index);"></span>
+                                            <span class="zmdi zmdi-check" ng-show="component.Edit" ng-click="editComponent($index);"></span></td>
+                                        <td style="text-align: center; cursor: pointer;"><span class="zmdi zmdi-delete" ng-click="removeComponent($index);"></span></td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td>
+                                            <input class="form-control" style="padding-left: 0px;" type="text" ng-model="component.ComponentName"/>
+                                        </td>
+                                        <td>
+                                            <select id="dates-field2" class="form-control" tabindex="3"
+                                                    style="border: none; border-radius: 0px; padding-left: 0px; cursor: pointer;"
+                                                    ng-model="component.Type">
+                                                <option selected disabled value="">Select</option>
+                                                <option value="Charge">Charge</option>
+                                                <option value="Penalty">Penalty</option>
+                                                <option value="Text">Text</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <select id="dates-field2" class="form-control" tabindex="3"
+                                                    style="border: none; border-radius: 0px; padding-left: 0px; cursor: pointer;"
+                                                    ng-model="component.PaidBy" ng-disabled="component.Type == 'Text'">
+                                                <option selected disabled value="">Select</option>
+                                                <option value="Company">Company</option>
+                                                <option value="Customer">Customer</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <select id="dates-field2" class="form-control" tabindex="3"
+                                                    style="border: none; border-radius: 0px; padding-left: 0px; cursor: pointer;"
+                                                    ng-model="component.Currency" ng-disabled="component.Type == 'Text'">
+                                                <option selected disabled value="">Select</option>
+                                                <option value="INR">INR</option>
+                                                <option value="USD">USD</option>
+                                            </select>
+                                        </td>
+                                        <td></td>
+                                        <td style="padding-top: 15px; text-align: center; cursor: pointer;">
+                                            <span class="fa fa-plus" ng-click="addComponent();"></span>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+
+                    </div>
+
+                    <!-- Submit And Cancel Button -->
+                    <div class="col-md-12 col-sm-12" style="display: block; text-align: center; margin: 15px 0px;">
+                        <div style="text-align: center; margin-top: 10px; display: inline-block;" ng-click="submitQuoteType();">
+                            <button class="btn btn-primary" title="Save" tabindex="8">
+                                <i class="fa fa-check left" style="padding:0 7px 0 0;"></i>Save
+                            </button>
+                        </div>&nbsp;
+                        <div style="text-align: center; margin-top: 10px; display: inline-block;" ng-show="!newRoute" ng-click="addNew(showRoute);">
+                            <button class="btn btn-primary" title="Cancel" tabindex="9">
+                                <i class="fa fa-times left" style="padding:0 7px 0 0;"></i>Cancel
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+     
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,760 @@
+﻿<!DOCTYPE html>
+<html ng-app="transporterQuote" style="height: 100%;">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" />
+    <title>ALOCS</title>
+    <meta name="description" content="ALOCS">
+    <meta name="keywords" content="machine">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="author" content="Ekta Shah">
+
+    <!-- JavaScript for: jQuery, angular, and bootstrap. -->
+    <script src="lib/jquery/jquery.min.js"></script>
+    <script src="lib/angular/angular.min.js"></script>
+    <link href="lib/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="lib/bootstrap/css/angular-datepicker.css" rel="stylesheet" />
+    <script src="lib/angular-sanitize/angular-sanitize.min.js"></script>
+    <link href="CSS/transporterQuote.css" rel="stylesheet" />
+
+    <link href="lib/bootstrap/DataTables-1.10.4/media/css/jquery.dataTables.css" rel="stylesheet" />
+    <link href="lib/bootstrap/DataTables-1.10.4/examples/resources/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet" />
+    <link href="lib/bootstrap-sweetalert/sweet-alert.css" rel="stylesheet" />
+
+    <!-- Angular loading bar -->
+    <link href="lib/angular-loading-bar/loading-bar.css" rel="stylesheet" />
+    <script src="lib/angular-loading-bar/loading-bar.js"></script>
+
+    <script src="lib/bootstrap-sweetalert/sweet-alert.min.js"></script>
+    <script src="lib/ngSweetAlert/SweetAlert.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-loading-bar/0.9.0/loading-bar.min.js"></script>
+    <!--<script data-require="ui-bootstrap@*" data-semver="1.3.2" src="https://cdn.rawgit.com/angular-ui/bootstrap/gh-pages/ui-bootstrap-tpls-1.3.2.js"></script>-->
+    <script src="lib/ui-bootstrap/ui-bootstrap-tpls-1.3.2.js"></script>
+    <!-- Moment.js -->
+    <script src="lib/moment/js/moment.js"></script>
+
+    <script src="lib/bootstrap/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="lib/material-design-iconic-font/material-design-iconic-font.min.css" rel="stylesheet" />
+    <script src="//cdn.jsdelivr.net/fingerprintjs2/1.4.1/fingerprint2.min.js"></script>
+    <script src="lib/bootstrap/js/angular-datepicker.js"></script>
+    <script src="lib/bower_components/ng-table/ng-table.min.js"></script>
+
+    <!-- Multiple select -->
+    <script src="lib/angular-multiselection/js/Angular-bootstrap-multiselect.js"></script>
+
+    <!-- Toaster -->
+    <!--<link href="//cdnjs.cloudflare.com/ajax/libs/angularjs-toaster/2.1.0/toaster.css" rel="stylesheet" />-->
+    <link href="lib/toaster/toaster.css" rel="stylesheet" />
+    <script src="http://code.angularjs.org/1.4.2/angular-animate.min.js"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/angularjs-toaster/2.1.0/toaster.js"></script>-->
+    <script src="lib/toaster/toaster.js"></script>
+
+    <!-- Fileupload -->
+    <script src="lib/ng-file-upload/ng-file-upload-shim.js"></script>
+    <script src="lib/ng-file-upload/ng-file-upload.js"></script>
+
+    <!-- Angular ui-router -->
+    <script src="lib/angular-ui-router/angular-ui-router.min.js"></script>
+
+    <!-- Common file -->
+    <script src="JS/extFactory.js"></script>
+    <script src="JS/general.js"></script>
+    <script src="JS/extTransporterApp.js"></script>
+   
+    <style>
+
+           /* #region "Loader" */
+
+          #loading-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.2);
+            z-index: 11002;
+            pointer-events: auto;
+        }
+
+            #loading-bar .bar {
+                background: none;
+            }
+
+        #loading-bar-spinner {
+            display: block;
+            position: fixed;
+            z-index: 11002;
+            top: 50%;
+            left: 50%;
+            margin-left: -15px;
+            margin-right: -15px;
+            height: 100px;
+        }
+
+            #loading-bar-spinner .spinner-icon {
+                width: 50px;
+                height: 50px;
+                border: solid 4px transparent;
+                border-top-color: #286090;
+                border-left-color: #286090;
+                border-radius: 25px;
+                box-shadow: 0px 2px 3px #80bd9e;
+            }
+
+        /* #endregion */
+
+        html {
+            overflow-y: auto;
+        }
+
+        #finishBy ._720kb-datepicker-calendar._720kb-datepicker-open, ._720kb-datepicker-calendar._720kb-datepicker-forced-to-open {
+            bottom: 20%;
+        }
+
+        .container {
+            /* width: calc(100% - 57px);*/
+            width: auto;
+            padding-right: 0px;
+            padding-left: 0px;
+            margin-right: auto;
+            /*margin-left: 57px;*/
+        }
+
+        /*@media screen and (max-width: 500px) {
+            .container {
+                width: 100%;
+                margin-left: 0px;
+                margin-top: 50px;
+            }
+        }*/
+
+        .alignText {
+            vertical-align: middle;
+            width: 32px;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            /* Set the fixed height of the footer here */
+            height: 60px;
+            z-index: 300;
+        }
+
+        @media screen and (min-width: 980px) {
+            .footer {
+                width: 24.9%;
+            }
+        }
+
+        .fa-rotate-90 {
+            -webkit-transform: rotate(90deg);
+            -moz-transform: rotate(90deg);
+            -ms-transform: rotate(90deg);
+            -o-transform: rotate(90deg);
+            transform: rotate(90deg);
+        }
+
+        /*.dropdown-content li > a, .dropdown-content li > span, .dropdown-content li {
+            color: #000;
+        }*/
+
+        .menuDropdown {
+            float: left;
+            font-size: 30px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        ul#menuDD:not(.browser-default) {
+            min-width: 210px;
+            top: 49px !important;
+        }
+
+        .dropdown-content {
+            background-color: #fff;
+            margin: 0;
+            display: none;
+            min-width: 100px;
+            max-height: 650px;
+            overflow-y: auto;
+            opacity: 0;
+            position: absolute;
+            z-index: 999;
+            will-change: width, height;
+            box-shadow: 0 6px 12px rgba(0,0,0,.175);
+        }
+
+            .dropdown-content li {
+                clear: both;
+                color: rgba(0,0,0,0.87);
+                cursor: pointer;
+                /*min-height: 50px;*/
+                line-height: 1.5rem;
+                width: 100%;
+                text-align: left;
+                text-transform: none;
+            }
+
+        ul:not(.browser-default) li {
+            list-style-type: none;
+        }
+
+        .dropdown-content li:hover, .dropdown-content li.active, .dropdown-content li.selected {
+            background-color: #eee;
+        }
+
+        .form-control:focus {
+            border-bottom-color: 1px solid #66afe9;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+        }
+
+        .dropdown button {
+            width: 70%;
+            background-color: rgba(255, 255, 255, 0);
+            box-shadow: none;
+            border-bottom: 1px solid #ccc;
+            /*background-color: #f8f8f8;*/
+        }
+
+            .dropdown button span {
+                float: right;
+                position: relative;
+                top: 10px;
+                font-size: 14px;
+                font-family: Roboto;
+                background-color: #fff;
+            }
+
+            .dropdown button[disabled] {
+                /*background-color: #f8f8f8;*/
+                border-color: #ccc;
+            }
+
+        .btn-default:hover {
+            background-color: rgba(255, 255, 255, 0);
+            border-bottom: 1px solid #ccc;
+        }
+
+        .open > .dropdown-menu {
+            max-height: 218px;
+            overflow: overlay;
+            display: block;
+            position: absolute;
+            left: 15px;
+            width: auto;
+            font-size: 14px;
+            font-family: Roboto;
+        }
+
+        .open > .dropdown-toggle.btn-default:hover, open > .dropdown-toggle.btn-default:focus, .open > .dropdown-toggle.btn-default {
+            color: #333;
+            background-color: rgba(255, 255, 255, 0);
+            border-bottom: 1px solid #66afe9;
+        }
+
+        .dropdownIcon {
+            color: #4885ed;
+            margin-left: 15px;
+        }
+
+
+        blockquote {
+            padding: 10px 20px;
+            margin: 0 0 20px;
+            font-size: 14px;
+            border-left: 2px solid #eee;
+        }
+
+        .activityMenuli {
+            margin: 6px 2px 5px 1px;
+        }
+
+        .statusBedge {
+            display: inline;
+            margin-right: 10px;
+            border-radius: 2px;
+            color: #fff;
+            line-height: 1.5;
+            min-width: 18px;
+            text-align: center;
+            vertical-align: middle;
+            padding: 0px 5px;
+        }
+
+        .open {
+            width: 100%;
+        }
+
+            .open > .dropdown-menu {
+                left: 0px !important;
+            }
+
+        .textOverflow {
+            text-overflow: ellipsis;
+            overflow: hidden;
+            display: inline-block;
+            white-space: nowrap;
+            vertical-align: top;
+        }
+
+        .listHeader {
+            border-bottom: 1px solid rgba(0, 0, 0, .10);
+            box-sizing: border-box;
+            height: 50px;
+            /*box-shadow: 0 3px 10px rgba(0,0,0,0.4);*/
+            /* text-align: center; */
+            /* background-color: #0D47A1; */
+        }
+
+        .listHeaderText {
+            vertical-align: sub;
+            line-height: 2.3;
+            display: inline-block;
+            color: #286090;
+            /*color: #03A9F4*/ /*rgba(255, 0, 0, 0.66)*/
+            font-weight: 600;
+            font-size: 16px;
+            font-family: Roboto;
+        }
+
+        .listMenuIcon {
+            display: inline-block;
+            /*position: absolute;*/
+            vertical-align: middle;
+            font-size: 20px;
+        }
+
+        .list {
+            border-right: 1px solid rgba(0, 0, 0, .10);
+            box-sizing: border-box;
+            /*height: 665px;*/ /*-webkit-fill-available;*/
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .listDetailHeaderIcon {
+            position: absolute;
+            right: 6px;
+            /*font-size: 20px;*/
+            text-align: right;
+        }
+
+        .detailHeader {
+            border-bottom: 1px solid rgba(0, 0, 0, .10);
+            box-sizing: border-box;
+            height: 50px;
+            padding: 10px;
+            position: relative;
+            /*text-align: center;*/
+            z-index: 201;
+            background-color: #fff;
+        }
+
+        .smallrightsList {
+            padding: 10px;
+        }
+
+        .font-color {
+            color: #286090;
+        }
+
+        .listDetail {
+            border-right: 1px solid rgba(0, 0, 0, .10);
+            box-sizing: border-box;
+            /*height: 615px;*/ /*-webkit-fill-available;*/
+            /*padding: 10px;*/
+            padding: 0px;
+            background-color: #fff;
+        }
+
+        .infoLbl {
+            /*padding-left: 8px;*/
+            line-height: 34px;
+        }
+
+        .lableIcon {
+            color: black;
+            padding: 0px 5px;
+            font-size: 17px;
+        }
+
+        .form-control:focus {
+            border-bottom-color: 1px solid #66afe9;
+            -webkit-box-shadow: none;
+        }
+
+        .form-inline .form-control {
+            display: inline-block;
+            width: 125px;
+            vertical-align: middle;
+        }
+
+        .form-control:focus {
+            border-bottom: 1px solid #66afe9;
+        }
+
+        .textarea {
+            -webkit-box-shadow: none;
+            border: none;
+            border-bottom: 1px solid #ccc;
+            border-radius: inherit;
+            font-size: 14px;
+            font-family: Roboto;
+            /*background-color: #f8f8f8;*/
+        }
+
+        .dateColor {
+            color: rgba(128, 128, 128, 0.71);
+        }
+
+        .bedge {
+            background-color: rgba(0,0,0,0.06);
+            padding: 5px 10px;
+            /*display: inline;*/
+            margin-right: 10px;
+            border-radius: 2px;
+        }
+
+        .showQuote-Div {
+            padding: 20px 10px 0px 10px;
+        }
+
+            .showQuote-Div i {
+                padding-right: 5px;
+            }
+
+        .dateClass {
+            margin-left: 10px;
+            font-size: 12px;
+            color: #555;
+        }
+
+        .iconSpace {
+            padding-right: 7px;
+        }
+
+        .backIcon {
+            font-size: 18px;
+            vertical-align: middle;
+            padding-left: 6px;
+        }
+
+        .p-10 {
+            padding: 10px;
+        }
+
+        .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+            background-color: white;
+        }
+
+        .iconFontSize {
+            font-size: 17px;
+        }
+
+        .ng-cloak { 
+            display: none !important; 
+        }
+
+        ._720kb-datepicker-calendar-month select {
+            background-color: #138EFA !important;
+        }
+
+        .font-bold {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body ng-controller="transportersCtrl" style="height: 100%; overflow-x: hidden; overflow-y: hidden;">
+    <!-- #region "Toaster" -->
+    <toaster-container toaster-options="{'close-button':true, 'time-out': 5000 }"></toaster-container>
+    <!-- #endregion -->
+
+    <!-- Main content -->
+    <div class="container" style="margin-left: 0px; margin-right: 0px; height: 100%;" > <!-- ng-if="!completedRFQ" -->
+
+        <!-- Detail transporter for desktop -->
+        <div class="col-md-12 col-sm-12 col-xm-12 ng-cloak" style="padding: 0px; height: 100%;" ng-show="!pm.isMobileBrowser">
+            <!-- Header -->
+            <div class="col-md-12 col-sm-12 col-xs-12 detailHeader"> <!-- ng-show="!showMsg" -->
+                <div class="col-md-8 col-sm-8 col-xm-8 listHeaderText fontFamily">
+                    RFQ Detail - #{{rfqObj.reqForQuoteID}} 
+                    {{rfqObj.orderNo ? '-': ''}} 
+                    {{rfqObj.orderNo}} 
+                    <span style="color: #4CAF50; font-size: 15px;" ng-if="quoteObj.Status == '1'"><i class="fa fa-check"></i>Accepted</span>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-4" style="text-align: right;">
+                    <!-- Vehicle Ready -->
+                    <div class="listDetailHeaderIcon btn btn-primary" style="text-align: center;" uib-tooltip="Waiting for Readiness" 
+                         tooltip-placement="left"
+                         ng-if="rfqObj.status == '4'"
+                         ng-click="openReadyPop();">
+                        <span class="fa fa-bus alignText"></span> Vehicle Ready
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detail transporters-->
+            <div class="machineDetail col-md-12" style="height: calc(100% - 50px); padding-left: 0px; overflow-y: auto;" id="style-1"> 
+                <!-- ng-if="!showMsg" -->
+              
+                <div class="showQuote-Div">
+
+                    <div class="col-md-5" style="display: block">
+                        <div class="col-md-12 col-sm-12" style="padding: 10px 15px; background-color: #ddd; font-size: 15px; font-weight: bold;">
+                           RFQ Detail
+                        </div>
+                        
+                        <div class="col-md-12" ng-repeat="field in rfqObj.fields" style="padding: {{$first ? '20px 0px 0px 15' : '12px 0px 0px 15'}}px;" ng-if="field.fieldValue && field.showtoVendors == '1'">
+                            <div class="col-md-4 col-sm-4 font-bold" style="padding-left: 0px;">{{field.fieldName}}</div> 
+                            <div class="col-md-8 col-sm-8"> {{field.fieldValue}} </div>
+                        </div>
+
+                        <div class="col-md-12" ng-if="rfqObj.quoteByDT" style="padding: 12px 0px 0px 15px;">
+                            <!--<p class="bedge">-->
+                                <div class="col-md-4 col-sm-4" style="padding-left: 0px;"><span class="font-bold">Quote by</span></div> 
+                                <div class="col-md-8 col-sm-8"> {{rfqObj.quoteByDT | date :'dd-MMM-yy'}} </div>
+                            <!--</p>-->
+                        </div>
+
+                        <div class="col-md-12" ng-if="rfqObj.pickupDT" style="padding: 12px 0px 0px 15px;">
+                            <div class="col-md-4 col-sm-4 font-bold" style="padding-left: 0px;">Pick-up</div>
+                            <div class="col-md-8 col-sm-8">{{rfqObj.pickupDT | date :'dd-MMM-yy'}}</div>
+                        </div>
+
+                        <div class="col-md-12" ng-if="rfqObj.details" style="padding: 12px 0px 0px 15px;">
+                            <div class="col-md-4 col-sm-4 font-bold" style="padding-left: 0px;">Note</div>
+                            <div class="col-md-8 col-sm-8">{{rfqObj.details}}</div>
+                        </div>
+                       
+                        <div class="col-md-12" ng-if="rfqObj.fileName" style="padding: 0px 0px 0px 15px;">
+                            <p class="bedge" data-toggle="tooltip" title="File">
+                                <i class="zmdi zmdi-attachment-alt" style="font-size: 16px;"></i>
+                                <a href="../Attachment/{{rfqObj.fileName}}" target="_blank" style="padding-left: 1px;">{{rfqObj.fileName}}</a>
+                            </p>
+                        </div>
+                        <!--<hr />-->
+                    </div>
+                    <div class="col-md-4">
+                        <div class="col-md-12 col-sm-12" style="padding: 10px 15px; background-color: #ddd; font-size: 15px; font-weight: bold;">
+                            Terms
+                        </div>
+                        <div class="row">
+                          
+                            <div class="col-md-12" style="padding: 15px 0px 0px 15px;">
+                                <div class="col-md-12 col-sm-6 infoLbl font-bold">
+                                 Delivery</div>
+                                <div class="col-md-12 col-sm-6">
+                                    <datepicker date-format="dd-MMM-yy"
+                                                date-max-limit="{{maxDeliveryDT | date: 'dd-MMM-yy'}}">
+                                        <input type="text" class="form-control" placeholder="Delivery Date"
+                                               ng-disabled="true"
+                                               ng-model="quotation.ExtendDeliveryDT" readonly />
+                                    </datepicker>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 col-sm-12" style="padding: 0px 0px 0px 15px;">
+
+                                <div class="col-md-12 col-sm-6 infoLbl font-bold">
+                                Payment Terms</div>
+                                <div class="col-md-12 col-sm-6">
+                                    <input class="form-control"  type="text" ng-model="quotation.paymentTerms" 
+                                           ng-disabled="quoteObj != null || isExpired || rfqObj.paymentTerm == 1">
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-sm-12" style="padding: 0px 0px 0px 15px;">
+                                <div class="col-md-12 col-sm-6 infoLbl font-bold">
+                                <!--<i class="zmdi zmdi-comment lableIcon" style="padding-left: 0px;">
+                                    </i>&nbsp;-->
+                                 Details</div>
+                                <div class="col-md-12 col-sm-6">
+                                    <textarea class="inputStyle form-control raw_Div textarea" style="margin-bottom: 10px;" rows="2" id="problem" ng-model="quotation.notes" 
+                                              ng-disabled="quoteObj != null || isExpired"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="col-md-12 col-sm-12" style="padding: 10px 15px; background-color: #ddd; font-size: 15px; font-weight: bold;">
+                            Charges <span style="float: right;" ng-if="componentTotal > 0">Total: {{componentTotal | number: 0}}</span>
+                        </div>
+                        <div class="col-md-12 col-sm-12" style="padding: 15px 0px 0px 0px;">
+                            <div class="col-md-12 col-sm-6 infoLbl font-bold" ng-show="exchangeRateShow">
+                              Exchange Rate
+                            </div>
+                            <div class="col-md-12 col-sm-6" ng-show="exchangeRateShow">
+                                <span style="font-family: arial;">₹/USD</span> 
+                                 <input class="form-control" style="display: inline-block; width: 77%;" type="text" ng-model="quotation.exchangeRate"
+                                       onkeypress="return (event.charCode >= 48 && event.charCode <= 57) || event.charCode == 46"> 
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12" style="padding: {{$first ? '0px 0px 0px 0px' : '0px'}};" 
+                             ng-repeat="component in rfqObj.components" ng-if="component.Type != 'Text'">
+                            <div class="col-md-12 col-sm-6 infoLbl font-bold">
+                            {{component.ComponentName}}</div>
+                            <div class="col-md-12 col-sm-6">
+                                <span style="font-family: arial;" ng-if="component.Currency == 'INR'">₹</span> 
+                                <span style="font-family: arial;" ng-if="component.Currency == 'USD'">$</span> 
+                                <input class="form-control"  style="display: inline-block; width: 90%;" type="text" ng-model="component.ComponentValue"  
+                                   ng-blur="countComponentValue();"  onkeypress="return event.charCode >= 48 && event.charCode <= 57"> <!-- ng-blur="changeCharges(component.ComponentID, component.ComponentValue);" -->
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-sm-12" style="padding: 0px;"
+                             ng-repeat="component in rfqObj.components" ng-if="component.Type == 'Text'">
+                            <div class="col-md-12 col-sm-6 infoLbl font-bold">
+                                {{component.ComponentName}}
+                            </div>
+                            <div class="col-md-12 col-sm-6">
+                                <input class="form-control" style="display: inline-block;" type="text" ng-model="component.ComponentValue">
+                            </div>
+                        </div>
+                    
+                    
+                </div>
+                    <!-- Submit And Cancel Button -->
+                    <div class="col-md-12 col-sm-12" style="display: block; text-align: center; margin: 15px 0px;"
+                         ng-show="!isExpired && !completedRFQ && !rfqObj.isCloseEarly">
+                        <div style="text-align: center; margin-top: 10px; display: inline-block;" ng-click="setQuote();">
+                            <a class="btn btn-primary" title="Save">
+                                <i class="fa fa-check left" style="padding:0 7px 0 0;"></i>Save
+                            </a>
+                        </div>&nbsp;
+                    </div>
+            </div>
+
+        </div>
+
+        <!-- Detail mobile browser -->
+        <div ng-show="pm.isMobileBrowser && isMobile" style="padding: 0px;" class="ng-cloak"> <!-- && !isMobile -->
+            <div class="listHeader col-md-12 col-sm-12 col-xs-12" style="padding: 8px;">
+                <div class="listHeaderText fontFamily font-color">
+                   <span style="vertical-align: middle; vertical-align: middle; padding-left: 15px;">
+                    RFQ Detail - #{{rfqObj.reqForQuoteID}} {{rfqObj.orderNo ? '-': ''}}  {{rfqObj.orderNo}}</span>
+                </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12" style="height: 81vh; overflow-y: auto;" id="style-1"> <!-- height: calc(100% - 50px); -->
+                <div>
+
+                    <!-- RFQ detail -->
+                    <div style="padding-top: 20px;">
+                        <div class="col-md-12 col-sm-12 font-bold" style="padding: 10px 5px; background-color: #ddd; font-size: 15px;">
+                            RFQ Detail
+                        </div>
+                        <div class="col-xs-12" ng-repeat="field in rfqObj.fields" style="padding: {{$first ? '20px 0px 0px 15' : '12px 0px 0px 15'}}px;" ng-if="field.fieldValue && field.showtoVendors == '1'">
+                            <div class="col-xs-4 col-sm-4 font-bold" style="padding-left: 0px;">{{field.fieldName}}</div>
+                            <div class="col-xs-8 col-sm-8"> {{field.fieldValue}} </div>
+                        </div>
+
+                        <div class="col-xs-12" ng-if="rfqObj.quoteByDT" style="padding: 12px 0px 0px 15px;">
+                            <!--<p class="bedge">-->
+                            <div class="col-xs-4 col-sm-4" style="padding-left: 0px;"><span class="font-bold">Quote by</span></div>
+                            <div class="col-xs-8 col-sm-8"> {{rfqObj.quoteByDT | date :'dd-MMM-yy'}} </div>
+                            <!--</p>-->
+                        </div>
+
+                        <div class="col-md-12" ng-if="rfqObj.pickupDT" style="padding: 12px 0px 0px 15px;">
+                            <div class="col-xs-4 col-sm-4 font-bold" style="padding-left: 0px;">Pick-up</div>
+                            <div class="col-xs-8 col-sm-8">{{rfqObj.pickupDT | date :'dd-MMM-yy'}}</div>
+                        </div>
+
+                        <div class="col-xs-12" ng-if="rfqObj.details" style="padding: 12px 0px 0px 15px;">
+                            <div class="col-xs-4 col-sm-4 font-bold" style="padding-left: 0px;">Note</div>
+                            <div class="col-xs-8 col-sm-8">{{rfqObj.details}}</div>
+                        </div>
+                        
+                        <div class="col-md-6" ng-if="rfqObj.fileName">
+                            <p class="bedge" data-toggle="tooltip" title="File">
+                                <i class="zmdi zmdi-attachment-alt" style="font-size: 16px;"></i>
+                                <a href="../Attachment/{{rfqObj.fileName}}" target ="_blank" style="padding-left: 1px;">{{rfqObj.fileName}}</a>
+                            </p>
+                        </div>
+                        <hr />
+                    </div>
+                    
+                    <!-- Terms -->
+                    <div style="padding-top: 20px;">
+                        <div class="col-xs-12 col-sm-12 font-bold" 
+                             style="padding: 10px 5px; background-color: #ddd; font-size: 15px; margin-top: 20px;">
+                            Terms
+                        </div>
+                        <div style="padding-top: 15px;">
+
+                            <div class="col-md-2 col-sm-6 infoLbl font-bold" style="padding-top: 10px;"> Delivery</div>
+                            <div class="col-md-4 col-sm-6" style="height: 42px;">
+                                <datepicker date-format="dd-MMM-yy">
+                                    <!--   date-max-limit="{{maxDeliveryDT | date: 'dd-MMM-yy'}}" date-min-limit="{{quotation.pickupDT | date: 'dd-MMM-yy'}}" -->
+                                    <input type="text" class="form-control" ng-disabled="true"
+                                           ng-model="quotation.ExtendDeliveryDT" readonly />
+                                </datepicker>
+                            </div>
+
+                            <div class="col-md-2 col-sm-6 infoLbl font-bold" style="padding-top: 10px;">Payment Terms</div>
+                            <div class="col-md-4 col-sm-6" style="height: 42px;">
+                                <input class="form-control" type="text" ng-disabled="quoteObj != null || isExpired"
+                                       ng-model="quotation.paymentTerms">
+                            </div>
+
+                            <div class="col-md-2 col-sm-6 infoLbl font-bold" style="padding-top: 10px;">Details</div>
+                            <div class="col-md-4 col-sm-6" style="height: 42px;">
+                                <textarea class="inputStyle form-control raw_Div textarea" ng-disabled="quoteObj != null || isExpired"
+                                          rows="2" id="problem" ng-model="quotation.notes"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Charges -->
+                    <div style="padding-top: 30px;">
+                        <div class="font-bold" style="padding: 10px 5px; background-color: #ddd; font-size: 15px;">
+                            Charges <span style="float: right;" ng-if="componentTotal > 0">Total: {{componentTotal | number: 0}}</span>
+                        </div>
+                        <div class="col-md-12 col-sm-12" style="padding: 15px 0px 0px 15px;">
+                            <div class="col-md-12 col-sm-6 infoLbl font-bold" style="padding-left: 0px;" ng-show="exchangeRateShow">
+                                Exchange Rate
+                            </div>
+                            <div class="col-md-12 col-sm-6" style="padding-left: 0px;" ng-show="exchangeRateShow">
+                                <span style="font-family: arial;">₹</span>
+                                <input class="form-control" style="display: inline-block; width: 90%;" type="text" ng-model="quotation.exchangeRate"
+                                       onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-sm-12" style="padding: 0px 0px 0px 15px;"
+                                ng-repeat="component in rfqObj.components">
+                            <div class="col-md-12 col-sm-6 infoLbl font-bold" style="padding-left: 0px;">
+                                {{component.ComponentName}}
+                            </div>
+                            <div class="col-md-12 col-sm-6" style="padding-left: 0px;">
+                                <span style="font-family: arial;" ng-if="component.Currency == 'INR'">₹</span>
+                                <span style="font-family: arial;" ng-if="component.Currency == 'USD'">$</span>
+                                <input class="form-control" type="text" style="display: inline-block; width: 90%;" ng-model="component.ComponentValue"
+                                   ng-blur="countComponentValue();" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                            </div>
+                        </div>
+                    </div>
+                        
+                    <!-- Submit And Cancel Button -->
+                    <div class="col-md-12 col-sm-12" style="display: block; text-align: center; margin: 15px 0px;" 
+                            ng-show="!isExpired && !completedRFQ && !rfqObj.isCloseEarly">
+                        <div style="text-align: center; margin-top: 10px; display: inline-block;" ng-click="setQuote();">
+                            <a class="btn btn-primary" title="Save">
+                                <i class="fa fa-check left" style="padding:0 7px 0 0;"></i>Save
+                            </a>
+                        </div>&nbsp;
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+       
+    </div>
+</body>
+</html>

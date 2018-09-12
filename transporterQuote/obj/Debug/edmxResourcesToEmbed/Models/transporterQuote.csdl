@@ -1,0 +1,606 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="transporter_QuoteModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Executive">
+    <Key>
+      <PropertyRef Name="ExecutiveID" />
+    </Key>
+    <Property Name="ExecutiveID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ExecutiveName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Designation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Mobile" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CanCreateRFQ" Type="Boolean" Nullable="false" />
+    <Property Name="CanSelectTransporter" Type="Boolean" Nullable="false" />
+    <Property Name="CanCloseRFQ" Type="Boolean" Nullable="false" />
+    <Property Name="CanSelectForCustomer" Type="Boolean" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CreatedDT" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="UpdatedDT" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="ZoneIDs" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Rights" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ServiceRights" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Source">
+    <Key>
+      <PropertyRef Name="SourceID" />
+    </Key>
+    <Property Name="SourceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Location" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Address1" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Address2" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="City" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CreatedDT" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="UpdatedDT" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="transporter_QuoteEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Executives" EntityType="Self.Executive" />
+    <EntitySet Name="Sources" EntityType="Self.Source" />
+    <EntitySet Name="Customers" EntityType="transporter_QuoteModel.Customer" />
+    <EntitySet Name="RFQs" EntityType="transporter_QuoteModel.RFQ" />
+    <FunctionImport Name="fn_SplitString_Row" IsComposable="true" ReturnType="Collection(String)">
+      <Parameter Name="Input" Mode="In" Type="String" />
+      <Parameter Name="Character" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_getRequest" ReturnType="Collection(transporter_QuoteModel.sp_getRequest_Result)">
+      <Parameter Name="TransporterID" Mode="In" Type="Int32" />
+      <Parameter Name="IsHistory" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="Routes" EntityType="transporter_QuoteModel.Route" />
+    <EntitySet Name="Zones" EntityType="transporter_QuoteModel.Zone" />
+    <FunctionImport Name="sp_getScheduleList" ReturnType="Collection(transporter_QuoteModel.sp_getScheduleList_Result)">
+      <Parameter Name="Date" Mode="In" Type="DateTime" />
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="QuoteTypeComponents" EntityType="transporter_QuoteModel.QuoteTypeComponent" />
+    <EntitySet Name="QuoteTypes" EntityType="transporter_QuoteModel.QuoteType" />
+    <EntitySet Name="Fields" EntityType="transporter_QuoteModel.Field" />
+    <EntitySet Name="ServiceTypes" EntityType="transporter_QuoteModel.ServiceType" />
+    <EntitySet Name="RFQFieldValues" EntityType="transporter_QuoteModel.RFQFieldValue" />
+    <FunctionImport Name="getTransporterQuoteDetail" ReturnType="Collection(transporter_QuoteModel.getTransporterQuoteDetail_Result)">
+      <Parameter Name="RFQID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="Transporters" EntityType="transporter_QuoteModel.Transporter" />
+    <EntitySet Name="Shipments" EntityType="transporter_QuoteModel.Shipment" />
+    <EntitySet Name="ShipFields" EntityType="transporter_QuoteModel.ShipField" />
+    <FunctionImport Name="sp_getTransportRFQ" ReturnType="Collection(transporter_QuoteModel.sp_getTransportRFQ_Result)">
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+      <Parameter Name="ServiceRights" Mode="In" Type="String" />
+      <Parameter Name="Status" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="Configs" EntityType="transporter_QuoteModel.Config" />
+    <FunctionImport Name="sp_getCountRFQ" ReturnType="Collection(transporter_QuoteModel.sp_getCountRFQ_Result)">
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_MapShipFields" ReturnType="Collection(transporter_QuoteModel.sp_MapShipFields_Result)">
+      <Parameter Name="QuoteID" Mode="In" Type="Int32" />
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+      <Parameter Name="ShipmentID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="Slots" EntityType="transporter_QuoteModel.Slot" />
+    <FunctionImport Name="sp_getScheduleSlot">
+      <Parameter Name="ServiceTypeID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_getAllocatedSlotDetail" ReturnType="Collection(transporter_QuoteModel.sp_getAllocatedSlotDetail_Result)">
+      <Parameter Name="ScheduleDT" Mode="In" Type="DateTime" />
+      <Parameter Name="SlotID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="Containers" EntityType="transporter_QuoteModel.Container" />
+    <EntitySet Name="FinalRates" EntityType="transporter_QuoteModel.FinalRates" />
+    <EntitySet Name="Rating" EntityType="transporter_QuoteModel.Rating" />
+    <FunctionImport Name="sp_getRFQList" ReturnType="Collection(transporter_QuoteModel.sp_getRFQList_Result)">
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_getDispatchPlanList" ReturnType="Collection(transporter_QuoteModel.sp_getDispatchPlanList_Result)">
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="Quotations" EntityType="transporter_QuoteModel.Quotations" />
+  </EntityContainer>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="State" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Mobile" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="AlternateMobile" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Notes" Type="String" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDT" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="UpdatedDT" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="Address1" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Address2" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Country" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="RFQ">
+    <Key>
+      <PropertyRef Name="RequestForQuoteID" />
+    </Key>
+    <Property Name="RequestForQuoteID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerID" Type="Int32" Nullable="false" />
+    <Property Name="SourceID" Type="Int32" Nullable="false" />
+    <Property Name="ExecutiveID" Type="Int32" Nullable="false" />
+    <Property Name="Destination" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Source" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Product" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PickUp" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="DeliveryBy" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="AllowLaterDelivery" Type="Boolean" Nullable="false" />
+    <Property Name="QuoteBy" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Details" Type="String" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Transporters" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDT" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="UpdatedDT" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="CloseEarly" Type="Boolean" Nullable="false" />
+    <Property Name="OrderNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FileName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="RouteID" Type="Int32" Nullable="false" />
+    <Property Name="Route" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="DispatchedByUserID" Type="Int32" Nullable="false" />
+    <Property Name="DispatchedDT" Type="DateTime" Precision="0" />
+    <Property Name="ZoneID" Type="Int32" Nullable="false" />
+    <Property Name="ForwardedByUserId" Type="Int32" Nullable="false" />
+    <Property Name="ClearenceDT" Type="DateTime" Precision="0" />
+    <Property Name="ClearedByUserID" Type="Int32" Nullable="false" />
+    <Property Name="TimeSlotFromDT" Type="DateTime" Precision="0" />
+    <Property Name="TimeSlotToDT" Type="DateTime" Precision="0" />
+    <Property Name="VehicleReadyDT" Type="DateTime" Precision="0" />
+    <Property Name="VehicleNumber" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="VehReadyByUserID" Type="Int32" Nullable="false" />
+    <Property Name="VehicleEntryDT" Type="DateTime" Precision="0" />
+    <Property Name="LoadingByUserID" Type="Int32" Nullable="false" />
+    <Property Name="ReadyByTransporterUserID" Type="Int32" Nullable="false" />
+    <Property Name="QuoteTypeID" Type="Int32" Nullable="false" />
+    <Property Name="PaymentTerm" Type="Int32" Nullable="false" />
+    <Property Name="FixedTerm" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ReminderSentDT" Type="DateTime" Precision="0" />
+    <Property Name="Budget" Type="Decimal" Nullable="false" Precision="12" Scale="2" />
+    <Property Name="ShipmentID" Type="Int32" Nullable="false" />
+    <Property Name="StartWorkDT" Type="DateTime" Precision="0" />
+    <Property Name="StartedByUserID" Type="Int32" Nullable="false" />
+    <Property Name="CompletionDT" Type="DateTime" Precision="0" />
+    <Property Name="CompletionByUserID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Route">
+    <Key>
+      <PropertyRef Name="RouteID" />
+    </Key>
+    <Property Name="RouteID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RouteCode" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="RouteDetail" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedDT" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <ComplexType Name="sp_getRequest_Result">
+    <Property Type="Int32" Name="RequestForQuoteID" Nullable="false" />
+    <Property Type="String" Name="Source" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Location" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="SourceAddress1" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="SourceAddress2" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="Destination" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Product" Nullable="false" MaxLength="50" />
+    <Property Type="Boolean" Name="AllowLaterDelivery" Nullable="false" />
+    <Property Type="Int32" Name="CustomerID" Nullable="false" />
+    <Property Type="Boolean" Name="CloseEarly" Nullable="false" />
+    <Property Type="String" Name="CompanyName" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="DestinationAddress1" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="DestinationAddress2" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="CustomerCity" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="CustomerState" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="SourceCity" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="SourceState" Nullable="false" MaxLength="50" />
+    <Property Type="DateTime" Name="PickUp" Nullable="false" Precision="16" />
+    <Property Type="DateTime" Name="DeliveryBy" Nullable="false" Precision="16" />
+    <Property Type="DateTime" Name="QuoteBy" Nullable="false" Precision="16" />
+    <Property Type="String" Name="Details" Nullable="false" MaxLength="2000" />
+    <Property Type="String" Name="Status" Nullable="false" MaxLength="10" />
+    <Property Type="Decimal" Name="Charges" Nullable="false" Precision="12" Scale="2" />
+    <Property Type="String" Name="PaymentTerms" Nullable="false" />
+    <Property Type="String" Name="Notes" Nullable="false" MaxLength="2000" />
+    <Property Type="DateTime" Name="ExtendDeliveryDT" Nullable="false" Precision="16" />
+    <Property Type="String" Name="QuoteStatus" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="OrderNo" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="FileName" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="RouteName" Nullable="false" MaxLength="401" />
+  </ComplexType>
+  <EntityType Name="Zone">
+    <Key>
+      <PropertyRef Name="ZoneID" />
+    </Key>
+    <Property Name="ZoneID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ZoneName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <ComplexType Name="sp_getScheduleList_Result">
+    <Property Type="String" Name="CompanyName" Nullable="false" MaxLength="100" />
+    <Property Type="DateTime" Name="TimeSlotFromDT" Nullable="true" Precision="16" />
+    <Property Type="DateTime" Name="TimeSlotToDT" Nullable="true" Precision="16" />
+  </ComplexType>
+  <EntityType Name="QuoteTypeComponent">
+    <Key>
+      <PropertyRef Name="ComponentID" />
+    </Key>
+    <Property Name="ComponentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ComponentName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PaidBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Currency" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="QuoteTypeID" Type="Int32" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedDT" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CreatedByUserID" Type="Int32" Nullable="false" />
+    <Property Name="LastUpdatedDT" Type="DateTime" Precision="0" />
+    <Property Name="LastUpdatedByUserID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="QuoteType">
+    <Key>
+      <PropertyRef Name="QuoteTypeID" />
+    </Key>
+    <Property Name="QuoteTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="QuoteTypeName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PaidBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedDT" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CreatedByUserID" Type="Int32" Nullable="false" />
+    <Property Name="LastUpdatedDT" Type="DateTime" Precision="0" />
+    <Property Name="LastUpdatedByUserID" Type="Int32" />
+    <Property Name="IsAllowNegotiation" Type="Boolean" Nullable="false" />
+    <Property Name="ServiceTypeID" Type="Int32" Nullable="false" />
+    <Property Name="CoreField" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Field">
+    <Key>
+      <PropertyRef Name="FieldID" />
+    </Key>
+    <Property Name="FieldID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FieldName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FieldType" Type="Int32" Nullable="false" />
+    <Property Name="IsRequired" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedDT" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CreatedByUserID" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedDT" Type="DateTime" Precision="0" />
+    <Property Name="UpdatedByUserID" Type="Int32" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="Choices" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="QuoteTypeID" Type="Int32" Nullable="false" />
+    <Property Name="ShowCustomer" Type="Boolean" Nullable="false" />
+    <Property Name="ShowVendors" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ServiceType">
+    <Key>
+      <PropertyRef Name="ServiceTypeID" />
+    </Key>
+    <Property Name="ServiceTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ServiceName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="CompletionDateText" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PickupDateText" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="RFQFieldValue">
+    <Key>
+      <PropertyRef Name="RFQFieldID" />
+    </Key>
+    <Property Name="RFQFieldID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RFQID" Type="Int32" Nullable="false" />
+    <Property Name="FieldID" Type="Int32" Nullable="false" />
+    <Property Name="FieldValue" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDT" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CreatedUserID" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedDT" Type="DateTime" Precision="0" />
+    <Property Name="UpdatedUserID" Type="Int32" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Transporter">
+    <Key>
+      <PropertyRef Name="TransporterID" />
+    </Key>
+    <Property Name="TransporterID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="State" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Mobile" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="AlternateMobile" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Notes" Type="String" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDT" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="UpdatedDT" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="IsDomestic" Type="Boolean" Nullable="false" />
+    <Property Name="IsExport" Type="Boolean" Nullable="false" />
+    <Property Name="ServiceTypeID" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Shipment">
+    <Key>
+      <PropertyRef Name="ShipmentID" />
+    </Key>
+    <Property Name="ShipmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="QuoteID" Type="Int32" Nullable="false" />
+    <Property Name="RFQID" Type="Int32" Nullable="false" />
+    <Property Name="TransporterID" Type="Int32" Nullable="false" />
+    <Property Name="QuoteTypeID" Type="Int32" Nullable="false" />
+    <Property Name="PickupDT" Type="DateTime" Precision="0" />
+    <Property Name="Product" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="SourceLocation" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="SourceAddress" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DestinationAddress" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Containers" Type="Int32" Nullable="false" />
+    <Property Name="PortofLoading" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PortofDischarge" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="EmptyContainer" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDT" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CreatedByUserID" Type="Int32" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="ServiceIDs" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DeliveryDT" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CustomerID" Type="Int32" Nullable="false" />
+    <Property Name="ShipmentRFQIDs" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="FileName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedByUserID" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedDT" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="ShipField">
+    <Key>
+      <PropertyRef Name="ShipFieldID" />
+    </Key>
+    <Property Name="ShipFieldID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="QuoteTypeID" Type="Int32" Nullable="false" />
+    <Property Name="PickupDTName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ProductName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="SourceLocationName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="SourceAddressName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="DestinationName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ContainerName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PortofLoadingName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PortofDischargeName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="EmtcontainPickupName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDT" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <ComplexType Name="getTransporterQuoteDetail_Result">
+    <Property Type="Int32" Name="reqForQuoteID" Nullable="false" />
+    <Property Type="Int32" Name="customerID" Nullable="true" />
+    <Property Type="String" Name="customerName" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="quoteByDT" Nullable="false" Precision="16" />
+    <Property Type="String" Name="details" Nullable="false" MaxLength="2000" />
+    <Property Type="String" Name="status" Nullable="false" MaxLength="10" />
+    <Property Type="Boolean" Name="isCloseEarly" Nullable="false" />
+    <Property Type="String" Name="orderNo" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="fileName" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="paymentTerm" Nullable="false" />
+    <Property Type="String" Name="fixedTerm" Nullable="true" MaxLength="200" />
+    <Property Type="DateTime" Name="reminderSentDate" Nullable="true" Precision="16" />
+    <Property Type="DateTime" Name="pickupDT" Nullable="false" Precision="16" />
+    <Property Type="String" Name="fields" Nullable="false" />
+    <Property Type="String" Name="components" Nullable="false" />
+    <Property Type="DateTime" Name="deliveryDT" Nullable="false" Precision="16" />
+  </ComplexType>
+  <EntityType Name="Config">
+    <Key>
+      <PropertyRef Name="ConfigID" />
+    </Key>
+    <Property Name="ConfigID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Field" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Value" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDT" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <ComplexType Name="sp_getCountRFQ_Result">
+    <Property Type="Int32" Name="Status" Nullable="false" />
+    <Property Type="Int32" Name="RFQcount" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_getTransportRFQ_Result">
+    <Property Type="Int32" Name="shipmentID" Nullable="false" />
+    <Property Type="Int32" Name="rfqID" Nullable="false" />
+    <Property Type="Int32" Name="quoteID" Nullable="false" />
+    <Property Type="DateTime" Name="pickupDate" Nullable="false" Precision="16" />
+    <Property Type="String" Name="product" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="sourceAddress" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="sourceLocation" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="destinationAddress" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="emptyContainer" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="containers" Nullable="false" />
+    <Property Type="String" Name="portofDischarge" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="portodLoading" Nullable="false" MaxLength="100" />
+    <Property Type="DateTime" Name="deliveryDate" Nullable="false" Precision="16" />
+    <Property Type="String" Name="detail" Nullable="false" MaxLength="2000" />
+    <Property Type="Int32" Name="executiveID" Nullable="false" />
+    <Property Type="String" Name="fixedTerm" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="fileName" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="customerID" Nullable="false" />
+    <Property Type="String" Name="orderNo" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="status" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="transportCompany" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="customerCompany" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="components" Nullable="false" />
+    <Property Type="String" Name="paymentTerms" Nullable="false" />
+    <Property Type="DateTime" Name="quoteBy" Nullable="false" Precision="16" />
+    <Property Type="Int32" Name="loadingbyUserID" Nullable="false" />
+    <Property Type="Int32" Name="clearedByUserID" Nullable="false" />
+    <Property Type="DateTime" Name="clearenceDT" Nullable="true" Precision="16" />
+    <Property Type="DateTime" Name="timeFromDT" Nullable="true" Precision="16" />
+    <Property Type="DateTime" Name="timeToDT" Nullable="true" Precision="16" />
+    <Property Type="Int32" Name="vehReadyByUserID" Nullable="false" />
+    <Property Type="DateTime" Name="vehicleEntryDT" Nullable="true" Precision="16" />
+    <Property Type="String" Name="vehicleNumber" Nullable="false" MaxLength="100" />
+    <Property Type="DateTime" Name="vehicleReadyDT" Nullable="true" Precision="16" />
+    <Property Type="DateTime" Name="dispatchedDT" Nullable="true" Precision="16" />
+    <Property Type="Int32" Name="dispatchedByUserID" Nullable="false" />
+    <Property Type="String" Name="transporterDetail" Nullable="false" />
+    <Property Type="String" Name="response" Nullable="false" />
+    <Property Type="String" Name="createdBy" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="vendorName" Nullable="false" MaxLength="100" />
+    <Property Type="Decimal" Name="exchangeRate" Nullable="false" Precision="12" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="sp_MapShipFields_Result">
+    <Property Type="Int32" Name="ShimpmentID" Nullable="false" />
+    <Property Type="String" Name="Msg" Nullable="false" MaxLength="16" />
+  </ComplexType>
+  <EntityType Name="Slot">
+    <Key>
+      <PropertyRef Name="SlotID" />
+    </Key>
+    <Property Name="SlotID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SlotFrom" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="SlotTo" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="Capacity" Type="Int32" Nullable="false" />
+    <Property Name="ServiceTypeID" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDT" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CreatedByUserID" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedDT" Type="DateTime" Precision="0" />
+    <Property Name="UpdatedByUserID" Type="Int32" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <ComplexType Name="sp_getAllocatedSlotDetail_Result">
+    <Property Type="Int32" Name="containerID" Nullable="false" />
+    <Property Type="Int32" Name="shipmentID" Nullable="false" />
+    <Property Type="Time" Name="scheduleTime" Nullable="true" />
+    <Property Type="String" Name="transporterName" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="customerName" Nullable="false" MaxLength="100" />
+  </ComplexType>
+  <EntityType Name="Container">
+    <Key>
+      <PropertyRef Name="ContainerID" />
+    </Key>
+    <Property Name="ContainerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ShipmentID" Type="Int32" Nullable="false" />
+    <Property Name="ScheduleFromDT" Type="DateTime" Precision="0" />
+    <Property Name="ScheduleTime" Type="Time" Precision="7" />
+    <Property Name="SlotID" Type="Int32" Nullable="false" />
+    <Property Name="Notes" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDT" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CreatedByUserID" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedDT" Type="DateTime" Precision="0" />
+    <Property Name="UpdatedByUserID" Type="Int32" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="Status" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="VehicleNumber" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="VehicleArrivalDT" Type="DateTime" Precision="0" />
+    <Property Name="VehicleArrivalByUserID" Type="Int32" Nullable="false" />
+    <Property Name="LoadingDT" Type="DateTime" Precision="0" />
+    <Property Name="LoadingByUserID" Type="Int32" Nullable="false" />
+    <Property Name="DispatchedDT" Type="DateTime" Precision="0" />
+    <Property Name="DispatchedByUserID" Type="Int32" Nullable="false" />
+    <Property Name="DeliveryDT" Type="DateTime" Precision="0" />
+    <Property Name="DeliveryByUserID" Type="Int32" Nullable="false" />
+    <Property Name="CtrName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="FinalRates">
+    <Key>
+      <PropertyRef Name="RFQID" />
+      <PropertyRef Name="ComponentID" />
+    </Key>
+    <Property Name="RFQID" Type="Int32" Nullable="false" />
+    <Property Name="ComponentID" Type="Int32" Nullable="false" />
+    <Property Name="AcceptedCost" Type="Decimal" Nullable="false" Precision="12" Scale="4" />
+    <Property Name="ActualCost" Type="Decimal" Nullable="false" Precision="12" Scale="4" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedDT" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CreatedByUserID" Type="Int32" Nullable="false" />
+    <Property Name="Rates" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Rating">
+    <Key>
+      <PropertyRef Name="RFQID" />
+    </Key>
+    <Property Name="RFQID" Type="Int32" Nullable="false" />
+    <Property Name="Stars" Type="Int32" Nullable="false" />
+    <Property Name="Reason" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="RatingData" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <ComplexType Name="sp_getRFQList_Result">
+    <Property Type="Int32" Name="reqForQuoteID" Nullable="false" />
+    <Property Type="Int32" Name="customerID" Nullable="true" />
+    <Property Type="String" Name="customerName" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="quoteByDT" Nullable="false" Precision="16" />
+    <Property Type="String" Name="details" Nullable="false" MaxLength="2000" />
+    <Property Type="String" Name="status" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="transporterIDs" Nullable="false" />
+    <Property Type="Boolean" Name="isCloseEarly" Nullable="false" />
+    <Property Type="String" Name="orderNo" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="fileName" Nullable="false" MaxLength="100" />
+    <Property Type="DateTime" Name="timeSlotFromDT" Nullable="true" Precision="16" />
+    <Property Type="DateTime" Name="timeSlotToDT" Nullable="true" Precision="16" />
+    <Property Type="Int32" Name="vehReadyByUserID" Nullable="false" />
+    <Property Type="DateTime" Name="vehicleEntryDT" Nullable="true" Precision="16" />
+    <Property Type="DateTime" Name="clearanceDT" Nullable="true" Precision="16" />
+    <Property Type="String" Name="vehicleNumber" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="paymentTerm" Nullable="false" />
+    <Property Type="String" Name="fixedTerm" Nullable="true" MaxLength="200" />
+    <Property Type="DateTime" Name="reminderSentDate" Nullable="true" Precision="16" />
+    <Property Type="String" Name="fields" Nullable="false" />
+    <Property Type="String" Name="transporterDetail" Nullable="false" />
+    <Property Type="String" Name="response" Nullable="false" />
+    <Property Type="String" Name="createdBy" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="dispatchedBy" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="destinationAddress" Nullable="true" MaxLength="502" />
+    <Property Type="DateTime" Name="deliveryDT" Nullable="false" Precision="16" />
+    <Property Type="DateTime" Name="dispatchDT" Nullable="true" Precision="16" />
+    <Property Type="DateTime" Name="pickUpDT" Nullable="false" Precision="16" />
+    <Property Type="Decimal" Name="budget" Nullable="false" Precision="12" Scale="2" />
+    <Property Type="String" Name="serviceName" Nullable="false" MaxLength="50" />
+    <Property Type="DateTime" Name="startWorkDT" Nullable="true" Precision="16" />
+  </ComplexType>
+  <ComplexType Name="sp_getDispatchPlanList_Result">
+    <Property Type="Int32" Name="shipmentID" Nullable="false" />
+    <Property Type="DateTime" Name="pickup" Nullable="true" Precision="16" />
+    <Property Type="String" Name="source" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="container" Nullable="false" />
+    <Property Type="String" Name="fileName" Nullable="false" />
+    <Property Type="Int32" Name="customerID" Nullable="false" />
+    <Property Type="String" Name="companyName" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="serviceName" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="serviceTypeID" Nullable="false" />
+    <Property Type="DateTime" Name="delivery" Nullable="false" Precision="16" />
+    <Property Type="String" Name="serviceIDs" Nullable="false" />
+    <Property Type="String" Name="product" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="sourceAddress" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="destination" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="portofLoading" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="portofDischarge" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="emptyContainer" Nullable="false" MaxLength="100" />
+  </ComplexType>
+  <EntityType Name="Quotations">
+    <Key>
+      <PropertyRef Name="QuoteID" />
+    </Key>
+    <Property Name="QuoteID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RequestForQuoteID" Type="Int32" Nullable="false" />
+    <Property Name="TransporterID" Type="Int32" Nullable="false" />
+    <Property Name="AcceptID" Type="Int32" Nullable="false" />
+    <Property Name="IsAcceptedByExeOrCust" Type="Boolean" Nullable="false" />
+    <Property Name="Charges" Type="Decimal" Nullable="false" Precision="12" Scale="2" />
+    <Property Name="PaymentTerms" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AcceptanceStatusOn" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ExtendDeliveryDT" Type="DateTime" Precision="0" />
+    <Property Name="Notes" Type="String" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDT" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="UpdatedDT" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="Components" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ExchangeRate" Type="Decimal" Nullable="false" Precision="12" Scale="2" />
+    <Property Name="AcceptNote" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="RoundNumber" Type="Int32" Nullable="false" />
+    <Property Name="NegotiationComments" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="IsNegotiated" Type="Boolean" Nullable="false" />
+  </EntityType>
+</Schema>

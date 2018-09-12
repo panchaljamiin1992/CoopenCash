@@ -1,0 +1,185 @@
+﻿<style>
+    .autocomplete-content {
+        margin-top: 1px;
+        display: block;
+        opacity: 1;
+        position: absolute;
+    }
+
+    .addScheduleDetail .modal-content {
+        max-height: 90%;
+        border-radius: 0px;
+    }
+
+    .addScheduleDetail .modal-dialog {
+        background-color: #fff;
+        margin-top: 100px;
+        max-height: 85%;
+        width: 40%;
+    }
+
+    .close-btn {
+        font-size: 24px;
+        padding: 12px 17px;
+        border-radius: 25px;
+        float: right;
+        color: #000000;
+        background-color: #fff;
+        -webkit-transition: background-color 2s;
+    }
+
+        .close-btn:hover {
+            background-color: #ededed;
+            border-radius: 25px;
+        }
+
+    .row {
+        /*margin: 0px;*/
+        margin: 10px;
+    }
+
+    .input-field {
+        margin-bottom: 20px;
+    }
+
+    .select-wrapper span.caret {
+        color: #cccccc !important;
+    }
+
+    input[type=text].invalid {
+        border-bottom: 1px solid rgba(0,0,0,0.26);
+    }
+
+    .header {
+        border-bottom: 1px solid rgba(0, 0, 0, .10);
+        padding: 10px;
+    }
+
+    .addScheduleDetail label {
+        font-size: 15px;
+        font-weight: 500;
+    }
+
+    @media only screen and (max-width: 500px) {
+        .addScheduleDetail .modal-dialog {
+            width: 100%;
+            margin: 100px 0px 0px 0px;
+        }
+    }
+
+    .open {
+        width: 10em !important;
+        height: auto !important;
+    }
+
+    /*input[type="text"] {
+            -webkit-box-shadow: none;
+            border: none;
+            border-bottom: 1px solid #ccc;
+            border-radius: inherit;
+            font-size: 14px;
+            outline: none;
+        }*/
+</style>
+
+<!-- Main content -->
+<div style="min-height: 250px;">
+    <!--<div class="row">
+        <div class="modal-header">
+            <h4 class="modal-title">Set New Password</h4>
+            <div style="position: absolute; top: 13px; right: 0px;">
+                <a href="" ng-click="closeChangePasswordPop();" title="Close">
+                    <i class="fa fa-times close-btn"></i>
+                </a>
+            </div>
+        </div>
+    </div>-->
+    <!--<div class="row header">
+        <div class="col-md-10 col-sm-10">
+            <div>
+                <span style="font-size: 18px;">
+                    Schedule Time Slot
+                </span>
+            </div>
+        </div>
+        <div style="position: absolute; top: 6px; right: 0px;" class="col-md-2 col-sm-2">
+            <a ng-click="closeSchedulePop();" title="Close">
+                <i class="zmdi zmdi-close close-btn"></i>
+            </a>
+        </div>
+    </div>-->
+    <!--<div class="divider" style="margin-bottom: 20px;"></div>-->
+    <div class="row header">
+        <div class="col-md-10 col-sm-10">
+            <div>
+                <span style="font-size: 18px;">
+                    Schedule Detail
+                </span>
+            </div>
+        </div>
+        <div style="position: absolute; top: 6px; right: 0px;" class="col-md-2 col-sm-2">
+            <a ng-click="closeAllocateDetailPop();" title="Close">
+                <i class="zmdi zmdi-close close-btn"></i>
+            </a>
+        </div>
+    </div>
+    <div class="divider" style="margin-bottom: 20px;"></div>
+
+    <div class="row" style="padding: 15px;">
+        <div>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th style="width: 100px;">
+                           Load Time
+                        </th>
+                        <th style="width: 20px;" >
+                           Dispatch
+                        </th>
+                        <th style="width: 100px;">
+                          Customer
+                        </th>
+                        <th style="width: 100px;">
+                           Container
+                        </th>
+                        <th>
+                           Vendor
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="allocate in allocateSlotList">
+                        <td>
+                            {{allocate.scheduleTime}}
+                        </td>
+                        <td>
+                            #{{allocate.shipmentID}}
+                        </td>
+                        <td>
+                           {{allocate.customerName}}
+                        </td>
+                        <td>
+                            #{{allocate.containerID}}
+                        </td>
+                        <td>
+                           {{allocate.transporterName}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Submit button -->
+    <!--<div style="display: block; text-align: center;">
+        <div style="text-align: center; margin-top: 10px;">
+            <button class="btn btn-primary" title="Save" ng-click="timeSlotRFQ();" tabindex="4">
+                <i class="fa fa-check left" style="padding:0 7px 0 0;"></i>Save
+            </button>
+        </div>&nbsp;
+    </div>-->
+
+</div>
+
+
+

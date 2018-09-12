@@ -1,0 +1,1044 @@
+﻿<!DOCTYPE html>
+<html style="height: 100%;">
+ <!-- overflow-y: hidden !important; -->
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <style>
+        html {
+            overflow-y: auto;
+        }
+
+        #finishBy ._720kb-datepicker-calendar._720kb-datepicker-open, ._720kb-datepicker-calendar._720kb-datepicker-forced-to-open {
+            bottom: 20%;
+            width: 100px;
+        }
+
+        ._720kb-datepicker-calendar._720kb-datepicker-open, ._720kb-datepicker-calendar._720kb-datepicker-forced-to-open {
+            width: 100px;
+        }
+
+        .container {
+            /* width: calc(100% - 57px);*/
+            width: auto;
+            padding-right: 0px;
+            padding-left: 0px;
+            margin-right: auto;
+            /*margin-left: 57px;*/
+        }
+
+        @media screen and (max-width: 500px) {
+            .container {
+                width: 100%;
+                margin-left: 0px;
+                margin-top: 50px;
+            }
+        }
+
+        .alignText {
+            vertical-align: middle;
+            width: 20px;
+            text-align: center;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            /* Set the fixed height of the footer here */
+            height: 60px;
+            z-index: 300;
+        }
+
+        @media screen and (min-width: 980px) {
+            .footer {
+                width: 24.9%;
+            }
+        }
+
+        .fa-rotate-90 {
+            -webkit-transform: rotate(90deg);
+            -moz-transform: rotate(90deg);
+            -ms-transform: rotate(90deg);
+            -o-transform: rotate(90deg);
+            transform: rotate(90deg);
+        }
+
+        /*.dropdown-content li > a, .dropdown-content li > span, .dropdown-content li {
+            color: #000;
+        }*/
+
+        .menuDropdown {
+            float: left;
+            font-size: 30px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        ul#menuDD:not(.browser-default) {
+            min-width: 210px;
+            top: 49px !important;
+        }
+
+        .dropdown-content {
+            background-color: #fff;
+            margin: 0;
+            display: none;
+            min-width: 100px;
+            max-height: 650px;
+            overflow-y: auto;
+            opacity: 0;
+            position: absolute;
+            z-index: 999;
+            will-change: width, height;
+            box-shadow: 0 6px 12px rgba(0,0,0,.175);
+        }
+
+            .dropdown-content li {
+                clear: both;
+                color: rgba(0,0,0,0.87);
+                cursor: pointer;
+                /*min-height: 50px;*/
+                line-height: 1.5rem;
+                width: 100%;
+                text-align: left;
+                text-transform: none;
+            }
+
+        ul:not(.browser-default) li {
+            list-style-type: none;
+        }
+
+        .dropdown-content li:hover, .dropdown-content li.active, .dropdown-content li.selected {
+            background-color: #eee;
+        }
+
+        .form-control:focus {
+            border-bottom-color: 1px solid #66afe9;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+        }
+
+        .dropdown button {
+            width: 86%;
+            background-color: rgba(255, 255, 255, 0);
+            box-shadow: none;
+            border-bottom: 1px solid #ccc;
+            /*background-color: #f8f8f8;*/
+        }
+
+            .dropdown button span {
+                float: right;
+                position: relative;
+                top: 10px;
+                font-size: 14px;
+                font-family: Roboto;
+                background-color: #fff;
+            }
+
+            .dropdown button[disabled] {
+                /*background-color: #f8f8f8;*/
+                border-color: #ccc;
+            }
+
+        .btn-default:hover {
+            background-color: rgba(255, 255, 255, 0);
+            border-bottom: 1px solid #ccc;
+        }
+
+        .open > .dropdown-menu {
+            max-height: 218px;
+            overflow: overlay;
+            display: block;
+            position: absolute;
+            left: 15px;
+            width: auto;
+            font-size: 14px;
+            font-family: Roboto;
+        }
+
+        .open > .dropdown-toggle.btn-default:hover, open > .dropdown-toggle.btn-default:focus, .open > .dropdown-toggle.btn-default {
+            color: #333;
+            background-color: rgba(255, 255, 255, 0);
+            border-bottom: 1px solid #66afe9;
+        }
+
+        .dropdownIcon {
+            color: #4885ed;
+            margin-left: 15px;
+        }
+
+
+        blockquote {
+            padding: 10px 20px;
+            margin: 0 0 20px;
+            font-size: 14px;
+            border-left: 2px solid #eee;
+        }
+
+        .activityMenuli {
+            margin: 6px 2px 5px 1px;
+        }
+
+        .statusBedge {
+            display: inline;
+            margin-right: 10px;
+            border-radius: 2px;
+            color: #fff;
+            line-height: 1.5;
+            min-width: 18px;
+            text-align: center;
+            vertical-align: middle;
+            padding: 0px 5px;
+        }
+
+        .open {
+            width: 66.66666667%;
+        }
+
+            .open > .dropdown-menu {
+                left: 15px !important;
+            }
+
+        .textOverflow {
+            text-overflow: ellipsis;
+            overflow: hidden;
+            display: inline-block;
+            white-space: nowrap;
+            vertical-align: top;
+        }
+
+        .listHeader {
+            border-bottom: 1px solid rgba(0, 0, 0, .10);
+            box-sizing: border-box;
+            height: 50px;
+            /*box-shadow: 0 3px 10px rgba(0,0,0,0.4);*/
+            /* text-align: center; */
+            /* background-color: #0D47A1; */
+        }
+
+        .listHeaderText {
+            vertical-align: sub;
+            line-height: 2.3;
+            display: inline-block;
+            color: #286090;
+            /*color: #03A9F4*/ /*rgba(255, 0, 0, 0.66)*/
+            font-weight: 600;
+            font-size: 16px;
+            font-family: Roboto;
+        }
+
+        .listMenuIcon {
+            display: inline-block;
+            /*position: absolute;*/
+            vertical-align: middle;
+            font-size: 20px;
+        }
+
+        .list {
+            border-right: 2px solid rgba(0, 0, 0, 0.5);
+            box-sizing: border-box;
+            /*height: 665px;*/ /*-webkit-fill-available;*/
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .listDetailHeaderIcon {
+            /*position: absolute;*/
+            /*font-size: 20px;*/
+            text-align: right;
+            cursor: pointer;
+            padding: 4px 8px;
+        }
+
+        .detailHeader {
+            border-bottom: 1px solid rgba(0, 0, 0, .10);
+            box-sizing: border-box;
+            height: 50px;
+            padding: 10px;
+            position: relative;
+            /*text-align: center;*/
+            z-index: 201;
+            background-color: #fff;
+            display: flex;
+        }
+
+        .smallrightsList {
+            padding: 10px;
+        }
+
+        .font-color {
+            color: #286090;
+        }
+
+        .listDetail {
+            border-right: 1px solid rgba(0, 0, 0, .10);
+            box-sizing: border-box;
+            /*height: 615px;*/ /*-webkit-fill-available;*/
+            /*padding: 10px;*/
+            padding: 0px;
+            background-color: #fff;
+        }
+
+        .infoLbl {
+            /*padding-left: 8px;*/
+            line-height: 34px;
+        }
+
+        .lableIcon {
+            color: black;
+            padding: 0px 5px;
+            font-size: 17px;
+        }
+
+        .form-control:focus {
+            border-bottom-color: 1px solid #66afe9;
+            -webkit-box-shadow: none;
+        }
+
+        .form-inline .form-control {
+            display: inline-block;
+            width: 125px;
+            vertical-align: middle;
+        }
+
+        .form-control:focus {
+            border-bottom: 1px solid #66afe9;
+        }
+
+        .textarea {
+            -webkit-box-shadow: none;
+            border: none;
+            border-bottom: 1px solid #ccc;
+            border-radius: inherit;
+            font-size: 14px;
+            font-family: Roboto;
+            /*background-color: #f8f8f8;*/
+        }
+
+        .dateColor {
+            color: rgba(128, 128, 128, 0.71);
+        }
+
+        .bedge {
+            /*background-color: rgba(0,0,0,0.06);*/
+            padding: 5px 10px;
+            /*display: inline;*/
+            margin-right: 10px;
+            border-radius: 2px;
+        }
+
+        .showQuote-Div {
+            padding: 60px 10px 0px 10px;
+        }
+
+            .showQuote-Div i {
+                padding-right: 5px;
+            }
+
+        .dateClass {
+            margin-left: 10px;
+            font-size: 12px;
+            color: #555;
+        }
+
+        .subMenuli {
+            font-size: 17px;
+            padding: 10px;
+        }
+
+        .autoComplete {
+            max-height: 160px;
+            width: 306px;
+            position: absolute;
+            overflow-y: auto;
+            background-color: #fff;
+            z-index: 10;
+            /*left: 199px;
+            top: 49px;*/
+            box-shadow: 0px 0px 5px;
+        }
+
+            .autoComplete div {
+                padding: 10px;
+            }
+
+                .autoComplete div:hover {
+                    background-color: rgba(0,0,0,0.1);
+                }
+
+        .fileUpload {
+            font-size: 20px !important;
+            line-height: 1.3 !important;
+        }
+
+        .btn:active:focus, .btn:focus {
+            outline: none;
+            color: #fff;
+        }
+
+        .cursor {
+            cursor: pointer;
+        }
+
+        .font-bold {
+            font-weight: bold;
+        }
+
+        .icon-width {
+            width: 13%;
+        }
+
+        .checkbox+.checkbox {
+            margin-top: 0px;
+        }
+
+        .checkbox {
+            margin-top: 0px;
+        }
+
+        .paddingDetail {
+            padding: 0px;
+        }
+
+
+        /*.btn {
+           padding: 2px 6px;
+        }*/
+    </style>
+
+</head>
+<body style="height: 100%;">
+
+    <!-- Main content -->
+    <div class="container ng-cloak" style="margin-left: 0px; margin-right: 0px; height: 100%;">
+
+        <!-- List -->
+        <div class="col-md-3 col-sm-3' list" style="padding: 0px; height: 100%;">
+            <div class="listHeader" style="padding:8px;">
+                <div>
+                    <div class="listMenuIcon font-color cursor" ng-if="!showSearch" style="width: 30px; text-align: center;" ng-click="openMenu();">
+                        <span style="vertical-align:middle" class="fa fa-bars"></span>
+                    </div>
+                    <!-- Dropdown Structure -->
+                    <ul id='menuDD' class='dropdown-content' style="opacity: 1; min-width: 240px; padding-left: 0px;">
+
+                        <!-- Quotes -->
+                        <li ng-click="openQuotes();">
+                            <i class="fa fa-tasks font-color" style="padding: 14px 0px 14px 20px; font-size: 20px; margin: 0px;"></i>
+                            <span class="font-color" style="display: inline-block; padding-left: 5px;">Quotes</span>
+                        </li>
+
+                        <!-- Logistics -->
+                        <li ng-if="pm_personInfo.canDispatchView" ng-click="openLogistics();">
+                            <i class="fa fa-truck font-color" style="padding: 14px 0px 14px 20px; font-size: 20px; margin: 0px;"></i>
+                            <span class="font-color" style="display: inline-block; padding-left: 5px;">Logistics</span>
+                        </li>
+
+                        <!-- Customer wise containers -->
+                        <li ng-if="pm_personInfo.canUpdateStatus && pm_personInfo.canLoading" ng-click="openCustContainer();">
+                            <i class="zmdi zmdi-archive font-color" style="padding: 14px 0px 14px 20px; font-size: 20px; margin: 0px;"></i>
+                            <span class="font-color" style="display: inline-block; padding-left: 5px;">Customer wise Containers</span>
+                        </li>
+
+                        <li ng-click="openChangePasswordPop();">
+                            <i class="fa fa-lock font-color" style="padding: 14px 0px 14px 20px; font-size: 20px; margin: 0px;"></i>
+                            <span class="font-color" style="display: inline-block; padding-left: 5px;">Change Password</span>
+                        </li>
+
+                        <li ng-click="actionLogout();">
+                            <i class="zmdi zmdi-power font-color" style="padding: 14px 0px 14px 20px; font-size: 20px; margin: 0px;"></i>
+                            <span class="font-color" style="display: inline-block; padding-left: 5px;">Logout</span>
+                        </li>
+                    </ul>
+
+                    <!-- Header -->
+                    <div class="listHeaderText fontFamily font-color" ng-if="!showSearch">
+                        <span style="vertical-align:middle;">ALOCS</span>
+                        <!--<span ng-show="enableList != -1" style="color: {{enableList == 0 ? '#db3236' : enableList == 1 ? '#f4bd50' : enableList == 2 ? '#db3236' : enableList == 3 ? '#4CAF50' : enableList == 4 ? '#f4bd50': enableList == 5 ? '#f4bd50' : enableList == 6 ? '#f4bd50' : '#f4bd50'}};">
+                            ({{enableList == 0 ? 'Open' : enableList == 1 ? 'Selected' : enableList == 2 ? 'Forwarded' : enableList == 3 ? 'Dispatched' : enableList == 4 ? 'Cleared': enableList == 5 ? 'Ready' : enableList == 6 ? 'Scheduled' : enableList == 7 ? 'Loading': ''}})
+                        </span>-->
+                    </div>
+
+                    <!-- Search input -->
+                    <div ng-if="showSearch" style="display: inline-block; width: 90%;">
+                        <input class="form-control" id="search" type="text" ng-model="search.value" style="background-color: white;" placeholder="Search">
+                    </div>
+
+                    <!-- Filter by pending, awaiting dispatch, forwarded, serach -->
+                    <div class="listMenuIcon fontFamily" style="float: right;">
+                        <!--<span class="fa fa-exchange fa-rotate-90" style="vertical-align: middle;" title="Sort"></span>-->
+                       
+                        <span class="zmdi zmdi-refresh font-color cursor" ng-if="!showSearch" style="vertical-align: middle; margin-left: 10px;"
+                              title="Refresh"
+                              ng-click="getDispatchPlan(0);"></span>
+
+                        <span class="fa fa-times font-color cursor" ng-if="showSearch"
+                              style="vertical-align: middle; padding-right: 5px; cursor: pointer" title="Close" ng-click="searchInList()"></span>
+
+                        <span class="fa fa-search font-color cursor" ng-if="!showSearch" style="vertical-align: middle; padding-left: 10px;"
+                              title="Search"
+                              ng-click="searchInList()"></span>
+
+                    </div>
+                </div>
+            </div>
+            <div class="listHeader" style="padding:8px;">
+                <!-- ng-show="filterMenu && !showSearch" -->
+
+                <!-- Filter by pending, awaiting dispatch, forwarded, serach -->
+                <div class="listMenuIcon fontFamily" style="width: 100%">
+                    <!--<span class="fa fa-exchange fa-rotate-90" style="vertical-align: middle;" title="Sort"></span>-->
+
+                    <div class="col-md-2 icon-width" style="padding: 0px; text-align: center;">
+                        <span class="zmdi zmdi-assignment-check font-color cursor" style="vertical-align: middle; border-radius: 50%; width: 20px;
+                              color: {{enablePlanList == 0 ? '#f4bd50' : ''}};" title="Waiting for Ready" ng-click="getDispatchPlan(0)">                            
+                        </span>
+                        <span style="position: absolute; font-size: 10px; top: 0px; color: #db3236;">{{pendingDispatchCount}}</span>
+                    </div>
+
+                   
+                    <div class="col-md-2 icon-width" style="padding: 0px; text-align: center;">
+                        <span class="zmdi zmdi-case-play font-color cursor"
+                              style="vertical-align: middle; padding-left: 4px;
+                              border-radius: 50%; width: 25px; color: {{enablePlanList == 1 ? '#f4bd50' : ''}};" title="Waiting for Schedule" 
+                              ng-click="getDispatchPlan(1);"></span>
+                        <span style="position: absolute; font-size: 10px; top: 0px; color: #db3236;">{{readyDispatchCount}}</span>
+                    </div>
+
+                    <div class="col-md-2 icon-width" style="padding: 0px; text-align: center;">
+                        <span class="zmdi zmdi-calendar-alt font-color cursor"
+                              style="vertical-align: middle; padding-left: 9px;
+                              border-radius: 50%; width: 25px; color: {{enablePlanList == 2 ? '#f4bd50' : ''}};" title="Waiting for Vehicle"
+                              ng-click="getDispatchPlan(2)"></span>
+                        <span style="position: absolute; font-size: 10px; top: 0px; color: #db3236;">{{scheduleCount}}</span>
+                    </div>
+
+                    <div class="col-md-2 icon-width" style="padding: 0px; text-align: center;">
+                        <span class="zmdi zmdi-flight-land font-color cursor"
+                              style="vertical-align: middle; padding-left: 9px;
+                              border-radius: 50%; width: 25px; color: {{enablePlanList == 3 ? '#4CAF50' : ''}};" title="Delivered"
+                              ng-click="getDispatchPlan(3)"></span>
+                        <span style="position: absolute; font-size: 10px; top: 0px; color: #4CAF50;">{{deliveredCount}}</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Dispatch plan -->
+            <div style="max-height: calc(100% - {{headerHeight}}px);overflow-y: auto;" id="style-1">
+
+                <div style="max-height: calc(100% - 100px); overflow-y: auto;" id="style-1">
+
+                    <!-- Dispatch plan list -->
+                    <div class="smallrightsList fontFamily" ng-style="{'background': $index == selectedPlanIndex ? 'rgba(0,0,0,0.1)' : ''}"
+                         ng-repeat="dispatch in ($parent.planList = (dispatchPlanList | filter: search.value))"
+                         style="cursor: pointer; border-bottom: {{$last ? '' : ' 1px solid #dddddd'}};" ng-click="getDetailofDispatch($index);">
+                        <div>
+                            <span>{{dispatch.companyName}}</span>
+                            <span style="float: right; font-size: 12px; color: #666;">
+                                {{dispatch.pickup | date: 'dd-MMM-yy'}}
+                            </span>
+                            <div>
+                              <span class="zmdi zmdi-inbox"></span> {{dispatch.container}} ctr | {{dispatch.serviceIDs.length == 0 ? 0 : dispatch.serviceIDs.split('~').length - 2}} srv           
+                                <span style="float: right;">
+                                    {{dispatch.showShipmentString}}
+                                    <!--{{dispatch.shipmentIDTitle}}{{dispatch.shipmentID}}-->
+                                </span>
+                            </div>
+                            
+                            <!--<span ng-if="transporter.email" style="float: right; font-size: 16px;"><i class="fa fa-envelope font-color"></i></span>-->
+                        </div>
+                    </div>
+                    <div ng-show="planList.length == 0" class="card-body" style="text-align: center; padding: 20px;">
+                        No dispatch plans found.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add new dispatch plan -->
+            <button type="button" class="fabBtn btn btn-circle btn-raised" style="outline: none;" title=""
+                    ng-show="pm_personInfo.canDispatchCreate" ng-click="addNewDispatch();">
+                <span class="fa fa-plus"></span>
+            </button>
+        </div>
+
+        <!-- Detail transporter -->
+        <div class="col-md-9 col-sm-12 col-xm-12" style="padding: 0px; height: 100%;">
+
+            <!-- Header -->
+            <div class="col-md-12 col-sm-12 col-xm-12 detailHeader">
+
+                <!-- Shipment number -->
+                <div class="col-md-8 col-sm-7 col-xm-7 listHeaderText fontFamily" ng-show="dispatchPlanList.length > 0 && !addDispatchPlan">
+                    #{{dispatchPlanDetail.shipmentID}} - {{dispatchPlanDetail.customerName}}
+                </div>
+
+                <!-- Title -->
+                <div class="col-md-8 col-sm-7 col-xm-7 listHeaderText fontFamily" ng-show="addDispatchPlan">
+                    Create New Dispatch Plan
+                </div>
+
+                <!-- Stages buttons -->
+                <div class="col-md-4 col-sm-5 col-xm-5" style="text-align: right;" ng-show="!addDispatchPlan">
+                   
+                    <!-- Ready for dispatch -->
+                    <div class="listDetailHeaderIcon btn btn-primary" style="text-align: center;"
+                         tooltip-placement="left"
+                         ng-show="dispatchPlanDetail.status == '0'" ng-click="readyForDispatch();">
+                        <span class="fa fa-check-square-o alignText"></span> Mark as Ready for Dispatch
+                    </div>
+
+                    <!-- Waiting for quotes -->
+                    <div class="listDetailHeaderIcon btn btn-primary" ng-disabled="true" ng-if="dispatchPlanDetail.status == '1' && !readyforSchedule" style="text-align: center;">
+                        Ready for Dispatch, Waiting for Quotes
+                    </div>
+
+                    <!-- Schedule -->
+                    <div class="listDetailHeaderIcon btn btn-primary" style="text-align: center;"
+                         tooltip-placement="left"                                                  
+                         ng-if="(dispatchPlanDetail.status == '1' && readyforSchedule) || (dispatchPlanDetail.status == '2' && pm_personInfo.canScheduled)"
+                         ng-click="openSlotandSchedule();">
+                        <span class="fa fa-bus alignText"></span> {{scheduleTitle}}
+                    </div>
+
+                    <!-- Schedule time slot -->
+                    <!--ng-show="pm_personInfo.canScheduled"-->
+                    <!--<div class="listDetailHeaderIcon btn btn-primary" style="text-align: center;" uib-tooltip="Waiting for Time Slot"
+                         tooltip-placement="left"
+                         ng-if="logisticsList[selectedReqIndex].status == '5' && pm_personInfo.canScheduled"
+                         ng-click="openTimeSlotPop();">
+                        <span class="fa fa-calendar alignText"></span> Schedule Time Slot
+                    </div>-->
+
+                    <!-- Mark entry -->
+                    <!--<div class="listDetailHeaderIcon btn btn-primary" style="text-align: center;" uib-tooltip="Waiting for Vehical Entry"
+                         tooltip-placement="left"
+                         ng-if="logisticsList[selectedReqIndex].status == '6' && pm_personInfo.canLoading"
+                         ng-click="entryVehicle(logisticsList[selectedReqIndex].rfqID);">
+                        <span class="fa fa-sign-in alignText"></span> Mark Entry
+                    </div>-->
+
+                    <!-- Dispatch RFQ -->
+                    <!--<div class="listDetailHeaderIcon btn btn-primary" style="right: 20px" uib-tooltip="Awaiting for Dispatch" tooltip-placement="left"
+                         ng-click="dispatchRFQ(logisticsList[selectedReqIndex].rfqID);"
+                         ng-if="logisticsList[selectedReqIndex].status == '7' && pm_personInfo.canDispatch">
+                        <span class="zmdi zmdi-flight-takeoff alignText"></span> Dispatch
+                    </div>-->
+                   
+                    <!-- Dispatch time -->
+                    <!--<div class="fontFamily listHeaderText" style="right: 20px; line-height: 2.2; margin-left: 6%;" tooltip-placement="left"
+                         ng-if="logisticsList[selectedReqIndex].status == '3'">
+                        Dispatched on {{logisticsList[selectedReqIndex].dispatchedDT | date : "dd-MMM-yy 'at' h:mma"}}
+                    </div>-->
+
+                </div>
+            </div>
+
+            <!-- Detail transporters-->
+            <div class="machineDetail col-md-12 col-sm-12 paddingDetail" style="max-height: calc(100% - 50px); width: 100%; overflow-y: {{isShowInputandBtn && newReqForQuote ? 'auto' : ''}};"
+                 id="style-1">
+
+                <!-- Add dispatch plan -->
+                <div class="col-md-12 col-sm-12 paddingDetail" ng-show="addDispatchPlan">
+
+                    <!-- Customer and source -->
+                    <div class="col-md-12 col-sm-12" style="padding-top: 15px;">
+                        <div class="col-md-2 col-sm-6 infoLbl font-bold">
+                            Company
+                        </div>
+
+                        <div class="col-md-4 dropdown" style="width: 33.33% !important;">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
+                                    data-toggle="dropdown" aria-haspopup="true" tabindex="1" aria-expanded="true">
+                                {{dispatchPlan.customerName}}
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" id="style-1">
+                                <li ng-repeat="customer in customerList" style="cursor: pointer;" ng-model="dispatchPlan.customerName"
+                                    ng-click="changeCustomer($index)">
+                                    <a>{{customer.companyName}}</a>
+                                </li>
+                            </ul>
+                            <span style="vertical-align: middle;  cursor: pointer;" class="dropdownIcon fa fa-plus" ng-click="openCustomer();"></span>
+                        </div>
+
+                        <div class="col-md-2 col-sm-6 infoLbl font-bold">
+                            Product
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" tabindex="6" ng-model="dispatchPlan.product"/>
+                        </div>
+                    </div>
+
+                    <!-- Source loaction and pickup -->
+                    <div class="col-md-12 col-sm-12" style="padding-top: 15px;">
+                        <div class="col-md-2 col-sm-6 infoLbl font-bold">
+                            Source Location
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" tabindex="2"  ng-model="dispatchPlan.source" />
+                        </div>
+                        <div class="col-md-2 col-sm-6 infoLbl font-bold">Pick-up</div>
+                        <div class="col-md-2">
+                            <datepicker date-format="dd-MMM-yy" date-min-limit="{{todayDT.value | date: 'yyyy-MM-dd'}}">
+                                <input type="text" class="form-control col-md-2" tabindex="7"  ng-model="dispatchPlan.pickUpDT" ng-change="changePickUp(dispatchPlan.pickUpDT);" readonly />
+                            </datepicker>                            
+                        </div>
+                        <div class="col-md-2"></div>
+                    </div>
+
+                    <!-- Source address and delivery Date -->
+                    <div class="col-md-12 col-sm-12" style="padding-top: 15px;">
+
+                        <div class="col-md-2 col-sm-6 infoLbl font-bold">
+                            Source Address
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" tabindex="3" ng-model="dispatchPlan.sourceAddress" />
+                        </div>
+                       
+
+                        <div class="col-md-2 col-sm-6 infoLbl font-bold">Delivery</div>
+                        <div class="col-md-2 col-sm-6">
+                            <datepicker date-format="dd-MMM-yy" date-min-limit="{{dispatchPlan.pickUpDT | date: 'dd-MMM-yy'}}">
+                                <input type="text" class="form-control" tabindex="8"  ng-model="dispatchPlan.deliveryDT" ng-disabled="dispatchPlan.pickUpDT == ''" readonly />
+                            </datepicker>
+                        </div>
+
+                        <div class="col-md-2"></div>
+                    </div>
+
+                    <!-- Destination and containers  -->
+                    <div class="col-md-12 col-sm-12" style="padding-top: 15px;">
+                        <div class="col-md-2 col-sm-6 font-bold">
+                            Destination Address
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" tabindex="3" ng-model="dispatchPlan.destination" />
+                        </div>
+                        
+                        <div class="col-md-2 col-sm-6 infoLbl font-bold">
+                            Containers
+                        </div>
+                        <div class="col-md-1 col-sm-6">
+                            <input type="text" class="form-control" onkeypress="return isNumber(event)" tabindex="9" placeholder="0" ng-model="dispatchPlan.containers" />
+                        </div>
+                        
+                    </div>
+
+                    <!-- Port of loading and empty container pickup -->
+                    <div class="col-md-12 col-sm-12" style="padding-top: 15px;">
+                        <div class="col-md-2 col-sm-6 infoLbl font-bold">
+                            Port of Loading
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" tabindex="4" ng-model="dispatchPlan.portofLoading" />
+                        </div>
+                       
+                        <div class="col-md-2 col-sm-6 font-bold">
+                            Empty Container Pickup
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" tabindex="10" ng-model="dispatchPlan.emptyContainerPick" />
+                        </div>
+                        
+                    </div>
+
+                    <!-- Port of dispatch and file -->
+                    <div class="col-md-12 col-sm-12" style="padding-top: 15px;">
+                        <div class="col-md-2 col-sm-6 infoLbl font-bold">
+                            Port of Dispatch
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" tabindex="5" ng-model="dispatchPlan.portofDispatch" />
+                        </div>
+                        <div class="col-md-2 col-sm-6 infoLbl font-bold">
+                            Attach File
+                        </div>
+                        <div class="col-md-2" style="padding-top: 5px;">
+                            <a class="btn btn-primary  zmdi zmdi-upload col-md-1" type="file" tabindex="11" ngf-select="uploadFile($file, $event)"
+                               data-ng-model="file" title="File Upload"
+                               accept="application/pdf, application/msword, application/vnd.ms-excel" data-ngf-multiple="false"
+                               style="color: #286090; cursor:pointer; background-color: #fff; width: 120px;">
+                                <span style="font-family: Helvetica Neue,Helvetica,Arial,sans-serif">Upload a File</span>
+                            </a> <!-- fileUpload -->
+                        </div>
+                        <div class="col-md-2">
+                            <a href="../Attachment/{{dispatchPlan.file}}" target="_blank"> {{dispatchPlan.file}}</a>
+                        </div>
+                    </div>
+
+                    <!-- Container name -->
+                    <div class="col-md-12 col-sm-12" style="padding-top: 15px;">
+                        <div class="col-md-2 col-sm-6 infoLbl font-bold">
+                            Container Name(s)
+                            <span style="font-size: small;">(comma-seperated)</span>                           
+                        </div>
+                        <div class="col-md-4">
+                            <textarea class="inputStyle form-control raw_Div textarea" rows="2" 
+                                      ng-model="dispatchPlan.containerNames"
+                                      placeholder="1st container name,2nd container name,....,nth container name">
+                            </textarea>
+                        </div>
+                    </div>
+
+                    <!-- Services -->
+                    <div class="col-md-12 col-sm-12 font-bold" style="padding: 10px 30px; margin: 15px 0px; font-size: 15px;">
+                        Services
+                    </div>
+                    <div class="col-md-12 col-sm-12" style="padding-left: 40px;">
+                        <div class="col-md-3 col-sm-6 checkbox rightsChkbx" ng-repeat="service in serviceList">
+                            <label>
+                                <input type="checkbox" tabindex="11" style="cursor: pointer;" value="true" ng-model="service.isChecked" />
+                                {{service.serviceTypeName}}
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Submit And Cancel Button -->
+                    <div class="col-md-12 col-sm-12" style="display: block; text-align: center; margin: 15px 0px;">
+                        <div style="text-align: center; margin-top: 10px; display: inline-block;">
+                            <a class="btn btn-primary" title="Save" ng-click="submitDispatchPlan();">
+                                <i class="fa fa-check left" style="padding:0 7px 0 0;"></i>Save
+                            </a>
+                        </div>&nbsp;
+                        <div style="text-align: center; margin-top: 10px; display: inline-block;" ng-click="addNewDispatch();">
+                            <a class="btn btn-primary" title="Cancel">
+                                <i class="fa fa-times left" style="padding:0 7px 0 0;"></i>Cancel
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- RFQ detail with quotation list on click list -->
+                <div class="col-md-12 col-sm-12" ng-show="!addDispatchPlan"> <!-- showQuote-Div  -->
+
+                    <!-- Dispatch plan detail -->
+                    <div class="col-md-12" style="display: block; max-height: 250px;">
+
+                         <div class="col-md-6">
+                             <p class="bedge" data-toggle="tooltip" title="Container">
+                                 <div class="font-bold col-md-5">Container</div>
+                                 <div class="col-md-7">{{dispatchPlanDetail.container}}</div>
+                             </p>
+                         </div>
+
+                        <div class="col-md-6">
+                            <p class="bedge" data-toggle="tooltip" title="Container">
+                                <div class="font-bold col-md-5">Product</div>
+                                <div class="col-md-7">{{dispatchPlanDetail.product}}</div>
+                            </p>
+                        </div>
+
+                        <div class="col-md-6">
+                            <p class="bedge" data-toggle="tooltip" title="Container">
+                                <div class="font-bold col-md-5">Source Address</div>
+                                <div class="col-md-7">{{dispatchPlanDetail.sourceAddress}}</div>
+                            </p>
+                        </div>
+
+                        <div class="col-md-6">
+                            <p class="bedge" data-toggle="tooltip" title="Container">
+                                <div class="font-bold col-md-5">Destination</div>
+                                <div class="col-md-7">{{dispatchPlanDetail.destination}}</div>
+                            </p>
+                        </div>
+
+                        <div class="col-md-6" ng-if="dispatchPlanDetail.portofLoading">
+                            <p class="bedge" data-toggle="tooltip" title="Container">
+                                <div class="font-bold col-md-5">Port of Loading</div>
+                                <div class="col-md-7">{{dispatchPlanDetail.portofLoading}}</div>
+                            </p>
+                        </div>
+
+
+                        <div class="col-md-6" ng-if="dispatchPlanDetail.portofDischarge">
+                            <p class="bedge" data-toggle="tooltip" title="Container">
+                                <div class="font-bold col-md-5">Port of Discharg</div>
+                                <div class="col-md-7">{{dispatchPlanDetail.portofDischarge}}</div>
+                            </p>
+                        </div>
+
+                         <div class="col-md-6">
+                             <p class="bedge" data-toggle="tooltip" title="Pickup">
+                                 <div class="font-bold col-md-5">Pick-up</div>
+                                 <div class="col-md-7">{{dispatchPlanDetail.pickup | date : "dd-MMM-yy"}}</div>
+                             </p>
+                         </div>
+
+                         <div class="col-md-6">
+                             <p class="bedge" data-toggle="tooltip" title="Delivery">
+                                 <div class="font-bold col-md-5">Delivery</div>
+                                 <div class="col-md-7">{{dispatchPlanDetail.delivery | date : "dd-MMM-yy"}}</div>
+                             </p>
+                         </div>
+
+                    </div>
+                    
+                    <!-- Containers and rfq list  -->
+                    <div class="col-md-12 col-sm-12" style="max-height: calc(100% - 300px);
+                         overflow-y: auto; padding: 0px;" id="style-1">
+                        <!-- Containers -->
+                        <div class="col-md-12 col-sm-12" style="padding: 10px 15px; background-color: #ddd; margin: 15px 0px; font-size: 15px;"
+                             ng-show="dispatchPlanDetail.status != '1' && dispatchPlanDetail.status != '0'">
+                            Containers
+                        </div>
+
+                        <!-- Container list -->
+                        <div class="col-md-12 col-sm-12" style="max-height: 200px;
+                         overflow-y: auto;" id="style-1" ng-show="dispatchPlanDetail.status != '1' && dispatchPlanDetail.status != '0'">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 10px;">
+                                            Container 
+                                        </th>
+                                        <th style="width: 50px;">
+                                            Date
+                                        </th>
+                                        <th style="width: 50px;">
+                                            Time
+                                        </th>
+                                        <th style="width: 150px;">
+                                            Notes
+                                        </th>
+                                        <th ng-show="dispatchPlanDetail.status == 2" style="width: 100px;">
+                                            Status
+                                        </th>
+                                        <th ng-show="pm_personInfo.canUpdateStatus && dispatchPlanDetail.status == 2" style="width: 70px; ">
+                                            Mark as
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="container in containerList" ng-if="container.scheduleDT != null">
+                                        <td>
+                                            {{container.ctrName}}
+                                        </td>
+                                        <td>
+                                            {{container.scheduleDT}}
+                                        </td>
+                                        <td>
+                                            {{container.scheduleTime}}
+                                        </td>
+                                        <td>
+                                            {{container.notes}}
+                                        </td>
+                                        <td ng-show="dispatchPlanDetail.status == 2">
+                                           {{container.status == '0' ? 'Waiting for Vehicle' : container.status == '1' ? 'Waiting for Loading' : container.status == '2' ? 'Waiting for Dispatch' : container.status == '3' ? 'Waiting for Delivery' : 'Delivered'}} 
+                                        </td>
+                                        <td ng-show="pm_personInfo.canUpdateStatus && dispatchPlanDetail.status == 2">
+                                            <div class="btn btn-primary" ng-if="container.status == '0'" ng-click="openVehicleArrivalPop($index);"
+                                                  style="text-align: center; padding: 0px 10px 0px 10px;">
+                                               Vehicle Arrived
+                                            </div>
+                                            
+                                            <div class="btn btn-primary" ng-if="container.status == '1'" ng-click="setLoading($index);"
+                                                 style="text-align: center; padding: 0px 10px 0px 10px;">
+                                                Loaded
+                                            </div>
+                                            <div class="btn btn-primary" ng-if="container.status == '2'" ng-click="setDispatch($index);"
+                                                 style="text-align: center; padding: 0px 10px 0px 10px;">
+                                                Dispatched
+                                            </div>
+                                            <div class="btn btn-primary" ng-if="container.status == '3'" ng-click="setDeilvery($index);"
+                                                 style="text-align: center; padding: 0px 10px 0px 10px;">
+                                                Deilvered
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+
+                        <!-- RFQ Received -->
+                        <div class="col-md-12 col-sm-12" style="padding: 10px 15px; background-color: #ddd; margin: 15px 0px; font-size: 15px;">
+                            RFQs ({{dispatchRFQList.length}})
+                        </div>
+
+                        <!-- RFQs list -->
+                        <div class="col-md-12 col-sm-12" style="max-height: 200px;
+                         overflow-y: auto;" id="style-1">
+                            <div>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                RFQID
+                                            </th>
+                                            <th>
+                                                Quote Type
+                                            </th>
+                                            <th>
+                                                Service
+                                            </th>
+                                            <th>
+                                                Quote by
+                                            </th>
+                                            <th>
+                                                Created on
+                                            </th>
+                                            <th>
+                                                Status
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        <tr ng-repeat="rfq in dispatchRFQList" ng-if="dispatchRFQList.length > 0">
+                                            <td>
+                                                #{{rfq.RFQID}}
+                                            </td>
+                                            <td>
+                                                {{rfq.quoteTypeName}}
+                                            </td>
+                                            <td>
+                                                {{rfq.serviceName}}
+                                            </td>
+                                            <td>
+                                                {{rfq.quoteBy | date : "dd-MMM-yy"}}
+                                            </td>
+                                            <td>
+                                                {{rfq.createdDT | date : "dd-MMM-yy"}}
+                                            </td>
+                                            <td>
+                                                {{rfq.status == '0' ? 'Pending' : rfq.status == '1' ? 'Accepted' : rfq.status == '2' ? 'Forward': ''}}
+                                            </td>
+                                        </tr>
+                                        <tr ng-if="dispatchRFQList.length == 0">
+                                            <td colspan="6" style="text-align: center;">RFQs not found!</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+	    function isNumber(evt) {
+	        evt = (evt) ? evt : window.event;
+	        var charCode = (evt.which) ? evt.which : evt.keyCode;
+	        if (charCode == 16 || charCode == 36 || charCode == 37 || charCode == 39 || charCode == 46)
+		        return true;
+	        if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+		        return false;
+	        }
+	        return true;
+        }
+    </script>
+
+</body>
+</html>

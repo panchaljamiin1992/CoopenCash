@@ -1,0 +1,602 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="transporter_QuoteModelStoreContainer" CdmEntityContainer="transporter_QuoteEntities">
+    <EntitySetMapping Name="Executives">
+      <EntityTypeMapping TypeName="transporter_QuoteModel.Executive">
+        <MappingFragment StoreEntitySet="Executives">
+          <ScalarProperty Name="ServiceRights" ColumnName="ServiceRights" />
+          <ScalarProperty Name="Rights" ColumnName="Rights" />
+          <ScalarProperty Name="ZoneIDs" ColumnName="ZoneIDs" />
+          <ScalarProperty Name="ExecutiveID" ColumnName="ExecutiveID" />
+          <ScalarProperty Name="ExecutiveName" ColumnName="ExecutiveName" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="CanCreateRFQ" ColumnName="CanCreateRFQ" />
+          <ScalarProperty Name="CanSelectTransporter" ColumnName="CanSelectTransporter" />
+          <ScalarProperty Name="CanCloseRFQ" ColumnName="CanCloseRFQ" />
+          <ScalarProperty Name="CanSelectForCustomer" ColumnName="CanSelectForCustomer" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="CreatedDT" ColumnName="CreatedDT" />
+          <ScalarProperty Name="UpdatedDT" ColumnName="UpdatedDT" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sources">
+      <EntityTypeMapping TypeName="transporter_QuoteModel.Source">
+        <MappingFragment StoreEntitySet="Sources">
+          <ScalarProperty Name="SourceID" ColumnName="SourceID" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="CreatedDT" ColumnName="CreatedDT" />
+          <ScalarProperty Name="UpdatedDT" ColumnName="UpdatedDT" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="transporter_QuoteModel.Customer">
+        <MappingFragment StoreEntitySet="Customers">
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UpdatedDT" ColumnName="UpdatedDT" />
+          <ScalarProperty Name="CreatedDT" ColumnName="CreatedDT" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="AlternateMobile" ColumnName="AlternateMobile" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RFQs">
+      <EntityTypeMapping TypeName="transporter_QuoteModel.RFQ">
+        <MappingFragment StoreEntitySet="RFQs">
+          <ScalarProperty Name="CompletionByUserID" ColumnName="CompletionByUserID" />
+          <ScalarProperty Name="CompletionDT" ColumnName="CompletionDT" />
+          <ScalarProperty Name="StartedByUserID" ColumnName="StartedByUserID" />
+          <ScalarProperty Name="StartWorkDT" ColumnName="StartWorkDT" />
+          <ScalarProperty Name="ShipmentID" ColumnName="ShipmentID" />
+          <ScalarProperty Name="Budget" ColumnName="Budget" />
+          <ScalarProperty Name="ReminderSentDT" ColumnName="ReminderSentDT" />
+          <ScalarProperty Name="FixedTerm" ColumnName="FixedTerm" />
+          <ScalarProperty Name="PaymentTerm" ColumnName="PaymentTerm" />
+          <ScalarProperty Name="QuoteTypeID" ColumnName="QuoteTypeID" />
+          <ScalarProperty Name="ReadyByTransporterUserID" ColumnName="ReadyByTransporterUserID" />
+          <ScalarProperty Name="LoadingByUserID" ColumnName="LoadingByUserID" />
+          <ScalarProperty Name="VehicleEntryDT" ColumnName="VehicleEntryDT" />
+          <ScalarProperty Name="VehReadyByUserID" ColumnName="VehReadyByUserID" />
+          <ScalarProperty Name="VehicleNumber" ColumnName="VehicleNumber" />
+          <ScalarProperty Name="VehicleReadyDT" ColumnName="VehicleReadyDT" />
+          <ScalarProperty Name="TimeSlotToDT" ColumnName="TimeSlotToDT" />
+          <ScalarProperty Name="TimeSlotFromDT" ColumnName="TimeSlotFromDT" />
+          <ScalarProperty Name="ClearedByUserID" ColumnName="ClearedByUserID" />
+          <ScalarProperty Name="ClearenceDT" ColumnName="ClearenceDT" />
+          <ScalarProperty Name="ForwardedByUserId" ColumnName="ForwardedByUserId" />
+          <ScalarProperty Name="ZoneID" ColumnName="ZoneID" />
+          <ScalarProperty Name="DispatchedDT" ColumnName="DispatchedDT" />
+          <ScalarProperty Name="DispatchedByUserID" ColumnName="DispatchedByUserID" />
+          <ScalarProperty Name="Route" ColumnName="Route" />
+          <ScalarProperty Name="RouteID" ColumnName="RouteID" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="CloseEarly" ColumnName="CloseEarly" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UpdatedDT" ColumnName="UpdatedDT" />
+          <ScalarProperty Name="CreatedDT" ColumnName="CreatedDT" />
+          <ScalarProperty Name="Transporters" ColumnName="Transporters" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Details" ColumnName="Details" />
+          <ScalarProperty Name="QuoteBy" ColumnName="QuoteBy" />
+          <ScalarProperty Name="AllowLaterDelivery" ColumnName="AllowLaterDelivery" />
+          <ScalarProperty Name="DeliveryBy" ColumnName="DeliveryBy" />
+          <ScalarProperty Name="PickUp" ColumnName="PickUp" />
+          <ScalarProperty Name="Product" ColumnName="Product" />
+          <ScalarProperty Name="Source" ColumnName="Source" />
+          <ScalarProperty Name="Destination" ColumnName="Destination" />
+          <ScalarProperty Name="ExecutiveID" ColumnName="ExecutiveID" />
+          <ScalarProperty Name="SourceID" ColumnName="SourceID" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="RequestForQuoteID" ColumnName="RequestForQuoteID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="fn_SplitString_Row" FunctionName="transporter_QuoteModel.Store.fn_SplitString_Row" />
+    <FunctionImportMapping FunctionImportName="sp_getRequest" FunctionName="transporter_QuoteModel.Store.sp_getRequest">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="transporter_QuoteModel.sp_getRequest_Result">
+          <ScalarProperty Name="RequestForQuoteID" ColumnName="RequestForQuoteID" />
+          <ScalarProperty Name="Source" ColumnName="Source" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="SourceAddress1" ColumnName="SourceAddress1" />
+          <ScalarProperty Name="SourceAddress2" ColumnName="SourceAddress2" />
+          <ScalarProperty Name="Destination" ColumnName="Destination" />
+          <ScalarProperty Name="Product" ColumnName="Product" />
+          <ScalarProperty Name="AllowLaterDelivery" ColumnName="AllowLaterDelivery" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="CloseEarly" ColumnName="CloseEarly" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="DestinationAddress1" ColumnName="DestinationAddress1" />
+          <ScalarProperty Name="DestinationAddress2" ColumnName="DestinationAddress2" />
+          <ScalarProperty Name="CustomerCity" ColumnName="CustomerCity" />
+          <ScalarProperty Name="CustomerState" ColumnName="CustomerState" />
+          <ScalarProperty Name="SourceCity" ColumnName="SourceCity" />
+          <ScalarProperty Name="SourceState" ColumnName="SourceState" />
+          <ScalarProperty Name="PickUp" ColumnName="PickUp" />
+          <ScalarProperty Name="DeliveryBy" ColumnName="DeliveryBy" />
+          <ScalarProperty Name="QuoteBy" ColumnName="QuoteBy" />
+          <ScalarProperty Name="Details" ColumnName="Details" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Charges" ColumnName="Charges" />
+          <ScalarProperty Name="PaymentTerms" ColumnName="PaymentTerms" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="ExtendDeliveryDT" ColumnName="ExtendDeliveryDT" />
+          <ScalarProperty Name="QuoteStatus" ColumnName="QuoteStatus" />
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="RouteName" ColumnName="RouteName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Routes">
+      <EntityTypeMapping TypeName="transporter_QuoteModel.Route">
+        <MappingFragment StoreEntitySet="Routes">
+          <ScalarProperty Name="CreatedDT" ColumnName="CreatedDT" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="RouteDetail" ColumnName="RouteDetail" />
+          <ScalarProperty Name="RouteCode" ColumnName="RouteCode" />
+          <ScalarProperty Name="RouteID" ColumnName="RouteID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Zones">
+      <EntityTypeMapping TypeName="transporter_QuoteModel.Zone">
+        <MappingFragment StoreEntitySet="Zones">
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="ZoneName" ColumnName="ZoneName" />
+          <ScalarProperty Name="ZoneID" ColumnName="ZoneID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_getScheduleList" FunctionName="transporter_QuoteModel.Store.sp_getScheduleList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="transporter_QuoteModel.sp_getScheduleList_Result">
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="TimeSlotFromDT" ColumnName="TimeSlotFromDT" />
+          <ScalarProperty Name="TimeSlotToDT" ColumnName="TimeSlotToDT" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="QuoteTypeComponents">
+      <EntityTypeMapping TypeName="transporter_QuoteModel.QuoteTypeComponent">
+        <MappingFragment StoreEntitySet="QuoteTypeComponents">
+          <ScalarProperty Name="LastUpdatedByUserID" ColumnName="LastUpdatedByUserID" />
+          <ScalarProperty Name="LastUpdatedDT" ColumnName="LastUpdatedDT" />
+          <ScalarProperty Name="CreatedByUserID" ColumnName="CreatedByUserID" />
+          <ScalarProperty Name="CreatedDT" ColumnName="CreatedDT" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="QuoteTypeID" ColumnName="QuoteTypeID" />
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
+          <ScalarProperty Name="PaidBy" ColumnName="PaidBy" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="ComponentName" ColumnName="ComponentName" />
+          <ScalarProperty Name="ComponentID" ColumnName="ComponentID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QuoteTypes">
+      <EntityTypeMapping TypeName="transporter_QuoteModel.QuoteType">
+        <MappingFragment StoreEntitySet="QuoteTypes">
+          <ScalarProperty Name="CoreField" ColumnName="CoreField" />
+          <ScalarProperty Name="ServiceTypeID" ColumnName="ServiceTypeID" />
+          <ScalarProperty Name="IsAllowNegotiation" ColumnName="IsAllowNegotiation" />
+          <ScalarProperty Name="LastUpdatedByUserID" ColumnName="LastUpdatedByUserID" />
+          <ScalarProperty Name="LastUpdatedDT" ColumnName="LastUpdatedDT" />
+          <ScalarProperty Name="CreatedByUserID" ColumnName="CreatedByUserID" />
+          <ScalarProperty Name="CreatedDT" ColumnName="CreatedDT" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="PaidBy" ColumnName="PaidBy" />
+          <ScalarProperty Name="QuoteTypeName" ColumnName="QuoteTypeName" />
+          <ScalarProperty Name="QuoteTypeID" ColumnName="QuoteTypeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Fields">
+      <EntityTypeMapping TypeName="transporter_QuoteModel.Field">
+        <MappingFragment StoreEntitySet="Fields">
+          <ScalarProperty Name="ShowVendors" ColumnName="ShowVendors" />
+          <ScalarProperty Name="ShowCustomer" ColumnName="ShowCustomer" />
+          <ScalarProperty Name="QuoteTypeID" ColumnName="QuoteTypeID" />
+          <ScalarProperty Name="Choices" ColumnName="Choices" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UpdatedByUserID" ColumnName="UpdatedByUserID" />
+          <ScalarProperty Name="UpdatedDT" ColumnName="UpdatedDT" />
+          <ScalarProperty Name="CreatedByUserID" ColumnName="CreatedByUserID" />
+          <ScalarProperty Name="CreatedDT" ColumnName="CreatedDT" />
+          <ScalarProperty Name="IsRequired" ColumnName="IsRequired" />
+          <ScalarProperty Name="FieldType" ColumnName="FieldType" />
+          <ScalarProperty Name="FieldName" ColumnName="FieldName" />
+          <ScalarProperty Name="FieldID" ColumnName="FieldID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ServiceTypes">
+      <EntityTypeMapping TypeName="transporter_QuoteModel.ServiceType">
+        <MappingFragment StoreEntitySet="ServiceTypes">
+          <ScalarProperty Name="PickupDateText" ColumnName="PickupDateText" />
+          <ScalarProperty Name="CompletionDateText" ColumnName="CompletionDateText" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="ServiceName" ColumnName="ServiceName" />
+          <ScalarProperty Name="ServiceTypeID" ColumnName="ServiceTypeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RFQFieldValues">
+      <EntityTypeMapping TypeName="transporter_QuoteModel.RFQFieldValue">
+        <MappingFragment StoreEntitySet="RFQFieldValues">
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UpdatedUserID" ColumnName="UpdatedUserID" />
+          <ScalarProperty Name="UpdatedDT" ColumnName="UpdatedDT" />
+          <ScalarProperty Name="CreatedUserID" ColumnName="CreatedUserID" />
+          <ScalarProperty Name="CreatedDT" ColumnName="CreatedDT" />
+          <ScalarProperty Name="FieldValue" ColumnName="FieldValue" />
+          <ScalarProperty Name="FieldID" ColumnName="FieldID" />
+          <ScalarProperty Name="RFQID" ColumnName="RFQID" />
+          <ScalarProperty Name="RFQFieldID" ColumnName="RFQFieldID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="getTransporterQuoteDetail" FunctionName="transporter_QuoteModel.Store.getTransporterQuoteDetail">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="transporter_QuoteModel.getTransporterQuoteDetail_Result">
+          <ScalarProperty Name="reqForQuoteID" ColumnName="reqForQuoteID" />
+          <ScalarProperty Name="customerID" ColumnName="customerID" />
+          <ScalarProperty Name="customerName" ColumnName="customerName" />
+          <ScalarProperty Name="quoteByDT" ColumnName="quoteByDT" />
+          <ScalarProperty Name="details" ColumnName="details" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="isCloseEarly" ColumnName="isCloseEarly" />
+          <ScalarProperty Name="orderNo" ColumnName="orderNo" />
+          <ScalarProperty Name="fileName" ColumnName="fileName" />
+          <ScalarProperty Name="paymentTerm" ColumnName="paymentTerm" />
+          <ScalarProperty Name="fixedTerm" ColumnName="fixedTerm" />
+          <ScalarProperty Name="reminderSentDate" ColumnName="reminderSentDate" />
+          <ScalarProperty Name="pickupDT" ColumnName="pickupDT" />
+          <ScalarProperty Name="fields" ColumnName="fields" />
+          <ScalarProperty Name="components" ColumnName="components" />
+          <ScalarProperty Name="deliveryDT" ColumnName="deliveryDT" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Transporters">
+      <EntityTypeMapping TypeName="transporter_QuoteModel.Transporter">
+        <MappingFragment StoreEntitySet="Transporters">
+          <ScalarProperty Name="ServiceTypeID" ColumnName="ServiceTypeID" />
+          <ScalarProperty Name="IsExport" ColumnName="IsExport" />
+          <ScalarProperty Name="IsDomestic" ColumnName="IsDomestic" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UpdatedDT" ColumnName="UpdatedDT" />
+          <ScalarProperty Name="CreatedDT" ColumnName="CreatedDT" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="AlternateMobile" ColumnName="AlternateMobile" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="TransporterID" ColumnName="TransporterID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Shipments">
+      <EntityTypeMapping TypeName="transporter_QuoteModel.Shipment">
+        <MappingFragment StoreEntitySet="Shipments">
+          <ScalarProperty Name="UpdatedDT" ColumnName="UpdatedDT" />
+          <ScalarProperty Name="UpdatedByUserID" ColumnName="UpdatedByUserID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="ShipmentRFQIDs" ColumnName="ShipmentRFQIDs" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="DeliveryDT" ColumnName="DeliveryDT" />
+          <ScalarProperty Name="ServiceIDs" ColumnName="ServiceIDs" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="CreatedByUserID" ColumnName="CreatedByUserID" />
+          <ScalarProperty Name="CreatedDT" ColumnName="CreatedDT" />
+          <ScalarProperty Name="EmptyContainer" ColumnName="EmptyContainer" />
+          <ScalarProperty Name="PortofDischarge" ColumnName="PortofDischarge" />
+          <ScalarProperty Name="PortofLoading" ColumnName="PortofLoading" />
+          <ScalarProperty Name="Containers" ColumnName="Containers" />
+          <ScalarProperty Name="DestinationAddress" ColumnName="DestinationAddress" />
+          <ScalarProperty Name="SourceAddress" ColumnName="SourceAddress" />
+          <ScalarProperty Name="SourceLocation" ColumnName="SourceLocation" />
+          <ScalarProperty Name="Product" ColumnName="Product" />
+          <ScalarProperty Name="PickupDT" ColumnName="PickupDT" />
+          <ScalarProperty Name="QuoteTypeID" ColumnName="QuoteTypeID" />
+          <ScalarProperty Name="TransporterID" ColumnName="TransporterID" />
+          <ScalarProperty Name="RFQID" ColumnName="RFQID" />
+          <ScalarProperty Name="QuoteID" ColumnName="QuoteID" />
+          <ScalarProperty Name="ShipmentID" ColumnName="ShipmentID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShipFields">
+      <EntityTypeMapping TypeName="transporter_QuoteModel.ShipField">
+        <MappingFragment StoreEntitySet="ShipFields">
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="CreatedDT" ColumnName="CreatedDT" />
+          <ScalarProperty Name="EmtcontainPickupName" ColumnName="EmtcontainPickupName" />
+          <ScalarProperty Name="PortofDischargeName" ColumnName="PortofDischargeName" />
+          <ScalarProperty Name="PortofLoadingName" ColumnName="PortofLoadingName" />
+          <ScalarProperty Name="ContainerName" ColumnName="ContainerName" />
+          <ScalarProperty Name="DestinationName" ColumnName="DestinationName" />
+          <ScalarProperty Name="SourceAddressName" ColumnName="SourceAddressName" />
+          <ScalarProperty Name="SourceLocationName" ColumnName="SourceLocationName" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="PickupDTName" ColumnName="PickupDTName" />
+          <ScalarProperty Name="QuoteTypeID" ColumnName="QuoteTypeID" />
+          <ScalarProperty Name="ShipFieldID" ColumnName="ShipFieldID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_getTransportRFQ" FunctionName="transporter_QuoteModel.Store.sp_getTransportRFQ">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="transporter_QuoteModel.sp_getTransportRFQ_Result">
+          <ScalarProperty Name="shipmentID" ColumnName="shipmentID" />
+          <ScalarProperty Name="rfqID" ColumnName="rfqID" />
+          <ScalarProperty Name="quoteID" ColumnName="quoteID" />
+          <ScalarProperty Name="pickupDate" ColumnName="pickupDate" />
+          <ScalarProperty Name="product" ColumnName="product" />
+          <ScalarProperty Name="sourceAddress" ColumnName="sourceAddress" />
+          <ScalarProperty Name="sourceLocation" ColumnName="sourceLocation" />
+          <ScalarProperty Name="destinationAddress" ColumnName="destinationAddress" />
+          <ScalarProperty Name="emptyContainer" ColumnName="emptyContainer" />
+          <ScalarProperty Name="containers" ColumnName="containers" />
+          <ScalarProperty Name="portofDischarge" ColumnName="portofDischarge" />
+          <ScalarProperty Name="portodLoading" ColumnName="portodLoading" />
+          <ScalarProperty Name="deliveryDate" ColumnName="deliveryDate" />
+          <ScalarProperty Name="detail" ColumnName="detail" />
+          <ScalarProperty Name="executiveID" ColumnName="executiveID" />
+          <ScalarProperty Name="fixedTerm" ColumnName="fixedTerm" />
+          <ScalarProperty Name="fileName" ColumnName="fileName" />
+          <ScalarProperty Name="customerID" ColumnName="customerID" />
+          <ScalarProperty Name="orderNo" ColumnName="orderNo" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="transportCompany" ColumnName="transportCompany" />
+          <ScalarProperty Name="customerCompany" ColumnName="customerCompany" />
+          <ScalarProperty Name="components" ColumnName="components" />
+          <ScalarProperty Name="paymentTerms" ColumnName="paymentTerms" />
+          <ScalarProperty Name="quoteBy" ColumnName="quoteBy" />
+          <ScalarProperty Name="loadingbyUserID" ColumnName="loadingbyUserID" />
+          <ScalarProperty Name="clearedByUserID" ColumnName="clearedByUserID" />
+          <ScalarProperty Name="clearenceDT" ColumnName="clearenceDT" />
+          <ScalarProperty Name="timeFromDT" ColumnName="timeFromDT" />
+          <ScalarProperty Name="timeToDT" ColumnName="timeToDT" />
+          <ScalarProperty Name="vehReadyByUserID" ColumnName="vehReadyByUserID" />
+          <ScalarProperty Name="vehicleEntryDT" ColumnName="vehicleEntryDT" />
+          <ScalarProperty Name="vehicleNumber" ColumnName="vehicleNumber" />
+          <ScalarProperty Name="vehicleReadyDT" ColumnName="vehicleReadyDT" />
+          <ScalarProperty Name="dispatchedDT" ColumnName="dispatchedDT" />
+          <ScalarProperty Name="dispatchedByUserID" ColumnName="dispatchedByUserID" />
+          <ScalarProperty Name="transporterDetail" ColumnName="transporterDetail" />
+          <ScalarProperty Name="response" ColumnName="response" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="vendorName" ColumnName="vendorName" />
+          <ScalarProperty Name="exchangeRate" ColumnName="exchangeRate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Configs">
+      <EntityTypeMapping TypeName="transporter_QuoteModel.Config">
+        <MappingFragment StoreEntitySet="Config">
+          <ScalarProperty Name="CreatedDT" ColumnName="CreatedDT" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Field" ColumnName="Field" />
+          <ScalarProperty Name="ConfigID" ColumnName="ConfigID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_getCountRFQ" FunctionName="transporter_QuoteModel.Store.sp_getCountRFQ">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="transporter_QuoteModel.sp_getCountRFQ_Result">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="RFQcount" ColumnName="RFQcount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_MapShipFields" FunctionName="transporter_QuoteModel.Store.sp_MapShipFields">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="transporter_QuoteModel.sp_MapShipFields_Result">
+          <ScalarProperty Name="ShimpmentID" ColumnName="ShimpmentID" />
+          <ScalarProperty Name="Msg" ColumnName="Msg" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Slots">
+      <EntityTypeMapping TypeName="transporter_QuoteModel.Slot">
+        <MappingFragment StoreEntitySet="Slots">
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UpdatedByUserID" ColumnName="UpdatedByUserID" />
+          <ScalarProperty Name="UpdatedDT" ColumnName="UpdatedDT" />
+          <ScalarProperty Name="CreatedByUserID" ColumnName="CreatedByUserID" />
+          <ScalarProperty Name="CreatedDT" ColumnName="CreatedDT" />
+          <ScalarProperty Name="ServiceTypeID" ColumnName="ServiceTypeID" />
+          <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+          <ScalarProperty Name="SlotTo" ColumnName="SlotTo" />
+          <ScalarProperty Name="SlotFrom" ColumnName="SlotFrom" />
+          <ScalarProperty Name="SlotID" ColumnName="SlotID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_getScheduleSlot" FunctionName="transporter_QuoteModel.Store.sp_getScheduleSlot" />
+    <FunctionImportMapping FunctionImportName="sp_getAllocatedSlotDetail" FunctionName="transporter_QuoteModel.Store.sp_getAllocatedSlotDetail">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="transporter_QuoteModel.sp_getAllocatedSlotDetail_Result">
+          <ScalarProperty Name="containerID" ColumnName="containerID" />
+          <ScalarProperty Name="shipmentID" ColumnName="shipmentID" />
+          <ScalarProperty Name="scheduleTime" ColumnName="scheduleTime" />
+          <ScalarProperty Name="transporterName" ColumnName="transporterName" />
+          <ScalarProperty Name="customerName" ColumnName="customerName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Containers">
+      <EntityTypeMapping TypeName="transporter_QuoteModel.Container">
+        <MappingFragment StoreEntitySet="Containers">
+          <ScalarProperty Name="CtrName" ColumnName="CtrName" />
+          <ScalarProperty Name="DeliveryByUserID" ColumnName="DeliveryByUserID" />
+          <ScalarProperty Name="DeliveryDT" ColumnName="DeliveryDT" />
+          <ScalarProperty Name="DispatchedByUserID" ColumnName="DispatchedByUserID" />
+          <ScalarProperty Name="DispatchedDT" ColumnName="DispatchedDT" />
+          <ScalarProperty Name="LoadingByUserID" ColumnName="LoadingByUserID" />
+          <ScalarProperty Name="LoadingDT" ColumnName="LoadingDT" />
+          <ScalarProperty Name="VehicleArrivalByUserID" ColumnName="VehicleArrivalByUserID" />
+          <ScalarProperty Name="VehicleArrivalDT" ColumnName="VehicleArrivalDT" />
+          <ScalarProperty Name="VehicleNumber" ColumnName="VehicleNumber" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UpdatedByUserID" ColumnName="UpdatedByUserID" />
+          <ScalarProperty Name="UpdatedDT" ColumnName="UpdatedDT" />
+          <ScalarProperty Name="CreatedByUserID" ColumnName="CreatedByUserID" />
+          <ScalarProperty Name="CreatedDT" ColumnName="CreatedDT" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="SlotID" ColumnName="SlotID" />
+          <ScalarProperty Name="ScheduleTime" ColumnName="ScheduleTime" />
+          <ScalarProperty Name="ScheduleFromDT" ColumnName="ScheduleFromDT" />
+          <ScalarProperty Name="ShipmentID" ColumnName="ShipmentID" />
+          <ScalarProperty Name="ContainerID" ColumnName="ContainerID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FinalRates">
+      <EntityTypeMapping TypeName="transporter_QuoteModel.FinalRates">
+        <MappingFragment StoreEntitySet="FinalRates">
+          <ScalarProperty Name="Rates" ColumnName="Rates" />
+          <ScalarProperty Name="CreatedByUserID" ColumnName="CreatedByUserID" />
+          <ScalarProperty Name="CreatedDT" ColumnName="CreatedDT" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="ActualCost" ColumnName="ActualCost" />
+          <ScalarProperty Name="AcceptedCost" ColumnName="AcceptedCost" />
+          <ScalarProperty Name="ComponentID" ColumnName="ComponentID" />
+          <ScalarProperty Name="RFQID" ColumnName="RFQID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rating">
+      <EntityTypeMapping TypeName="transporter_QuoteModel.Rating">
+        <MappingFragment StoreEntitySet="Rating">
+          <ScalarProperty Name="RatingData" ColumnName="RatingData" />
+          <ScalarProperty Name="Reason" ColumnName="Reason" />
+          <ScalarProperty Name="Stars" ColumnName="Stars" />
+          <ScalarProperty Name="RFQID" ColumnName="RFQID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_getRFQList" FunctionName="transporter_QuoteModel.Store.sp_getRFQList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="transporter_QuoteModel.sp_getRFQList_Result">
+          <ScalarProperty Name="reqForQuoteID" ColumnName="reqForQuoteID" />
+          <ScalarProperty Name="customerID" ColumnName="customerID" />
+          <ScalarProperty Name="customerName" ColumnName="customerName" />
+          <ScalarProperty Name="quoteByDT" ColumnName="quoteByDT" />
+          <ScalarProperty Name="details" ColumnName="details" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="transporterIDs" ColumnName="transporterIDs" />
+          <ScalarProperty Name="isCloseEarly" ColumnName="isCloseEarly" />
+          <ScalarProperty Name="orderNo" ColumnName="orderNo" />
+          <ScalarProperty Name="fileName" ColumnName="fileName" />
+          <ScalarProperty Name="timeSlotFromDT" ColumnName="timeSlotFromDT" />
+          <ScalarProperty Name="timeSlotToDT" ColumnName="timeSlotToDT" />
+          <ScalarProperty Name="vehReadyByUserID" ColumnName="vehReadyByUserID" />
+          <ScalarProperty Name="vehicleEntryDT" ColumnName="vehicleEntryDT" />
+          <ScalarProperty Name="clearanceDT" ColumnName="clearanceDT" />
+          <ScalarProperty Name="vehicleNumber" ColumnName="vehicleNumber" />
+          <ScalarProperty Name="paymentTerm" ColumnName="paymentTerm" />
+          <ScalarProperty Name="fixedTerm" ColumnName="fixedTerm" />
+          <ScalarProperty Name="reminderSentDate" ColumnName="reminderSentDate" />
+          <ScalarProperty Name="fields" ColumnName="fields" />
+          <ScalarProperty Name="transporterDetail" ColumnName="transporterDetail" />
+          <ScalarProperty Name="response" ColumnName="response" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="dispatchedBy" ColumnName="dispatchedBy" />
+          <ScalarProperty Name="destinationAddress" ColumnName="destinationAddress" />
+          <ScalarProperty Name="deliveryDT" ColumnName="deliveryDT" />
+          <ScalarProperty Name="dispatchDT" ColumnName="dispatchDT" />
+          <ScalarProperty Name="pickUpDT" ColumnName="pickUpDT" />
+          <ScalarProperty Name="budget" ColumnName="budget" />
+          <ScalarProperty Name="serviceName" ColumnName="serviceName" />
+          <ScalarProperty Name="startWorkDT" ColumnName="startWorkDT" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_getDispatchPlanList" FunctionName="transporter_QuoteModel.Store.sp_getDispatchPlanList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="transporter_QuoteModel.sp_getDispatchPlanList_Result">
+          <ScalarProperty Name="shipmentID" ColumnName="shipmentID" />
+          <ScalarProperty Name="pickup" ColumnName="pickup" />
+          <ScalarProperty Name="source" ColumnName="source" />
+          <ScalarProperty Name="container" ColumnName="container" />
+          <ScalarProperty Name="fileName" ColumnName="fileName" />
+          <ScalarProperty Name="customerID" ColumnName="customerID" />
+          <ScalarProperty Name="companyName" ColumnName="companyName" />
+          <ScalarProperty Name="serviceName" ColumnName="serviceName" />
+          <ScalarProperty Name="serviceTypeID" ColumnName="serviceTypeID" />
+          <ScalarProperty Name="delivery" ColumnName="delivery" />
+          <ScalarProperty Name="serviceIDs" ColumnName="serviceIDs" />
+          <ScalarProperty Name="product" ColumnName="product" />
+          <ScalarProperty Name="sourceAddress" ColumnName="sourceAddress" />
+          <ScalarProperty Name="destination" ColumnName="destination" />
+          <ScalarProperty Name="portofLoading" ColumnName="portofLoading" />
+          <ScalarProperty Name="portofDischarge" ColumnName="portofDischarge" />
+          <ScalarProperty Name="emptyContainer" ColumnName="emptyContainer" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Quotations">
+      <EntityTypeMapping TypeName="transporter_QuoteModel.Quotations">
+        <MappingFragment StoreEntitySet="Quotations">
+          <ScalarProperty Name="IsNegotiated" ColumnName="IsNegotiated" />
+          <ScalarProperty Name="NegotiationComments" ColumnName="NegotiationComments" />
+          <ScalarProperty Name="RoundNumber" ColumnName="RoundNumber" />
+          <ScalarProperty Name="AcceptNote" ColumnName="AcceptNote" />
+          <ScalarProperty Name="ExchangeRate" ColumnName="ExchangeRate" />
+          <ScalarProperty Name="Components" ColumnName="Components" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UpdatedDT" ColumnName="UpdatedDT" />
+          <ScalarProperty Name="CreatedDT" ColumnName="CreatedDT" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="ExtendDeliveryDT" ColumnName="ExtendDeliveryDT" />
+          <ScalarProperty Name="AcceptanceStatusOn" ColumnName="AcceptanceStatusOn" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="PaymentTerms" ColumnName="PaymentTerms" />
+          <ScalarProperty Name="Charges" ColumnName="Charges" />
+          <ScalarProperty Name="IsAcceptedByExeOrCust" ColumnName="IsAcceptedByExeOrCust" />
+          <ScalarProperty Name="AcceptID" ColumnName="AcceptID" />
+          <ScalarProperty Name="TransporterID" ColumnName="TransporterID" />
+          <ScalarProperty Name="RequestForQuoteID" ColumnName="RequestForQuoteID" />
+          <ScalarProperty Name="QuoteID" ColumnName="QuoteID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

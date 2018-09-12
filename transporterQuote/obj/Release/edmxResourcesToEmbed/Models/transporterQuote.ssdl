@@ -1,0 +1,347 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="transporter_QuoteModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Config">
+    <Key>
+      <PropertyRef Name="ConfigID" />
+    </Key>
+    <Property Name="ConfigID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Field" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Value" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="CreatedDT" Type="smalldatetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Customers">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="City" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="State" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Mobile" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="AlternateMobile" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Notes" Type="varchar" MaxLength="2000" Nullable="false" />
+    <Property Name="CreatedDT" Type="smalldatetime" Nullable="false" />
+    <Property Name="UpdatedDT" Type="smalldatetime" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="Address1" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Address2" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Country" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Executives">
+    <Key>
+      <PropertyRef Name="ExecutiveID" />
+    </Key>
+    <Property Name="ExecutiveID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ExecutiveName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Designation" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Mobile" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="CanCreateRFQ" Type="bit" Nullable="false" />
+    <Property Name="CanSelectTransporter" Type="bit" Nullable="false" />
+    <Property Name="CanCloseRFQ" Type="bit" Nullable="false" />
+    <Property Name="CanSelectForCustomer" Type="bit" Nullable="false" />
+    <Property Name="Notes" Type="varchar" MaxLength="2000" Nullable="false" />
+    <Property Name="CreatedDT" Type="smalldatetime" Nullable="false" />
+    <Property Name="UpdatedDT" Type="smalldatetime" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="ZoneIDs" Type="varchar(max)" Nullable="false" />
+    <Property Name="Rights" Type="varchar(max)" Nullable="false" />
+    <Property Name="ServiceRights" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Fields">
+    <Key>
+      <PropertyRef Name="FieldID" />
+    </Key>
+    <Property Name="FieldID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FieldName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FieldType" Type="int" Nullable="false" />
+    <Property Name="IsRequired" Type="bit" Nullable="false" />
+    <Property Name="Choices" Type="varchar(max)" Nullable="false" />
+    <Property Name="QuoteTypeID" Type="int" Nullable="false" />
+    <Property Name="CreatedDT" Type="smalldatetime" Nullable="false" />
+    <Property Name="CreatedByUserID" Type="int" Nullable="false" />
+    <Property Name="UpdatedDT" Type="smalldatetime" />
+    <Property Name="UpdatedByUserID" Type="int" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="ShowCustomer" Type="bit" Nullable="false" />
+    <Property Name="ShowVendors" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Quotations">
+    <Key>
+      <PropertyRef Name="QuoteID" />
+    </Key>
+    <Property Name="QuoteID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RequestForQuoteID" Type="int" Nullable="false" />
+    <Property Name="TransporterID" Type="int" Nullable="false" />
+    <Property Name="AcceptID" Type="int" Nullable="false" />
+    <Property Name="IsAcceptedByExeOrCust" Type="bit" Nullable="false" />
+    <Property Name="Charges" Type="decimal" Precision="12" Scale="2" Nullable="false" />
+    <Property Name="PaymentTerms" Type="varchar(max)" Nullable="false" />
+    <Property Name="Status" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AcceptanceStatusOn" Type="smalldatetime" Nullable="false" />
+    <Property Name="ExtendDeliveryDT" Type="smalldatetime" />
+    <Property Name="Notes" Type="varchar" MaxLength="2000" Nullable="false" />
+    <Property Name="CreatedDT" Type="smalldatetime" Nullable="false" />
+    <Property Name="UpdatedDT" Type="smalldatetime" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="Components" Type="varchar(max)" Nullable="false" />
+    <Property Name="ExchangeRate" Type="decimal" Precision="12" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="QuoteTypeComponents">
+    <Key>
+      <PropertyRef Name="ComponentID" />
+    </Key>
+    <Property Name="ComponentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ComponentName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Type" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PaidBy" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Currency" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="QuoteTypeID" Type="int" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="CreatedDT" Type="smalldatetime" Nullable="false" />
+    <Property Name="CreatedByUserID" Type="int" Nullable="false" />
+    <Property Name="LastUpdatedDT" Type="smalldatetime" />
+    <Property Name="LastUpdatedByUserID" Type="int" />
+  </EntityType>
+  <EntityType Name="QuoteTypes">
+    <Key>
+      <PropertyRef Name="QuoteTypeID" />
+    </Key>
+    <Property Name="QuoteTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="QuoteTypeName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PaidBy" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Type" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="CreatedDT" Type="smalldatetime" Nullable="false" />
+    <Property Name="CreatedByUserID" Type="int" Nullable="false" />
+    <Property Name="LastUpdatedDT" Type="smalldatetime" />
+    <Property Name="LastUpdatedByUserID" Type="int" />
+    <Property Name="IsAllowNegotiation" Type="bit" Nullable="false" />
+    <Property Name="ServiceTypeID" Type="int" Nullable="false" />
+    <Property Name="CoreField" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RFQFieldValues">
+    <Key>
+      <PropertyRef Name="RFQFieldID" />
+    </Key>
+    <Property Name="RFQFieldID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RFQID" Type="int" Nullable="false" />
+    <Property Name="FieldID" Type="int" Nullable="false" />
+    <Property Name="FieldValue" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="CreatedDT" Type="smalldatetime" Nullable="false" />
+    <Property Name="CreatedUserID" Type="int" Nullable="false" />
+    <Property Name="UpdatedDT" Type="smalldatetime" />
+    <Property Name="UpdatedUserID" Type="int" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RFQs">
+    <Key>
+      <PropertyRef Name="RequestForQuoteID" />
+    </Key>
+    <Property Name="RequestForQuoteID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerID" Type="int" Nullable="false" />
+    <Property Name="SourceID" Type="int" Nullable="false" />
+    <Property Name="ExecutiveID" Type="int" Nullable="false" />
+    <Property Name="Destination" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Source" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Product" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PickUp" Type="smalldatetime" Nullable="false" />
+    <Property Name="DeliveryBy" Type="smalldatetime" Nullable="false" />
+    <Property Name="AllowLaterDelivery" Type="bit" Nullable="false" />
+    <Property Name="QuoteBy" Type="smalldatetime" Nullable="false" />
+    <Property Name="Details" Type="varchar" MaxLength="2000" Nullable="false" />
+    <Property Name="Status" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Transporters" Type="varchar(max)" Nullable="false" />
+    <Property Name="CloseEarly" Type="bit" Nullable="false" />
+    <Property Name="CreatedDT" Type="smalldatetime" Nullable="false" />
+    <Property Name="UpdatedDT" Type="smalldatetime" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="OrderNo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FileName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="RouteID" Type="int" Nullable="false" />
+    <Property Name="Route" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="DispatchedByUserID" Type="int" Nullable="false" />
+    <Property Name="DispatchedDT" Type="smalldatetime" />
+    <Property Name="ZoneID" Type="int" Nullable="false" />
+    <Property Name="ForwardedByUserId" Type="int" Nullable="false" />
+    <Property Name="ClearenceDT" Type="smalldatetime" />
+    <Property Name="ClearedByUserID" Type="int" Nullable="false" />
+    <Property Name="TimeSlotFromDT" Type="smalldatetime" />
+    <Property Name="TimeSlotToDT" Type="smalldatetime" />
+    <Property Name="VehicleReadyDT" Type="smalldatetime" />
+    <Property Name="VehicleNumber" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="VehReadyByUserID" Type="int" Nullable="false" />
+    <Property Name="VehicleEntryDT" Type="smalldatetime" />
+    <Property Name="LoadingByUserID" Type="int" Nullable="false" />
+    <Property Name="ReadyByTransporterUserID" Type="int" Nullable="false" />
+    <Property Name="QuoteTypeID" Type="int" Nullable="false" />
+    <Property Name="PaymentTerm" Type="int" Nullable="false" />
+    <Property Name="FixedTerm" Type="varchar" MaxLength="200" />
+    <Property Name="ReminderSentDT" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="Routes">
+    <Key>
+      <PropertyRef Name="RouteID" />
+    </Key>
+    <Property Name="RouteID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RouteCode" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="RouteDetail" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="CreatedDT" Type="smalldatetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ServiceTypes">
+    <Key>
+      <PropertyRef Name="ServiceTypeID" />
+    </Key>
+    <Property Name="ServiceTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ServiceName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="CompletionDateText" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PickupDateText" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ShipFields">
+    <Key>
+      <PropertyRef Name="ShipFieldID" />
+    </Key>
+    <Property Name="ShipFieldID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="QuoteTypeID" Type="int" Nullable="false" />
+    <Property Name="PickupDTName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ProductName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="SourceLocationName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="SourceAddressName" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="DestinationName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ContainerName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="PortofLoadingName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="PortofDischargeName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="EmtcontainPickupName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="CreatedDT" Type="smalldatetime" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Shipments">
+    <Key>
+      <PropertyRef Name="ShipmentID" />
+    </Key>
+    <Property Name="ShipmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="QuoteID" Type="int" Nullable="false" />
+    <Property Name="RFQID" Type="int" Nullable="false" />
+    <Property Name="TransporterID" Type="int" Nullable="false" />
+    <Property Name="QuoteTypeID" Type="int" Nullable="false" />
+    <Property Name="PickupDT" Type="smalldatetime" />
+    <Property Name="Product" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="SourceLocation" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="SourceAddress" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="DestinationAddress" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Containers" Type="int" Nullable="false" />
+    <Property Name="PortofLoading" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="PortofDischarge" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="EmptyContainer" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="CreatedDT" Type="smalldatetime" Nullable="false" />
+    <Property Name="CreatedByUserID" Type="int" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sources">
+    <Key>
+      <PropertyRef Name="SourceID" />
+    </Key>
+    <Property Name="SourceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Location" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Type" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Address1" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Address2" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="City" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="State" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Notes" Type="varchar" MaxLength="2000" Nullable="false" />
+    <Property Name="CreatedDT" Type="smalldatetime" Nullable="false" />
+    <Property Name="UpdatedDT" Type="smalldatetime" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Transporters">
+    <Key>
+      <PropertyRef Name="TransporterID" />
+    </Key>
+    <Property Name="TransporterID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="City" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="State" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Mobile" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="AlternateMobile" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Notes" Type="varchar" MaxLength="2000" Nullable="false" />
+    <Property Name="CreatedDT" Type="smalldatetime" Nullable="false" />
+    <Property Name="UpdatedDT" Type="smalldatetime" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="IsDomestic" Type="bit" Nullable="false" />
+    <Property Name="IsExport" Type="bit" Nullable="false" />
+    <Property Name="ServiceTypeID" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Zones">
+    <Key>
+      <PropertyRef Name="ZoneID" />
+    </Key>
+    <Property Name="ZoneID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ZoneName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <Function Name="fn_SplitString_Row" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Input" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Character" Type="char" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="Item" Type="nvarchar" MaxLength="1000" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="getTransporterQuoteDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RFQID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_getRequest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TransporterID" Type="int" Mode="In" />
+    <Parameter Name="IsHistory" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_getRFQList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_getScheduleList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Date" Type="smalldatetime" Mode="In" />
+    <Parameter Name="UserID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_getTransportRFQ" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
+    <Parameter Name="ServiceRights" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Status" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_MapShipFields" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="QuoteID" Type="int" Mode="In" />
+    <Parameter Name="UserID" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="transporter_QuoteModelStoreContainer">
+    <EntitySet Name="Config" EntityType="Self.Config" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Executives" EntityType="Self.Executives" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Fields" EntityType="Self.Fields" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Quotations" EntityType="Self.Quotations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="QuoteTypeComponents" EntityType="Self.QuoteTypeComponents" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="QuoteTypes" EntityType="Self.QuoteTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RFQFieldValues" EntityType="Self.RFQFieldValues" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RFQs" EntityType="Self.RFQs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Routes" EntityType="Self.Routes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ServiceTypes" EntityType="Self.ServiceTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ShipFields" EntityType="Self.ShipFields" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Shipments" EntityType="Self.Shipments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sources" EntityType="Self.Sources" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Transporters" EntityType="Self.Transporters" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Zones" EntityType="Self.Zones" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

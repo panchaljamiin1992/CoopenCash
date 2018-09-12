@@ -1,0 +1,196 @@
+﻿<style>
+    .productCheckbox {
+        cursor: pointer;
+        margin: 0px !important;
+        margin-right: 5px !important;
+    }
+
+    .autocomplete-content {
+        margin-top: 1px;
+        display: block;
+        opacity: 1;
+        position: absolute;
+    }
+
+    .AddUser .modal-content {
+        max-height: 90%;
+        border-radius: 0px;
+    }
+
+    .AddUser .modal-dialog {
+        background-color: #fff;
+        margin-top: 100px;
+        max-height: 85%;
+        width: 80%;
+    }
+
+    .close-btn {
+        font-size: 22px;
+        padding: 8px 12px;
+        border-radius: 25px;
+        float: right;
+        color: #444;
+        background-color: #fff;
+        -webkit-transition: background-color 2s;
+    }
+
+        .close-btn:hover {
+            background-color: #ededed;
+            border-radius: 25px;
+        }
+
+    .row {
+        /*margin: 0px;*/
+        margin: 10px;
+    }
+
+    .input-field {
+        margin-bottom: 20px;
+    }
+
+    .select-wrapper span.caret {
+        color: #cccccc !important;
+    }
+
+    input[type=text].invalid {
+        border-bottom: 1px solid rgba(0,0,0,0.26);
+    }
+
+    .header {
+        border-bottom: 1px solid rgba(0, 0, 0, .10);
+        padding: 10px;
+    }
+
+    .AddUser label {
+        font-size: 15px;
+        font-weight: 500;
+    }
+
+    @media only screen and (max-width: 700px) {
+        .AddUser .modal-dialog {
+            width: 100%;
+            margin: 100px 0px 0px 0px;
+        }
+    }
+
+    .headerAlign {
+        vertical-align: top !important;
+    }
+</style>
+
+<!-- Main content -->
+<div>
+
+    <!-- Header -->
+    <div class="row header">
+        <div class="col-md-11 col-sm-10" style="padding-left: 0px;">
+            <div class="col-md-8" style="padding-left: 0px;">
+                <i class="zmdi zmdi-menu" aria-hidden="true" style="margin-right: 10px; 
+                        font-size: 20px; padding-top: 5px;"></i>
+                <span style="font-size: 18px;">
+                    QuoteList
+                </span>
+            </div>
+        </div>
+        <div style="position: absolute; top: 11px; right: 0px; width: 10%;" class="col-md-2 col-sm-2">
+            <a href="" ng-click="closeQuoteList();" title="Close">
+                <i class="zmdi zmdi-close close-btn"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="divider" style="margin-bottom: 10px;"></div>
+
+    <!-- Quote list -->
+    <div class="row">
+       
+        <div class="col-md-12" style="max-height: 300px; overflow-y: auto;">
+            <div>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="headerAlign" style="width: 200px;">
+                                Transporter
+                            </th>
+                            <th class="headerAlign" style="width: 70px;" ng-repeat="componentHead in quoteList[0].components" ng-if="componentHead.componentType == 'Charge'">
+                                {{componentHead.componentName}}
+                            </th>
+                            <th class="headerAlign" style="width: 100px;">
+                                Total
+                            </th>
+                            <th class="headerAlign" ng-repeat="componentHead in quoteList[0].components" ng-if="componentHead.componentType == 'Penalty'">
+                                {{componentHead.componentName}}
+                            </th>
+                            <th class="headerAlign" style="width: 200px;" ng-show="reqForQuote.paymentTerms == 0">
+                                Terms
+                            </th>
+                            <th class="headerAlign" style="width: 200px;">
+                                Note
+                            </th>
+                            <th class="headerAlign" style="width: 20px;">
+
+                            </th>
+                            <th class="headerAlign" style="width: 20px;">
+
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="quote in quoteList">
+                            <td>
+                                {{quote.transCompanyName}}
+                                <span style="color: #4caf50;"
+                                      ng-show="quote.status == '1' && (reqforquotelist[selectedreqindex].status != '0'
+                                                  && reqforquotelist[selectedreqindex].status != '2')">
+                                    <i class="zmdi zmdi-check"></i>Accepted
+                                </span>
+                            </td>
+
+                            <td style="width: 70px; text-align: right;" ng-repeat="comp in quote.components" ng-if="comp.componentType == 'Charge'">
+                                {{comp.componentValue | INR}}
+                            </td>
+                            <td style="text-align: right;">
+                                {{quote.totalCharges | INR}}
+                            </td>
+                            <td ng-repeat="comp in quote.components" style="text-align: right;" ng-if="comp.componentType == 'Penalty'">
+                                {{comp.componentValue | INR}}
+                            </td>
+                            <td style="width: 200px;" ng-show="reqForQuote.paymentTerms == 0">
+                                {{quote.paymentTerms}}
+                            </td>
+                            <td style="width: 200px;">
+                                {{quote.note}}
+                            </td>
+                            <td style="text-align: center; width: 20px;">
+                                <i class="zmdi zmdi-phone" title="{{quote.mobile}}"></i>
+                            </td>
+                            <td style="text-align: center; width: 20px;">
+                                <i class="zmdi zmdi-email" title="{{quote.email}}"></i>
+                            </td>
+                            
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!--<div class="col-md-4 col-sm-12" style="line-height: 25px; padding-bottom: 5px;">
+            <label style="cursor: pointer;"><input type="checkbox" class="productCheckbox" value="true" ng-model="transpoter.isChecked" ng-change="addTransporter();">{{transpoter.companyName}}</label>
+        </div>-->
+    </div>
+
+    <!-- #region "Submit And Cancel Button"-->
+    <!--<div style="display: block; text-align: center; margin-bottom: 20px;">
+        <div style="text-align: center; margin-top: 10px; display: inline-block;">
+            <a class="btn btn-primary" title="Save" ng-click="setTranspoeter(false);">
+                <i class="fa fa-check left" style="padding:0 7px 0 0;"></i>Save
+            </a>
+        </div>&nbsp;
+        <div style="text-align: center; margin-top: 10px; display: inline-block;">
+            <a class="btn btn-primary" ng-click="closeTranspoterModal()" title="Cancel">
+
+                <i class="fa fa-times left" style="padding:0 7px 0 0;"></i>Cancel
+            </a>
+        </div>
+    </div>-->
+    <!-- #endregion-->
+</div>

@@ -1,0 +1,1122 @@
+﻿<!DOCTYPE html>
+<html style="height: 100%;"> <!-- overflow-y: hidden !important; -->
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <style>
+        html {
+            overflow-y: auto;
+        }
+
+        #finishBy ._720kb-datepicker-calendar._720kb-datepicker-open, ._720kb-datepicker-calendar._720kb-datepicker-forced-to-open {
+            bottom: 20%;
+            width: 100px;
+        }
+        ._720kb-datepicker-calendar._720kb-datepicker-open, ._720kb-datepicker-calendar._720kb-datepicker-forced-to-open {
+            width: 100px;
+        }
+        .container {
+            /* width: calc(100% - 57px);*/
+            width: auto;
+            padding-right: 0px;
+            padding-left: 0px;
+            margin-right: auto;
+            /*margin-left: 57px;*/
+        }
+
+        @media screen and (max-width: 500px) {
+            .container {
+                width: 100%;
+                margin-left: 0px;
+                margin-top: 50px;
+            }
+        }
+
+        .alignText {
+            vertical-align: middle;
+            width: 20px;
+            text-align: center;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            /* Set the fixed height of the footer here */
+            height: 60px;
+            z-index: 300;
+        }
+
+        @media screen and (min-width: 980px) {
+            .footer {
+                width: 24.9%;
+            }
+        }
+
+        .fa-rotate-90 {
+            -webkit-transform: rotate(90deg);
+            -moz-transform: rotate(90deg);
+            -ms-transform: rotate(90deg);
+            -o-transform: rotate(90deg);
+            transform: rotate(90deg);
+        }
+
+        /*.dropdown-content li > a, .dropdown-content li > span, .dropdown-content li {
+            color: #000;
+        }*/
+
+        .menuDropdown {
+            float: left;
+            font-size: 30px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        ul#menuDD:not(.browser-default) {
+            min-width: 210px;
+            top: 49px !important;
+        }
+
+        .dropdown-content {
+            background-color: #fff;
+            margin: 0;
+            display: none;
+            min-width: 100px;
+            max-height: 650px;
+            overflow-y: auto;
+            opacity: 0;
+            position: absolute;
+            z-index: 999;
+            will-change: width, height;
+            box-shadow: 0 6px 12px rgba(0,0,0,.175);
+        }
+
+            .dropdown-content li {
+                clear: both;
+                color: rgba(0,0,0,0.87);
+                cursor: pointer;
+                /*min-height: 50px;*/
+                line-height: 1.5rem;
+                width: 100%;
+                text-align: left;
+                text-transform: none;
+            }
+
+        ul:not(.browser-default) li {
+            list-style-type: none;
+        }
+
+        .dropdown-content li:hover, .dropdown-content li.active, .dropdown-content li.selected {
+            background-color: #eee;
+        }
+
+        .form-control:focus {
+            border-bottom-color: 1px solid #66afe9;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+        }
+
+        .dropdown button {
+            width: 86%;
+            background-color: rgba(255, 255, 255, 0);
+            box-shadow: none;
+            border-bottom: 1px solid #ccc;
+            /*background-color: #f8f8f8;*/
+        }
+
+            .dropdown button span {
+                float: right;
+                position: relative;
+                top: 10px;
+                font-size: 14px;
+                font-family: Roboto;
+                background-color: #fff;
+            }
+
+            .dropdown button[disabled] {
+                /*background-color: #f8f8f8;*/
+                border-color: #ccc;
+            }
+
+        .btn-default:hover {
+            background-color: rgba(255, 255, 255, 0);
+            border-bottom: 1px solid #ccc;
+        }
+
+        .open > .dropdown-menu {
+            max-height: 218px;
+            overflow: overlay;
+            display: block;
+            position: absolute;
+            left: 15px;
+            width: auto;
+            font-size: 14px;
+            font-family: Roboto;
+        }
+
+        .open > .dropdown-toggle.btn-default:hover, open > .dropdown-toggle.btn-default:focus, .open > .dropdown-toggle.btn-default {
+            color: #333;
+            background-color: rgba(255, 255, 255, 0);
+            border-bottom: 1px solid #66afe9;
+        }
+
+        .dropdownIcon {
+            color: #4885ed;
+            margin-left: 15px;
+        }
+
+
+        blockquote {
+            padding: 10px 20px;
+            margin: 0 0 20px;
+            font-size: 14px;
+            border-left: 2px solid #eee;
+        }
+
+        .activityMenuli {
+            margin: 6px 2px 5px 1px;
+        }
+
+        .statusBedge {
+            display: inline;
+            margin-right: 10px;
+            border-radius: 2px;
+            color: #fff;
+            line-height: 1.5;
+            min-width: 18px;
+            text-align: center;
+            vertical-align: middle;
+            padding: 0px 5px;
+        }
+
+        .open {
+           width: 66.66666667%;
+        }
+
+            .open > .dropdown-menu {
+                left: 15px !important;
+            }
+
+        .textOverflow {
+            text-overflow: ellipsis;
+            overflow: hidden;
+            display: inline-block;
+            white-space: nowrap;
+            vertical-align: top;
+        }
+
+        .listHeader {
+            border-bottom: 1px solid rgba(0, 0, 0, .10);
+            box-sizing: border-box;
+            height: 50px;
+            /*box-shadow: 0 3px 10px rgba(0,0,0,0.4);*/
+            /* text-align: center; */
+            /* background-color: #0D47A1; */
+        }
+
+        .listHeaderText {
+            vertical-align: sub;
+            line-height: 2.3;
+            display: inline-block;
+            color: #286090;
+            /*color: #03A9F4*/ /*rgba(255, 0, 0, 0.66)*/
+            font-weight: 600;
+            font-size: 16px;
+            font-family: Roboto;
+        }
+
+        .listMenuIcon {
+            display: inline-block;
+            /*position: absolute;*/
+            vertical-align: middle;
+            font-size: 20px;
+        }
+
+        .list {
+            border-right: 2px solid rgba(0, 0, 0, 0.5);
+            box-sizing: border-box;
+            /*height: 665px;*/ /*-webkit-fill-available;*/
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .listDetailHeaderIcon {
+            /*position: absolute;*/
+            /*font-size: 20px;*/
+            text-align: right;
+            cursor: pointer;
+            padding: 4px 8px;
+        }
+
+        .detailHeader {
+            border-bottom: 1px solid rgba(0, 0, 0, .10);
+            box-sizing: border-box;
+            height: 50px;
+            padding: 10px;
+            position: relative;
+            /*text-align: center;*/
+            z-index: 201;
+            background-color: #fff;
+            display: flex;
+        }
+
+        .smallrightsList {
+            padding: 10px;
+        }
+
+        .font-color {
+            color: #286090;
+        }
+
+        .listDetail {
+            border-right: 1px solid rgba(0, 0, 0, .10);
+            box-sizing: border-box;
+            /*height: 615px;*/ /*-webkit-fill-available;*/
+            /*padding: 10px;*/
+            padding: 0px;
+            background-color: #fff;
+        }
+
+        .infoLbl {
+            /*padding-left: 8px;*/
+            line-height: 34px;
+        }
+
+        .lableIcon {
+            color: black;
+            padding: 0px 5px;
+            font-size: 17px;
+        }
+
+        .form-control:focus {
+            border-bottom-color: 1px solid #66afe9;
+            -webkit-box-shadow: none;
+        }
+
+        .form-inline .form-control {
+            display: inline-block;
+            width: 125px;
+            vertical-align: middle;
+        }
+
+        .form-control:focus {
+            border-bottom: 1px solid #66afe9;
+        }
+
+        .textarea {
+            -webkit-box-shadow: none;
+            border: none;
+            border-bottom: 1px solid #ccc;
+            border-radius: inherit;
+            font-size: 14px;
+            font-family: Roboto;
+            /*background-color: #f8f8f8;*/
+        }
+
+        .dateColor {
+            color: rgba(128, 128, 128, 0.71);
+        }
+
+        .bedge {
+            /*background-color: rgba(0,0,0,0.06);*/
+            padding: 5px 10px;
+            /*display: inline;*/
+            margin-right: 10px;
+            border-radius: 2px;
+        }
+
+        .showQuote-Div {
+            padding: 60px 10px 0px 10px;
+        }
+
+            .showQuote-Div i {
+                padding-right: 5px;
+            }
+
+        .dateClass {
+            margin-left: 10px;
+            font-size: 12px;
+            color: #555;
+        }
+
+         .subMenuli {
+            font-size: 17px;
+            padding: 10px;
+        }
+
+         .autoComplete {
+            max-height: 160px;
+            width: 306px;
+            position: absolute;
+            overflow-y: auto;
+            background-color: #fff;
+            z-index: 10;
+            /*left: 199px;
+            top: 49px;*/
+            box-shadow: 0px 0px 5px;
+        }
+
+            .autoComplete div {
+                padding: 10px;
+            }
+
+                .autoComplete div:hover {
+                    background-color: rgba(0,0,0,0.1);
+                }
+
+        .fileUpload {
+            font-size: 20px !important;
+            line-height: 1.3 !important;
+        }
+
+        .btn:active:focus, .btn:focus {
+            outline: none;
+        }
+
+        .cursor {
+            cursor: pointer;
+        }
+
+        .font-bold {
+            font-weight: bold;
+        }
+
+        /*.btn {
+           padding: 2px 6px;
+        }*/
+    </style>
+   
+</head>
+<body style="height: 100%;">
+
+    <!-- Main content -->
+    <div class="container ng-cloak" style="margin-left: 0px; margin-right: 0px; height: 100%;">
+
+        <!-- List -->
+        <div class="col-md-3 col-sm-3' list" style="padding: 0px; height: 100%;">
+            <div class="listHeader" style="padding:8px;">
+                <div>
+                    <div class="listMenuIcon font-color cursor" ng-if="!showSearch" style="width: 30px; text-align: center;" ng-click="openMenu();">
+                    <span style="vertical-align:middle" class="fa fa-bars"></span></div>
+                    <!-- Dropdown Structure -->
+                    <ul id='menuDD' class='dropdown-content' style="opacity: 1; min-width: 240px; padding-left: 0px;">
+
+                        <li ng-click="openSchedulePop();" ng-show="pm_personInfo.canScheduled && pm_personInfo.canLoading" ng-if="false">
+                            <i class="zmdi zmdi-calendar-alt font-color" style="padding: 14px 0px 14px 20px; font-size: 20px; margin: 0px;"></i>
+                            <span class="font-color" style="display: inline-block; padding-left: 5px;">Loading Schedule</span>
+                        </li>
+
+                        <li ng-click="openQuotes();">
+                            <i class="fa fa-tasks font-color" style="padding: 14px 0px 14px 20px; font-size: 20px; margin: 0px;"></i>
+                            <span class="font-color" style="display: inline-block; padding-left: 5px;">Quotes</span>
+                        </li>
+
+                        <li ng-click="openLogistics();" ng-if="(pm_personInfo.canReady || pm_personInfo.canScheduled 
+                            || pm_personInfo.canLoading || pm_personInfo.canDispatch) && false"> <!--   -->
+                            <i class="fa fa-truck font-color" style="padding: 14px 0px 14px 20px; font-size: 20px; margin: 0px;"></i>
+                            <span class="font-color" style="display: inline-block; padding-left: 5px;">Logistics</span>
+                        </li>
+
+                        <li ng-click="openChangePasswordPop();">
+                            <i class="fa fa-lock font-color" style="padding: 14px 0px 14px 20px; font-size: 20px; margin: 0px;"></i>
+                            <span class="font-color" style="display: inline-block; padding-left: 5px;">Change Password</span>
+                        </li>
+
+                        <li ng-click="openReport();" ng-if="false">
+                            <i class="zmdi zmdi-assignment font-color" style="padding: 14px 0px 14px 20px; font-size: 20px; margin: 0px;"></i>
+                            <span class="font-color" style="display: inline-block; padding-left: 5px;">Report</span>
+                        </li>
+
+                        <li ng-click="actionLogout();">
+                            <i class="zmdi zmdi-power font-color" style="padding: 14px 0px 14px 20px; font-size: 20px; margin: 0px;"></i>
+                            <span class="font-color" style="display: inline-block; padding-left: 5px;">Logout</span>
+                        </li>
+                    </ul>
+
+                    <!-- Header -->
+                    <div class="listHeaderText fontFamily font-color" ng-if="!showSearch">
+                        <span style="vertical-align:middle;">ALOCS</span>
+                        <span ng-show="enableList != -1" style="color: {{enableList == 0 ? '#db3236' : enableList == 1 ? '#f4bd50' : enableList == 2 ? '#db3236' : enableList == 3 ? '#4CAF50' : enableList == 4 ? '#f4bd50': enableList == 5 ? '#f4bd50' : enableList == 6 ? '#f4bd50' : '#f4bd50'}};">
+                        ({{enableList == 0 ? 'Open' : enableList == 1 ? 'Selected' : enableList == 2 ? 'Forwarded' : enableList == 3 ? 'Dispatched' : enableList == 4 ? 'Cleared': enableList == 5 ? 'Ready' : enableList == 6 ? 'Scheduled' : enableList == 7 ? 'Loading': ''}})</span>
+                    </div>
+
+                    <!-- Search input -->
+                    <div ng-if="showSearch" style="display: inline-block; width: 90%;">
+                        <input class="form-control" id="search" type="text" ng-model="search.value" style="background-color: white;" placeholder="Search">
+                    </div>
+
+                    <!-- Filter by pending, awaiting dispatch, forwarded, serach -->
+                    <div class="listMenuIcon fontFamily" style="float: right;">
+                        <!--<span class="fa fa-exchange fa-rotate-90" style="vertical-align: middle;" title="Sort"></span>-->
+                        <span class="zmdi zmdi-chevron-down font-color cursor" ng-if="!showSearch && false" style="vertical-align: middle; 
+                              padding-left: 10px;"
+                              title="Show Filter"
+                              ng-click="closeFilterMenu();"></span>
+                        <span class="zmdi zmdi-refresh font-color cursor" ng-if="!showSearch" style="vertical-align: middle; margin-left: 10px;" 
+                              title="Refresh" 
+                              ng-click="getReqForQuote();"></span>
+                       
+                        <span class="fa fa-times font-color cursor" ng-if="showSearch"
+                              style="vertical-align: middle; padding-right: 5px; cursor: pointer" title="Close" ng-click="searchInList()"></span>
+                       
+                        <span class="fa fa-search font-color cursor" ng-if="!showSearch" style="vertical-align: middle; padding-left: 10px;" 
+                              title="Search" 
+                              ng-click="searchInList()"></span>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="listHeader" style="padding:8px;"> <!-- ng-show="filterMenu && !showSearch" -->
+
+                <!-- Filter by pending, awaiting dispatch, forwarded, serach -->
+                <div class="listMenuIcon fontFamily" style="width: 100%">
+                    <!--<span class="fa fa-exchange fa-rotate-90" style="vertical-align: middle;" title="Sort"></span>-->
+                   
+                    <div class="col-md-1" style="padding: 0px 0px 0px 4px;">
+                        <span class="zmdi zmdi-time font-color cursor"
+                              style="vertical-align: middle; color: {{enableList == 0 ? '#db3236' : ''}}; border-radius: 50%;" 
+                              title="Waiting for Quotes"
+                              ng-click="filterList(0);"></span>
+                        <span style="position: absolute; font-size: 10px; top: 0px; color: #db3236;" ng-if="!showSearch">{{pendingCount}}</span>
+                    </div>
+                    
+                    <div class="col-md-1"> <!-- style="padding: 0px 0px 0px 10px;" -->
+                        <span class="zmdi zmdi-forward font-color cursor" 
+                              style="vertical-align: middle; border-radius: 50%; width: 20px; 
+                              color: {{enableList == 2 ? '#db3236' : ''}};" title="Waiting for Selection" ng-click="filterList(3);"></span>
+                        <span style="position: absolute; font-size: 10px; top: 0px; right: 0px; color: #db3236;" ng-if="!showSearch">
+                        {{forwardCount}}</span>
+                    </div>
+
+                    <div class="col-md-2">
+                        <span class="fa fa-check font-color cursor"
+                              style="vertical-align: middle; border-radius: 50%; width: 20px;
+                              color: {{enableList == 1 ? '#f4bd50' : ''}};" title="Waiting for Clearance" ng-click="filterList(1);"></span>
+                        <span style="position: absolute; font-size: 10px; top: 0px; left: 36px; color: #f4bd50;" ng-if="!showSearch">
+                            {{readyCount}}
+                        </span>
+                    </div>
+                    
+                    <!--<div class="col-md-1">
+                        <span class="fa fa-hourglass-half font-color cursor"
+                              style="vertical-align: middle; border-radius: 50%; width: 20px;
+                              color: {{enableList == 2 ? '#db3236' : ''}};" title="Waiting for Completion" ng-click="filterList(5);">
+                        </span>
+                        <span style="position: absolute; font-size: 10px; top: 0px; right: -10px; color: #db3236;" ng-if="!showSearch">
+                            {{startedCount}}
+                        </span>
+                    </div>
+
+                    <div class="col-md-1" ng-if="false"> 
+                        <span class="zmdi zmdi-flight-takeoff font-color cursor"
+                              style="vertical-align: middle; padding-left: 9px; 
+                              border-radius: 50%; width: 25px; color: {{enableList == 3 ? '#4CAF50' : ''}};" title="Dispatched" 
+                              ng-click="filterList(4);"></span>
+                        <span style="position: absolute; font-size: 10px; top: 0px; left: 44px; color: #4CAF50;" ng-if="!showSearch">
+                        {{dispatchedCount}}</span>
+                    </div>-->
+
+                </div>
+            </div>
+
+            <!-- Request for quote -->
+            <div style="max-height: calc(100% - {{headerHeight}}px);overflow-y: auto;" id="style-1">
+              
+                    <div style="max-height: calc(100% - 100px); overflow-y: auto;" id="style-1">
+
+                        <!-- RFQ list -->
+                        <div class="smallrightsList fontFamily" ng-style="{'background': $index == selectedReqIndex ? 'rgba(0,0,0,0.1)' : ''}"
+                             ng-repeat="reqForQuote in ($parent.reqQuoteList = (reqForQuoteList | filter: search.value))"
+                             style="cursor: pointer; border-bottom: {{$last ? '' : ' 1px solid #dddddd'}};" ng-click="getTranspoterDetails($index);">
+                            <div>
+                                
+                                <span>{{reqForQuote.customerName ? reqForQuote.customerName : companyName}}</span>
+                                <span style="float: right; font-size: 12px; color: {{ reqForQuote.expired ? '#F00' : '#666'}} ;">{{reqForQuote.quoteByDT | date: 'dd-MMM-yy'}}</span>
+                                <div>
+                                    <span class="fa fa-truck" style="margin-right: 10px;"></span>{{reqForQuote.response.length}}/{{reqForQuote.transporterDetail.length}}
+                                    <p class="dateClass" style="color: {{(reqForQuote.isCloseEarly && reqForQuote.status == '0') ? '#F44336' : enableList == 0 ? '#db3236' : enableList == 1 ? '#f4bd50' : enableList == 2 ? '#db3236' : enableList == 3 ? '#4CAF50' : enableList == 4 ? '#f4bd50': enableList == 5 ? '#f4bd50' : enableList == 6 ? '#f4bd50' : '#f4bd50'}};
+                                   font-size: 15px; float: right;">
+                                        {{(reqForQuote.isCloseEarly && reqForQuote.status == '0') ? 'Cancelled' :  reqForQuote.statusStr}}
+                                        <!--<i class="fa fa-check"></i>-->
+                                        <!-- {{(reqForQuote.status == '1' && todayDT < reqForQuote.quoteByDT) ? 'Accepted' : reqForQuote.isCloseEarly ? 'Closed' : ''}}-->
+                                        <!--{{reqForQuote.status == '0'? 'Pending': 'Accepted'}}-->
+                                     </p>
+                                </div>
+                                <!--<span ng-if="transporter.email" style="float: right; font-size: 16px;"><i class="fa fa-envelope font-color"></i></span>-->
+                            </div>
+                        </div>
+                        <div ng-show="reqQuoteList.length == 0" class="card-body" style="text-align: center; padding: 20px;">
+                            No RFQs found.
+                        </div>
+                    </div>
+                </div>
+
+            <!-- Add new rfq fab -->
+            <button type="button" class="fabBtn btn btn-circle btn-raised" style="outline: none;" ng-show="pm_personInfo.canCreateRFQ" title="" 
+                    ng-click="addNew();">
+                <span class="fa fa-plus"></span>
+            </button>
+        </div>
+
+        <!-- Detail transporter -->
+        <div class="col-md-9 col-sm-12 col-xm-12" style="padding: 0px; height: 100%; overflow-y: hidden;">
+
+            <!-- Header -->
+            <div class="col-md-12 col-sm-12 col-xm-12 detailHeader">
+
+                <!-- RFQ number -->
+                <div class="col-md-8 col-sm-7 col-xm-7 listHeaderText fontFamily">
+                    {{newReqForQuote ? '' : '#'}}
+                    {{newReqForQuote ? '' : reqForQuoteList[selectedReqIndex].reqForQuoteID}}
+                    {{newReqForQuote ? '' :  reqForQuoteList[selectedReqIndex].orderNo ? '-' : ''}}
+                    {{newReqForQuote ? '' : reqForQuoteList[selectedReqIndex].orderNo + ' - '}}
+                    {{newReqForQuote && pm_personInfo.canCreateRFQ ? 'Create New Request for Quote'  : reqForQuoteList[selectedReqIndex].customerName ? reqForQuoteList[selectedReqIndex].customerName : companyName}}
+                    {{newReqForQuote && pm_personInfo.canCreateRFQ && reqForQuote.quoteTypeID > 0 ? '(' + reqForQuote.quoteType + ')' : ''}}
+                   
+                    <span ng-if="!newReqForQuote" class="dateClass" style="color: {{enableList == 0 ? '#db3236' : enableList == 1 ? '#f4bd50' : enableList == 2 ? '#db3236' : enableList == 3 ? '#4CAF50' : enableList == 4 ? '#f4bd50': enableList == 5 ? '#f4bd50' : enableList == 6 ? '#f4bd50' : '#f4bd50'}}; font-size: 15px;">
+                        <i class="{{enableList == 0 ? 'zmdi zmdi-time' : enableList == 1 ? 'fa fa-check' : enableList == 2 ? 'zmdi zmdi-forward' : enableList == 3 ? 'zmdi zmdi-flight-takeoff' : enableList == 4 ? 'zmdi zmdi-assignment-check': enableList == 5 ? 'zmdi zmdi-case-play' : enableList == 6 ? 'zmdi zmdi-calendar-alt' : enableList == 7 ? 'zmdi zmdi-shopping-cart-plus' : ''}}"></i>
+                        {{enableList == 0 ? 'Open' : enableList == 1 ? 'Accepted' : enableList == 2 ? 'Forwarded' : enableList == 3 ? 'Dispatched' : enableList == 4 ? 'Cleared': enableList == 5 ? 'Ready' : enableList == 6 ? 'Scheduled' : enableList == 7 ? 'Loading' : ''}}
+                    </span>
+                  
+                </div>
+                <div class="col-md-4 col-sm-5 col-xm-5" style="text-align: right;">
+
+                    <!-- Forward RFQ -->
+                    <div class="listDetailHeaderIcon btn btn-primary" style="text-align: center;" 
+                         tooltip-placement="left"
+                         ng-if="showQuote && showAcceptedBtn && !reqForQuoteList[selectedReqIndex].isCloseEarly && reqForQuoteList[selectedReqIndex].status == '0' && quoteList.length > 0 && pm_personInfo.canForward"
+                         ng-click="forwardRFQ(reqForQuoteList[selectedReqIndex].reqForQuoteID);">
+                        <span class="zmdi zmdi-forward alignText"></span> Close & Forward
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detail transporters-->
+            <div class="machineDetail" style="min-height: calc(100% - 50px); width: 100%; overflow-y: {{isShowInputandBtn && newReqForQuote ? 'auto' : ''}};" 
+                 id="style-1">
+
+                <!-- Generate new RFQ -->
+                <div  ng-show="newReqForQuote && pm_personInfo.canCreateRFQ">
+
+                    <!-- Quote type -->
+                    <div class="col-md-12 col-sm-12" style="padding-top: 15px;" ng-show="newQuoteType">
+                        <div class="col-md-2 col-sm-6 infoLbl font-bold">Quote Type</div>
+                        <div class="col-md-4 dropdown" style="width: 33.33% !important;">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                {{reqForQuote.quoteType}}
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" id="style-1">
+                                <li ng-repeat="type in execQuoteTypes" style="cursor: pointer;" ng-model="reqForQuote.quoteType" 
+                                    ng-click="changeQuoteType($index)">
+                                    <a>{{type.quoteTypeName}}</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="col-md-6">
+                            <a class="btn btn-primary" title="Save" ng-click="getFields(reqForQuote.quoteTypeID);">
+                                <i class="zmdi zmdi-forward left" style="padding:0 7px 0 0;"></i>Next
+                            </a>
+                        </div>
+
+                    </div>
+                  
+                    <!-- Customer and refno. -->
+                    <div class="col-md-12 col-sm-12" style="padding-top: 15px;" ng-show="fieldList.customer || fieldList.erpRef">
+                        <div class="col-md-2 col-sm-6 infoLbl font-bold" ng-show="fieldList.customer">
+                            Company
+                        </div>
+
+                        <div class="col-md-4 dropdown" ng-show="fieldList.customer" style="width: 33.33% !important;">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                {{reqForQuote.companyName}}
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" id="style-1">
+                                <li ng-repeat="customer in customerList" style="cursor: pointer;" ng-model="reqForQuote.companyName" 
+                                    ng-click="changeCustomer($index)">
+                                    <a>{{customer.companyName}}</a>
+                                </li>
+                            </ul>
+                            <span style="vertical-align: middle;  cursor: pointer;" class="dropdownIcon fa fa-plus" ng-click="openCustomer();"></span>
+                        </div>
+
+                        <div class="col-md-2 col-sm-6 infoLbl font-bold" ng-show="fieldList.erpRef">
+                           Ref No.
+                        </div>
+                        <div class="col-md-4" ng-show="fieldList.erpRef">
+                            <input type="text" id="order" class="form-control" ng-model="reqForQuote.orderNo" />
+                        </div>
+                       
+                    </div>
+
+                    <!-- Route -->
+                    <div class="col-md-12 col-sm-12" style="padding-top: 15px;" ng-show="false">
+                        
+                        <div class="col-md-2 col-sm-6 infoLbl"><i class="zmdi zmdi-arrow-split lableIcon" style="padding-left: 0px; font-size: 20px;"></i>
+                        &nbsp; Route</div>
+                        <div class="col-md-4">
+                            <input type="text" id="route" ng-focus="routeFocus()" class="form-control" ng-model="reqForQuote.routeName" />
+                            <div class="autoComplete" id="style-1" ng-show="reqForQuote.routeName != '' && showRouteAuto">
+                                <div ng-repeat="route in routeList | filter: reqForQuote.routeName track by $index" ng-click="setRoute(route);">
+                                    <span>{{route}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <!-- Pickup and Delivery Date -->
+                    <div class="col-md-12 col-sm-12" style="padding-top: 15px;" ng-show="isShowInputandBtn">
+                        <div class="col-md-2 col-sm-6 infoLbl font-bold">{{pickupText}}</div>
+                        <div class="col-md-2">
+                            <datepicker date-format="dd-MMM-yy" date-min-limit="{{todayDT | date: 'dd-MMM-yy'}}">
+                                <input type="text" class="form-control col-md-2" ng-model="reqForQuote.pickUpDT" ng-change="changePickUp(reqForQuote.pickUpDT);" readonly />
+                            </datepicker>
+                        </div>
+                        <div class="col-md-2"></div>
+                        <div class="col-md-2 col-sm-6 infoLbl font-bold">{{completionText}}</div>
+                        <div class="col-md-2 col-sm-6">
+                            <datepicker date-format="dd-MMM-yy" date-min-limit="{{reqForQuote.pickUpDT | date: 'dd-MMM-yy'}}">
+                                <input type="text" class="form-control" ng-model="reqForQuote.deliveryDT" ng-disabled="reqForQuote.pickUpDT == ''" readonly />
+                            </datepicker>
+                        </div>
+
+                        <div class="col-md-2"></div>
+                    </div>
+
+                    <!-- Quoteby and fileupload -->
+                    <div class="col-md-12 col-sm-12" style="padding-top: 15px;" ng-show="isShowInputandBtn">
+
+                        <div class="col-md-2 col-sm-6 infoLbl font-bold">Quote by</div>
+                        <div class="col-md-2">
+                            <datepicker date-format="dd-MMM-yy" date-min-limit="{{todayDT | date: 'dd-MMM-yy'}}" 
+                                        date-max-limit="{{reqForQuote.pickUpDT | date: 'dd-MMM-yy'}}">
+                                <input type="text" class="form-control col-md-2" ng-model="reqForQuote.quoteBy" 
+                                        ng-disabled="reqForQuote.pickUpDT == ''" readonly/> <!-- ng-change="changeQuoteBy(reqForQuote.quoteBy);" -->
+                            </datepicker>
+                        </div>
+                        <div class="col-md-2">
+
+                        </div>
+                        <div class="col-md-2 col-sm-6 infoLbl font-bold" ng-show="fieldList.file">
+                           Attach File
+                        </div>
+                        <div class="col-md-2" style="padding-top: 5px;" ng-show="fieldList.file">
+                            <a class="btn btn-primary  zmdi zmdi-upload col-md-1" type="file" ngf-select="uploadFile($file, $event)"
+                               data-ng-model="file" title="File Upload"
+                               accept="application/pdf, application/msword, application/vnd.ms-excel" data-ngf-multiple="false"
+                               style="color: #286090; cursor:pointer; background-color: #fff; width: 120px;">
+                                <span style="font-family: Helvetica Neue,Helvetica,Arial,sans-serif">Upload a File</span>
+                            </a> <!-- fileUpload -->
+                        </div>
+                        <div class="col-md-2" ng-show="fieldList.file">
+                            <a href="../Attachment/{{showName}}" target="_blank"> {{showName}}</a>
+                        </div>
+                        
+                    </div>
+
+                    <!-- Budget && Term -->
+                    <div class="col-md-12 col-sm-12" style="padding-top: 15px;" ng-show="isShowInputandBtn">
+                        <div class="col-md-2 col-sm-6 infoLbl font-bold" ng-show="fieldList.term">
+                            Payment Terms
+                        </div>
+                        <div class="col-md-4 col-sm-6" ng-show="fieldList.term">
+                            <input type="radio" name="payment" ng-model="reqForQuote.paymentTerms" value="0" style="margin-right: 5px;">
+                            To be proposed by vendor
+                            <div style="display: inline-block;">
+                                <input type="radio" style="display: inline-block; margin-right: 10px;" name="payment" ng-model="reqForQuote.paymentTerms" value="1"><span>Fixed</span>
+                                <input type="text" class="form-control" style="display: inline-block; width: 75%;" ng-model="reqForQuote.fixedTerm" />
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6" style="padding-top: 15px; padding-left: 0px;">
+                            <div class="col-md-4 col-sm-6 infoLbl font-bold">
+                                Budget
+                            </div>
+                            <div class="col-md-8">
+                                <input type="text" id="budget" class="form-control" ng-model="reqForQuote.budget" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- New dynamic field -->
+                    <div class="col-md-12 col-sm-12">
+                        <div class="col-md-6 col-sm-6" style="padding-top: 15px; padding-left: 0px;" ng-repeat="field in fieldList.fields">
+
+                            <div class="col-md-4 col-sm-6 font-bold">{{field.FieldName}}</div>
+
+                            <!-- Input -->
+                            <div class="col-md-8 col-sm-6" ng-if="field.FieldType == 1">
+                                <input type="text" class="form-control" ng-model="field.FieldValue" />
+                            </div>
+
+                            <!-- Input number -->
+                            <div class="col-md-8 col-sm-6" ng-if="field.FieldType == 2">
+                                <input type="text" class="form-control" ng-model="field.FieldValue"  
+                                       onkeypress="return event.charCode >= 48 && event.charCode <= 57"/>
+                            </div>
+
+                            <!-- Dropdown -->
+                            <div class="col-md-8 dropdown" ng-if="field.FieldType == 4">
+                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    {{field.FieldValue}}
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" id="style-1">
+                                    <li ng-repeat="choice in field.Choices" style="cursor: pointer;" ng-model="field.FieldValue" 
+                                        ng-click="changeField($parent.$index, $index);">
+                                        <a>{{choice}}</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Date -->
+                            <div class="col-md-4" ng-if="field.FieldType == 3">
+                                <datepicker date-format="dd-MMM-yy" date-min-limit="{{todayDT | date: 'dd-MMM-yy'}}">
+                                    <input type="text" class="form-control col-md-2" ng-model="field.FieldValue" readonly />
+                                </datepicker>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-sm-6" style="padding-top: 15px; padding-left: 0px;" ng-show="isShowInputandBtn">
+                            <div class="col-md-4 col-sm-6 infoLbl font-bold">
+                                Details
+                            </div>
+                            <div class="col-md-8 col-sm-6">
+                                <textarea class="inputStyle form-control raw_Div textarea" rows="2" id="problem" ng-model="reqForQuote.details"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Note and term -->
+                    <!--<div class="col-md-12 col-sm-12" style="padding-top: 15px;" ng-show="isShowInputandBtn">
+                       
+
+                    </div>-->
+
+
+                  
+
+
+                    <!-- Vendors -->
+                    <div class="col-md-12" style="padding-top: 15px; padding-bottom: 15px;" ng-show="isShowInputandBtn">
+                            <div class="col-md-2 col-sm-6 infoLbl font-bold">Vendors</div>
+                            <div class="col-md-10 col-sm-6" style="height: 34px;">
+                                <i class="zmdi zmdi-edit" style="margin-top: 8px; margin-right:10px; font-size: 20px; cursor: pointer;"
+                                   ng-click="openTranspoterModal(selectedTranspoterName);"></i>
+                                <label ng-hide="selectedTranspoterName.length == transpoterList.length" ng-repeat="transporter in selectedTranspoterName"
+                                       style="color: #333; font-weight: 500; letter-spacing: 0.5px;">
+                                {{transporter.companyName}}{{$last ? '' : ',&nbsp;'}}</label>
+                                <label ng-if="selectedTranspoterName.length == transpoterList.length" 
+                                       style="color: #333; font-weight: 500; letter-spacing: 0.5px;">
+                                    All
+                                </label>
+                            </div>
+                     </div>
+
+                    <!-- Submit And Cancel Button -->
+                    <div class="col-md-12 col-sm-12" style="display: block; text-align: center; margin: 15px 0px;" ng-show="isShowInputandBtn">
+                            <div style="text-align: center; margin-top: 10px; display: inline-block;" ng-click="addUpdateTransPorter();">
+                                <a class="btn btn-primary" title="Save" ng-click="actionSubmitReq(reqForQuote);">
+                                    <i class="fa fa-check left" style="padding:0 7px 0 0;"></i>Save
+                                </a>
+                            </div>&nbsp;
+                            <div style="text-align: center; margin-top: 10px; display: inline-block;" ng-click="addNew();">
+                                <a class="btn btn-primary" title="Cancel">
+                                    <i class="fa fa-times left" style="padding:0 7px 0 0;"></i>Cancel
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                <!-- RFQ detail with quotation list on click list -->
+                <div class="showQuote-Div" ng-show="!newReqForQuote">
+                   
+                    <!-- RFQ detail -->
+                    <div style="display: block" class="col-md-12">
+                       
+                        <div class="col-md-6" ng-if="destinationAddress">
+                            <p class="bedge" data-toggle="tooltip" title="Destination"><span class="font-bold">Destination&nbsp;</span> 
+                            {{reqForQuote.destinationAddress}}</p>
+                        </div>
+                       
+                        <div class="col-md-6" ng-repeat="field in reqForQuote.fields" ng-if="field.fieldValue">
+                            <p class="bedge" data-toggle="tooltip">
+                            <div class="font-bold col-md-5">{{field.fieldName}}&nbsp;</div> 
+                            <div class="col-md-7">{{field.fieldValue}}</div>
+                            </p>
+                        </div>
+
+                        <div class="col-md-6">
+                            <p class="bedge" data-toggle="tooltip" title="Pick up">
+                                <div class="font-bold col-md-5">Pickup</div>
+                                <div class="col-md-7">{{reqForQuote.pickUpDT | date: 'dd-MMM-yy'}}</div>
+                            </p>
+                        </div>
+
+                        <div class="col-md-6">
+                            <p class="bedge" data-toggle="tooltip" title="Delivery date">
+                             <div class="font-bold col-md-5">Delivery</div>
+                             <div class="col-md-7">{{reqForQuote.deliveryDT | date: 'dd-MMM-yy'}}</div>
+                            </p>
+                        </div>
+
+                        <!--<div class="col-md-6" ng-if="reqForQuote.isCloseEarly">
+                            <p class="bedge" data-toggle="tooltip" title="QuoteBy date">
+                            <div class="font-bold col-md-5">Quote by&nbsp;</div> 
+                            <div class="col-md-7">{{reqForQuote.quoteBy | date: 'dd-MMM-yy'}}</div>
+                            </p>
+                        </div>-->
+
+                        <div class="col-md-6">
+                            <p class="bedge" data-toggle="tooltip" title="Note">
+                            <div class="font-bold col-md-5">Note&nbsp;</div> 
+                            <div class="col-md-7">{{reqForQuote.details}}</div></p>
+                        </div>
+
+                        <!--<div class="col-md-6" ng-if="reqForQuote.routeName">
+                            <p class="bedge" data-toggle="tooltip" title="Route"><i class="zmdi zmdi-arrow-split"></i>Route: {{reqForQuote.routeName}}</p>
+                        </div>-->
+                        <div class="col-md-6" ng-if="reqForQuote.fileName">
+                            <p class="bedge" data-toggle="tooltip" title="File"><i class="zmdi zmdi-attachment-alt" style="font-size: 16px;"></i>
+                            <a href="../Attachment/{{reqForQuote.fileName}}" target="_blank" style="padding-left: 1px;">{{reqForQuote.fileName}}</a></p>
+                        </div>
+
+                        <div class="col-md-6">
+                            <p class="bedge" data-toggle="tooltip" title="Created by">
+                                <div class="font-bold col-md-5">Created by&nbsp;</div>
+                                <div class="col-md-7">{{reqForQuote.createdBy}}</div>
+                            </p>
+                            <!-- {{reqForQuote.dispatchedBy ? ', Dispatched By(' + reqForQuote.dispatchedBy +')' : ''}} -->
+                        </div>
+                        
+                        <div class="col-md-6" ng-if="reqForQuote.dispatchedBy != null">
+                            <p class="bedge" data-toggle="tooltip" title="Dispatched by">
+                            <div class="font-bold col-md-5">Dispatched by&nbsp;</div> 
+                                <div class="col-md-7">{{reqForQuote.dispatchedBy}}</div></p>
+                            <!-- {{reqForQuote.dispatchedBy ? ', Dispatched By(' + reqForQuote.dispatchedBy +')' : ''}} -->
+                        </div>
+
+                        <div class="col-md-6" ng-if="reqForQuote.clearanceDT != null">
+                            <p class="bedge" data-toggle="tooltip" title="Clearance">
+                            <div class="font-bold col-md-5">Clearance on&nbsp;</div> 
+                            <div class="col-md-7">{{reqForQuote.clearanceDT | date: 'dd-MMM-yy'}}</div></p>
+                            <!-- {{reqForQuote.clearanceDT ? ', Dispatched By(' + reqForQuote.dispatchedBy +')' : ''}} -->
+                        </div>
+
+                        <div class="col-md-6" ng-if="reqForQuote.vehicleReadyDT != null">
+                            <p class="bedge" data-toggle="tooltip" title="Ready">
+                            <div class="font-bold col-md-5">Ready on&nbsp;</div> 
+                            <div class="col-md-7">{{reqForQuote.vehicleReadyDT | date: 'dd-MMM-yy'}}</div>
+                            </p>
+                        </div>
+
+                        <div class="col-md-6" ng-if="reqForQuote.timeSlotFromDT != null">
+                            <p class="bedge" data-toggle="tooltip" title="TimeSlot">
+                            <div class="font-bold col-md-5">Time Slot&nbsp;</div> 
+                            <div class="col-md-7">{{reqForQuote.timeSlotFromDT | date : "dd-MMM-yy 'from' h:mma"}} to 
+                                {{reqForQuote.timeSlotToDT | date : "h:mma"}}</div>
+                            </p>
+                        </div>
+
+                        <div class="col-md-6" ng-if="reqForQuote.vehicleEntryDT != null">
+                            <p class="bedge" data-toggle="tooltip" title="Vehicle Entry Date">
+                                <div class="font-bold col-md-5">Vehicle Entry&nbsp;</div> 
+                                <div class="col-md-7">{{reqForQuote.vehicleEntryDT | date: 'dd-MMM-yy'}}</div>
+                            </p>
+                        </div>
+
+                        <div class="col-md-6" ng-if="reqForQuote.vehicleNumber != ''">
+                            <p class="bedge" data-toggle="tooltip" title="Vehicle Number">
+                                <div class="font-bold col-md-5">Vehicle No&nbsp;</div> 
+                                <div class="col-md-7">{{reqForQuote.vehicleNumber}}</div>
+                            </p>
+                        </div>
+
+                        <div class="col-md-6" ng-if="reqForQuote.status != 1 && !reqForQuote.isCloseEarly && !showCloseReq" 
+                             style="display: flex; padding-top: 15px;">
+                            <!--<p class="bedge" style="width: 120px; padding-left: 4px; margin-right: 0px;">&nbsp;-->
+                                <div class="font-bold col-md-5">Quote by&nbsp;</div>
+                            <!--</p>-->
+                            <div class="col-md-7">
+                                <datepicker date-format="dd-MMM-yy" date-min-limit="{{todayDT | date: 'dd-MMM-yy'}}"
+                                            date-max-limit="{{reqForQuote.pickUpDT | date: 'dd-MMM-yy'}}">
+                                    <input type="text" class="form-control"
+                                           style="top: 8px; width: 100px; height: 26px; margin-right: 10px;"
+                                           ng-model="reqForQuote.quoteBy" ng-change="extendQuoteBy(reqForQuote);"
+                                           ng-disabled="reqForQuote.status == 1 || reqForQuote.isCloseEarly || showCloseReq" />
+                                </datepicker>
+                            </div>
+                            
+                        </div>
+                       
+                        <div class="col-md-6" ng-show="reqForQuote.paymentTerms == 1">
+                            <p class="bedge" data-toggle="tooltip" title="Term">
+                            <div class="font-bold col-md-5">Term&nbsp;</div> 
+                            <div class="col-md-7">{{reqForQuote.fixedTerm}}</div>
+                            </p>
+                        </div>
+                        <hr />
+                      
+                    </div>
+
+                    <!-- Quotation Received -->
+                    <div class="col-md-12 col-sm-12" style="padding: 10px 15px; background-color: #ddd; margin: 15px 0px; font-size: 15px;">
+                            <i class="fa fa-inr" style="padding-right: 5px; font-size: 17px;"></i> Quotation ({{quoteList.length}})
+                            <a style="float: right; cursor: pointer;" ng-click="showQuotesDetail();" title="Detail" 
+                               ng-show="enableList > 0 && pm_personInfo.canSelectForCustomer">
+                        View Detailed Comparison</a>
+                     </div>
+
+                    <!-- Quotation received and pending list -->
+                    <div class="col-md-12 col-sm-12" style="max-height: {{reqForQuoteList[selectedReqIndex].dispatchDT == null ? '300' : '161'}}px; 
+                         overflow-y: auto;" id="style-1" ng-show="enableList == 0">
+                        <div class="col-md-6">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Received ({{quotationReceivedList.length}})
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="received in quotationReceivedList" ng-show="quotationReceivedList.length != 0">
+                                        <td>
+                                            {{received.transporterCompany}}
+                                        </td>
+                                    </tr>
+                                    
+                                    <tr ng-show="quotationReceivedList.length == 0">
+                                        <td> No quotes received.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-md-6">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Pending ({{quotationPendingList.length}})
+                                             <span ng-show="quotationPendingList.length > 0 && !hideRemider" style="float: right; cursor: pointer;" 
+                                                   ng-click="remiderSent();">
+                                              <i class="zmdi zmdi-alarm-check"></i></span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="pending in quotationPendingList" 
+                                        ng-show="quotationPendingList.length != 0">
+                                        <td>{{pending.transporterCompany}}</td>
+                                    </tr>
+                                    <tr ng-show="quotationPendingList.length == 0">
+                                        <td> No quotes pending. </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Quotation list -->
+                    
+                    <div class="col-md-12" style="max-height: {{reqforquotelist[selectedreqindex].dispatchDT == null ? '220' : '161'}}px; 
+                         overflow-y: auto;" id="style-1" ng-show="enableList > 0">
+                        <div>
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 200px;">
+                                            Vendor
+                                        </th>
+                                        <!--<th style="width: 70px;" ng-repeat="componentHead in quoteList[0].components" ng-if="componentHead.componentType == 'Charge'">
+                                            {{componentHead.componentName}}
+                                        </th>-->
+                                        <th style="width: 150px;">
+                                            Total
+                                        </th>
+                                        <!--<th style="width: 30px;" ng-repeat="componentHead in quoteList[0].components" ng-if="componentHead.componentType == 'Penalty'">
+                                            {{componentHead.componentName}}
+                                        </th>-->
+                                        <th style="width: 200px;" ng-show="reqForQuote.paymentTerms == 0">
+                                            Terms
+                                        </th>
+                                        <th style="width: 300px;">
+                                            Note
+                                        </th>
+                                        <th style="width: 20px;">
+                                            
+                                        </th> 
+                                        <th style="width: 20px;">
+
+                                        </th>
+                                        <th style="width: 20px;" ng-if="pm_personInfo.canSelectForCustomer && enableList == 2
+                                            && showAcceptedBtn
+                                            && (reqForQuoteList[selectedReqIndex].status == '0' || reqForQuoteList[selectedReqIndex].status == '2')">
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="quote in quoteList" style="background-color: {{quote.status == '1' ? '#8bd68e' : ''}}">
+                                        <td>
+                                            {{quote.transCompanyName}} 
+                                            <span style="color: #4caf50;" 
+                                                  ng-show="quote.status == '1' && (reqforquotelist[selectedreqindex].status != '0' 
+                                                  && reqforquotelist[selectedreqindex].status != '2')">
+                                             <i class="zmdi zmdi-check"></i>
+                                            </span>
+                                        </td>
+                                    
+                                        <!--<td style="width: 70px; text-align: right;" ng-repeat="comp in quote.components" ng-if="comp.componentType == 'Charge'">
+                                            {{comp.componentValue | INR}}
+                                        </td>-->
+                                        <td style="text-align: right;">
+                                            <span style="font-family: arial;">₹</span> {{quote.totalCharges | number : 0}} 
+                                            {{quote.totalDollers > 0 ? '($'+ quote.totalDollers +')' : ''}}
+                                        </td>
+                                        <!--<td ng-repeat="comp in quote.components" style="text-align: right;" ng-if="comp.componentType == 'Penalty'">
+                                            {{comp.componentValue | INR}}
+                                        </td>-->
+                                        <td style="width: 200px;" ng-show="reqForQuote.paymentTerms == 0">
+                                            {{quote.paymentTerms}}  
+                                        </td>
+                                        <td style="width: 200px;">
+                                           {{quote.note}}
+                                        </td>
+                                        <td style="text-align: center; width: 20px;">
+                                            <i class="zmdi zmdi-phone" title="{{quote.mobile}}"></i>
+                                        </td>
+                                        <td style="text-align: center; width: 20px;">
+                                            <i class="zmdi zmdi-email" title="{{quote.email}}"></i>
+                                        </td>
+                                        <td style="text-align: center; width: 20px; cursor: pointer;" ng-if="pm_personInfo.canSelectForCustomer && quote.status == '0' 
+                                            && showAcceptedBtn
+                                            && (reqForQuoteList[selectedReqIndex].status == '0' || reqForQuoteList[selectedReqIndex].status == '2')"
+                                             ng-click="openAddNotePop($index);">
+                                            <i class="fa fa-check" title="Accept"></i>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Quote List not available  -->
+                    <div ng-show="quoteList.length == 0 && enableList != 0" class="card-body" style="text-align: center; padding: 20px;">
+                            No quotes received.
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+       
+    </div>
+</body>
+</html>

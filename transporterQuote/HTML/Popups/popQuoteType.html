@@ -1,0 +1,127 @@
+﻿<style>
+    .productCheckbox {
+        cursor: pointer;
+        margin: 0px !important;
+        margin-right: 5px !important;
+    }
+
+    .autocomplete-content {
+        margin-top: 1px;
+        display: block;
+        opacity: 1;
+        position: absolute;
+    }
+
+    .AddUser .modal-content {
+        max-height: 90%;
+        border-radius: 0px;
+    }
+
+    .AddUser .modal-dialog {
+        background-color: #fff;
+        margin-top: 100px;
+        max-height: 85%;
+        width: 35%;
+    }
+
+    .close-btn {
+        font-size: 22px;
+        padding: 8px 12px;
+        border-radius: 25px;
+        float: right;
+        color: #444;
+        background-color: #fff;
+        -webkit-transition: background-color 2s;
+    }
+
+        .close-btn:hover {
+            background-color: #ededed;
+            border-radius: 25px;
+        }
+
+    .row {
+        /*margin: 0px;*/
+        margin: 10px;
+    }
+
+    .input-field {
+        margin-bottom: 20px;
+    }
+
+    .select-wrapper span.caret {
+        color: #cccccc !important;
+    }
+
+    input[type=text].invalid {
+        border-bottom: 1px solid rgba(0,0,0,0.26);
+    }
+
+    .header {
+        border-bottom: 1px solid rgba(0, 0, 0, .10);
+        padding: 10px;
+    }
+
+    .AddUser label {
+        font-size: 15px;
+        font-weight: 500;
+    }
+
+    @media only screen and (max-width: 700px) {
+        .AddUser .modal-dialog {
+            width: 100%;
+            margin: 100px 0px 0px 0px;
+        }
+    }
+
+    .open {
+        width: 50% !important;
+     }
+</style>
+
+<!-- Main content -->
+<div>
+
+    <!-- Header -->
+    <div class="row header">
+        <div class="col-md-11 col-sm-10">
+            <div class="col-md-8" style="padding-left: 0px;">
+                <i class="zmdi zmdi-assignment-check" aria-hidden="true" style="margin-right: 10px; font-size: 20px;"></i>
+                <span style="font-size: 18px;">
+                    Select Type
+                </span>
+            </div>
+
+        </div>
+        <div style="position: absolute; top: 11px; right: 0px; width: 10%;" class="col-md-2 col-sm-2">
+            <a href="" ng-click="closeTypeModal();" title="Close">
+                <i class="zmdi zmdi-close close-btn"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="divider" style="margin-bottom: 10px;"></div>
+
+    <!-- Quote type selection -->
+    <div class="row">
+       
+        <!-- Quote type -->
+        <div class="col-md-push-2 col-md-12 col-sm-12" style="padding: 15px 0px;">
+            <div class="col-md-3 col-sm-6 infoLbl">Quote Type</div>
+
+            <div class="col-md-6 dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    {{reqForQuote.quoteType}}
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" id="style-1">
+                    <li ng-repeat="type in execQuoteTypes" style="cursor: pointer;" ng-model="reqForQuote.quoteType" ng-click="changeQuoteType($index)">
+                        <a>{{type.quoteTypeName}}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+   
+    </div>
+
+</div>

@@ -1,0 +1,225 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <!-- CSS Reset -->
+    <style>
+        html,
+        body {
+            margin: 0 auto !important;
+            padding: 0 !important;
+            height: 100% !important;
+            width: 100% !important;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        * {
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        div[style*="margin: 16px 0"] {
+            margin: 0 !important;
+        }
+
+        table,
+        td {
+            mso-table-lspace: 0pt !important;
+            mso-table-rspace: 0pt !important;
+        }
+
+        table {
+            border-spacing: 0 !important;
+            border-collapse: collapse !important;
+            table-layout: fixed !important;
+            margin: 0 auto !important;
+        }
+
+            table table table {
+                table-layout: auto;
+            }
+
+        img {
+            -ms-interpolation-mode: bicubic;
+        }
+
+        .mobile-link--footer a,
+        a[x-apple-data-detectors] {
+            color: inherit !important;
+            text-decoration: underline !important;
+        }
+    </style>
+
+    <!-- Progressive Enhancements -->
+    <style>
+        .button-td,
+        .button-a {
+            transition: all 100ms ease-in;
+        }
+
+            .button-td:hover,
+            .button-a:hover {
+                background: #555555 !important;
+                border-color: #555555 !important;
+            }
+
+        .linkButton {
+            /*color: #ffffff;*/
+            /*text-decoration: none;*/
+            display: inline-block;
+            height: 38px;
+            line-height: 38px;
+            padding-top: 0;
+            /*padding-right: 16px;*/
+            padding-bottom: 0;
+            /*padding-left: 16px;*/
+            /*border: 0;
+            outline: 0;*/
+            /*background-color: darkgreen;*/
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            text-align: center;
+            white-space: nowrap;
+            border-radius: 999em;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 2px 5px, rgba(0, 0, 0, 0.12) 0px 2px 10px;
+        }
+
+        /* Media Queries */
+        @media screen and (max-width: 480px) {
+
+            /* What it does: Forces elements to resize to the full width of their container. Useful for resizing images beyond their max-width. */
+            .fluid,
+            .fluid-centered {
+                width: 100% !important;
+                max-width: 100% !important;
+                height: auto !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+            }
+            /* And center justify these ones. */
+            .fluid-centered {
+                margin-left: auto !important;
+                margin-right: auto !important;
+            }
+
+            /* What it does: Forces table cells into full-width rows. */
+            .stack-column,
+            .stack-column-center {
+                display: block !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                direction: ltr !important;
+            }
+            /* And center justify these ones. */
+            .stack-column-center {
+                text-align: center !important;
+            }
+
+            /* What it does: Generic utility class for centering. Useful for images, buttons, and nested tables. */
+            .center-on-narrow {
+                text-align: center !important;
+                display: block !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+                float: none !important;
+            }
+
+            table.center-on-narrow {
+                display: inline-block !important;
+            }
+        }
+    </style>
+
+</head>
+<body width="100%" style="margin: 0;">
+    <center style="width: 100%;">
+
+        <div style="margin: auto;">
+            <!--[if mso]>
+            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="680" align="center">
+            <tr>
+            <td>
+            <![endif]-->
+            <!--<table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center" width="100%"
+                   style="max-width: 680px; display: none;">
+                <tr>
+                    <td style="padding: 20px 0; text-align: center">
+                        <div data="{productWeb}/Images/PCBMall.png" type="image/jpg">
+                            <img src="{productWeb}/Images/PCBMall.png" onerror="this.style.display='none'" width="88" height="88" border="0" style="ont-size: 15px; mso-height-rule: exactly; line-height: 20px; color: #555555;" />
+                        </div>
+                    </td>
+                </tr>
+            </table>-->
+
+            <table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center" width="100%">
+
+                <!-- 1 Column Text + Button : BEGIN -->
+                <tr>
+                    <td bgcolor="#ffffff">
+                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                            <tr>
+                                <td style="font-size: 15px; mso-height-rule: exactly; line-height: 20px;
+                                    color: #555555;">
+                                    <!--<h3 style="color: darkgreen;">New Inquiry (#{inquiryID}) from {companyName}</h3>-->
+
+                                    <p>Congratulations !</p>
+
+                                    <p>Your quote has been accepted by {customerCompany} for RFQ #{rfqID} with Ammann India Pvt. Ltd.</p>
+                                    <p> </p>
+
+                                    <!--<p><b>Inquiry No.: &nbsp;</b>{inquiryID}</p>-->
+                                    <!--<p><b>From: &nbsp;</b>{companyName}</p>-->
+                                  
+                                    <!--<p><b>Source: &nbsp;</b>{source}</p>
+                                    <p><b>Destination: &nbsp;</b>{destination}</p>-->
+                                    <p><b>Pick-up: &nbsp;</b>{pickup}</p>
+                                    <p><b>Delivery: &nbsp;</b>{delivery}</p>
+                                    <!--<p><b>Quote by: &nbsp;</b>{quoteby}</p>--> <!-- Sep 1, 2017 -->
+                                    <!--<p><b>Product: &nbsp;</b> {product}</p>-->
+                                    <p><a href="{link}" class="linkButton" target="_blank">Click here</a> to access the full details.</p>
+                                    <!--<p><b>CompanyWebsite: &nbsp;</b>{companyWebsite}</p>-->
+                                    <!--<p><b>Contact Mobile No: &nbsp;</b>{phone}</p>-->
+                                    <!--<p><b>Email ID: &nbsp;</b>{email}</p>-->
+                                    <p> </p>
+                                    <div style="display: block;">Thank you,</div>
+
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <!-- 1 Column Text + Button : BEGIN -->
+
+            </table>
+            <!-- Email Body : END -->
+            <!-- Email Footer : BEGIN -->
+            <table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center" width="100%" style="max-width: 800px;">
+                <tr>
+                    <td style="padding: 40px 10px; width: 100%; font-size: 12px; font-family: sans-serif; mso-height-rule: exactly; line-height:18px; text-align: center; color: #888888;">
+                        <!--<webversion style="color:#cccccc; text-decoration:underline; font-weight: bold;">View as a Web Page</webversion>-->
+                        You have received this email because you have been registered with Ammann India Pvt. Ltd. in the Vendor Quote System.<br />
+                        If you do not wish to receive such emails, please reply to support@peachcomp.com with 'Unsubscribe Vendor Quote System' to unsubscribe.
+                        <br /><br />
+                        <span class="mobile-link--footer">Ammann India Pvt. Ltd.</span><br />
+                        <span>Near Mithakhali Cross Roads,</span><br />
+                        <span>Ahmedabad, Gujarat</span>
+                    </td>
+                </tr>
+            </table>
+            <!-- Email Footer : END -->
+            <!--[if mso]>
+            </td>
+            </tr>
+            </table>
+            <![endif]-->
+        </div>
+    </center>
+</body>
+</html>
+
+
