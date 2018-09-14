@@ -347,7 +347,7 @@ namespace transporterQuote.API
         public static DateTime getDate()
         {
             DateTime dt = new DateTime();
-            using (transporter_QuoteEntities db = new transporter_QuoteEntities())
+            using (CashCoopanEntities db = new CashCoopanEntities())
             {
                 dt = db.Database.SqlQuery<DateTime>("SELECT GETDATE()").FirstOrDefault<DateTime>();
             }
@@ -519,24 +519,9 @@ namespace transporterQuote.API
             return temp;
         }
 
-        // getConfigValue() - Get config value.
-        [HttpPost, HttpGet, Route("config/get")]
-        public dynamic getConfigValue(dynamic myParams)
-        {
-            return getConfig();
-        }
+        
 
-        // getConfig() - Get config value
-        public dynamic getConfig()
-        {
-            dynamic dbConfig = null;
-
-            using (transporter_QuoteEntities db = new transporter_QuoteEntities())
-            {
-                dbConfig = db.Configs.ToList();
-            }
-            return new jResponse(false, "", dbConfig);
-        }
+       
 
 
         #endregion

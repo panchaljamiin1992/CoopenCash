@@ -183,16 +183,6 @@ E:\CoopenCash\transporterQuote\bin\transporterQuote.dll
 E:\CoopenCash\transporterQuote\bin\transporterQuote.pdb
 E:\CoopenCash\transporterQuote\bin\EntityFramework.dll
 E:\CoopenCash\transporterQuote\bin\EntityFramework.xml
-E:\CoopenCash\transporterQuote\bin\Microsoft.AI.DependencyCollector.xml
-E:\CoopenCash\transporterQuote\bin\Microsoft.AI.ServerTelemetryChannel.xml
-E:\CoopenCash\transporterQuote\bin\Microsoft.AI.Web.xml
-E:\CoopenCash\transporterQuote\bin\Microsoft.AI.WindowsServer.xml
-E:\CoopenCash\transporterQuote\bin\Microsoft.ApplicationInsights.xml
-E:\CoopenCash\transporterQuote\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-E:\CoopenCash\transporterQuote\bin\Newtonsoft.Json.xml
-E:\CoopenCash\transporterQuote\bin\System.Net.Http.Formatting.xml
-E:\CoopenCash\transporterQuote\bin\System.Web.Http.xml
-E:\CoopenCash\transporterQuote\bin\System.Web.Http.WebHost.xml
 E:\CoopenCash\transporterQuote\obj\Debug\transporterQuote.csprojResolveAssemblyReference.cache
 E:\CoopenCash\transporterQuote\obj\Debug\transporterQuote.csproj.CoreCompileInputs.cache
 E:\CoopenCash\transporterQuote\obj\Debug\transporterQuote.csproj.CopyComplete

@@ -1065,15 +1065,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="API\adminApiController.cs" />
-    <Compile Include="API\customerApiController.cs" />
     <Compile Include="API\emailAPIController.cs" />
     <Compile Include="API\genApiController.cs" />
     <Compile Include="API\loginApiController.cs" />
-    <Compile Include="API\logisticsApiController.cs" />
-    <Compile Include="API\reqForQuoteAPIController.cs" />
-    <Compile Include="API\smsApiController.cs" />
-    <Compile Include="API\transporterApiController.cs" />
     <Compile Include="App_Start\RightFilters.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Global.asax.cs">
