@@ -165,3 +165,36 @@ C:\Users\jaimi\Documents\Visual Studio 2015\Projects\Allocs\transporterQuote\bin
 C:\Users\jaimi\Documents\Visual Studio 2015\Projects\Allocs\transporterQuote\bin\System.Net.Http.Formatting.xml
 C:\Users\jaimi\Documents\Visual Studio 2015\Projects\Allocs\transporterQuote\bin\System.Web.Http.xml
 C:\Users\jaimi\Documents\Visual Studio 2015\Projects\Allocs\transporterQuote\bin\System.Web.Http.WebHost.xml
+E:\CoopenCash\transporterQuote\bin\ApplicationInsights.config
+E:\CoopenCash\transporterQuote\bin\roslyn\csc.exe
+E:\CoopenCash\transporterQuote\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\CoopenCash\transporterQuote\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\CoopenCash\transporterQuote\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\CoopenCash\transporterQuote\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\CoopenCash\transporterQuote\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\CoopenCash\transporterQuote\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\CoopenCash\transporterQuote\bin\roslyn\System.Collections.Immutable.dll
+E:\CoopenCash\transporterQuote\bin\roslyn\System.Reflection.Metadata.dll
+E:\CoopenCash\transporterQuote\bin\roslyn\vbc.exe
+E:\CoopenCash\transporterQuote\bin\roslyn\VBCSCompiler.exe
+E:\CoopenCash\transporterQuote\bin\roslyn\VBCSCompiler.exe.config
+E:\CoopenCash\transporterQuote\bin\transporterQuote.dll.config
+E:\CoopenCash\transporterQuote\bin\transporterQuote.dll
+E:\CoopenCash\transporterQuote\bin\transporterQuote.pdb
+E:\CoopenCash\transporterQuote\bin\EntityFramework.dll
+E:\CoopenCash\transporterQuote\bin\EntityFramework.xml
+E:\CoopenCash\transporterQuote\bin\Microsoft.AI.DependencyCollector.xml
+E:\CoopenCash\transporterQuote\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\CoopenCash\transporterQuote\bin\Microsoft.AI.Web.xml
+E:\CoopenCash\transporterQuote\bin\Microsoft.AI.WindowsServer.xml
+E:\CoopenCash\transporterQuote\bin\Microsoft.ApplicationInsights.xml
+E:\CoopenCash\transporterQuote\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\CoopenCash\transporterQuote\bin\Newtonsoft.Json.xml
+E:\CoopenCash\transporterQuote\bin\System.Net.Http.Formatting.xml
+E:\CoopenCash\transporterQuote\bin\System.Web.Http.xml
+E:\CoopenCash\transporterQuote\bin\System.Web.Http.WebHost.xml
+E:\CoopenCash\transporterQuote\obj\Debug\transporterQuote.csprojResolveAssemblyReference.cache
+E:\CoopenCash\transporterQuote\obj\Debug\transporterQuote.csproj.CoreCompileInputs.cache
+E:\CoopenCash\transporterQuote\obj\Debug\transporterQuote.csproj.CopyComplete
+E:\CoopenCash\transporterQuote\obj\Debug\transporterQuote.dll
+E:\CoopenCash\transporterQuote\obj\Debug\transporterQuote.pdb

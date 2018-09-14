@@ -12,17 +12,17 @@ namespace transporterQuote.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Slot
+    public partial class User
     {
-        public int SlotID { get; set; }
-        public System.TimeSpan SlotFrom { get; set; }
-        public System.TimeSpan SlotTo { get; set; }
-        public int Capacity { get; set; }
-        public int ServiceTypeID { get; set; }
+        public int UserID { get; set; }
+        public string UserName { get; set; }
+        public string Password { get; set; }
+        public string FName { get; set; }
+        public string MName { get; set; }
+        public string LName { get; set; }
+        public string Email { get; set; }
+        public System.DateTime DOB { get; set; }
         public System.DateTime CreatedDT { get; set; }
-        public int CreatedByUserID { get; set; }
-        public Nullable<System.DateTime> UpdatedDT { get; set; }
-        public int UpdatedByUserID { get; set; }
         public bool IsDeleted { get; set; }
     }
 }

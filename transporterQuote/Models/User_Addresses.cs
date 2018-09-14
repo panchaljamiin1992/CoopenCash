@@ -12,12 +12,17 @@ namespace transporterQuote.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class ServiceType
+    public partial class User_Addresses
     {
-        public int ServiceTypeID { get; set; }
-        public string ServiceName { get; set; }
+        public int UserAddressID { get; set; }
+        public int UserID { get; set; }
+        public string Address1 { get; set; }
+        public string Address2 { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        public string Country { get; set; }
+        public string PinCode { get; set; }
         public bool IsDeleted { get; set; }
-        public string CompletionDateText { get; set; }
-        public string PickupDateText { get; set; }
+        public System.DateTime CreatedDT { get; set; }
     }
 }

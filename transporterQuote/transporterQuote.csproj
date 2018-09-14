@@ -24,6 +24,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -1048,15 +1049,15 @@
     <Content Include="lib\toaster\toaster.js" />
     <Content Include="lib\ui-bootstrap\ui-bootstrap-tpls-1.3.2.js" />
     <Content Include="main.html" />
-    <Content Include="Models\transporterQuote.Context.tt">
+    <Content Include="Models\CashCoopan.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>transporterQuote.edmx</DependentUpon>
-      <LastGenOutput>transporterQuote.Context.cs</LastGenOutput>
+      <DependentUpon>CashCoopan.edmx</DependentUpon>
+      <LastGenOutput>CashCoopan.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\transporterQuote.tt">
+    <Content Include="Models\CashCoopan.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>transporterQuote.edmx</DependentUpon>
-      <LastGenOutput>transporterQuote.cs</LastGenOutput>
+      <DependentUpon>CashCoopan.edmx</DependentUpon>
+      <LastGenOutput>CashCoopan.cs</LastGenOutput>
     </Content>
     <Content Include="transporter.html" />
     <Content Include="Web.config">
@@ -1078,107 +1079,26 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Config.cs">
-      <DependentUpon>transporterQuote.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Container.cs">
-      <DependentUpon>transporterQuote.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Customer.cs">
-      <DependentUpon>transporterQuote.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Executive.cs">
-      <DependentUpon>transporterQuote.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Field.cs">
-      <DependentUpon>transporterQuote.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\FinalRates.cs">
-      <DependentUpon>transporterQuote.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\getTransporterQuoteDetail_Result.cs">
-      <DependentUpon>transporterQuote.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Quotations.cs">
-      <DependentUpon>transporterQuote.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\QuoteType.cs">
-      <DependentUpon>transporterQuote.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\QuoteTypeComponent.cs">
-      <DependentUpon>transporterQuote.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Rating.cs">
-      <DependentUpon>transporterQuote.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\RFQ.cs">
-      <DependentUpon>transporterQuote.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\RFQFieldValue.cs">
-      <DependentUpon>transporterQuote.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Route.cs">
-      <DependentUpon>transporterQuote.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ServiceType.cs">
-      <DependentUpon>transporterQuote.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ShipField.cs">
-      <DependentUpon>transporterQuote.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Shipment.cs">
-      <DependentUpon>transporterQuote.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Slot.cs">
-      <DependentUpon>transporterQuote.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Source.cs">
-      <DependentUpon>transporterQuote.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sp_getAllocatedSlotDetail_Result.cs">
-      <DependentUpon>transporterQuote.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sp_getCountRFQ_Result.cs">
-      <DependentUpon>transporterQuote.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sp_getDispatchPlanList_Result.cs">
-      <DependentUpon>transporterQuote.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sp_getRequest_Result.cs">
-      <DependentUpon>transporterQuote.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sp_getRFQList_Result.cs">
-      <DependentUpon>transporterQuote.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sp_getScheduleList_Result.cs">
-      <DependentUpon>transporterQuote.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sp_getTransportRFQ_Result.cs">
-      <DependentUpon>transporterQuote.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sp_MapShipFields_Result.cs">
-      <DependentUpon>transporterQuote.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Transporter.cs">
-      <DependentUpon>transporterQuote.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\transporterQuote.Context.cs">
+    <Compile Include="Models\CashCoopan.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>transporterQuote.Context.tt</DependentUpon>
+      <DependentUpon>CashCoopan.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\transporterQuote.cs">
+    <Compile Include="Models\CashCoopan.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>transporterQuote.tt</DependentUpon>
+      <DependentUpon>CashCoopan.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\transporterQuote.Designer.cs">
+    <Compile Include="Models\CashCoopan.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>transporterQuote.edmx</DependentUpon>
+      <DependentUpon>CashCoopan.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\Zone.cs">
-      <DependentUpon>transporterQuote.tt</DependentUpon>
+    <Compile Include="Models\User.cs">
+      <DependentUpon>CashCoopan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User_Addresses.cs">
+      <DependentUpon>CashCoopan.tt</DependentUpon>
     </Compile>
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
@@ -1294,12 +1214,12 @@
     <Content Include="lib\fonts\ufonts-com-neotech-medium-opentype.woff" />
     <Content Include="lib\material-design-iconic-font\Material-Design-Iconic-Font.ttf" />
     <Content Include="lib\material-design-iconic-font\Material-Design-Iconic-Font.woff" />
-    <EntityDeploy Include="Models\transporterQuote.edmx">
+    <EntityDeploy Include="Models\CashCoopan.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>transporterQuote.Designer.cs</LastGenOutput>
+      <LastGenOutput>CashCoopan.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\transporterQuote.edmx.diagram">
-      <DependentUpon>transporterQuote.edmx</DependentUpon>
+    <Content Include="Models\CashCoopan.edmx.diagram">
+      <DependentUpon>CashCoopan.edmx</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\TransporterQuote.pubxml" />
     <None Include="Web.Debug.config">
