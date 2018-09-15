@@ -133,7 +133,6 @@
     <Content Include="bin\System.Web.Http.WebHost.dll" />
     <Content Include="CSS\transporterQuote.css" />
     <Content Include="customer.html" />
-    <Content Include="Global.asax" />
     <Content Include="HTML\Emails\acpt_quotationOfTransporter.html" />
     <Content Include="HTML\Emails\link_quoteNegotiationToTransporter.html" />
     <Content Include="HTML\Emails\quot_received.html" />
@@ -1070,9 +1069,6 @@
     <Compile Include="API\loginApiController.cs" />
     <Compile Include="App_Start\RightFilters.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
     <Compile Include="Models\CashCoopan.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -118,32 +118,8 @@
     }
 
     // getConfigValue() - Get config value
-    var getConfigValue = function () {
-        var myParams = {}
-
-        $transporterQuote.callAPI5(
-            '/api/gen/config/get',
-            myParams,
-            function (apiResponse) {
-                $scope.configValues = apiResponse.data;
-                console.log($scope.configValues);
-
-                angular.forEach($scope.configValues, function (item, key) {
-                    if (String(item.Field).toLowerCase() == String("CompanyName").toLowerCase()) {
-                        $scope.companyName = item.Value;
-                    }
-                })
-                return;
-                console.log($scope.companyName);
-            },
-            function (apiError) {
-                console.log(apiError.message);
-            },
-            function (apiFailure) {
-                toaster.warning(apiFailure);
-            }
-        );
-    }
+    
+    
 
     // Calling
     // getConfigValue();
