@@ -1,0 +1,1223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E016C892-DDE4-44FA-AE4E-EEF2EE5C4E96}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebApplication3</RootNamespace>
+    <AssemblyName>WebApplication3</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.0.0\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.0.0\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.0.0\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\EntityFramework.dll" />
+    <Content Include="bin\EntityFramework.xml" />
+    <Content Include="bin\Microsoft.AI.Agent.Intercept.dll" />
+    <Content Include="bin\Microsoft.AI.DependencyCollector.dll" />
+    <Content Include="bin\Microsoft.AI.PerfCounterCollector.dll" />
+    <Content Include="bin\Microsoft.AI.ServerTelemetryChannel.dll" />
+    <Content Include="bin\Microsoft.AI.Web.dll" />
+    <Content Include="bin\Microsoft.AI.WindowsServer.dll" />
+    <Content Include="bin\Microsoft.ApplicationInsights.dll" />
+    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
+    <Content Include="bin\Newtonsoft.Json.dll" />
+    <Content Include="bin\System.Net.Http.Formatting.dll" />
+    <Content Include="bin\System.Web.Http.dll" />
+    <Content Include="bin\System.Web.Http.WebHost.dll" />
+    <Content Include="CSS\transporterQuote.css" />
+    <Content Include="Global.asax" />
+    <Content Include="HTML\Emails\acpt_quotationOfTransporter.html" />
+    <Content Include="HTML\Emails\link_quotationToCustomer.html" />
+    <Content Include="HTML\Emails\link_quoteNegotiationToTransporter.html" />
+    <Content Include="HTML\Emails\link_quoteToTransporter.html" />
+    <Content Include="HTML\Emails\quot_received.html" />
+    <Content Include="HTML\Emails\sent_reminderToTrans.html" />
+    <Content Include="HTML\Pages\admin.html" />
+    <Content Include="HTML\Pages\adminPanel.html" />
+    <Content Include="HTML\Pages\customerContainers.html" />
+    <Content Include="HTML\Pages\login.html" />
+    <Content Include="HTML\Pages\reportForRFQ.html" />
+    <Content Include="HTML\Pages\reqForQuote.html" />
+    <Content Include="HTML\Pages\transportActivity.html" />
+    <Content Include="HTML\Popups\popAddCustomer.html" />
+    <Content Include="HTML\Popups\popAddNote.html" />
+    <Content Include="HTML\Popups\popAddTranspoter.html" />
+    <Content Include="HTML\Popups\popAddVehicalReady.html" />
+    <Content Include="HTML\Popups\popChangePassword.html" />
+    <Content Include="HTML\Popups\popFeedbackAndActualRates.html" />
+    <Content Include="HTML\Popups\popQuoteType.html" />
+    <Content Include="HTML\Popups\popScheduleSlot.html" />
+    <Content Include="HTML\Popups\popScheduleTime.html" />
+    <Content Include="HTML\Popups\popSetRoute.html" />
+    <Content Include="HTML\Popups\popShowQuoteDetail.html" />
+    <Content Include="HTML\Popups\popShowSchedule.html" />
+    <Content Include="HTML\Popups\popShowScheduleAndSlot.html" />
+    <Content Include="HTML\Popups\popShowSlotAllocateDetail.html" />
+    <Content Include="Images\Ammann.jpg" />
+    <Content Include="Images\Header_Machines_.jpg" />
+    <Content Include="Images\loginImg.jpg" />
+    <Content Include="JS\app.js" />
+    <Content Include="JS\commonUtilities.js" />
+    <Content Include="JS\config.js" />
+    <Content Include="JS\extCustomerApp.js" />
+    <Content Include="JS\extFactory.js" />
+    <Content Include="JS\extTransporterApp.js" />
+    <Content Include="JS\factory.js" />
+    <Content Include="JS\general.js" />
+    <Content Include="JS\services.js" />
+    <Content Include="JS\transporterQuote.js" />
+    <Content Include="lib\angular-bootstrap\ui-bootstrap-tpls-1.0.0.min.js" />
+    <Content Include="lib\angular-bootstrap\ui-bootstrap-tpls.min.js" />
+    <Content Include="lib\angular-loading-bar\loading-bar.css" />
+    <Content Include="lib\angular-loading-bar\loading-bar.js" />
+    <Content Include="lib\angular-materialize\angular-materialize.min.js" />
+    <Content Include="lib\angular-multiselection\css\index.css" />
+    <Content Include="lib\angular-multiselection\js\Angular-bootstrap-multiselect.js" />
+    <Content Include="lib\angular-sanitize\angular-sanitize.min.js" />
+    <Content Include="lib\angular-ui-router\angular-ui-router.min.js" />
+    <Content Include="lib\angular\angular.min.js" />
+    <Content Include="lib\bootstrap-growl\bootstrap-growl.min.js" />
+    <Content Include="lib\bootstrap-sweetalert\sweet-alert.css" />
+    <Content Include="lib\bootstrap-sweetalert\sweet-alert.min.js" />
+    <Content Include="lib\bootstrap-timepicker\bootstrap-timepicker.css" />
+    <Content Include="lib\bootstrap-timepicker\bootstrap-timepicker.js" />
+    <Content Include="lib\bootstrap\bootstrap.min.css" />
+    <Content Include="lib\bootstrap\bootstrap.min.js" />
+    <Content Include="lib\bootstrap\css\angular-datepicker.css" />
+    <Content Include="lib\bootstrap\css\bootstrap-datetimepicker.css" />
+    <Content Include="lib\bootstrap\css\bootstrap-theme.css" />
+    <Content Include="lib\bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="lib\bootstrap\css\bootstrap.css" />
+    <Content Include="lib\bootstrap\css\bootstrap.min.css" />
+    <Content Include="lib\bootstrap\css\dataTable.css" />
+    <Content Include="lib\bootstrap\css\dataTable_v2.css" />
+    <Content Include="lib\bootstrap\css\dataurl_centerCr.css" />
+    <Content Include="lib\bootstrap\css\dataurl_centerPage.css" />
+    <Content Include="lib\bootstrap\css\dataurl_top.css" />
+    <Content Include="lib\bootstrap\css\dataurl_top_white.css" />
+    <Content Include="lib\bootstrap\css\db_style.css" />
+    <Content Include="lib\bootstrap\css\font-awesome\css\font-awesome.min.css" />
+    <Content Include="lib\bootstrap\css\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="lib\bootstrap\css\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="lib\bootstrap\css\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="lib\bootstrap\css\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="lib\bootstrap\css\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="lib\bootstrap\css\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="lib\bootstrap\css\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="lib\bootstrap\css\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="lib\bootstrap\css\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="lib\bootstrap\css\images\ui-icons_222222_256x240.png" />
+    <Content Include="lib\bootstrap\css\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="lib\bootstrap\css\images\ui-icons_454545_256x240.png" />
+    <Content Include="lib\bootstrap\css\images\ui-icons_888888_256x240.png" />
+    <Content Include="lib\bootstrap\css\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="lib\bootstrap\css\jquery-ui.css" />
+    <Content Include="lib\bootstrap\css\jquery-ui.min.css" />
+    <Content Include="lib\bootstrap\css\jquery.ui.all.css" />
+    <Content Include="lib\bootstrap\css\jquery.ui.timepicker.css" />
+    <Content Include="lib\bootstrap\css\peachcss_style.css" />
+    <Content Include="lib\bootstrap\css\StyleWeb.css" />
+    <Content Include="lib\bootstrap\css\web_style.css" />
+    <Content Include="lib\bootstrap\css\wickedpicker.min.css" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\advanced_init\column_render.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\advanced_init\complex_header.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\advanced_init\defaults.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\advanced_init\dom_multiple_elements.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\advanced_init\dom_toolbar.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\advanced_init\dt_events.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\advanced_init\events_live.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\advanced_init\footer_callback.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\advanced_init\html5-data-attributes.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\advanced_init\index.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\advanced_init\language_file.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\advanced_init\length_menu.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\advanced_init\object_dom_read.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\advanced_init\row_callback.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\advanced_init\row_grouping.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\advanced_init\sort_direction_control.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\ajax\custom_data_flat.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\ajax\custom_data_property.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\ajax\data\arrays.txt" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\ajax\data\arrays_custom_prop.txt" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\ajax\data\arrays_subobjects.txt" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\ajax\data\objects.txt" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\ajax\data\objects_deep.txt" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\ajax\data\objects_root_array.txt" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\ajax\data\objects_subarrays.txt" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\ajax\data\orthogonal.txt" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\ajax\deep.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\ajax\defer_render.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\ajax\index.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\ajax\null_data_source.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\ajax\objects.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\ajax\objects_subarrays.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\ajax\orthogonal-data.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\ajax\simple.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\api\add_row.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\api\api_in_init.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\api\counter_columns.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\api\form.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\api\highlight.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\api\index.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\api\multi_filter.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\api\multi_filter_select.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\api\regex.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\api\row_details.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\api\select_row.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\api\select_single_row.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\api\show_hide.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\api\tabs_and_scrolling.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\basic_init\alt_pagination.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\basic_init\comma-decimal.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\basic_init\complex_header.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\basic_init\dom.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\basic_init\filter_only.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\basic_init\flexible_width.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\basic_init\hidden_columns.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\basic_init\index.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\basic_init\language.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\basic_init\multiple_tables.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\basic_init\multi_col_sort.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\basic_init\scroll_x.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\basic_init\scroll_xy.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\basic_init\scroll_y.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\basic_init\scroll_y_theme.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\basic_init\state_save.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\basic_init\table_sorting.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\basic_init\zero_configuration.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\data_sources\ajax.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\data_sources\dom.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\data_sources\index.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\data_sources\js_array.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\data_sources\server_side.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\index.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\plug-ins\api.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\plug-ins\dom_sort.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\plug-ins\index.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\plug-ins\range_filtering.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\plug-ins\sorting_auto.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\plug-ins\sorting_manual.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\resources\bootstrap\3\dataTables.bootstrap.css" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\resources\bootstrap\3\dataTables.bootstrap.js" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\resources\bootstrap\3\index.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\resources\bootstrap\images\sort_asc.png" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\resources\bootstrap\images\sort_asc_disabled.png" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\resources\bootstrap\images\sort_both.png" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\resources\bootstrap\images\sort_desc.png" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\resources\bootstrap\images\sort_desc_disabled.png" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\resources\demo.css" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\resources\demo.js" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\resources\details_close.png" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\resources\details_open.png" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\resources\de_DE.txt" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\resources\foundation\dataTables.foundation.css" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\resources\foundation\dataTables.foundation.js" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\resources\foundation\images\sort_asc.png" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\resources\foundation\images\sort_asc_disabled.png" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\resources\foundation\images\sort_both.png" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\resources\foundation\images\sort_desc.png" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\resources\foundation\images\sort_desc_disabled.png" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\resources\jqueryui\dataTables.jqueryui.css" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\resources\jqueryui\dataTables.jqueryui.js" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\resources\jqueryui\index.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\resources\syntax\shCore.css" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\resources\syntax\shCore.js" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\server_side\custom_vars.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\server_side\defer_loading.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\server_side\ids.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\server_side\index.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\server_side\jsonp.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\server_side\object_data.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\server_side\pipeline.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\server_side\post.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\server_side\row_details.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\server_side\scripts\mysql.sql" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\server_side\scripts\postgres.sql" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\server_side\scripts\sqlite.sql" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\server_side\scripts\sqlserver.sql" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\server_side\select_rows.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\server_side\simple.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\styling\bootstrap.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\styling\cell-border.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\styling\compact.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\styling\display.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\styling\foundation.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\styling\hover.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\styling\index.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\styling\jqueryUI.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\styling\no-classes.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\styling\order-column.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\styling\row-border.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\styling\stripe.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\AutoFill\css\dataTables.autoFill.css" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\AutoFill\css\dataTables.autoFill.min.css" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\AutoFill\examples\columns.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\AutoFill\examples\complete-callback.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\AutoFill\examples\fill-both.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\AutoFill\examples\fill-horizontal.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\AutoFill\examples\index.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\AutoFill\examples\scrolling.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\AutoFill\examples\simple.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\AutoFill\examples\step-callback.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\AutoFill\images\filler.png" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\AutoFill\js\dataTables.autoFill.js" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\AutoFill\js\dataTables.autoFill.min.js" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\AutoFill\Readme.txt" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\ColReorder\css\dataTables.colReorder.css" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\ColReorder\css\dataTables.colReorder.min.css" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\ColReorder\examples\alt_insert.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\ColReorder\examples\colvis.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\ColReorder\examples\col_filter.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\ColReorder\examples\fixedcolumns.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\ColReorder\examples\fixedheader.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\ColReorder\examples\index.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\ColReorder\examples\jqueryui.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\ColReorder\examples\new_init.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\ColReorder\examples\predefined.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\ColReorder\examples\realtime.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\ColReorder\examples\reset.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\ColReorder\examples\scrolling.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\ColReorder\examples\server_side.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\ColReorder\examples\simple.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\ColReorder\examples\state_save.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\ColReorder\images\insert.png" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\ColReorder\js\dataTables.colReorder.js" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\ColReorder\js\dataTables.colReorder.min.js" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\ColReorder\Readme.txt" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\ColVis\css\dataTables.colVis.css" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\ColVis\css\dataTables.colvis.jqueryui.css" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\ColVis\css\dataTables.colVis.min.css" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\ColVis\examples\button_order.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\ColVis\examples\exclude_columns.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\ColVis\examples\group_columns.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\ColVis\examples\index.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\ColVis\examples\jqueryui.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\ColVis\examples\mouseover.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\ColVis\examples\new_init.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\ColVis\examples\restore.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\ColVis\examples\simple.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\ColVis\examples\text.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\ColVis\examples\title_callback.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\ColVis\examples\two_tables.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\ColVis\examples\two_tables_identical.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\ColVis\js\dataTables.colVis.js" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\ColVis\js\dataTables.colVis.min.js" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\ColVis\Readme.txt" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\FixedColumns\css\dataTables.fixedColumns.css" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\FixedColumns\css\dataTables.fixedColumns.min.css" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\FixedColumns\examples\bootstrap.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\FixedColumns\examples\colvis.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\FixedColumns\examples\col_filter.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\FixedColumns\examples\css_size.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\FixedColumns\examples\index.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\FixedColumns\examples\index_column.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\FixedColumns\examples\left_right_columns.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\FixedColumns\examples\right_column.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\FixedColumns\examples\rowspan.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\FixedColumns\examples\server-side-processing.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\FixedColumns\examples\simple.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\FixedColumns\examples\size_fixed.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\FixedColumns\examples\size_fluid.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\FixedColumns\examples\two_columns.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\FixedColumns\js\dataTables.fixedColumns.js" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\FixedColumns\js\dataTables.fixedColumns.min.js" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\FixedColumns\Readme.txt" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\FixedHeader\css\dataTables.fixedHeader.css" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\FixedHeader\css\dataTables.fixedHeader.min.css" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\FixedHeader\examples\header_footer.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\FixedHeader\examples\index.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\FixedHeader\examples\simple.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\FixedHeader\examples\top_left_right.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\FixedHeader\examples\two_tables.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\FixedHeader\examples\zIndexes.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\FixedHeader\js\dataTables.fixedHeader.js" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\FixedHeader\js\dataTables.fixedHeader.min.js" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\FixedHeader\Readme.txt" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\KeyTable\css\dataTables.keyTable.css" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\KeyTable\css\dataTables.keyTable.min.css" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\KeyTable\examples\events.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\KeyTable\examples\html.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\KeyTable\examples\index.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\KeyTable\examples\scrolling.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\KeyTable\examples\simple.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\KeyTable\js\dataTables.keyTable.js" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\KeyTable\js\dataTables.keyTable.min.js" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\KeyTable\Readme.txt" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\Responsive\css\dataTables.responsive.css" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\Responsive\examples\child-rows\column-control.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\Responsive\examples\child-rows\custom-renderer.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\Responsive\examples\child-rows\disable-child-rows.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\Responsive\examples\child-rows\index.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\Responsive\examples\child-rows\right-column.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\Responsive\examples\child-rows\whole-row-control.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\Responsive\examples\display-control\auto.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\Responsive\examples\display-control\classes.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\Responsive\examples\display-control\index.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\Responsive\examples\display-control\init-classes.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\Responsive\examples\index.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\Responsive\examples\initialisation\ajax.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\Responsive\examples\initialisation\className.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\Responsive\examples\initialisation\default.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\Responsive\examples\initialisation\index.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\Responsive\examples\initialisation\new.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\Responsive\examples\initialisation\option.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\Responsive\examples\styling\bootstrap.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\Responsive\examples\styling\foundation.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\Responsive\examples\styling\index.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\Responsive\js\dataTables.responsive.js" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\Responsive\js\dataTables.responsive.min.js" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\Scroller\css\dataTables.scroller.css" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\Scroller\css\dataTables.scroller.min.css" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\Scroller\examples\api_scrolling.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\Scroller\examples\data\2500.txt" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\Scroller\examples\index.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\Scroller\examples\large_js_source.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\Scroller\examples\server-side_processing.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\Scroller\examples\simple.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\Scroller\examples\state_saving.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\Scroller\images\loading-background.png" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\Scroller\js\dataTables.scroller.js" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\Scroller\js\dataTables.scroller.min.js" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\Scroller\Readme.txt" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\TableTools\css\dataTables.tableTools.css" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\TableTools\css\dataTables.tableTools.min.css" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\TableTools\examples\ajax.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\TableTools\examples\alter_buttons.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\TableTools\examples\bootstrap.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\TableTools\examples\button_text.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\TableTools\examples\collection.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\TableTools\examples\defaults.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\TableTools\examples\index.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\TableTools\examples\jqueryui.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\TableTools\examples\multiple_tables.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\TableTools\examples\multi_instance.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\TableTools\examples\new_init.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\TableTools\examples\pdf_message.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\TableTools\examples\plug-in.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\TableTools\examples\select_column.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\TableTools\examples\select_multi.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\TableTools\examples\select_os.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\TableTools\examples\select_single.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\TableTools\examples\simple.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\TableTools\examples\swf_path.html" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\TableTools\images\background.png" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\TableTools\images\collection.png" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\TableTools\images\collection_hover.png" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\TableTools\images\copy.png" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\TableTools\images\copy_hover.png" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\TableTools\images\csv.png" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\TableTools\images\csv_hover.png" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\TableTools\images\pdf.png" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\TableTools\images\pdf_hover.png" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\TableTools\images\print.png" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\TableTools\images\print_hover.png" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\TableTools\images\xls.png" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\TableTools\images\xls_hover.png" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\TableTools\js\dataTables.tableTools.js" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\TableTools\js\dataTables.tableTools.min.js" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\TableTools\Readme.txt" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\TableTools\swf\copy_csv_xls.swf" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\TableTools\swf\copy_csv_xls_pdf.swf" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\license.txt" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\media\css\jquery.dataTables.css" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\media\css\jquery.dataTables.min.css" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\media\css\jquery.dataTables_themeroller.css" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\media\images\back_disabled.png" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\media\images\back_enabled.png" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\media\images\back_enabled_hover.png" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\media\images\favicon.ico" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\media\images\forward_disabled.png" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\media\images\forward_enabled.png" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\media\images\forward_enabled_hover.png" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\media\images\sort_asc.png" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\media\images\sort_asc_disabled.png" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\media\images\sort_both.png" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\media\images\sort_desc.png" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\media\images\sort_desc_disabled.png" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\media\js\jquery.dataTables.js" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\media\js\jquery.dataTables.min.js" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\media\js\jquery.js" />
+    <Content Include="lib\bootstrap\dataTables\copy_csv_xls_pdf.swf" />
+    <Content Include="lib\bootstrap\dataTables\csv_xls_pdf.swf" />
+    <Content Include="lib\bootstrap\dataTables\dataTables.bootstrap.js" />
+    <Content Include="lib\bootstrap\dataTables\dataTables.date-dd-MMM-yyyy.js" />
+    <Content Include="lib\bootstrap\dataTables\jquery.dataTables.js" />
+    <Content Include="lib\bootstrap\dataurl2.css" />
+    <Content Include="lib\bootstrap\fonts\fontello.svg" />
+    <Content Include="lib\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="lib\bootstrap\htmlEditor\jquery.sceditor.bbcode.min.js" />
+    <Content Include="lib\bootstrap\htmlEditor\jquery.sceditor.default.min.css" />
+    <Content Include="lib\bootstrap\htmlEditor\jquery.sceditor.min.js" />
+    <Content Include="lib\bootstrap\htmlEditor\jquery.sceditor.xhtml.min.js" />
+    <Content Include="lib\bootstrap\htmlEditor\plugins\bbcode.js" />
+    <Content Include="lib\bootstrap\htmlEditor\plugins\format.js" />
+    <Content Include="lib\bootstrap\htmlEditor\plugins\undo.js" />
+    <Content Include="lib\bootstrap\htmlEditor\plugins\xhtml.js" />
+    <Content Include="lib\bootstrap\htmlEditor\themes\default.min.css" />
+    <Content Include="lib\bootstrap\htmlEditor\themes\famfamfam.png" />
+    <Content Include="lib\bootstrap\htmlEditor\themes\modern.min.css" />
+    <Content Include="lib\bootstrap\htmlEditor\themes\monocons.min.css" />
+    <Content Include="lib\bootstrap\htmlEditor\themes\office-toolbar.min.css" />
+    <Content Include="lib\bootstrap\htmlEditor\themes\office.min.css" />
+    <Content Include="lib\bootstrap\htmlEditor\themes\square.min.css" />
+    <Content Include="lib\bootstrap\jqGrid\Content\jquery.jqGrid\ellipsis-xbl.xml" />
+    <Content Include="lib\bootstrap\jqGrid\Content\jquery.jqGrid\ui.jqgrid.css" />
+    <Content Include="lib\bootstrap\jqGrid\Content\Site.css" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\images\animated-overlay.gif" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\jquery-ui.css" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\jquery.ui.all.css" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\jquery.ui.base.css" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\jquery.ui.button.css" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\jquery.ui.core.css" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\jquery.ui.menu.css" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\jquery.ui.spinner.css" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\jquery.ui.tooltip.css" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\minified\images\animated-overlay.gif" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\minified\jquery.ui.menu.min.css" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\minified\jquery.ui.spinner.min.css" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="lib\bootstrap\jqGrid\Content\themes\base\minified\jquery.ui.tooltip.min.css" />
+    <Content Include="lib\bootstrap\jqGrid\css\ui.jqgrid-bootstrap-ui.css" />
+    <Content Include="lib\bootstrap\jqGrid\css\ui.jqgrid-bootstrap.css" />
+    <Content Include="lib\bootstrap\jqGrid\css\ui.jqgrid.css" />
+    <Content Include="lib\bootstrap\jqGrid\js\Changes.txt" />
+    <Content Include="lib\bootstrap\jqGrid\js\i18n\grid.locale-ar.js" />
+    <Content Include="lib\bootstrap\jqGrid\js\i18n\grid.locale-bg.js" />
+    <Content Include="lib\bootstrap\jqGrid\js\i18n\grid.locale-ca.js" />
+    <Content Include="lib\bootstrap\jqGrid\js\i18n\grid.locale-cn.js" />
+    <Content Include="lib\bootstrap\jqGrid\js\i18n\grid.locale-cs.js" />
+    <Content Include="lib\bootstrap\jqGrid\js\i18n\grid.locale-de.js" />
+    <Content Include="lib\bootstrap\jqGrid\js\i18n\grid.locale-dk.js" />
+    <Content Include="lib\bootstrap\jqGrid\js\i18n\grid.locale-el.js" />
+    <Content Include="lib\bootstrap\jqGrid\js\i18n\grid.locale-en.js" />
+    <Content Include="lib\bootstrap\jqGrid\js\i18n\grid.locale-es.js" />
+    <Content Include="lib\bootstrap\jqGrid\js\i18n\grid.locale-fa.js" />
+    <Content Include="lib\bootstrap\jqGrid\js\i18n\grid.locale-fi.js" />
+    <Content Include="lib\bootstrap\jqGrid\js\i18n\grid.locale-fr.js" />
+    <Content Include="lib\bootstrap\jqGrid\js\i18n\grid.locale-gl.js" />
+    <Content Include="lib\bootstrap\jqGrid\js\i18n\grid.locale-he.js" />
+    <Content Include="lib\bootstrap\jqGrid\js\i18n\grid.locale-hr.js" />
+    <Content Include="lib\bootstrap\jqGrid\js\i18n\grid.locale-hu.js" />
+    <Content Include="lib\bootstrap\jqGrid\js\i18n\grid.locale-id.js" />
+    <Content Include="lib\bootstrap\jqGrid\js\i18n\grid.locale-is.js" />
+    <Content Include="lib\bootstrap\jqGrid\js\i18n\grid.locale-it.js" />
+    <Content Include="lib\bootstrap\jqGrid\js\i18n\grid.locale-ja.js" />
+    <Content Include="lib\bootstrap\jqGrid\js\i18n\grid.locale-kr.js" />
+    <Content Include="lib\bootstrap\jqGrid\js\i18n\grid.locale-lt.js" />
+    <Content Include="lib\bootstrap\jqGrid\js\i18n\grid.locale-me.js" />
+    <Content Include="lib\bootstrap\jqGrid\js\i18n\grid.locale-nl.js" />
+    <Content Include="lib\bootstrap\jqGrid\js\i18n\grid.locale-no.js" />
+    <Content Include="lib\bootstrap\jqGrid\js\i18n\grid.locale-pl.js" />
+    <Content Include="lib\bootstrap\jqGrid\js\i18n\grid.locale-pt-br.js" />
+    <Content Include="lib\bootstrap\jqGrid\js\i18n\grid.locale-pt.js" />
+    <Content Include="lib\bootstrap\jqGrid\js\i18n\grid.locale-ro.js" />
+    <Content Include="lib\bootstrap\jqGrid\js\i18n\grid.locale-ru.js" />
+    <Content Include="lib\bootstrap\jqGrid\js\i18n\grid.locale-sk.js" />
+    <Content Include="lib\bootstrap\jqGrid\js\i18n\grid.locale-sq.js" />
+    <Content Include="lib\bootstrap\jqGrid\js\i18n\grid.locale-sr-latin.js" />
+    <Content Include="lib\bootstrap\jqGrid\js\i18n\grid.locale-sr.js" />
+    <Content Include="lib\bootstrap\jqGrid\js\i18n\grid.locale-sv.js" />
+    <Content Include="lib\bootstrap\jqGrid\js\i18n\grid.locale-th.js" />
+    <Content Include="lib\bootstrap\jqGrid\js\i18n\grid.locale-tr.js" />
+    <Content Include="lib\bootstrap\jqGrid\js\i18n\grid.locale-tw.js" />
+    <Content Include="lib\bootstrap\jqGrid\js\i18n\grid.locale-uk.js" />
+    <Content Include="lib\bootstrap\jqGrid\js\i18n\grid.locale-vi.js" />
+    <Content Include="lib\bootstrap\jqGrid\js\install.txt" />
+    <Content Include="lib\bootstrap\jqGrid\js\jqGridExportToExcel.js" />
+    <Content Include="lib\bootstrap\jqGrid\js\jquery-1.11.0.min.js" />
+    <Content Include="lib\bootstrap\jqGrid\js\jquery.jqGrid.min.js" />
+    <Content Include="lib\bootstrap\jqGrid\plugins\grid.addons.js" />
+    <Content Include="lib\bootstrap\jqGrid\plugins\grid.postext.js" />
+    <Content Include="lib\bootstrap\jqGrid\plugins\grid.setcolumns.js" />
+    <Content Include="lib\bootstrap\jqGrid\plugins\jquery.contextmenu.js" />
+    <Content Include="lib\bootstrap\jqGrid\plugins\jquery.searchFilter.js" />
+    <Content Include="lib\bootstrap\jqGrid\plugins\jquery.tablednd.js" />
+    <Content Include="lib\bootstrap\jqGrid\plugins\searchFilter.css" />
+    <Content Include="lib\bootstrap\jqGrid\plugins\ui.multiselect.css" />
+    <Content Include="lib\bootstrap\jqGrid\plugins\ui.multiselect.js" />
+    <Content Include="lib\bootstrap\jqGrid\Scripts\i18n\grid.locale-ar.js" />
+    <Content Include="lib\bootstrap\jqGrid\Scripts\i18n\grid.locale-bg.js" />
+    <Content Include="lib\bootstrap\jqGrid\Scripts\i18n\grid.locale-bg1251.js" />
+    <Content Include="lib\bootstrap\jqGrid\Scripts\i18n\grid.locale-cat.js" />
+    <Content Include="lib\bootstrap\jqGrid\Scripts\i18n\grid.locale-cn.js" />
+    <Content Include="lib\bootstrap\jqGrid\Scripts\i18n\grid.locale-cs.js" />
+    <Content Include="lib\bootstrap\jqGrid\Scripts\i18n\grid.locale-da.js" />
+    <Content Include="lib\bootstrap\jqGrid\Scripts\i18n\grid.locale-de.js" />
+    <Content Include="lib\bootstrap\jqGrid\Scripts\i18n\grid.locale-dk.js" />
+    <Content Include="lib\bootstrap\jqGrid\Scripts\i18n\grid.locale-el.js" />
+    <Content Include="lib\bootstrap\jqGrid\Scripts\i18n\grid.locale-en.js" />
+    <Content Include="lib\bootstrap\jqGrid\Scripts\i18n\grid.locale-es.js" />
+    <Content Include="lib\bootstrap\jqGrid\Scripts\i18n\grid.locale-fa.js" />
+    <Content Include="lib\bootstrap\jqGrid\Scripts\i18n\grid.locale-fi.js" />
+    <Content Include="lib\bootstrap\jqGrid\Scripts\i18n\grid.locale-fr.js" />
+    <Content Include="lib\bootstrap\jqGrid\Scripts\i18n\grid.locale-gl.js" />
+    <Content Include="lib\bootstrap\jqGrid\Scripts\i18n\grid.locale-he.js" />
+    <Content Include="lib\bootstrap\jqGrid\Scripts\i18n\grid.locale-hr.js" />
+    <Content Include="lib\bootstrap\jqGrid\Scripts\i18n\grid.locale-hr1250.js" />
+    <Content Include="lib\bootstrap\jqGrid\Scripts\i18n\grid.locale-hu.js" />
+    <Content Include="lib\bootstrap\jqGrid\Scripts\i18n\grid.locale-id.js" />
+    <Content Include="lib\bootstrap\jqGrid\Scripts\i18n\grid.locale-is.js" />
+    <Content Include="lib\bootstrap\jqGrid\Scripts\i18n\grid.locale-it.js" />
+    <Content Include="lib\bootstrap\jqGrid\Scripts\i18n\grid.locale-ja.js" />
+    <Content Include="lib\bootstrap\jqGrid\Scripts\i18n\grid.locale-kr.js" />
+    <Content Include="lib\bootstrap\jqGrid\Scripts\i18n\grid.locale-lt.js" />
+    <Content Include="lib\bootstrap\jqGrid\Scripts\i18n\grid.locale-mne.js" />
+    <Content Include="lib\bootstrap\jqGrid\Scripts\i18n\grid.locale-nl.js" />
+    <Content Include="lib\bootstrap\jqGrid\Scripts\i18n\grid.locale-no.js" />
+    <Content Include="lib\bootstrap\jqGrid\Scripts\i18n\grid.locale-pl.js" />
+    <Content Include="lib\bootstrap\jqGrid\Scripts\i18n\grid.locale-pt-br.js" />
+    <Content Include="lib\bootstrap\jqGrid\Scripts\i18n\grid.locale-pt.js" />
+    <Content Include="lib\bootstrap\jqGrid\Scripts\i18n\grid.locale-ro.js" />
+    <Content Include="lib\bootstrap\jqGrid\Scripts\i18n\grid.locale-ru.js" />
+    <Content Include="lib\bootstrap\jqGrid\Scripts\i18n\grid.locale-sk.js" />
+    <Content Include="lib\bootstrap\jqGrid\Scripts\i18n\grid.locale-sr-latin.js" />
+    <Content Include="lib\bootstrap\jqGrid\Scripts\i18n\grid.locale-sr.js" />
+    <Content Include="lib\bootstrap\jqGrid\Scripts\i18n\grid.locale-sv.js" />
+    <Content Include="lib\bootstrap\jqGrid\Scripts\i18n\grid.locale-th.js" />
+    <Content Include="lib\bootstrap\jqGrid\Scripts\i18n\grid.locale-tr.js" />
+    <Content Include="lib\bootstrap\jqGrid\Scripts\i18n\grid.locale-tw.js" />
+    <Content Include="lib\bootstrap\jqGrid\Scripts\i18n\grid.locale-ua.js" />
+    <Content Include="lib\bootstrap\jqGrid\Scripts\i18n\grid.locale-vi.js" />
+    <Content Include="ApplicationInsights.config" />
+    <Content Include="FileUploadHandler.ashx" />
+    <Content Include="bin\ApplicationInsights.config" />
+    <None Include="lib\bootstrap\jqGrid\Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="lib\bootstrap\jqGrid\Scripts\jquery-1.9.1.js" />
+    <Content Include="lib\bootstrap\jqGrid\Scripts\jquery-1.9.1.min.js" />
+    <Content Include="lib\bootstrap\jqGrid\Scripts\jquery-ui-1.10.4.js" />
+    <Content Include="lib\bootstrap\jqGrid\Scripts\jquery-ui-1.10.4.min.js" />
+    <Content Include="lib\bootstrap\jqGrid\Scripts\jquery.jqGrid.js" />
+    <Content Include="lib\bootstrap\jqGrid\Scripts\jquery.jqGrid.min.js" />
+    <Content Include="lib\bootstrap\jqGrid\Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="lib\bootstrap\jqGrid\Scripts\jquery.unobtrusive-ajax.min.js" />
+    <None Include="lib\bootstrap\jqGrid\Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="lib\bootstrap\jqGrid\Scripts\jquery.validate.js" />
+    <Content Include="lib\bootstrap\jqGrid\Scripts\jquery.validate.min.js" />
+    <Content Include="lib\bootstrap\jqGrid\Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="lib\bootstrap\jqGrid\Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="lib\bootstrap\jqGrid\Scripts\knockout-2.2.0.debug.js" />
+    <Content Include="lib\bootstrap\jqGrid\Scripts\knockout-2.2.0.js" />
+    <Content Include="lib\bootstrap\jqGrid\Scripts\modernizr-2.6.2.js" />
+    <Content Include="lib\bootstrap\jqGrid\Scripts\TodoList.js" />
+    <None Include="lib\bootstrap\jqGrid\Scripts\_references.js" />
+    <Content Include="lib\bootstrap\jqGrid\src\css\ui.jqgrid-bootstrap-ui.css" />
+    <Content Include="lib\bootstrap\jqGrid\src\css\ui.jqgrid-bootstrap.css" />
+    <Content Include="lib\bootstrap\jqGrid\src\css\ui.jqgrid.css" />
+    <Content Include="lib\bootstrap\jqGrid\src\css\ui.multiselect.css" />
+    <Content Include="lib\bootstrap\jqGrid\src\grid.base.js" />
+    <Content Include="lib\bootstrap\jqGrid\src\grid.celledit.js" />
+    <Content Include="lib\bootstrap\jqGrid\src\grid.common.js" />
+    <Content Include="lib\bootstrap\jqGrid\src\grid.filter.js" />
+    <Content Include="lib\bootstrap\jqGrid\src\grid.formedit.js" />
+    <Content Include="lib\bootstrap\jqGrid\src\grid.grouping.js" />
+    <Content Include="lib\bootstrap\jqGrid\src\grid.import.js" />
+    <Content Include="lib\bootstrap\jqGrid\src\grid.inlinedit.js" />
+    <Content Include="lib\bootstrap\jqGrid\src\grid.jqueryui.js" />
+    <Content Include="lib\bootstrap\jqGrid\src\grid.pivot.js" />
+    <Content Include="lib\bootstrap\jqGrid\src\grid.subgrid.js" />
+    <Content Include="lib\bootstrap\jqGrid\src\grid.treegrid.js" />
+    <Content Include="lib\bootstrap\jqGrid\src\grid.utils.js" />
+    <Content Include="lib\bootstrap\jqGrid\src\i18n\grid.locale-ar.js" />
+    <Content Include="lib\bootstrap\jqGrid\src\i18n\grid.locale-bg.js" />
+    <Content Include="lib\bootstrap\jqGrid\src\i18n\grid.locale-ca.js" />
+    <Content Include="lib\bootstrap\jqGrid\src\i18n\grid.locale-cn.js" />
+    <Content Include="lib\bootstrap\jqGrid\src\i18n\grid.locale-cs.js" />
+    <Content Include="lib\bootstrap\jqGrid\src\i18n\grid.locale-de.js" />
+    <Content Include="lib\bootstrap\jqGrid\src\i18n\grid.locale-dk.js" />
+    <Content Include="lib\bootstrap\jqGrid\src\i18n\grid.locale-el.js" />
+    <Content Include="lib\bootstrap\jqGrid\src\i18n\grid.locale-en.js" />
+    <Content Include="lib\bootstrap\jqGrid\src\i18n\grid.locale-es.js" />
+    <Content Include="lib\bootstrap\jqGrid\src\i18n\grid.locale-fa.js" />
+    <Content Include="lib\bootstrap\jqGrid\src\i18n\grid.locale-fi.js" />
+    <Content Include="lib\bootstrap\jqGrid\src\i18n\grid.locale-fr.js" />
+    <Content Include="lib\bootstrap\jqGrid\src\i18n\grid.locale-gl.js" />
+    <Content Include="lib\bootstrap\jqGrid\src\i18n\grid.locale-he.js" />
+    <Content Include="lib\bootstrap\jqGrid\src\i18n\grid.locale-hr.js" />
+    <Content Include="lib\bootstrap\jqGrid\src\i18n\grid.locale-hu.js" />
+    <Content Include="lib\bootstrap\jqGrid\src\i18n\grid.locale-id.js" />
+    <Content Include="lib\bootstrap\jqGrid\src\i18n\grid.locale-is.js" />
+    <Content Include="lib\bootstrap\jqGrid\src\i18n\grid.locale-it.js" />
+    <Content Include="lib\bootstrap\jqGrid\src\i18n\grid.locale-ja.js" />
+    <Content Include="lib\bootstrap\jqGrid\src\i18n\grid.locale-kr.js" />
+    <Content Include="lib\bootstrap\jqGrid\src\i18n\grid.locale-lt.js" />
+    <Content Include="lib\bootstrap\jqGrid\src\i18n\grid.locale-me.js" />
+    <Content Include="lib\bootstrap\jqGrid\src\i18n\grid.locale-nl.js" />
+    <Content Include="lib\bootstrap\jqGrid\src\i18n\grid.locale-no.js" />
+    <Content Include="lib\bootstrap\jqGrid\src\i18n\grid.locale-pl.js" />
+    <Content Include="lib\bootstrap\jqGrid\src\i18n\grid.locale-pt-br.js" />
+    <Content Include="lib\bootstrap\jqGrid\src\i18n\grid.locale-pt.js" />
+    <Content Include="lib\bootstrap\jqGrid\src\i18n\grid.locale-ro.js" />
+    <Content Include="lib\bootstrap\jqGrid\src\i18n\grid.locale-ru.js" />
+    <Content Include="lib\bootstrap\jqGrid\src\i18n\grid.locale-sk.js" />
+    <Content Include="lib\bootstrap\jqGrid\src\i18n\grid.locale-sq.js" />
+    <Content Include="lib\bootstrap\jqGrid\src\i18n\grid.locale-sr-latin.js" />
+    <Content Include="lib\bootstrap\jqGrid\src\i18n\grid.locale-sr.js" />
+    <Content Include="lib\bootstrap\jqGrid\src\i18n\grid.locale-sv.js" />
+    <Content Include="lib\bootstrap\jqGrid\src\i18n\grid.locale-th.js" />
+    <Content Include="lib\bootstrap\jqGrid\src\i18n\grid.locale-tr.js" />
+    <Content Include="lib\bootstrap\jqGrid\src\i18n\grid.locale-tw.js" />
+    <Content Include="lib\bootstrap\jqGrid\src\i18n\grid.locale-uk.js" />
+    <Content Include="lib\bootstrap\jqGrid\src\i18n\grid.locale-vi.js" />
+    <Content Include="lib\bootstrap\jqGrid\src\jqDnR.js" />
+    <Content Include="lib\bootstrap\jqGrid\src\jqModal.js" />
+    <Content Include="lib\bootstrap\jqGrid\src\jquery.fmatter.js" />
+    <Content Include="lib\bootstrap\jqGrid\src\jquery.jqGrid.js" />
+    <Content Include="lib\bootstrap\jqGrid\src\jquery.sortable.js" />
+    <Content Include="lib\bootstrap\JQuery\basic.css" />
+    <Content Include="lib\bootstrap\JQuery\footable.js" />
+    <Content Include="lib\bootstrap\JQuery\footable.metro.css" />
+    <Content Include="lib\bootstrap\JQuery\jquery-ui.min.js" />
+    <Content Include="lib\bootstrap\js\angular-datepicker.js" />
+    <Content Include="lib\bootstrap\js\angular.min.js" />
+    <Content Include="lib\bootstrap\js\bootstrap-datetimepicker.js" />
+    <Content Include="lib\bootstrap\js\bootstrap.js" />
+    <Content Include="lib\bootstrap\js\bootstrap.min.js" />
+    <Content Include="lib\bootstrap\js\GridViewFix.js" />
+    <Content Include="lib\bootstrap\js\jquery-1.11.1.min.js" />
+    <Content Include="lib\bootstrap\js\jquery-ui.js" />
+    <Content Include="lib\bootstrap\js\jquery.fileDownload.js" />
+    <Content Include="lib\bootstrap\js\jquery.ui.timepicker.js" />
+    <Content Include="lib\bootstrap\js\moment-with-locales.js" />
+    <Content Include="lib\bootstrap\js\pace.min.js" />
+    <Content Include="lib\bootstrap\js\peachcss_script.js" />
+    <Content Include="lib\bootstrap\js\popover.js" />
+    <Content Include="lib\bootstrap\js\stickUp.min.js" />
+    <Content Include="lib\bootstrap\js\Support\jquery.gritter.min.js" />
+    <Content Include="lib\bootstrap\js\Support\shBrushJScript.js" />
+    <Content Include="lib\bootstrap\js\Support\shBrushXml.js" />
+    <Content Include="lib\bootstrap\js\Support\shCore.js" />
+    <Content Include="lib\bootstrap\js\wickedpicker.min.js" />
+    <Content Include="lib\bootstrap\pace.min.js" />
+    <Content Include="lib\bootstrap\slider\bar\arrows.png" />
+    <Content Include="lib\bootstrap\slider\bar\bar.css" />
+    <Content Include="lib\bootstrap\slider\bar\bullets.png" />
+    <Content Include="lib\bootstrap\slider\bar\loading.gif" />
+    <Content Include="lib\bootstrap\slider\dark\arrows.png" />
+    <Content Include="lib\bootstrap\slider\dark\bullets.png" />
+    <Content Include="lib\bootstrap\slider\dark\dark.css" />
+    <Content Include="lib\bootstrap\slider\dark\loading.gif" />
+    <Content Include="lib\bootstrap\slider\default\arrows.png" />
+    <Content Include="lib\bootstrap\slider\default\bullets.png" />
+    <Content Include="lib\bootstrap\slider\default\default.css" />
+    <Content Include="lib\bootstrap\slider\default\loading.gif" />
+    <Content Include="lib\bootstrap\slider\jquery.nivo.slider.js" />
+    <Content Include="lib\bootstrap\slider\jquery.nivo.slider.pack.js" />
+    <Content Include="lib\bootstrap\slider\light\arrows.png" />
+    <Content Include="lib\bootstrap\slider\light\bullets.png" />
+    <Content Include="lib\bootstrap\slider\light\light.css" />
+    <Content Include="lib\bootstrap\slider\light\loading.gif" />
+    <Content Include="lib\bootstrap\slider\nivo-slider.css" />
+    <Content Include="lib\bootstrap\slider\style.css" />
+    <Content Include="lib\bootstrap\Style.css" />
+    <Content Include="lib\bootstrap\UI\components\accordion.css" />
+    <Content Include="lib\bootstrap\UI\components\accordion.js" />
+    <Content Include="lib\bootstrap\UI\components\accordion.min.css" />
+    <Content Include="lib\bootstrap\UI\components\accordion.min.js" />
+    <Content Include="lib\bootstrap\UI\components\ad.css" />
+    <Content Include="lib\bootstrap\UI\components\ad.min.css" />
+    <Content Include="lib\bootstrap\UI\components\api.js" />
+    <Content Include="lib\bootstrap\UI\components\api.min.js" />
+    <Content Include="lib\bootstrap\UI\components\breadcrumb.css" />
+    <Content Include="lib\bootstrap\UI\components\breadcrumb.min.css" />
+    <Content Include="lib\bootstrap\UI\components\button.css" />
+    <Content Include="lib\bootstrap\UI\components\button.min.css" />
+    <Content Include="lib\bootstrap\UI\components\card.css" />
+    <Content Include="lib\bootstrap\UI\components\card.min.css" />
+    <Content Include="lib\bootstrap\UI\components\checkbox.css" />
+    <Content Include="lib\bootstrap\UI\components\checkbox.js" />
+    <Content Include="lib\bootstrap\UI\components\checkbox.min.css" />
+    <Content Include="lib\bootstrap\UI\components\checkbox.min.js" />
+    <Content Include="lib\bootstrap\UI\components\colorize.js" />
+    <Content Include="lib\bootstrap\UI\components\colorize.min.js" />
+    <Content Include="lib\bootstrap\UI\components\comment.css" />
+    <Content Include="lib\bootstrap\UI\components\comment.min.css" />
+    <Content Include="lib\bootstrap\UI\components\container.css" />
+    <Content Include="lib\bootstrap\UI\components\container.min.css" />
+    <Content Include="lib\bootstrap\UI\components\dimmer.css" />
+    <Content Include="lib\bootstrap\UI\components\dimmer.js" />
+    <Content Include="lib\bootstrap\UI\components\dimmer.min.css" />
+    <Content Include="lib\bootstrap\UI\components\dimmer.min.js" />
+    <Content Include="lib\bootstrap\UI\components\divider.css" />
+    <Content Include="lib\bootstrap\UI\components\divider.min.css" />
+    <Content Include="lib\bootstrap\UI\components\dropdown.css" />
+    <Content Include="lib\bootstrap\UI\components\dropdown.js" />
+    <Content Include="lib\bootstrap\UI\components\dropdown.min.css" />
+    <Content Include="lib\bootstrap\UI\components\dropdown.min.js" />
+    <Content Include="lib\bootstrap\UI\components\embed.css" />
+    <Content Include="lib\bootstrap\UI\components\embed.js" />
+    <Content Include="lib\bootstrap\UI\components\embed.min.css" />
+    <Content Include="lib\bootstrap\UI\components\embed.min.js" />
+    <Content Include="lib\bootstrap\UI\components\feed.css" />
+    <Content Include="lib\bootstrap\UI\components\feed.min.css" />
+    <Content Include="lib\bootstrap\UI\components\flag.css" />
+    <Content Include="lib\bootstrap\UI\components\flag.min.css" />
+    <Content Include="lib\bootstrap\UI\components\form.css" />
+    <Content Include="lib\bootstrap\UI\components\form.js" />
+    <Content Include="lib\bootstrap\UI\components\form.min.css" />
+    <Content Include="lib\bootstrap\UI\components\form.min.js" />
+    <Content Include="lib\bootstrap\UI\components\grid.css" />
+    <Content Include="lib\bootstrap\UI\components\grid.min.css" />
+    <Content Include="lib\bootstrap\UI\components\header.css" />
+    <Content Include="lib\bootstrap\UI\components\header.min.css" />
+    <Content Include="lib\bootstrap\UI\components\icon.css" />
+    <Content Include="lib\bootstrap\UI\components\icon.min.css" />
+    <Content Include="lib\bootstrap\UI\components\image.css" />
+    <Content Include="lib\bootstrap\UI\components\image.min.css" />
+    <Content Include="lib\bootstrap\UI\components\input.css" />
+    <Content Include="lib\bootstrap\UI\components\input.min.css" />
+    <Content Include="lib\bootstrap\UI\components\item.css" />
+    <Content Include="lib\bootstrap\UI\components\item.min.css" />
+    <Content Include="lib\bootstrap\UI\components\label.css" />
+    <Content Include="lib\bootstrap\UI\components\label.min.css" />
+    <Content Include="lib\bootstrap\UI\components\list.css" />
+    <Content Include="lib\bootstrap\UI\components\list.min.css" />
+    <Content Include="lib\bootstrap\UI\components\loader.css" />
+    <Content Include="lib\bootstrap\UI\components\loader.min.css" />
+    <Content Include="lib\bootstrap\UI\components\menu.css" />
+    <Content Include="lib\bootstrap\UI\components\menu.min.css" />
+    <Content Include="lib\bootstrap\UI\components\message.css" />
+    <Content Include="lib\bootstrap\UI\components\message.min.css" />
+    <Content Include="lib\bootstrap\UI\components\modal.css" />
+    <Content Include="lib\bootstrap\UI\components\modal.js" />
+    <Content Include="lib\bootstrap\UI\components\modal.min.css" />
+    <Content Include="lib\bootstrap\UI\components\modal.min.js" />
+    <Content Include="lib\bootstrap\UI\components\nag.css" />
+    <Content Include="lib\bootstrap\UI\components\nag.js" />
+    <Content Include="lib\bootstrap\UI\components\nag.min.css" />
+    <Content Include="lib\bootstrap\UI\components\nag.min.js" />
+    <Content Include="lib\bootstrap\UI\components\popup.css" />
+    <Content Include="lib\bootstrap\UI\components\popup.js" />
+    <Content Include="lib\bootstrap\UI\components\popup.min.css" />
+    <Content Include="lib\bootstrap\UI\components\popup.min.js" />
+    <Content Include="lib\bootstrap\UI\components\progress.css" />
+    <Content Include="lib\bootstrap\UI\components\progress.js" />
+    <Content Include="lib\bootstrap\UI\components\progress.min.css" />
+    <Content Include="lib\bootstrap\UI\components\progress.min.js" />
+    <Content Include="lib\bootstrap\UI\components\rail.css" />
+    <Content Include="lib\bootstrap\UI\components\rail.min.css" />
+    <Content Include="lib\bootstrap\UI\components\rating.css" />
+    <Content Include="lib\bootstrap\UI\components\rating.js" />
+    <Content Include="lib\bootstrap\UI\components\rating.min.css" />
+    <Content Include="lib\bootstrap\UI\components\rating.min.js" />
+    <Content Include="lib\bootstrap\UI\components\reset.css" />
+    <Content Include="lib\bootstrap\UI\components\reset.min.css" />
+    <Content Include="lib\bootstrap\UI\components\reveal.css" />
+    <Content Include="lib\bootstrap\UI\components\reveal.min.css" />
+    <Content Include="lib\bootstrap\UI\components\search.css" />
+    <Content Include="lib\bootstrap\UI\components\search.js" />
+    <Content Include="lib\bootstrap\UI\components\search.min.css" />
+    <Content Include="lib\bootstrap\UI\components\search.min.js" />
+    <Content Include="lib\bootstrap\UI\components\segment.css" />
+    <Content Include="lib\bootstrap\UI\components\segment.min.css" />
+    <Content Include="lib\bootstrap\UI\components\shape.css" />
+    <Content Include="lib\bootstrap\UI\components\shape.js" />
+    <Content Include="lib\bootstrap\UI\components\shape.min.css" />
+    <Content Include="lib\bootstrap\UI\components\shape.min.js" />
+    <Content Include="lib\bootstrap\UI\components\sidebar.css" />
+    <Content Include="lib\bootstrap\UI\components\sidebar.js" />
+    <Content Include="lib\bootstrap\UI\components\sidebar.min.css" />
+    <Content Include="lib\bootstrap\UI\components\sidebar.min.js" />
+    <Content Include="lib\bootstrap\UI\components\site.css" />
+    <Content Include="lib\bootstrap\UI\components\site.js" />
+    <Content Include="lib\bootstrap\UI\components\site.min.css" />
+    <Content Include="lib\bootstrap\UI\components\site.min.js" />
+    <Content Include="lib\bootstrap\UI\components\state.js" />
+    <Content Include="lib\bootstrap\UI\components\state.min.js" />
+    <Content Include="lib\bootstrap\UI\components\statistic.css" />
+    <Content Include="lib\bootstrap\UI\components\statistic.min.css" />
+    <Content Include="lib\bootstrap\UI\components\step.css" />
+    <Content Include="lib\bootstrap\UI\components\step.min.css" />
+    <Content Include="lib\bootstrap\UI\components\sticky.css" />
+    <Content Include="lib\bootstrap\UI\components\sticky.js" />
+    <Content Include="lib\bootstrap\UI\components\sticky.min.css" />
+    <Content Include="lib\bootstrap\UI\components\sticky.min.js" />
+    <Content Include="lib\bootstrap\UI\components\tab.css" />
+    <Content Include="lib\bootstrap\UI\components\tab.js" />
+    <Content Include="lib\bootstrap\UI\components\tab.min.css" />
+    <Content Include="lib\bootstrap\UI\components\tab.min.js" />
+    <Content Include="lib\bootstrap\UI\components\table.css" />
+    <Content Include="lib\bootstrap\UI\components\table.min.css" />
+    <Content Include="lib\bootstrap\UI\components\transition.css" />
+    <Content Include="lib\bootstrap\UI\components\transition.js" />
+    <Content Include="lib\bootstrap\UI\components\transition.min.css" />
+    <Content Include="lib\bootstrap\UI\components\transition.min.js" />
+    <Content Include="lib\bootstrap\UI\components\video.css" />
+    <Content Include="lib\bootstrap\UI\components\video.js" />
+    <Content Include="lib\bootstrap\UI\components\video.min.css" />
+    <Content Include="lib\bootstrap\UI\components\video.min.js" />
+    <Content Include="lib\bootstrap\UI\components\visibility.js" />
+    <Content Include="lib\bootstrap\UI\components\visibility.min.js" />
+    <Content Include="lib\bootstrap\UI\components\visit.js" />
+    <Content Include="lib\bootstrap\UI\components\visit.min.js" />
+    <Content Include="lib\bootstrap\UI\semantic.css" />
+    <Content Include="lib\bootstrap\UI\semantic.js" />
+    <Content Include="lib\bootstrap\UI\semantic.min.css" />
+    <Content Include="lib\bootstrap\UI\semantic.min.js" />
+    <Content Include="lib\bootstrap\UI\themes\basic\assets\fonts\icons.svg" />
+    <Content Include="lib\bootstrap\UI\themes\default\assets\fonts\icons.svg" />
+    <Content Include="lib\bootstrap\UI\themes\default\assets\images\flags.png" />
+    <Content Include="lib\bootstrap\UI\themes\github\assets\fonts\octicons.svg" />
+    <Content Include="lib\bootstrap\vertical-timeline\css\reset.css" />
+    <Content Include="lib\bootstrap\vertical-timeline\css\style.css" />
+    <Content Include="lib\bootstrap\vertical-timeline\img\cd-icon-location.svg" />
+    <Content Include="lib\bootstrap\vertical-timeline\img\cd-icon-movie.svg" />
+    <Content Include="lib\bootstrap\vertical-timeline\img\cd-icon-picture.svg" />
+    <Content Include="lib\bootstrap\vertical-timeline\index.html" />
+    <Content Include="lib\bootstrap\vertical-timeline\js\main.js" />
+    <Content Include="lib\bootstrap\vertical-timeline\js\modernizr.js" />
+    <Content Include="lib\font-awesome\css\font-awesome-animation.css" />
+    <Content Include="lib\font-awesome\css\font-awesome.min.css" />
+    <Content Include="lib\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="lib\fonts\font-awesome.css" />
+    <Content Include="lib\fonts\font-awesome.min.css" />
+    <Content Include="lib\fonts\fontawesome-webfont.svg" />
+    <Content Include="lib\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="lib\fonts\roboto\Roboto-Bold-webfont.svg" />
+    <Content Include="lib\fonts\roboto\Roboto-Light-webfont.svg" />
+    <Content Include="lib\fonts\roboto\Roboto-Medium-webfont.svg" />
+    <Content Include="lib\fonts\roboto\Roboto-Regular-webfont.svg" />
+    <Content Include="lib\fonts\roboto\Roboto-Thin-webfont.svg" />
+    <Content Include="lib\jquery\jquery.min.js" />
+    <Content Include="lib\material-design-iconic-font\material-design-iconic-font.min.css" />
+    <Content Include="lib\materialize\materialize.min.css" />
+    <Content Include="lib\materialize\materialize.min.js" />
+    <Content Include="lib\moment\js\moment.js" />
+    <Content Include="lib\ng-file-upload\ng-file-upload-shim.js" />
+    <Content Include="lib\ng-file-upload\ng-file-upload.js" />
+    <Content Include="lib\ng-table\ng-table.min.js" />
+    <Content Include="lib\ngImgCrop\ng-img-crop.css" />
+    <Content Include="lib\ngImgCrop\ng-img-crop.js" />
+    <Content Include="lib\ngSweetAlert\SweetAlert.min.js" />
+    <Content Include="lib\oclazyload\ocLazyLoad.min.js" />
+    <Content Include="lib\toaster\toaster.css" />
+    <Content Include="lib\toaster\toaster.js" />
+    <Content Include="lib\ui-bootstrap\ui-bootstrap-tpls-1.3.2.js" />
+    <Content Include="main.html" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="API\emailAPIController.cs" />
+    <Compile Include="API\genApiController.cs" />
+    <Compile Include="API\loginApiController.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CashCoopan.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CashCoopan.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CashCoopan.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CashCoopan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CashCoopan.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CashCoopan.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblTicketMaster.cs">
+      <DependentUpon>CashCoopan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblUserTicket.cs">
+      <DependentUpon>CashCoopan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs">
+      <DependentUpon>CashCoopan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User_Addresses.cs">
+      <DependentUpon>CashCoopan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\GenServices.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <Content Include="lib\bootstrap\config.json" />
+    <Content Include="lib\bootstrap\css\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="lib\bootstrap\css\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="lib\bootstrap\css\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="lib\bootstrap\css\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="lib\bootstrap\css\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\bower.json" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\composer.json" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\Contributing.md" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\dataTables.jquery.json" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\resources\examples.php" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\resources\font\raleway_thin-webfont.eot" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\resources\font\raleway_thin-webfont.ttf" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\resources\font\raleway_thin-webfont.woff" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\resources\jqueryui\dataTables.jqueryui.scss" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\resources\syntax\Syntax Highlighter license" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\server_side\scripts\ids-arrays.php" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\server_side\scripts\ids-objects.php" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\server_side\scripts\jsonp.php" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\server_side\scripts\objects.php" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\server_side\scripts\post.php" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\server_side\scripts\server_processing.php" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\examples\server_side\scripts\ssp.class.php" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\Responsive\css\dataTables.responsive.scss" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\Responsive\Readme.md" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\Scroller\examples\data\ssp.php" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\TableTools\images\psd\collection.psd" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\TableTools\images\psd\copy document.psd" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\TableTools\images\psd\file_types.psd" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\extensions\TableTools\images\psd\printer.psd" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\media\images\Sorting icons.psd" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\package.json" />
+    <Content Include="lib\bootstrap\DataTables-1.10.4\Readme.md" />
+    <Content Include="lib\bootstrap\fonts\fontello.eot" />
+    <Content Include="lib\bootstrap\fonts\fontello.ttf" />
+    <Content Include="lib\bootstrap\fonts\fontello.woff" />
+    <Content Include="lib\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="lib\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="lib\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="lib\bootstrap\fonts\OVERLOCK-BLACK.TTF" />
+    <Content Include="lib\bootstrap\fonts\OVERLOCK-BLACKITALIC.TTF" />
+    <Content Include="lib\bootstrap\fonts\OVERLOCK-BOLD.TTF" />
+    <Content Include="lib\bootstrap\fonts\OVERLOCK-BOLDITALIC.TTF" />
+    <Content Include="lib\bootstrap\fonts\OVERLOCK-ITALIC.TTF" />
+    <Content Include="lib\bootstrap\fonts\OVERLOCK-REGULAR.TTF" />
+    <Content Include="lib\bootstrap\htmlEditor\themes\monocons\monocons.eot" />
+    <Content Include="lib\bootstrap\htmlEditor\themes\monocons\monocons.ttf" />
+    <Content Include="lib\bootstrap\jqGrid\Scripts\jquery-1.9.1.min.map" />
+    <Content Include="lib\bootstrap\slider\bar\Thumbs.db" />
+    <Content Include="lib\bootstrap\UI\themes\basic\assets\fonts\icons.eot" />
+    <Content Include="lib\bootstrap\UI\themes\basic\assets\fonts\icons.ttf" />
+    <Content Include="lib\bootstrap\UI\themes\basic\assets\fonts\icons.woff" />
+    <Content Include="lib\bootstrap\UI\themes\default\assets\fonts\icons.eot" />
+    <Content Include="lib\bootstrap\UI\themes\default\assets\fonts\icons.otf" />
+    <Content Include="lib\bootstrap\UI\themes\default\assets\fonts\icons.ttf" />
+    <Content Include="lib\bootstrap\UI\themes\default\assets\fonts\icons.woff" />
+    <Content Include="lib\bootstrap\UI\themes\default\assets\fonts\icons.woff2" />
+    <Content Include="lib\bootstrap\UI\themes\github\assets\fonts\octicons-local.ttf" />
+    <Content Include="lib\bootstrap\UI\themes\github\assets\fonts\octicons.ttf" />
+    <Content Include="lib\bootstrap\UI\themes\github\assets\fonts\octicons.woff" />
+    <Content Include="lib\bootstrap\vertical-timeline\.DS_Store" />
+    <Content Include="lib\bootstrap\vertical-timeline\img\.DS_Store" />
+    <Content Include="lib\bootstrap\vertical-timeline\js\.DS_Store" />
+    <Content Include="lib\bootstrap\vertical-timeline\partials\_layout.scss" />
+    <Content Include="lib\bootstrap\vertical-timeline\partials\_mixins.scss" />
+    <Content Include="lib\bootstrap\vertical-timeline\partials\_variables.scss" />
+    <Content Include="lib\bootstrap\vertical-timeline\readme.pdf" />
+    <Content Include="lib\bootstrap\vertical-timeline\scss\style.scss" />
+    <Content Include="lib\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="lib\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="lib\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="lib\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="lib\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="lib\fonts\fontawesome-webfont.eot" />
+    <Content Include="lib\fonts\fontawesome-webfont.ttf" />
+    <Content Include="lib\fonts\fontawesome-webfont.woff" />
+    <Content Include="lib\fonts\fontawesome-webfont.woff2" />
+    <Content Include="lib\fonts\FontAwesome.otf" />
+    <Content Include="lib\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="lib\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="lib\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="lib\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="lib\fonts\original-ufonts-com-neotech-medium-opentype.otf" />
+    <Content Include="lib\fonts\roboto\Roboto-Bold-webfont.eot" />
+    <Content Include="lib\fonts\roboto\Roboto-Bold-webfont.ttf" />
+    <Content Include="lib\fonts\roboto\Roboto-Bold-webfont.woff" />
+    <Content Include="lib\fonts\roboto\Roboto-Light-webfont.eot" />
+    <Content Include="lib\fonts\roboto\Roboto-Light-webfont.ttf" />
+    <Content Include="lib\fonts\roboto\Roboto-Light-webfont.woff" />
+    <Content Include="lib\fonts\roboto\Roboto-Medium-webfont.eot" />
+    <Content Include="lib\fonts\roboto\Roboto-Medium-webfont.ttf" />
+    <Content Include="lib\fonts\roboto\Roboto-Medium-webfont.woff" />
+    <Content Include="lib\fonts\roboto\Roboto-Regular-webfont.eot" />
+    <Content Include="lib\fonts\roboto\Roboto-Regular-webfont.ttf" />
+    <Content Include="lib\fonts\roboto\Roboto-Regular-webfont.woff" />
+    <Content Include="lib\fonts\roboto\Roboto-Thin-webfont.eot" />
+    <Content Include="lib\fonts\roboto\Roboto-Thin-webfont.ttf" />
+    <Content Include="lib\fonts\roboto\Roboto-Thin-webfont.woff" />
+    <Content Include="lib\fonts\ufonts-com-neotech-medium-opentype.ttf" />
+    <Content Include="lib\fonts\ufonts-com-neotech-medium-opentype.woff" />
+    <Content Include="lib\material-design-iconic-font\Material-Design-Iconic-Font.ttf" />
+    <Content Include="lib\material-design-iconic-font\Material-Design-Iconic-Font.woff" />
+    <EntityDeploy Include="Models\CashCoopan.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CashCoopan.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\CashCoopan.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CashCoopan.edmx</DependentUpon>
+      <LastGenOutput>CashCoopan.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\CashCoopan.edmx.diagram">
+      <DependentUpon>CashCoopan.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\CashCoopan.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CashCoopan.edmx</DependentUpon>
+      <LastGenOutput>CashCoopan.cs</LastGenOutput>
+    </Content>
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>55950</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:55950/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

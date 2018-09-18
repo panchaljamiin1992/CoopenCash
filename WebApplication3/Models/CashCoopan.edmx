@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CashCoopanModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblTicketMaster">
+          <Key>
+            <PropertyRef Name="ticketId" />
+          </Key>
+          <Property Name="ticketId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ticketName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ticketType" Type="nvarchar" MaxLength="50" />
+          <Property Name="ticketDate" Type="date" />
+          <Property Name="createdDate" Type="datetime" />
+          <Property Name="createdBy" Type="int" />
+          <Property Name="updatedDate" Type="datetime" />
+          <Property Name="updatedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="tblUserTicket">
+          <Key>
+            <PropertyRef Name="userTicketId" />
+          </Key>
+          <Property Name="userTicketId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ticketId" Type="int" />
+          <Property Name="userId" Type="int" />
+          <Property Name="status" Type="int" />
+          <Property Name="ticketDate" Type="datetime" />
+          <Property Name="ticketEndDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="User_Addresses">
+          <Key>
+            <PropertyRef Name="UserAddressID" />
+          </Key>
+          <Property Name="UserAddressID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="Address1" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Address2" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="City" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="State" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Country" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PinCode" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="CreatedDT" Type="smalldatetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DOB" Type="smalldatetime" Nullable="false" />
+          <Property Name="CreatedDT" Type="smalldatetime" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="CashCoopanModelStoreContainer">
+          <EntitySet Name="tblTicketMaster" EntityType="Self.tblTicketMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblUserTicket" EntityType="Self.tblUserTicket" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User_Addresses" EntityType="Self.User_Addresses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CashCoopanModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblTicketMaster">
+          <Key>
+            <PropertyRef Name="ticketId" />
+          </Key>
+          <Property Name="ticketId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ticketName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ticketType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ticketDate" Type="DateTime" Precision="0" />
+          <Property Name="createdDate" Type="DateTime" Precision="3" />
+          <Property Name="createdBy" Type="Int32" />
+          <Property Name="updatedDate" Type="DateTime" Precision="3" />
+          <Property Name="updatedBy" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tblUserTicket">
+          <Key>
+            <PropertyRef Name="userTicketId" />
+          </Key>
+          <Property Name="userTicketId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ticketId" Type="Int32" />
+          <Property Name="userId" Type="Int32" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="ticketDate" Type="DateTime" Precision="3" />
+          <Property Name="ticketEndDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="User_Addresses">
+          <Key>
+            <PropertyRef Name="UserAddressID" />
+          </Key>
+          <Property Name="UserAddressID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="Address1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Address2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PinCode" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedDT" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DOB" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="CreatedDT" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="CashCoopanEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblTicketMasters" EntityType="Self.tblTicketMaster" />
+          <EntitySet Name="tblUserTickets" EntityType="Self.tblUserTicket" />
+          <EntitySet Name="User_Addresses" EntityType="Self.User_Addresses" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CashCoopanModelStoreContainer" CdmEntityContainer="CashCoopanEntities">
+          <EntitySetMapping Name="tblTicketMasters">
+            <EntityTypeMapping TypeName="CashCoopanModel.tblTicketMaster">
+              <MappingFragment StoreEntitySet="tblTicketMaster">
+                <ScalarProperty Name="ticketId" ColumnName="ticketId" />
+                <ScalarProperty Name="ticketName" ColumnName="ticketName" />
+                <ScalarProperty Name="ticketType" ColumnName="ticketType" />
+                <ScalarProperty Name="ticketDate" ColumnName="ticketDate" />
+                <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="updatedDate" ColumnName="updatedDate" />
+                <ScalarProperty Name="updatedBy" ColumnName="updatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUserTickets">
+            <EntityTypeMapping TypeName="CashCoopanModel.tblUserTicket">
+              <MappingFragment StoreEntitySet="tblUserTicket">
+                <ScalarProperty Name="userTicketId" ColumnName="userTicketId" />
+                <ScalarProperty Name="ticketId" ColumnName="ticketId" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="ticketDate" ColumnName="ticketDate" />
+                <ScalarProperty Name="ticketEndDate" ColumnName="ticketEndDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User_Addresses">
+            <EntityTypeMapping TypeName="CashCoopanModel.User_Addresses">
+              <MappingFragment StoreEntitySet="User_Addresses">
+                <ScalarProperty Name="UserAddressID" ColumnName="UserAddressID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="PinCode" ColumnName="PinCode" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="CreatedDT" ColumnName="CreatedDT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="CashCoopanModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="FName" ColumnName="FName" />
+                <ScalarProperty Name="MName" ColumnName="MName" />
+                <ScalarProperty Name="LName" ColumnName="LName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="CreatedDT" ColumnName="CreatedDT" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
