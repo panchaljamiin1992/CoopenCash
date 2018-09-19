@@ -20,6 +20,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <TargetFrameworkProfile />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -1013,6 +1014,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API\CoopanController.cs" />
     <Compile Include="API\emailAPIController.cs" />
     <Compile Include="API\genApiController.cs" />
     <Compile Include="API\loginApiController.cs" />
@@ -1051,7 +1053,9 @@
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\CoopanRepository.cs" />
     <Compile Include="Services\GenServices.cs" />
+    <Compile Include="ViewModels\AddUserCoopanModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

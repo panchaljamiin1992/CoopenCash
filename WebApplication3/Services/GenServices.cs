@@ -84,6 +84,13 @@ namespace transporterQuote.Services
 
     }
 
-  
+    public enum CoopanStatus
+    {
+      Pending = 0,
+      Active = 1,
+      Completed = 2,
+      Expired = 3,
+      Deleted = 4  
+    }
 
 }
