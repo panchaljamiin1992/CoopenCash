@@ -58,6 +58,13 @@ transporterQuote
         controller: 'adminController'
     })
 
+     // Dashboard
+    .state('dashboard', {
+        url: '/dashboard',
+        templateUrl: 'Html/Pages/DashBoard.html',
+        controller: 'dashboardController'
+    })
+
     //// transport activity
     //.state('transportActivity', {
     //    url: '/transportActivity',

@@ -54,7 +54,7 @@
     <Property Name="CreatedDT" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
   </EntityType>
-  <EntityContainer Name="CashCoopanEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="CashCoopanEntities1" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="tblTicketMasters" EntityType="Self.tblTicketMaster" />
     <EntitySet Name="tblUserTickets" EntityType="Self.tblUserTicket" />
     <EntitySet Name="User_Addresses" EntityType="Self.User_Addresses" />

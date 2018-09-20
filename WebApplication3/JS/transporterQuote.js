@@ -117,6 +117,11 @@
         );
     }
 
+    $scope.actionDashboard = function () {
+        $state.go('dashboard');
+    }
+
+
     // getConfigValue() - Get config value
     
     
@@ -221,10 +226,30 @@
 
 // #region "Admin"
 .controller("adminController", function ($scope, $state, $transporterQuote, toaster, $uibModal, SweetAlert, cfpLoadingBar, $rootScope) {
+    // #region "Variables"
+    var infoCookie = window.localStorage.getItem('pm_info');
+    if (infoCookie == null) {
+        $transporterQuote.bye();
+    }
+   
 
+    // #endregion
 
 })
 // #endregion
+
+// #region "DashBoard"
+.controller("dashboardController", function ($scope, $state, $transporterQuote, toaster, $uibModal, SweetAlert, cfpLoadingBar, $rootScope) {
+    // #region "Variables"
+    var infoCookie = window.localStorage.getItem('pm_info');
+    if (infoCookie == null) {
+        $transporterQuote.bye();
+    }
+
+
+    // #endregion
+
+})
 
 
 

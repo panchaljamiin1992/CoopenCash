@@ -348,7 +348,7 @@ namespace transporterQuote.API
         public static DateTime getDate()
         {
             DateTime dt = new DateTime();
-            using (CashCoopanEntities db = new CashCoopanEntities())
+            using (CashCoopanEntities1 db = new CashCoopanEntities1())
             {
                 dt = db.Database.SqlQuery<DateTime>("SELECT GETDATE()").FirstOrDefault<DateTime>();
             }

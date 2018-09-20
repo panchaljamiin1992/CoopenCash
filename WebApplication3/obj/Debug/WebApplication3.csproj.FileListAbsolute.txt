@@ -12,3 +12,9 @@ D:\Jignesh.AddWord\jaiminCoopenCassh\CoopenCash\WebApplication3\bin\EntityFramew
 D:\Jignesh.AddWord\jaiminCoopenCassh\CoopenCash\WebApplication3\obj\Debug\WebApplication3.csprojResolveAssemblyReference.cache
 D:\Jignesh.AddWord\jaiminCoopenCassh\CoopenCash\WebApplication3\obj\Debug\WebApplication3.dll
 D:\Jignesh.AddWord\jaiminCoopenCassh\CoopenCash\WebApplication3\obj\Debug\WebApplication3.pdb
+E:\CoopenCash\WebApplication3\bin\WebApplication3.dll.config
+E:\CoopenCash\WebApplication3\bin\WebApplication3.dll
+E:\CoopenCash\WebApplication3\bin\WebApplication3.pdb
+E:\CoopenCash\WebApplication3\obj\Debug\WebApplication3.dll
+E:\CoopenCash\WebApplication3\obj\Debug\WebApplication3.pdb
+E:\CoopenCash\WebApplication3\obj\Debug\WebApplication3.csprojResolveAssemblyReference.cache

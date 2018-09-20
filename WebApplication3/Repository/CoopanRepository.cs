@@ -12,7 +12,7 @@ namespace WebApplication3.Repository
     {
         public IEnumerable<tblTicketMaster> GetAllTickets(int userId)
         {
-            using (CashCoopanEntities db = new CashCoopanEntities())
+            using (CashCoopanEntities1 db = new CashCoopanEntities1())
             {
                 var objTickets = db.tblTicketMasters.ToList();
                 var objPendingTickets = db.tblUserTickets.Where(x => x.userId == userId).ToList().Select(x => x.ticketId).ToList();
@@ -25,7 +25,7 @@ namespace WebApplication3.Repository
 
         public bool SubmitCoopan(AddUserCoopanModel model)
         {
-            using (CashCoopanEntities db = new CashCoopanEntities())
+            using (CashCoopanEntities1 db = new CashCoopanEntities1())
             {
                 var isExits = db.tblUserTickets.Where(x => x.ticketId == model.TicketId && x.userId == model.UserId && x.status == (int?)CoopanStatus.Completed).FirstOrDefault();
                 if (isExits == null) {

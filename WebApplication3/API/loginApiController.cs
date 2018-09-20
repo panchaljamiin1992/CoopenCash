@@ -74,9 +74,9 @@ namespace transporterQuote.API
             //string adminUserName = WebConfigurationManager.AppSettings["LoginID"];
             //string adminPassword = WebConfigurationManager.AppSettings["Password"];
 
-          
 
-            using (CashCoopanEntities db = new CashCoopanEntities())
+
+            using (CashCoopanEntities1 db = new CashCoopanEntities1())
             {
 
                 var executiveInfo = (from dbe in db.Users
@@ -186,7 +186,7 @@ namespace transporterQuote.API
             string password = "";
             DateTime currentDT = genApiController.getDate();
             // Get executive list
-            using (CashCoopanEntities db = new CashCoopanEntities())
+            using (CashCoopanEntities1 db = new CashCoopanEntities1())
             {
                
 

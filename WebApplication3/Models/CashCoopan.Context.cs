@@ -13,10 +13,10 @@ namespace WebApplication3.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class CashCoopanEntities : DbContext
+    public partial class CashCoopanEntities1 : DbContext
     {
-        public CashCoopanEntities()
-            : base("name=CashCoopanEntities")
+        public CashCoopanEntities1()
+            : base("name=CashCoopanEntities1")
         {
         }
     

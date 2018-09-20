@@ -124,7 +124,7 @@
           <Property Name="CreatedDT" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="CashCoopanEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="CashCoopanEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="tblTicketMasters" EntityType="Self.tblTicketMaster" />
           <EntitySet Name="tblUserTickets" EntityType="Self.tblUserTicket" />
           <EntitySet Name="User_Addresses" EntityType="Self.User_Addresses" />
@@ -135,7 +135,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="CashCoopanModelStoreContainer" CdmEntityContainer="CashCoopanEntities">
+        <EntityContainerMapping StorageEntityContainer="CashCoopanModelStoreContainer" CdmEntityContainer="CashCoopanEntities1">
           <EntitySetMapping Name="tblTicketMasters">
             <EntityTypeMapping TypeName="CashCoopanModel.tblTicketMaster">
               <MappingFragment StoreEntitySet="tblTicketMaster">
